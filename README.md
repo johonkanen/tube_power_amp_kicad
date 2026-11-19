@@ -1,0 +1,57 @@
+# tube_power_amp_kicad
+
+KiCad 10 migration of the 4x EL34 power amp board (`OUTPUT`) of the tube amplifier, from Proteus. The schematic is redrawn from
+the Proteus PDF and the PCB is rebuilt from the Gerber X2 export, so that every pad, track,
+via and pour carries a net from the new schematic. The IPC-D-356A netlist of the CADCAM export
+is the reference that every check compares against.
+
+This is **rev A, the as-built baseline**. The redesign (ribbon cables, PCB-mount pots, the new
+power section) starts from it. The amplifier project, its specification and the hardware state
+are in [tube_amplifier_kicad](https://github.com/johonkanen/tube_amplifier_kicad), which includes
+this repo as a submodule once the conversion is verified.
+
+## Method
+
+The shared [proteus2kicad](https://github.com/johonkanen/proteus2kicad) tools, a submodule in
+`tools/p2k` (clone with `git clone --recurse-submodules`, or run `git submodule update --init`).
+The phases and checks are in `tools/p2k/CONVERSION_PLAYBOOK.md`. Everything specific to this
+board is in `p2k_config.py`.
+
+## Status
+
+Phase 0 (skeleton and inventory) not started. The sources are in place; `p2k_config.py` holds
+only the paths and placeholder sheet names.
+
+Built in about 2010. The export in `source/cadcam/` matches the June 2010 fab Gerbers (`source/fab_2010/`) exactly: every hole and track.
+
+## Source
+
+OUTPUT.DSN/.LYT (Proteus 7, 2010), opened and saved in Proteus 8.12 as `OUTPUT.pdsprj`. Exported 2026-11-19 from Proteus 8.12 SP2: schematic PDF, Gerber X2 CADCAM (metric)
+with the IPC-D-356A netlist.
+
+## Mechanical baseline
+
+From the export (the fit reference for the redesign; the KiCad file is
+`mechanical/power_amp_OUTPUT.kicad_pcb` in tube_amplifier_kicad):
+
+```
+outline: 238.76 x 60.32 mm, lower-left corner at (-104.140, -25.400) in the Proteus frame
+copper layers: 2; components: 71; mounting holes: 4
+mounting holes (relative to the lower-left outline corner, mm):
+  H1: x  234.140  y    4.400  drill 3.00 plated
+  H2: x  234.140  y   55.400  drill 3.00 plated
+  H3: x    4.140  y    4.400  drill 3.00 plated
+  H4: x    4.140  y   55.400  drill 3.00 plated
+```
+
+## Layout
+
+```
+source/         Proteus exports (read-only)
+  cadcam/         Gerber X2 export with the IPC-D-356A netlist (the reference)
+  schematic_pdf/  schematic PDF to redraw from
+  *.pdsprj        Proteus project (schematic values, devices, packages, pin names)
+  fab_2010/       the RS-274X Gerbers the boards were made from (June 2010)
+tools/p2k/       proteus2kicad (submodule)
+p2k_config.py   board configuration for the tools
+```
