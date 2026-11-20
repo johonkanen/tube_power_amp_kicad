@@ -18,11 +18,13 @@ set -eu
 cd "$(dirname "$0")/.."
 K=tools/p2k/bin/kipy
 PCB=kicad/tube_power_amp.kicad_pcb
+# Each step ends in "|| return 1": run() is called as "run >log || {...}" in --check mode, which
+# turns off set -e inside it, so without the explicit returns a failing step would be skipped.
 run() {
-    $K -m p2k.build_pcb
-    $K -m p2k.gerber_to_tracks
-    $K -m p2k.assign_nets
-    $K -m p2k.place_refdes
+    $K -m p2k.build_pcb || return 1
+    $K -m p2k.gerber_to_tracks || return 1
+    $K -m p2k.assign_nets || return 1
+    $K -m p2k.place_refdes || return 1
 }
 if [ "${1:-}" = "--check" ]; then
     tmp="$PWD/build/tmp/make_pcb_check"
