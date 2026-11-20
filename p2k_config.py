@@ -108,7 +108,11 @@ DRILL_NONPLATED = None    # no NonPlated drill file: the mounting holes are plat
 OUTLINE = "Mechanical 1"
 OUTLINE_RECT = (-104.14, -25.4, 238.76, 60.325)  # x, y, width, height
 
-# --- Footprints (Phase 2, tools/gen_footprints.py, p2k check_footprints) ---------------
+# --- Footprints (Phase 2, tools/generate/gen_footprints.py, p2k check_footprints) ------
+
+# The frozen footprint generator (generation stopped 2026-11-20): check_pin_order imports its
+# RULES / PROJECT for the spec= entries of PIN_ORDER.
+FOOTPRINT_SCRIPT = "tools/generate/gen_footprints.py"
 
 # Pad sizes: "kicad" (KiCad library pad sizes and drills, pad centres on the Proteus positions;
 # the IPC-built footprints have the Proteus pads). Changing it is a user decision (Phase 3 DRC).
@@ -119,7 +123,7 @@ OFF_BOARD_PARTS = {
     "VA_PRIME": "off board: VA' terminal (output transformer centre tap supply) drawn in the PDF only",
 }
 
-# kicad/fp-lib-table written / checked by tools/gen_footprints.py (footprints.run).
+# kicad/fp-lib-table was written by tools/generate/gen_footprints.py (footprints.run; frozen).
 FP_LIB_TABLE = True
 # THT parts on the bottom (solder) side: they fit the IPC pads only mirrored (check_footprints).
 BOTTOM_THT = {r: "octal socket on the solder side (user decision 2026-11-20, STATUS.md Findings 10)"

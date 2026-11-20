@@ -18,7 +18,7 @@ Run:  tools/gen_symbols.py           (needs the AppImage mount for the std libs)
 import os
 import sys
 
-sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "p2k"))  # proteus2kicad
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "p2k"))  # proteus2kicad
 from p2k.symgen import *  # noqa: E402,F401,F403
 from p2k.symgen import _pin, run  # noqa: E402
 
@@ -76,4 +76,9 @@ def build():
 
 
 if __name__ == "__main__":
+    if "--force-regenerate" not in sys.argv:
+        sys.exit("gen_symbols: FROZEN (generation stopped 2026-11-20, STATUS.md): the committed KiCad files are the "
+                 "source; running this would overwrite KiCad edits. Pass --force-regenerate only to "
+                 "reproduce the historical output in a scratch clone.")
+    sys.argv.remove("--force-regenerate")
     sys.exit(run(build))

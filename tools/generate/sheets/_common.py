@@ -9,7 +9,14 @@ import csv
 import os
 import sys
 
-TOOLS = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+if "--force-regenerate" not in sys.argv:
+    sys.exit("sheets: FROZEN (generation stopped 2026-11-20, STATUS.md): the committed KiCad files are the "
+             "source; running this would overwrite KiCad edits. Pass --force-regenerate only to "
+             "reproduce the historical output in a scratch clone.")
+sys.argv.remove("--force-regenerate")
+
+
+TOOLS = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 sys.path.insert(0, os.path.join(TOOLS, "p2k"))  # proteus2kicad
 from p2k.sch_builder import Sheet  # noqa: E402,F401
 from p2k.sheetkit import *  # noqa: E402,F401,F403

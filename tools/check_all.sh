@@ -1,7 +1,11 @@
 #!/usr/bin/env bash
 # Run every verification step. Exit status is non-zero if any step fails.
-# Each phase adds its steps here (playbook principle 5, PLAN.md section 3).
 # The tools are the proteus2kicad submodule in tools/p2k; board values in p2k_config.py.
+# Generation stopped 2026-11-20 (STATUS.md): the committed kicad/*.kicad_sch, kicad/*.kicad_pcb
+# and lib/ are the source, edited in KiCad. No step regenerates or byte-compares them; every step
+# checks the committed files against the Proteus truth (source/, reference/) and KiCad's rules.
+# A deliberate deviation from Proteus is recorded in p2k_config.py (PENDING / accepted items with
+# a reason), never hidden by dropping a check.
 set -u
 cd "$(dirname "$0")/.."
 [ -x tools/p2k/bin/p2k ] || { echo "tools/p2k missing: git submodule update --init"; exit 1; }
@@ -15,21 +19,18 @@ step() {
 }
 
 step "KiCad environment" tools/p2k/bin/kipy -c "import pcbnew; v = pcbnew.GetBuildVersion(); print('pcbnew', v); assert v.startswith('10.0.7'), v"
+# reference/ is derived from the Proteus IPC file only (the truth, not the edited design)
 step "IPC-D-356A parser self-check" tools/p2k/bin/p2k ipc356 --check
 step "Gerber X2 export vs IPC (pads, holes, drills, outline)" tools/p2k/bin/p2k check_sources
 # Phase 1: schematic
-step "Part map up to date" python3 tools/make_part_map.py --check
-step "Symbol library up to date" python3 tools/gen_symbols.py --check
 step "Symbol pin sets vs IPC" tools/p2k/bin/p2k check_symbols
 step "ERC" tools/p2k/bin/p2k erc
 # all 3 sheets are drawn: every part must be present (no --allow-missing)
 step "Netlist comparison vs IPC" tools/p2k/bin/p2k compare_netlists
 # Phase 2: footprints
-step "Footprint library, map and fp-lib-table up to date" python3 tools/gen_footprints.py --check
 step "Footprints vs IPC pad geometry" tools/p2k/bin/kipy -m p2k.check_footprints --pcbnew
 step "Pin order vs unmoved KiCad base footprints" tools/p2k/bin/kipy -m p2k.check_pin_order
-# Phase 3: PCB (build_pcb, gerber_to_tracks, assign_nets; no pours, no vias on this board)
-step "PCB rebuilt from schematic + gerbers, up to date" tools/make_pcb.sh --check
+# Phase 3: PCB (the committed board; no pours, no vias on this board)
 step "Board pads, holes vs IPC (position, size, nets 1:1)" tools/p2k/bin/kipy -m p2k.check_board
 step "Board copper connectivity (KiCad geometry)" tools/p2k/bin/kipy -m p2k.assign_nets --check
 step "DRC with schematic parity" tools/p2k/bin/p2k drc

@@ -15,7 +15,7 @@ C5's value and device `10µ/400V` have a Latin-1 µ: LATIN1 = True (p2k candidat
 import os
 import sys
 
-sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "p2k"))  # proteus2kicad
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "p2k"))  # proteus2kicad
 from p2k import part_map  # noqa: E402
 
 C, CP, R = "C", "C_Polarized", "R"
@@ -58,4 +58,9 @@ SPEC = {
 }
 
 if __name__ == "__main__":
+    if "--force-regenerate" not in sys.argv:
+        sys.exit("make_part_map: FROZEN (generation stopped 2026-11-20, STATUS.md): the committed KiCad files are the "
+                 "source; running this would overwrite KiCad edits. Pass --force-regenerate only to "
+                 "reproduce the historical output in a scratch clone.")
+    sys.argv.remove("--force-regenerate")
     sys.exit(part_map.run(SPEC))
