@@ -24,7 +24,8 @@ Conversion plan: [PLAN.md](PLAN.md); progress: [STATUS.md](STATUS.md); prompt fo
 Phase 0 (skeleton and inventory) done: `p2k_config.py` complete, `reference/` cheat sheets
 generated from the IPC netlist, `tools/check_all.sh` passes. Phase 1 preparation done: part map,
 symbol library, KiCad project skeleton (3 empty sheets), ERC and netlist comparison in
-`check_all.sh`. Next: Phase 1 transcription of the 3 sheets.
+`check_all.sh`. Phase 1 (schematic) done: the 3 sheets are
+transcribed (72/72 parts, netlist identical to the IPC netlist, ERC clean). Next: Phase 2 footprints.
 
 Built in about 2010. The export in `source/cadcam/` matches the June 2010 fab Gerbers (`source/fab_2010/`) exactly: every hole and track.
 

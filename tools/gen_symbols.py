@@ -48,13 +48,15 @@ def add_pins(sym, unit, pins):
 def el34():
     # KiCad Valve:EL34 already has the octal numbers (unit 1: 1 3 4 5 8, unit 2 = heater: 2 7);
     # names -> the Proteus names; heater and cathode passive (KiCad: power_in, which ERC would
-    # report as undriven on the resistor-only cathode / heater nets); pin 6 (no net in the IPC,
-    # unused on the EL34) is a no_connect pin on unit 1, left open in the schematic.
+    # report as undriven on the resistor-only cathode / heater nets); anode passive too (KiCad:
+    # output; the tubes work in parallel pairs, U8 || U9 and U6 || U7, and ERC reports two
+    # connected outputs as a pin_to_pin error); pin 6 (no net in the IPC, unused on the EL34) is
+    # a no_connect pin on unit 1, left open in the schematic.
     sym = from_std("Valve", "EL34", "EL34", "U", desc="EL34 power pentode, octal; Proteus pin ids "
                    "G3=1 H2=2 A=3 G2=4 G1=5 (6 = no connection) H1=7 K=8; unit 2 = heater",
                    pins={"1": "1", "2": "2", "3": "3", "4": "4", "5": "5", "7": "7", "8": "8"},
                    names={"1": "G3", "2": "H2", "3": "A", "4": "G2", "5": "G1", "7": "H1", "8": "K"})
-    pin_types(sym, {"2": PAS, "7": PAS, "8": PAS})
+    pin_types(sym, {"2": PAS, "3": PAS, "7": PAS, "8": PAS})
     return add_pins(sym, "_1_1", [("6", "NC", NC, 2.54, -8.89, 90)])
 
 

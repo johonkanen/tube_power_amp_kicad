@@ -5,8 +5,8 @@ Plan: [PLAN.md](PLAN.md). Playbook: `tools/p2k/CONVERSION_PLAYBOOK.md`.
 | Phase | State |
 |---|---|
 | 0 Skeleton and inventory | **done** 2026-11-20 (Opus 5.5) |
-| 1 Schematic | preparation **done** 2026-11-20 (Opus 5.5); next: transcription (next_prompt.md) |
-| 2 Footprints | not started |
+| 1 Schematic | **done** 2026-11-20 (preparation Opus 5.5, transcription Fable 5.2): 72/72 parts, 0 wrong-net pins, every IPC net complete, ERC 0 errors / 0 warnings |
+| 2 Footprints | not started; next (next_prompt.md) |
 | 3 PCB | not started |
 | 4 Verification | not started |
 | 5 Clean-up | not started |
@@ -180,9 +180,49 @@ New in this repo (all generated, `--check` in check_all.sh):
   other sheet of the net is drawn). After the last sheet: drop `--allow-missing` in check_all.sh.
 - Suggested order: 3 Bias supply (14 parts) → 2 Bias regulator (14) → 1 Output stage (44 + OT, VA').
 
+## Phase 1 transcription – done (Fable 5.2, 2026-11-20)
+
+One script per sheet (`tools/sheets/sheet03.py`, `sheet02.py`, `sheet01.py`), each rebuilding its
+`kicad/NN_*.kicad_sch` from scratch (two runs give byte-identical files). Renders in
+`reports/render/NN_*.png`, compared with the PDF pages by eye.
+
+| Sheet | Parts | compare (`--sheet N`) | ERC |
+|---|---|---|---|
+| 3 Bias supply | 14/14 | 0 missing, 0 wrong-net pins | 0 errors, 0 warnings |
+| 2 Bias regulator | 14/14 | 0 missing, 0 wrong-net pins | 0 errors, 0 warnings |
+| 1 Output stage | 44/44 on the board + OT, VA' (off-board, ignored by compare) | 0 missing, 0 wrong-net pins | 0 errors, 0 warnings |
+| **Total** | **72/72** | 142 pins compared, 0 wrong-net; nets 47 touched / 47 complete (43 IPC nets + the 4 no-net pin 6 pads) | 0 errors, 0 warnings |
+
+`tools/check_all.sh` now runs `compare_netlists` **without** `--allow-missing`.
+Negative test: a global label `HT +6` on the `VS_PRIME` terminal (sheet 2) → compare fails
+("KiCad net HT +6 merges IPC nets [HT +6 …] [#00043 …]", exit 1); restored → pass. (A *local*
+label `VS'` on sheet 2 does not fail: local labels are per sheet in KiCad, so it does not join
+sheet 1's `VS'`. One more reason to keep that terminal unlabelled.)
+
+How the sheets were drawn:
+
+- **Coordinates from the PDF.** The pages rendered at 200 dpi have 0.127 mm pixels, so 10 px = one
+  1.27 mm grid unit: `_common.P(x, y)` takes a render position in 10 px units and returns the
+  sheet point (A3 sheet, shifted by 40 / 30 grid units). Sheets 2 and 3 follow the PDF 1:1.
+- **Sheet 1 differs from the PDF drawing in two places** (same nets, noted on the sheet):
+  1. KiCad's EL34 symbol has G3 (pin 1) on the right and the cathode (pin 8) at the bottom, where
+     the Proteus symbol has 1, 5 and 8 on the left. The G3–cathode link and the cathode row (1R
+     resistor, VBx terminal) therefore run below each tube instead of beside it.
+  2. The heaters are unit 2 of each tube (KiCad draws the whole envelope for it), placed as a block
+     of their own at the right of the sheet with the five heater terminals (`+6`, `HT+6`, `HT-0`,
+     `-6`, `HT -6`) and the `HT +6` global label, instead of at the tubes.
+- `_common.tube_channel()` draws one of the four channels (coupling C, grid stop, bias R + BIASx,
+  tube unit 1, G3–K link, cathode 1R + VBx, screen R); `_common.place_mirrored()` places Q2 mirrored
+  (p2k candidate 6); `_common.term()` got its own text justification (p2k candidate 7).
+- **Symbol change during transcription:** EL34 anode (pin 3) `output` → `passive` in
+  `tools/gen_symbols.py`. The tubes work in parallel pairs (U8 ∥ U9, U6 ∥ U7), and ERC reports two
+  connected `output` pins as a `pin_to_pin` **error** (2 errors before the change). The smoke test
+  of the preparation had only U6, so it did not show. Pin numbers and names unchanged.
+- ERC warnings: none. (No isolated-label warnings appeared while the sheets were drawn one by one.)
+
 ## Last check output
 
-`tools/check_all.sh` (2026-11-20, end of Phase 1 preparation):
+`tools/check_all.sh` (2026-11-20, end of Phase 1):
 
 ```
 == KiCad environment
@@ -218,9 +258,8 @@ symbols: OK
 == ERC
 erc: 0 errors, 0 warnings (reports/erc.rpt)
 == Netlist comparison vs IPC
-compare: parts 0/72 present, 72 missing, 0 extra; pins compared 0, wrong-net pins 0; IPC nets touched 0, complete 0
-compare: per sheet (drawn/total) 1:0/44 2:0/14 3:0/14
-WARNING: missing parts (72): (see --verbose or --sheet N)
+compare: parts 72/72 present, 0 missing, 0 extra; pins compared 142, wrong-net pins 0; IPC nets touched 47, complete 47
+compare: per sheet (drawn/total) 1:44/44 2:14/14 3:14/14
 compare: OK
 
 ALL CHECKS PASSED
@@ -253,6 +292,14 @@ ALL CHECKS PASSED
    METALFILM1K device with the 2 W package; C5 (`10µ/400V`) sits on the B- bias rail, C6 is 100u
    (device HITEMP100U100V, a 100 V part) on VREF. No action; values are taken from the schematic.
 
+8. **Heater wiring is two series pairs** (Phase 1 transcription): `HT +6` → U8 and U9 heaters
+   (pin 2 → 7) → net #00004 (terminal `HT-0`) → U6 and U7 heaters (pin 2 → 7) → net #00010
+   (terminals `-6`, `HT -6`). Each rail has two terminals except the centre (`HT-0`). As drawn in
+   the PDF; reproduced.
+9. **Nothing else found on the three sheets**: every PDF connection agrees with the IPC netlist
+   (compare 0 wrong-net pins without any net alias), the PDF values equal the part map, and no
+   pin is drawn unconnected except pin 6 of the tubes and the OT secondaries.
+
 ## p2k candidates
 
 (Shared-tool limitations met on this board, with the board-local workaround used.)
@@ -281,6 +328,27 @@ ALL CHECKS PASSED
    parts and `LATIN1_PARTS` overrides; a shared `p2k.part_map` with config keys
    (`SYMBOL_BY_DEVICE`, `PAGE_OVERRIDES`, `OFF_BOARD`, value overrides) would serve the preamp and
    PI/FX boards too.
+6. **`p2k.sch_builder.Sheet.place` cannot mirror a symbol.** Q2 (PNP, base left, emitter up)
+   needs the Q_PNP_EBC symbol mirrored about the X axis. Workaround: `place_mirrored()` in
+   `tools/sheets/_common.py` (calls `place` at rotation 0, inserts `(mirror x|y)` into the node
+   and mirrors the returned pin points). The shared tool would need: a `mirror=` parameter of
+   `place` (pin points and default field positions mirrored). The preamp and PI/FX boards will
+   have mirrored transistors / triodes too.
+7. **`sheetkit.terminal` texts for 'left' / 'right' terminals** are justified towards the circle
+   in KiCad 10.0.7 (kicad-cli render): the refdes and value are drawn over the terminal circle
+   and wire. `term()` in `_common.py` uses the opposite justification (`"left"` for direction
+   right, `"right"` for left), which renders the texts beside the circle, away from the wire. The
+   shared helper would need the same swap (check with the ac_psu / tube_psu renders).
+8. **Multi-unit symbols whose unit 0 graphics are the whole body** (KiCad `Valve:*`: the envelope
+   is drawn for the heater unit too) cannot be placed on top of unit 1 as Proteus draws them.
+   Board-local answer: a heater block per sheet. For the preamp / PI boards (ECC83 = 3 units)
+   decide the same way up front and write it into the transcription rules.
+9. **ERC pin types of the KiCad valve symbols**: anode `output`, heater / cathode `power_in`.
+   Parallel tubes give `pin_to_pin` errors and passive-only nets "undriven" errors. Here all
+   are set to `passive` in `tools/gen_symbols.py`; a `symgen` helper (`passive_pins=`) or a
+   playbook note would save the next board the round trip.
+10. `compare_netlists` prints "IPC nets touched 47, complete 47" on a 43-net board: the four
+   pads without a net (U6-U9 pin 6) are counted as nets of their own (cosmetic).
 
 ## Decisions
 
@@ -293,3 +361,6 @@ ALL CHECKS PASSED
   `PIN` (Connector:TestPoint, as tube_psu); OT is an off-board box symbol with the Proteus pin
   names; EL34 keeps KiCad's two units (heater separate); the named nets keep the IPC spelling
   (`HT +6` with a space, `VS'` with a quote: labels work in KiCad 10, tube_psu tested `-100V BIAS`).
+- Phase 1 transcription (agent's choices, no user decision needed): sheet 1 heaters as a separate
+  block and the cathode row below the tubes (KiCad EL34 symbol shape; nets unchanged); EL34 anode
+  pin type `passive`; A3 sheets with the PDF geometry at 1:1 on the 1.27 mm grid.
