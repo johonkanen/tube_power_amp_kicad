@@ -47,3 +47,15 @@ def term(sh, ref, x, y, direction="up"):
     elif direction == "left":
         kw = dict(ref_at=(x - 5.08, y - 1.27, 270, "left"), value_at=(x - 5.08, y + 1.27, 270, "left"))
     return sh.place(sym(ref), ref, x, y, rot, value=sh_value(ref), **kw)
+
+
+# --- PDF coordinates ---------------------------------------------------------------------------------
+# The Proteus PDF pages rendered at 200 dpi (build/tmp/pdf/hi-N.png) have 0.127 mm pixels, so
+# 10 px = one 1.27 mm grid unit. P(px/10, py/10) puts a point of the render on the A3 KiCad sheet
+# (same scale, shifted by OX/OY grid units), which keeps the layout close to the PDF.
+OX, OY = 40, 30
+
+
+def P(x, y):
+    """Sheet point (mm, on the 1.27 mm grid) of PDF render position (x, y) in units of 10 px."""
+    return (g(x + OX), g(y + OY))
