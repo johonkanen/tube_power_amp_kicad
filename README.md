@@ -21,8 +21,8 @@ board is in `p2k_config.py`.
 
 Conversion plan: [PLAN.md](PLAN.md); progress: [STATUS.md](STATUS.md); prompt for the next agent session: [next_prompt.md](next_prompt.md).
 
-Phase 0 (skeleton and inventory) not started. The sources are in place; `p2k_config.py` holds
-only the paths and placeholder sheet names.
+Phase 0 (skeleton and inventory) done: `p2k_config.py` complete, `reference/` cheat sheets
+generated from the IPC netlist, `tools/check_all.sh` passes. Next: Phase 1 (schematic).
 
 Built in about 2010. The export in `source/cadcam/` matches the June 2010 fab Gerbers (`source/fab_2010/`) exactly: every hole and track.
 
@@ -38,7 +38,7 @@ From the export (the fit reference for the redesign; the KiCad file is
 
 ```
 outline: 238.76 x 60.32 mm, lower-left corner at (-104.140, -25.400) in the Proteus frame
-copper layers: 2; components: 71; mounting holes: 4
+copper layers: 2; components: 72 (71 IPC refdes: BIASPOTX/BIASPOTO share BIASPO); mounting holes: 4
 mounting holes (relative to the lower-left outline corner, mm):
   H1: x  234.140  y    4.400  drill 3.00 plated
   H2: x  234.140  y   55.400  drill 3.00 plated
@@ -54,6 +54,8 @@ source/         Proteus exports (read-only)
   schematic_pdf/  schematic PDF to redraw from
   *.pdsprj        Proteus project (schematic values, devices, packages, pin names)
   fab_2010/       the RS-274X Gerbers the boards were made from (June 2010)
+reference/      tables derived from the IPC netlist (p2k ipc356; generated, don't edit)
+tools/          board scripts; check_all.sh runs every verification step
 tools/p2k/       proteus2kicad (submodule)
 p2k_config.py   board configuration for the tools
 ```
