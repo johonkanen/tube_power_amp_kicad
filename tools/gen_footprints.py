@@ -21,6 +21,7 @@ footprints built from the IPC pads - octal socket, fly-lead terminal - have the 
 tools/p2k check_footprints verifies every footprint against the IPC pads (residual < 0.05 mm per
 pad) and reports the pad size / drill differences.
 """
+import copy
 import glob
 import math
 import os
@@ -28,7 +29,7 @@ import sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(ROOT, "tools", "p2k"))  # proteus2kicad
-from p2k import footprints, gerber  # noqa: E402
+from p2k import footprints, fpgeom, gerber  # noqa: E402
 
 P = "tube_power_amp:"
 
@@ -60,7 +61,8 @@ RULES = [
      "TO92: inline, 1=E 2=B 3=C, P2.032"),
     # --- tubes
     ("EL34", dict(package="8-PIN BELTON OCTAL", n=8, pad=(3.81, 3.81), drill=1.6),
-     P + "Valve_Octal_Belton_PCD17.20mm", "8-PIN BELTON OCTAL: octal socket, Proteus pads and pin ids"),
+     P + "Valve_Octal_Belton_PCD17.20mm",
+     "8-PIN BELTON OCTAL: octal socket, Proteus pads and pin ids, standard octal numbering, bottom side"),
     # --- terminals (fly leads)
     ("PIN", dict(package="C-120-60", n=1, pad=(3.048, 3.048), drill=1.524),
      P + "FlyLead_Pad_D3.048mm_Drill1.524mm", "C-120-60: fly-lead terminal pad"),
@@ -84,7 +86,8 @@ def octal_body():
 
 
 # Project footprints (spec keys: see p2k.footprints). `ipc` = refdes whose IPC pads give the
-# pad centres. All parts are THT and on the top side (Proteus Top Assembly).
+# pad centres. All parts are THT and on the top side (Proteus Top Assembly), except the octal
+# sockets U6-U9 (bottom side, user decision).
 PROJECT = {
     # 5 W wirewound: KiCad's 25 x 6.4 mm box (Proteus silk 24 x 6.1 mm) with the pads 30.00 mm apart
     # (KiCad P30.48: 0.24 mm inwards per pad, still 1.3 mm between pad and body)
@@ -115,11 +118,17 @@ PROJECT = {
         descr="TO-92 inline, pads 1-3 2.032 mm apart (Proteus TO92)"),
     # Octal socket built from the IPC pads: KiCad's Valve_Octal is on a 2.54 mm grid (pads 10.2-10.8
     # mm from the centre, a 5.5 mm plated centre hole), Proteus has a 17.20 mm pitch circle and no
-    # centre hole. Pad ids as Proteus (see STATUS.md "Phase 2": numbering vs the octal standard).
+    # centre hole. Pad ids = the IPC pin ids. The sockets are mounted on the BOTTOM (solder) side
+    # (user decision 2026-11-20, STATUS.md Findings 10): the footprint is built mirrored (`bottom`,
+    # board-local key, see build_library below), so in the footprint's own view the pads run in the
+    # standard octal direction (as KiCad's Valve_Octal) and check_footprints places U6-U9 on B
+    # (graphics, courtyard on the B layers; pad positions and nets unchanged). No 3D model: KiCad
+    # has no octal socket model.
     "Valve_Octal_Belton_PCD17.20mm": dict(
-        ipc="U6", body_poly=octal_body(),
-        descr="Octal tube socket (Proteus 8-PIN BELTON OCTAL): 8 pads 3.81 mm / drill 1.6 on a 17.20 mm "
-              "pitch circle, pad 6 without a net, body = the Proteus assembly outline"),
+        ipc="U6", body_poly=octal_body(), bottom=True,
+        descr="Octal tube socket (Proteus 8-PIN BELTON OCTAL), standard octal numbering, mounted on the "
+              "solder side: 8 pads 3.81 mm / drill 1.6 on a 17.20 mm pitch circle, pad 6 without a net, "
+              "body = the Proteus assembly outline"),
     "FlyLead_Pad_D3.048mm_Drill1.524mm": dict(
         ipc="AC5", descr="Fly-lead terminal (Proteus C-120-60): one 3.048 mm pad, drill 1.524"),
     # Board-only (no symbol; placed by p2k.build_pcb at the 4 IPC 'hole' records)
@@ -127,6 +136,23 @@ PROJECT = {
         board_only=True, pad=(6.35, 3.0), plated=True,
         descr="Plated 3.0 mm mounting hole with a 6.35 mm pad on both layers, no net"),
 }
+
+_build_library = footprints.build_library
+
+
+def build_library(project_fps, ipc=None):
+    """footprints.build_library with the board-local spec key `bottom`: the IPC pads of the spec's
+    `ipc` refdes are marked bottom side, so from_ipc builds the footprint mirrored (the shared tool
+    mirrors only bottom SMD parts; THT pads are 'both' in the IPC file). STATUS.md p2k candidates."""
+    ipc = copy.deepcopy(ipc or fpgeom.ipc_pads_by_refdes())
+    for spec in project_fps.values():
+        if spec.get("bottom"):
+            for p in ipc[spec["ipc"]]:
+                p["side"] = "bottom"
+    return _build_library(project_fps, ipc)
+
+
+footprints.build_library = build_library   # footprints.run calls it through the module
 
 FP_LIB_TABLE = """(fp_lib_table
 \t(version 7)

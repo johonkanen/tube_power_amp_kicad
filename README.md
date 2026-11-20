@@ -34,8 +34,11 @@ Proteus gerbers (254 tracks, 4 plated mounting holes; reproducible byte for byte
 (independent verification) done: KiCad's IPC-D-356 export matches the Proteus netlist (146/146
 records, 43 nets 1:1) and KiCad's gerbers match the Proteus gerbers (no unexplained copper
 difference, 2010 Excellon 146/146); the C1-C6 KiCad 1.0 mm drills (Proteus 1.143 mm) are accepted by
-the user. `tools/check_all.sh`: ALL CHECKS PASSED. Next: Phase 5 clean-up (user decisions first;
-decided: the octal sockets move to the bottom side).
+the user. Phase 5 (clean-up, user decisions) done: the octal sockets U6-U9 are on the bottom side
+(standard octal numbering, copper unchanged) and the references are placed clear of pads / silk /
+edge (`p2k place_refdes`). `tools/check_all.sh`: ALL CHECKS PASSED. The conversion is complete; the
+board is still generated until the user makes the first manual layout change (STATUS.md "Phase 5").
+Open: the `VS'` terminal question (STATUS.md Findings 1).
 
 Built in about 2010. The export in `source/cadcam/` matches the June 2010 fab Gerbers (`source/fab_2010/`) exactly: every hole and track.
 

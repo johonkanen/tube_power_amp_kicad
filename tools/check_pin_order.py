@@ -14,10 +14,17 @@ unmirrored fit (KiCad = standard octal numbering, clockwise seen from the pin si
 of a top-mounted socket) with the mirrored one, and also fits an ideal standard octal on the
 Proteus pitch circle.
 
+Phase 5 (user decision 2026-11-20: the sockets are on the BOTTOM side): the project footprint
+tube_power_amp:Valve_Octal_Belton_PCD17.20mm has the standard octal numbering in its own view
+(fits the ideal standard octal unmirrored, not mirrored), fits the IPC pads only mirrored (so
+check_footprints places it on the bottom), reports/footprint_fit.csv has U6-U9 on the bottom and
+every other part on top, and the board has U6-U9 on B.Cu and every other footprint on F.Cu.
+
 Usage: tools/p2k/bin/kipy tools/check_pin_order.py [--render]   (python3 works without --render;
        --render needs matplotlib, e.g. the system python3)
 Exit 1 when a result differs from EXPECT (so a changed footprint or renumbering is noticed).
 """
+import csv
 import glob
 import math
 import os
@@ -26,8 +33,11 @@ import sys
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(ROOT, "tools", "p2k"))
 os.chdir(ROOT)
-from p2k import fpgeom, sexpr  # noqa: E402
+from p2k import fpgeom, pcb, sexpr  # noqa: E402
 from p2k.footprints import footprint_path  # noqa: E402
+
+OCTAL = "tube_power_amp:Valve_Octal_Belton_PCD17.20mm"
+OCTALS = "U6 U7 U8 U9".split()
 
 # refdes group -> (KiCad base footprint, Proteus renumbering of the base pads)
 CHECKS = [
@@ -164,6 +174,40 @@ def render(ref, fpid, fr, ipc_pads, out):
     plt.close(fig)
 
 
+def bottom_side_octal(ipc):
+    """Phase 5: the octal footprint is the standard octal and U6-U9 are on the bottom side."""
+    bad = []
+    fp = fpgeom.load_footprint(footprint_path(OCTAL))
+    target = [dict(p, pin=p["num"], x_mm=p["x"], y_mm=p["y"]) for p in ideal_octal()]   # as IPC pads
+    ideal = {m: fpgeom.fit(fp, target, m)["max_res"] for m in (False, True)}
+    on_ipc = {m: max(fpgeom.fit(fp, ipc[r], m)["max_res"] for r in OCTALS) for m in (False, True)}
+    name = OCTAL.split(":")[1]
+    print(f"{'(footprint)':16s} {name + ' vs ideal octal':44s} {ideal[False]:7.3f}{'':11s} "
+          f"{ideal[True]:7.3f}{'':11s}  {'unmirrored' if ideal[False] < ideal[True] else 'mirrored'}")
+    print(f"{'U6 U7 U8 U9':16s} {name + ' (project)':44s} {on_ipc[False]:7.3f}{'':11s} "
+          f"{on_ipc[True]:7.3f}{'':11s}  {'mirrored = bottom side' if on_ipc[True] < on_ipc[False] else 'unmirrored'}")
+    if not (ideal[False] < 0.01 < ideal[True]):
+        bad.append(f"{name}: expected the standard octal numbering in the footprint's own view")
+    if not (on_ipc[True] < 0.01 < on_ipc[False]):
+        bad.append(f"{name}: expected to fit the IPC pads only mirrored (bottom side)")
+    with open("reports/footprint_fit.csv") as f:
+        rows = list(csv.DictReader(l for l in f if not l.startswith("# ")))
+    wrong = [r["refdes"] for r in rows if (r["side"] == "bottom") != (r["refdes"] in OCTALS)]
+    if wrong:
+        bad.append(f"reports/footprint_fit.csv: wrong side for {wrong} (bottom = exactly {OCTALS})")
+    layers = {}
+    BOARD = os.path.relpath(pcb.board_file())   # kicad/tube_power_amp.kicad_pcb (P2K_PCB overrides)
+    for node in sexpr.find_all(sexpr.load(BOARD), "footprint"):
+        ref = next((p[2] for p in sexpr.find_all(node, "property") if p[1] == "Reference"), "")
+        layers[ref] = sexpr.find(node, "layer")[1]
+    wrong = sorted(r for r, l in layers.items() if l != ("B.Cu" if r in OCTALS else "F.Cu"))
+    if wrong or not set(OCTALS) <= set(layers):
+        bad.append(f"{BOARD}: wrong layer for {wrong or OCTALS} (B.Cu = exactly {OCTALS})")
+    else:
+        print(f"{'':16s} footprint_fit.csv and board: U6-U9 bottom (B.Cu), the other {len(layers) - 4} footprints top")
+    return bad
+
+
 def main():
     do_render = "--render" in sys.argv[1:]
     ipc = fpgeom.ipc_pads_by_refdes()
@@ -201,6 +245,7 @@ def main():
           f"{oct_res[True]:7.3f}{'':11s}  {'mirrored' if oct_res[True] < oct_res[False] else 'unmirrored'}")
     if not (oct_res[True] < 0.01 < oct_res[False]):
         bad.append("ideal octal: expected only the mirrored standard octal to fit")
+    bad += bottom_side_octal(ipc)
     for b in bad:
         print("check_pin_order: ERROR " + b)
     print("check_pin_order: " + ("FAILED" if bad else "OK (results as recorded in STATUS.md)"))

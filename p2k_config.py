@@ -145,11 +145,11 @@ PCB_RULES = dict(
 )
 # DRC error types that remain by design (p2k drc; STATUS.md "Phase 3", remaining DRC items).
 DRC_ACCEPTED = {
-    "courtyards_overlap": "KiCad courtyards vs the Proteus placement (16: octal sockets with the "
-                          "5 W resistors / R10 / R12 / VBx terminals, R24/R25 with each other and "
-                          "C5/C6/D5, R18 with Q2/Q3)",
-    "pth_inside_courtyard": "VB6-VB9 terminal pads in the octal socket courtyard (Proteus placement: "
-                            "pad centre 0.07 mm outside the socket body outline)",
+    "courtyards_overlap": "KiCad courtyards vs the Proteus placement (6: R24/R25 with each other "
+                          "and R25 with C5/C6/D5, R18 with Q2/Q3; the octal sockets are on the bottom "
+                          "side since Phase 5)",
+    "pth_inside_courtyard": "VB6-VB9 terminal pads in the bottom-side octal socket courtyard (Proteus "
+                            "placement: pad centre 0.07 mm outside the socket body outline)",
 }
 
 # --- Phase 4 checks (p2k.gerber_roundtrip, p2k.ipc356_diff) ---------------------------

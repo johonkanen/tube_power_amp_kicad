@@ -60,10 +60,10 @@ R8,Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal,top,90,93.3450
 R9,Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal,top,270,-69.2150,10.1600,-69.2150,-10.1600,270,0.0000,0.178,0.038,0
 REFGND,tube_power_amp:FlyLead_Pad_D3.048mm_Drill1.524mm,top,0,-45.0850,-11.0000,-45.0850,11.0000,0,0.0000,0.000,0.000,0
 STANDBY,tube_power_amp:FlyLead_Pad_D3.048mm_Drill1.524mm,top,0,-99.0000,-10.0000,-99.0000,10.0000,0,0.0000,0.000,0.000,0
-U6,tube_power_amp:Valve_Octal_Belton_PCD17.20mm,top,0,118.3995,19.6845,118.3995,-19.6845,0,0.0000,0.000,0.000,0
-U7,tube_power_amp:Valve_Octal_Belton_PCD17.20mm,top,0,52.3595,19.6845,52.3595,-19.6845,0,0.0000,0.000,0.000,0
-U8,tube_power_amp:Valve_Octal_Belton_PCD17.20mm,top,0,-13.6796,19.6845,-13.6796,-19.6845,0,0.0009,0.000,0.000,0
-U9,tube_power_amp:Valve_Octal_Belton_PCD17.20mm,top,0,-79.7195,19.6845,-79.7195,-19.6845,0,0.0000,0.000,0.000,0
+U6,tube_power_amp:Valve_Octal_Belton_PCD17.20mm,bottom,0,118.3995,19.6845,118.3995,-19.6845,180,0.0000,0.000,0.000,0
+U7,tube_power_amp:Valve_Octal_Belton_PCD17.20mm,bottom,0,52.3595,19.6845,52.3595,-19.6845,180,0.0000,0.000,0.000,0
+U8,tube_power_amp:Valve_Octal_Belton_PCD17.20mm,bottom,0,-13.6796,19.6845,-13.6796,-19.6845,180,0.0009,0.000,0.000,0
+U9,tube_power_amp:Valve_Octal_Belton_PCD17.20mm,bottom,0,-79.7195,19.6845,-79.7195,-19.6845,180,0.0000,0.000,0.000,0
 VA_GND,tube_power_amp:FlyLead_Pad_D3.048mm_Drill1.524mm,top,0,-78.7400,0.0000,-78.7400,-0.0000,0,0.0000,0.000,0.000,0
 VB6,tube_power_amp:FlyLead_Pad_D3.048mm_Drill1.524mm,top,0,130.8100,21.5900,130.8100,-21.5900,0,0.0000,0.000,0.000,0
 VB7,tube_power_amp:FlyLead_Pad_D3.048mm_Drill1.524mm,top,0,65.4050,21.5900,65.4050,-21.5900,0,0.0000,0.000,0.000,0

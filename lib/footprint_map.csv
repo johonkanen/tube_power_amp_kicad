@@ -61,10 +61,10 @@ R24,tube_power_amp:R,tube_power_amp:R_Axial_DIN0414_L11.9mm_D4.5mm_P19.05mm_Hori
 R25,tube_power_amp:R,tube_power_amp:R_Axial_DIN0414_L11.9mm_D4.5mm_P19.05mm_Horizontal,"2W METAL FILM RESISTOR: 2 W axial, P19.05"
 REFGND,tube_power_amp:PIN,tube_power_amp:FlyLead_Pad_D3.048mm_Drill1.524mm,C-120-60: fly-lead terminal pad
 STANDBY,tube_power_amp:PIN,tube_power_amp:FlyLead_Pad_D3.048mm_Drill1.524mm,C-120-60: fly-lead terminal pad
-U6,tube_power_amp:EL34,tube_power_amp:Valve_Octal_Belton_PCD17.20mm,"8-PIN BELTON OCTAL: octal socket, Proteus pads and pin ids"
-U7,tube_power_amp:EL34,tube_power_amp:Valve_Octal_Belton_PCD17.20mm,"8-PIN BELTON OCTAL: octal socket, Proteus pads and pin ids"
-U8,tube_power_amp:EL34,tube_power_amp:Valve_Octal_Belton_PCD17.20mm,"8-PIN BELTON OCTAL: octal socket, Proteus pads and pin ids"
-U9,tube_power_amp:EL34,tube_power_amp:Valve_Octal_Belton_PCD17.20mm,"8-PIN BELTON OCTAL: octal socket, Proteus pads and pin ids"
+U6,tube_power_amp:EL34,tube_power_amp:Valve_Octal_Belton_PCD17.20mm,"8-PIN BELTON OCTAL: octal socket, Proteus pads and pin ids, standard octal numbering, bottom side"
+U7,tube_power_amp:EL34,tube_power_amp:Valve_Octal_Belton_PCD17.20mm,"8-PIN BELTON OCTAL: octal socket, Proteus pads and pin ids, standard octal numbering, bottom side"
+U8,tube_power_amp:EL34,tube_power_amp:Valve_Octal_Belton_PCD17.20mm,"8-PIN BELTON OCTAL: octal socket, Proteus pads and pin ids, standard octal numbering, bottom side"
+U9,tube_power_amp:EL34,tube_power_amp:Valve_Octal_Belton_PCD17.20mm,"8-PIN BELTON OCTAL: octal socket, Proteus pads and pin ids, standard octal numbering, bottom side"
 VA_GND,tube_power_amp:PIN,tube_power_amp:FlyLead_Pad_D3.048mm_Drill1.524mm,C-120-60: fly-lead terminal pad
 VA_PRIME,tube_power_amp:PIN_OFFBOARD,,off board: VA' terminal (output transformer centre tap supply) drawn in the PDF only
 VB6,tube_power_amp:PIN,tube_power_amp:FlyLead_Pad_D3.048mm_Drill1.524mm,C-120-60: fly-lead terminal pad
