@@ -1,0 +1,15 @@
+(kicad_sch
+	(version 20260101)
+	(generator "eeschema")
+	(generator_version "10.0")
+	(uuid "59b5a689-f14b-4972-81bf-42bb95028746")
+	(paper "A3")
+	(title_block
+		(title "Tube power amplifier - Output stage")
+		(company "Tube amplifier")
+		(rev "rev A (as built)")
+		(comment 1 "Redrawn from Proteus OUTPUT")
+	)
+	(lib_symbols)
+	(embedded_fonts no)
+)

@@ -1,0 +1,15 @@
+(kicad_sch
+	(version 20260101)
+	(generator "eeschema")
+	(generator_version "10.0")
+	(uuid "b76850af-033d-413f-8a43-edd001ab0a23")
+	(paper "A3")
+	(title_block
+		(title "Tube power amplifier - Bias supply")
+		(company "Tube amplifier")
+		(rev "rev A (as built)")
+		(comment 1 "Redrawn from Proteus OUTPUT")
+	)
+	(lib_symbols)
+	(embedded_fonts no)
+)

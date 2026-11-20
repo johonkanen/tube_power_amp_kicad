@@ -5,7 +5,7 @@ Plan: [PLAN.md](PLAN.md). Playbook: `tools/p2k/CONVERSION_PLAYBOOK.md`.
 | Phase | State |
 |---|---|
 | 0 Skeleton and inventory | **done** 2026-11-20 (Opus 5.5) |
-| 1 Schematic | not started (next: preparation session, see next_prompt.md) |
+| 1 Schematic | preparation **done** 2026-11-20 (Opus 5.5); next: transcription (next_prompt.md) |
 | 2 Footprints | not started |
 | 3 PCB | not started |
 | 4 Verification | not started |
@@ -74,9 +74,115 @@ Plan: [PLAN.md](PLAN.md). Playbook: `tools/p2k/CONVERSION_PLAYBOOK.md`.
   - Phase 4: the 2010 Excellon `source/fab_2010/OUTPUT - CADCAM Drill.TXT` (inch, 146 hits,
     same frame) can serve as `DRILL_EXCELLON`.
 
+## Phase 1 preparation – done (Opus 5.5, 2026-11-20)
+
+New in this repo (all generated, `--check` in check_all.sh):
+
+- **`tools/make_part_map.py` → `lib/part_map.csv`**: 74 parts = 72 on the board + 2 off-board
+  (per sheet 1:46 2:14 3:14). Columns `refdes` (KiCad), `sheet` (PDF page), `lib_id`, `value`,
+  `device`, `package`, `proteus_refdes` (the 10 renamed terminals and VA'), `off_board`.
+  - refdes from `reference/ipc356_pads.json` plus `OFF_BOARD` = **OT** (symbol `OT_1650TA`, value
+    1650TA) and **VA'** → KiCad refdes **`VA_PRIME`** (symbol `PIN_OFFBOARD`). Both have no layout
+    record and no pads: their symbols are excluded from the board (`on_board no`), which
+    check_symbols and compare_netlists honour; Phase 2 needs them in `OFF_BOARD_PARTS`.
+  - value = schematic value from ROOT.DSN (`p2k.pdsprj.dsn_values` with the full refdes set incl.
+    OT and VA'); device/package from the ROOT.LYT record (`lyt_parts`).
+  - **C5** (p2k candidate 1): value `10µ/400V` from the PDF, device `10µ/400V` and package
+    `RAD ELEC R5 D10` read from the ROOT.LYT bytes by hand (`LATIN1_PARTS`); the script fails
+    if pdsprj starts reading C5 (then drop the override). The CSV is UTF-8.
+  - sheet = PDF page from the text layer; `PAGE_OVERRIDES`: `+6` → 1 (page 2 has the net
+    terminal `HT +6`), `VS'` → 2 (page 1 `VS'` is the net terminal of STANDBY / R13-R16).
+  - lib_id from the Proteus device (`SYMBOL_BY_DEVICE`): 22N XICON → C; HITEMP100U100V, 10µ/400V →
+    C_Polarized; MINRES100K, 1K/5W, METALFILM1K → R; 1N4001 → D; 1N5933B → D_Zener; TIPL760;
+    MPSA92; EL34; TERMINAL and PIN → PIN.
+- **`tools/gen_symbols.py` → `lib/tube_power_amp.kicad_sym`** (11 symbols, all from the KiCad 10
+  standard library; no power symbols because the IPC has no `=POWER` nets):
+
+  | Symbol | From | Pins (= IPC ids) |
+  |---|---|---|
+  | R, C | Device | 1, 2 |
+  | C_Polarized | Device:C_Polarized | `+` `-` (renumbered from 1/2) |
+  | D, D_Zener | Device | `A` `K` (from 2/1) |
+  | TIPL760 | Transistor_BJT:TIP41 (Q_NPN_BCE) | 1=B 2=C 3=E |
+  | MPSA92 | Transistor_BJT:MPSA92 (Q_PNP_EBC) | 1=E 2=B 3=C |
+  | EL34 | Valve:EL34, 2 units | unit 1: 1=G3 3=A 4=G2 5=G1 8=K + **6=NC (`no_connect` pin, added)**; unit 2 (heater): 2=H2 7=H1 |
+  | PIN | Connector:TestPoint | 1 (the 29 terminals, Proteus TERMINAL and PIN) |
+  | PIN_OFFBOARD | Connector:TestPoint, `on_board no` | 1 (VA') |
+  | OT_1650TA | box, `on_board no` | P1 CT P2 (left), S1-S5 (right): Proteus pin names of the 1650TA device |
+
+  **Pinouts vs Proteus: no surprises.** The Proteus device pin definitions in ROOT.DSN
+  (`$PINSHORT name number`, read by hand: `dsn_pinouts` does not cover them, p2k candidate 4)
+  are TIPL760 B=1 C=2 E=3, MPSA92 E=1 B=2 C=3, diodes A/K, and the `8-PIN BELTON OCTAL` pinout
+  A=3 G1=5 G2=4 G3=1 H1=7 H2=2 K=8: identical to the KiCad standard symbols and to the
+  datasheet pinouts (TO-220 BCE, TO-92 EBC, EL34 octal); the nets agree (sheet 2: Q2/Q3 emitters
+  on #00038 = R17, Q1 emitter on B-; C5 `+` on OTGND as the PDF shows). Changes against KiCad's
+  EL34: pin names → Proteus names (KiCad calls the cathode pin 8 "F1"), heater and cathode pins
+  `power_in` → `passive` (the heater / cathode nets have only passive drivers: ERC would report
+  them undriven), pin 6 added.
+- **`p2k make_skeleton`** → `kicad/` (tube_power_amp.kicad_pro, sym-lib-table, root sheet with
+  `01 Output stage`, `02 Bias regulator`, `03 Bias supply`, empty sub-sheets).
+  **`tools/erc.sh`** (as tube_psu). **`tools/sheets/_common.py`**: imports `p2k.sheetkit`;
+  board helpers `part(ref)`, `sh_value(ref)`, `sym(ref)` (from the part map) and **`term(sh, ref,
+  x, y, direction)`** = `sheetkit.terminal` with the part map's symbol and value (TERMINAL / PIN,
+  PIN_OFFBOARD for VA'); `sheetkit.terminal` always places `PIN` with value "PIN" (p2k candidate 3).
+- **`tools/check_all.sh`**: + part map, symbol library, symbol pins vs IPC, ERC, netlist
+  comparison (`--allow-missing` until the 3 sheets are drawn).
+- **Smoke test** (scratch copy in build/tmp/smoke, deleted): U6 both units with pin 6 left open,
+  R12/R16/R4, terminals, label `VS'`, global label `HT +6`, OT and VA' off-board → compare 0
+  wrong-net pins, the off-board parts ignored, pin 6 accepted as `(no net)`; ERC 0 errors (one
+  isolated-global-label warning). Negative: a no-connect flag on U6-5 → compare "N/C mismatch";
+  VA' placed with `sheetkit.terminal` (symbol PIN) → compare "extra part VA_PRIME"; part map /
+  symbol library edited → `--check` and check_symbols fail. Renders of the smoke sheet looked right.
+
+### Transcription rules (for the sheet sessions)
+
+- **Symbols and values**: only `tube_power_amp:` symbols, exactly the `lib_id` and `value` of
+  `lib/part_map.csv` per refdes (`_common.sym(ref)`, `sh_value(ref)`; C5's value is `10µ/400V`).
+  Refdes = the `refdes` column: `P6` (`+6`), `N6` (`-6`), `HT_P6` (`HT+6`), `HT_N6` (`HT -6`),
+  `HT_0` (`HT-0`), `VA_GND`, `PI_GND` (`P.I.GND`), `VS_PRIME` (`VS'`), `IN6_7`, `IN8_9`,
+  `VA_PRIME` (`VA'`). Terminals with `_common.term()` (never `sheetkit.terminal`: wrong value,
+  and it would place VA' on the board symbol).
+- **Net names = IPC names** (`reference/pins_by_net.md`), whatever the PDF writes. The named nets:
+  - **`HT +6`** (with the space; sheets 1 and 2: U8-2, U9-2, P6, HT_P6, R17-1, VCC) → **global
+    label** `HT +6` on both sheets;
+  - **`B-`** (sheets 2 and 3: Q1-3, Q3-3, R18-2, R24-1, R25-2, C5 `-`) → global label `B-`;
+  - **`OTGND`** (sheets 2 and 3: Q2-2, R23-1, D2/D3/D5 K, C5/C6 `+`, BIASGND, REFGND) → global
+    label `OTGND`; **sheet 3 writes `otgnd`: same net, label it `OTGND`** (KiCad names are
+    case-sensitive);
+  - **`VS'`** (sheet 1 only: STANDBY, R13-R16 pin 2) → local label `VS'` on sheet 1.
+  - All other nets are Proteus auto-names (`#000xx`): plain wires. None crosses a sheet, there
+    are no single-pin nets and no N/C pads.
+- **Terminal refdes are not net names** (Phase 0 notes): the terminal `VS'` (`VS_PRIME`, sheet 2,
+  R19-1) is on net #00043, **not** on `VS'`: no label on it. `VCC` (sheet 2) is on `HT +6`
+  (the PDF's `HT +6` terminal at R17); `HT+6` / `+6` (sheet 1) are on `HT +6` too; `HT -6` and
+  `-6` are on #00010, `HT-0` on #00004 (heater wiring: U6/U7 2 = #00004, 7 = #00010;
+  U8/U9 2 = `HT +6`, 7 = #00004). `BIASGND` and `REFGND` (sheet 3) are on `OTGND`.
+- **EL34 (U6-U9)**: place **both units** of each tube (unit 1 = electrodes, unit 2 = heater
+  2/7; `sh.place("EL34", ref, x, y, unit=2)`), else compare reports missing pins 2/7. **Pin 6**
+  has no net in Proteus: leave it open (it is a `no_connect`-type pin; no flag needed, KiCad
+  makes it `unconnected-(…)`, compare accepts it as `(no net)`). Pin 1 (G3) and pin 8 (K) are
+  one net per tube (the PDF joins them), with the 1R cathode resistor and the VBx sense terminal.
+- **Off-board parts (sheet 1)**: OT = `sh.place("OT_1650TA", "OT", ...)` (P1 top, CT, P2
+  bottom as drawn: P1 on the U8/U9 anode net #00000 with OT1, P2 on the U6/U7 anode net #00006
+  with OT2, CT to VA'); no-connect flags on the five secondary pins S1-S5. VA' = `term(sh,
+  "VA_PRIME", ...)`. Both are ignored by compare (excluded from board); the CT–VA' net exists
+  only in KiCad.
+- **Grid 1.27 mm**: symbols, wires and labels on the grid (`g(n)`); use `p2k.sheetkit` helpers
+  (`vert2`, `horiz2`, `glabel_left/right`, `label_left/right`, …); repeated blocks (the four
+  tube channels on sheet 1: coupling C, grid-stop R, bias R / BIASx, cathode 1R / VBx, screen R)
+  as a helper in `tools/sheets/_common.py`.
+- One script per sheet, `tools/sheets/sheetNN.py` (NN = PDF page), rebuilding `kicad/NN_*.kicad_sch`
+  from scratch; render with `tools/p2k/bin/p2k render_sheet kicad/NN_*.kicad_sch` and compare with
+  `build/tmp/pdf/hi-N.png` (`pdftoppm -r 200 -png source/schematic_pdf/OUTPUT.PDF build/tmp/pdf/hi`).
+- After each sheet: `tools/p2k/bin/p2k compare_netlists --allow-missing --sheet N` and
+  `tools/erc.sh`, then `tools/check_all.sh`. Target per sheet: 0 missing on that sheet, 0 compare
+  errors, 0 ERC errors (warnings explained here; isolated global labels are expected until the
+  other sheet of the net is drawn). After the last sheet: drop `--allow-missing` in check_all.sh.
+- Suggested order: 3 Bias supply (14 parts) → 2 Bias regulator (14) → 1 Output stage (44 + OT, VA').
+
 ## Last check output
 
-`tools/check_all.sh` (2026-11-20, end of Phase 0):
+`tools/check_all.sh` (2026-11-20, end of Phase 1 preparation):
 
 ```
 == KiCad environment
@@ -91,6 +197,31 @@ ipc356: OK
   drills: 146 plated, 0 non-plated
   outline 238.8 x 60.3 mm at (-104.14, -25.40)
 check_sources: OK
+== Part map up to date
+make_part_map: lib/part_map.csv up to date, 74 parts (72 on the board); per sheet 1:46 2:14 3:14
+== Symbol library up to date
+gen_symbols: lib/tube_power_amp.kicad_sym up to date (11 symbols)
+== Symbol pin sets vs IPC
+  C                      4  pins  2  C1 C2 C3 C4
+  C_Polarized            2  pins  2  C5 C6
+  D                      4  pins  2  D1 D2 D3 D4
+  D_Zener                1  pins  2  D5
+  EL34                   4  pins  8  U6 U7 U8 U9
+  MPSA92                 2  pins  3  Q2 Q3
+  OT_1650TA              1  pins  8  OT
+  PIN                   29  pins  1  BIAS6 BIAS7 BIAS8 BIAS9 HT_0 HT_N6 HT_P6 IN6_7 ...
+  PIN_OFFBOARD           1  pins  1  VA_PRIME
+  R                     25  pins  2  R1 R2 R3 R4 R5 R6 R7 R8 ...
+  TIPL760                1  pins  3  Q1
+symbols: 11 part types, 74 refdes, 0 power symbols
+symbols: OK
+== ERC
+erc: 0 errors, 0 warnings (reports/erc.rpt)
+== Netlist comparison vs IPC
+compare: parts 0/72 present, 72 missing, 0 extra; pins compared 0, wrong-net pins 0; IPC nets touched 0, complete 0
+compare: per sheet (drawn/total) 1:0/44 2:0/14 3:0/14
+WARNING: missing parts (72): (see --verbose or --sheet N)
+compare: OK
 
 ALL CHECKS PASSED
 ```
@@ -111,6 +242,16 @@ ALL CHECKS PASSED
 4. Export quirks (no effect on the conversion): Mechanical 1's X2 FileFunction is
    `NonPlated,1,2,NPTH` although it holds only the profile; the solder resist files are negative
    polarity.
+5. **Pinouts are standard** (Phase 1 preparation): the Proteus pin ids of EL34 (octal), TIPL760
+   (TO-220 B C E), MPSA92 (TO-92 E B C), the diodes (A/K) and the electrolytics (+/-) equal the
+   KiCad standard symbols and the datasheet pinouts. Phase 2 still checks them with the fit.
+6. **OT has five secondary pins drawn unconnected** (S1-S5 of the Proteus 1650TA model,
+   TRAN2P5S) and the primary centre tap goes only to the off-board terminal VA': the speaker
+   wiring and the anode supply are outside the schematic.
+7. Proteus device vs value: D5's value is `22V` on the device 1N5933B (a 22 V / 1.5 W zener, BV=22
+   in the instance: consistent). R24/R25 use the
+   METALFILM1K device with the 2 W package; C5 (`10µ/400V`) sits on the B- bias rail, C6 is 100u
+   (device HITEMP100U100V, a 100 V part) on VREF. No action; values are taken from the schematic.
 
 ## p2k candidates
 
@@ -119,10 +260,27 @@ ALL CHECKS PASSED
 1. **`p2k.pdsprj` drops non-ASCII values.** C5's value is `10µ/400V` with a Latin-1 `µ` (0xB5)
    in ROOT.DSN and ROOT.LYT. `dsn_values` returns `None` for it (its string test accepts bytes
    32-126 only) and `lyt_parts` misses the C5 record (`_strings` splits the run at 0xB5).
-   Workaround (Phase 1): give C5's value in the board's part-map script from the PDF.
+   Workaround (Phase 1, done): `LATIN1_PARTS` in `tools/make_part_map.py` gives C5's value (PDF)
+   and its device `10µ/400V` / package `RAD ELEC R5 D10` (ROOT.LYT bytes); the device name has the
+   µ too.
    The shared tool would need: decode Latin-1 strings (0xA0-0xFF) in `pstr` and `_strings`.
 2. `p2k ipc356` prints "Net aliases: ." in `pin_nets_by_component.md` when `NET_ALIASES` is
    empty (cosmetic), and its index groups `HT_0` under `HT_`.
+3. **`p2k.sheetkit.terminal` hard-codes symbol `PIN` and value "PIN".** This board has two
+   terminal devices (TERMINAL, PIN) and an off-board terminal (VA', symbol `PIN_OFFBOARD`).
+   Workaround: `term()` in `tools/sheets/_common.py` (same placement, symbol and value from
+   the part map). The shared tool would need: `symbol=` and `value=` parameters.
+4. **`p2k.pdsprj.dsn_pinouts` misses the pin definitions of library devices.** It parses only
+   `*PINOUT <package>` blocks (here: EL34 octal, terminals, electrolytics); the device symbols'
+   own pins (`$PINSHORT <name> <number>` / `$PINDEFAULT <name>` records before each `{*DEVICE}`
+   block: TIPL760 B1 C2 E3, MPSA92 E1 B2 C3, 1N4001 A K, 1650TA P1 P2 CT S1-S5) are not read, and
+   its `device` attribution is unreliable (most entries `None`, `1N5933B` attached to the
+   `SOLEN 1U` pinout, `PIN` to `G5V-2(HI)`). Read by hand here. The shared tool would need: a
+   reader for the `$PIN*` records grouped by the following `{*DEVICE}` block (with its DESC).
+5. **Part-map generator** (`tools/make_part_map.py`) is the tube_psu script plus `OFF_BOARD`
+   parts and `LATIN1_PARTS` overrides; a shared `p2k.part_map` with config keys
+   (`SYMBOL_BY_DEVICE`, `PAGE_OVERRIDES`, `OFF_BOARD`, value overrides) would serve the preamp and
+   PI/FX boards too.
 
 ## Decisions
 
@@ -130,4 +288,8 @@ ALL CHECKS PASSED
   by the agent from the content; the user can rename them (only `p2k_config.py`, before
   `make_skeleton`).
 - KiCad refdes for the terminals with signs/spaces/dots/quote: table above (agent's choice, same
-  convention as tube_psu).
+  convention as tube_psu). The off-board VA' terminal is `VA_PRIME` (same rule as `VS_PRIME`).
+- Phase 1 preparation (agent's choices, no user decision needed): all 29 terminals use one symbol
+  `PIN` (Connector:TestPoint, as tube_psu); OT is an off-board box symbol with the Proteus pin
+  names; EL34 keeps KiCad's two units (heater separate); the named nets keep the IPC spelling
+  (`HT +6` with a space, `VS'` with a quote: labels work in KiCad 10, tube_psu tested `-100V BIAS`).

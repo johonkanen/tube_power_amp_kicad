@@ -3,41 +3,45 @@
 Ready-to-paste prompt for the next agent session. Replaced at the end of every session.
 
 ```
-Convert the Proteus board in /home/jari/dev/tube_power_amp_kicad to KiCad 10: Phase 1 preparation
-(part map, symbols, skeleton, checks). Do not transcribe sheets yet.
+Convert the Proteus board in /home/jari/dev/tube_power_amp_kicad to KiCad 10: Phase 1
+transcription of the 3 schematic sheets (model: Fable per playbook section 6; Opus works too,
+the board is small).
 
-Read, in this order: PLAN.md, STATUS.md (Phase 0 result, its notes for Phase 1, p2k candidates),
-tools/p2k/CONVERSION_PLAYBOOK.md (sections 1, 3 "Phase 1", 4 and 5), tools/p2k/README.md
-(lib/part_map.csv format, symgen, sheetkit, make_skeleton, check_symbols, compare_netlists).
-Run tools/check_all.sh first and compare with STATUS.md "Last check output". The finished
-reference is ~/dev/tube_psu_kicad (same tools): read its tools/make_part_map.py,
-tools/gen_symbols.py, tools/erc.sh, tools/check_all.sh and STATUS.md "Phase 1" (preparation,
-transcription rules). Read it only; don't change it.
+Read, in this order: PLAN.md, STATUS.md ("Phase 1 preparation" with its **transcription rules**,
+"Findings", "p2k candidates"), tools/p2k/CONVERSION_PLAYBOOK.md (sections 1, 3 "Phase 1", 5),
+tools/p2k/README.md (sheetkit, compare_netlists, render_sheet), tools/sheets/_common.py
+(board helpers part/sh_value/sym/term), lib/part_map.csv, reference/pin_nets_by_component.md and
+reference/pins_by_net.md. Run tools/check_all.sh first and compare with STATUS.md "Last check
+output" (all passed, compare 0/72 parts present). Example sheet scripts: ~/dev/tube_psu_kicad/
+tools/sheets/sheet11.py, sheet03.py and its _common.py (read only; don't change that repo).
 
-Re-render the PDF pages first (pdftoppm -r 200 -png source/schematic_pdf/OUTPUT.PDF
-build/tmp/pdf/hi) and read them.
+Render the PDF pages first (pdftoppm -r 200 -png source/schematic_pdf/OUTPUT.PDF
+build/tmp/pdf/hi; zoom with -r 600 -x/-y/-W/-H where it is dense) and read them.
 
-Do the Phase 1 preparation as the playbook describes:
-- tools/make_part_map.py -> lib/part_map.csv (KiCad refdes from reference/ipc356_pads.json, sheet,
-  lib_id, value; values from p2k.pdsprj.dsn_values with the FULL refdes set incl. OT and VA';
-  C5 = 10µ/400V from the PDF because pdsprj drops the Latin-1 µ (STATUS.md p2k candidate 1);
-  OT and VA' are drawn in the PDF but not on the board: mark them, they need OFF_BOARD_PARTS in
-  Phase 2); --check;
-- tools/gen_symbols.py -> lib/tube_power_amp.kicad_sym (KiCad std symbols renumbered to the IPC
-  pin ids: EL34 octal 1-8 with pin 6 unconnected, Q1 TIPL760 1=B 2=C 3=E, Q2/Q3 MPSA92 1=E 2=B
-  3=C (confirm against the Proteus pinouts, p2k.pdsprj.dsn_pinouts), diodes A/K, C5/C6 +/-;
-  single-pin connector symbol for the 29 terminals); --check;
-- tools/p2k/bin/p2k make_skeleton (sheet names from p2k_config.py SHEETS), tools/erc.sh;
-- add part map, symbols, check_symbols, ERC and compare_netlists --allow-missing to
-  tools/check_all.sh and make it pass;
-- write the transcription rules into STATUS.md (IPC net spelling incl. 'HT +6', "VS'", 'B-',
-  'OTGND' (sheet 3 'otgnd' is the same net), terminal refdes vs net names (STATUS.md Phase 0
-  notes), the no-net pin 6 of U6-U9, global labels for nets on several sheets, grid 1.27 mm).
+Transcribe one sheet at a time, in this order: 3 Bias supply (14 parts), 2 Bias regulator (14),
+1 Output stage (44 on-board parts + off-board OT and VA'). One script per sheet,
+tools/sheets/sheetNN.py (NN = PDF page), rebuilding kicad/NN_*.kicad_sch from scratch, layout
+close to the PDF. Key rules (details in STATUS.md):
+- symbols/values/refdes exactly from lib/part_map.csv; terminals with _common.term(), never
+  sheetkit.terminal; C5 value 10µ/400V;
+- IPC net names: global labels 'HT +6' (sheets 1, 2), 'B-' and 'OTGND' (sheets 2, 3; sheet 3's
+  'otgnd' is OTGND); local label "VS'" on sheet 1 only; every #000xx net is a plain wire;
+- the terminal VS_PRIME (sheet 2, R19) is NOT on net VS' (no label on it); VCC is on 'HT +6';
+- EL34 U6-U9: place both units (unit 2 = heater 2/7); pin 6 stays open (no_connect pin type);
+- OT (OT_1650TA, P1 top / CT / P2 bottom, no-connect flags on S1-S5) and VA' (term(), symbol
+  PIN_OFFBOARD) are off-board: compare ignores them;
+- 1.27 mm grid; a helper in _common.py for the four repeated tube channels of sheet 1.
+After each sheet: tools/p2k/bin/p2k render_sheet kicad/NN_*.kicad_sch (look at it next to
+hi-N.png), tools/p2k/bin/p2k compare_netlists --allow-missing --sheet N, tools/erc.sh, then
+tools/check_all.sh. Target per sheet: 0 missing on that sheet, 0 compare errors, 0 ERC errors
+(warnings explained in STATUS.md). After sheet 1: drop --allow-missing in tools/check_all.sh;
+done = 72/72 parts, every IPC net complete, 0 wrong-net pins, ERC 0 errors.
 
 Rules (PLAN.md section 5): don't change tools/p2k or its pin (board-local workarounds, noted in
 STATUS.md "p2k candidates"); don't touch other repos; report design findings, don't fix them;
 temporary files in build/tmp; never run the KiCad AppImage with --version (use tools/p2k/bin/kipy
-and tools/p2k/bin/kicad-cli). At the end: STATUS.md updated (result, check output, findings),
-next_prompt.md replaced with the prompt for the transcription session, commit and push
-(git push origin main).
+and tools/p2k/bin/kicad-cli). At the end: STATUS.md updated (per-sheet results, last check output,
+findings), next_prompt.md replaced with the Phase 2 (footprints) prompt, commit and push
+(git push origin main). If something needs a user decision, stop, record it in STATUS.md,
+commit and push, and report it.
 ```
