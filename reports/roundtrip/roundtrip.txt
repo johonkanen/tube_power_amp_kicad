@@ -1,0 +1,274 @@
+Gerber round trip: KiCad plot of kicad/tube_power_amp.kicad_pcb vs the Proteus CADCAM gerbers
+raster 0.025 mm/px, tolerance 0.05 mm, clusters >= 0.01 mm^2 counted, positions in the IPC frame (mm, Y up)
+board outline -104.14 .. 134.62 x -25.4 .. 34.925 mm
+
+== F.Cu: Proteus copper 2648.1 mm^2, KiCad copper 2610.2 mm^2
+   raw XOR 50.66 mm^2; after 0.05 mm tolerance: only Proteus 27.76 mm^2, only KiCad 3.95 mm^2, 412 clusters (305 below 0.01 mm^2)
+   pad shape   107 clusters, 31.40 mm^2
+   coverage: Proteus 162 draws / 146 flashes, 0 not on KiCad copper (0 explained by clearance / pad shape); KiCad 158 draws / 146 flashes, 0 not on Proteus copper (0 explained by pad shape)
+   pad shape     8 clusters, only KiCad   0.00 mm^2, only Proteus  12.27 mm^2  tube_power_amp:C_Rect_L13.0mm_W6.0mm_P9.70mm  (4 parts: C1 C2 C3 C4)
+   pad shape    39 clusters, only KiCad   0.00 mm^2, only Proteus   8.23 mm^2  Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal  (19 parts: R1 R10 R11 R12 R17 R18 ...)
+   pad shape    20 clusters, only KiCad   2.99 mm^2, only Proteus   0.00 mm^2  tube_power_amp:D_DO-41_SOD81_P10.16mm_Horizontal_AK  (5 parts: D1 D2 D3 D4 D5)
+   pad shape     5 clusters, only KiCad   0.00 mm^2, only Proteus   2.43 mm^2  tube_power_amp:CP_Radial_D10.0mm_P5.08mm_PM  (1 parts: C6)
+   pad shape     7 clusters, only KiCad   0.00 mm^2, only Proteus   2.09 mm^2  tube_power_amp:CP_Radial_D10.0mm_P5.00mm_PM  (1 parts: C5)
+   pad shape     8 clusters, only KiCad   0.00 mm^2, only Proteus   1.55 mm^2  Package_TO_SOT_THT:TO-220-3_Vertical  (1 parts: Q1)
+   pad shape    10 clusters, only KiCad   0.00 mm^2, only Proteus   1.03 mm^2  tube_power_amp:R_Axial_Power_L25.0mm_W6.4mm_P30.00mm  (4 parts: R13 R14 R15 R16)
+   pad shape     8 clusters, only KiCad   0.67 mm^2, only Proteus   0.00 mm^2  tube_power_amp:TO-92_Inline_P2.03mm  (2 parts: Q2 Q3)
+   pad shape     2 clusters, only KiCad   0.14 mm^2, only Proteus   0.00 mm^2  tube_power_amp:R_Axial_DIN0414_L11.9mm_D4.5mm_P19.05mm_Horizontal  (1 parts: R24)
+   pad shape  only Proteus  1.643 mm^2 at ( -35.552,   12.848) 2.58x2.55 mm  near C2-2 (#00026) 0.03 mm, -
+   pad shape  only Proteus  1.582 mm^2 at (  97.188,    3.203) 2.55x2.55 mm  near C4-1 (#00028) 0.04 mm, -
+   pad shape  only Proteus  1.551 mm^2 at (  31.055,    3.203) 2.58x2.55 mm  near C3-1 (#00028) 0.07 mm, -
+   pad shape  only Proteus  1.546 mm^2 at (-100.328,   10.054) 2.58x2.53 mm  near C1-2 (#00027) 0.11 mm, -
+   pad shape  only Proteus  1.544 mm^2 at ( -60.438,  -13.962) 2.53x2.58 mm  near C6-- (#00050) 0.11 mm, -
+   pad shape  only Proteus  1.517 mm^2 at (-100.425,    0.375) 2.58x2.58 mm  near C1-1 (#00033) 0.13 mm, -
+   pad shape  only Proteus  1.514 mm^2 at (  31.123,   12.747) 2.58x2.50 mm  near C3-2 (#00025) 0.13 mm, -
+   pad shape  only Proteus  1.459 mm^2 at ( -35.435,    3.122) 2.58x2.55 mm  near C2-1 (#00033) 0.14 mm, -
+   pad shape  only Proteus  1.454 mm^2 at (  97.191,   12.743) 2.55x2.50 mm  near C4-2 (#00024) 0.14 mm, -
+   pad shape  only Proteus  1.078 mm^2 at ( -36.002,  -20.537) 2.58x1.93 mm  near C5-- (B-) 0.46 mm, -
+   pad shape  only Proteus  0.450 mm^2 at ( -18.772,  -15.122) 2.05x0.78 mm  near Q1-2 (#00035) 0.84 mm, -
+   pad shape  only Proteus  0.413 mm^2 at ( -18.687,  -13.424) 2.05x0.70 mm  near Q1-2 (#00035) 0.86 mm, -
+   pad shape  only Proteus  0.283 mm^2 at (  18.098,  -11.013) 1.83x1.78 mm  near R17-1 (HT +6) 0.10 mm, -
+   pad shape  only Proteus  0.279 mm^2 at ( -36.002,  -22.115) 1.33x0.35 mm  near C5-- (B-) 1.11 mm, -
+   pad shape  only Proteus  0.277 mm^2 at (  18.098,  -21.379) 1.83x1.80 mm  near R17-2 (#00038) 0.11 mm, -
+   pad shape  only Proteus  0.249 mm^2 at ( -13.722,   -9.016) 1.83x1.80 mm  near R18-1 (#00034) 0.20 mm, -
+   pad shape  only Proteus  0.249 mm^2 at ( -13.722,  -19.559) 1.83x1.80 mm  near R18-2 (B-) 0.20 mm, -
+   pad shape  only Proteus  0.234 mm^2 at ( -39.242,   26.798) 1.80x1.80 mm  near R6-2 (#00026) 0.18 mm, -
+   pad shape  only Proteus  0.234 mm^2 at ( -35.688,   26.798) 1.80x1.80 mm  near R2-2 (#00001) 0.18 mm, -
+   pad shape  only Proteus  0.234 mm^2 at (  93.212,   26.798) 1.80x1.80 mm  near R8-2 (#00024) 0.18 mm, -
+   pad shape  only Proteus  0.234 mm^2 at (  97.283,   26.798) 1.80x1.80 mm  near R4-2 (#00011) 0.18 mm, -
+   pad shape  only Proteus  0.234 mm^2 at (  26.537,   25.902) 1.80x1.80 mm  near R7-2 (#00025) 0.19 mm, -
+   pad shape  only Proteus  0.234 mm^2 at (  30.987,   25.902) 1.80x1.80 mm  near R3-2 (#00007) 0.18 mm, -
+   pad shape  only Proteus  0.234 mm^2 at ( -39.242,   16.377) 1.80x1.80 mm  near R6-1 (#00031) 0.18 mm, -
+   pad shape  only Proteus  0.234 mm^2 at ( -35.688,   16.377) 1.80x1.80 mm  near R2-1 (#00026) 0.18 mm, -
+   pad shape  only Proteus  0.234 mm^2 at (  93.212,   16.377) 1.80x1.80 mm  near R8-1 (#00030) 0.19 mm, -
+   pad shape  only Proteus  0.234 mm^2 at (  26.537,   15.752) 1.80x1.80 mm  near R7-1 (#00029) 0.18 mm, -
+   pad shape  only Proteus  0.234 mm^2 at ( -88.388,   -1.777) 1.80x1.80 mm  near R5-2 (#00027) 0.18 mm, -
+   pad shape  only Proteus  0.234 mm^2 at (   5.208,  -10.923) 1.80x1.80 mm  near R22-1 (#00039) 0.18 mm, -
+   pad shape  only Proteus  0.234 mm^2 at (  11.558,  -10.923) 1.80x1.80 mm  near R20-1 (#00042) 0.18 mm, -
+   pad shape  only Proteus  0.234 mm^2 at (  14.733,  -10.923) 1.80x1.80 mm  near R19-1 (#00043) 0.18 mm, -
+   pad shape  only Proteus  0.234 mm^2 at ( -88.388,  -12.198) 1.80x1.80 mm  near R5-1 (#00032) 0.18 mm, -
+   pad shape  only Proteus  0.234 mm^2 at (   2.033,  -20.827) 1.80x1.80 mm  near R23-1 (OTGND) 0.18 mm, -
+   pad shape  only Proteus  0.234 mm^2 at (  14.733,  -20.827) 1.80x1.80 mm  near R19-2 (#00042) 0.18 mm, -
+   pad shape  only Proteus  0.224 mm^2 at ( -36.002,  -17.141) 1.43x0.23 mm  near C5-+ (OTGND) 1.14 mm, -
+   pad shape  only Proteus  0.222 mm^2 at ( -60.328,   -7.733) 1.43x0.23 mm  near C6-+ (OTGND) 1.16 mm, -
+   pad shape  only Proteus  0.222 mm^2 at ( -61.482,   -8.888) 0.23x1.43 mm  near C6-+ (OTGND) 1.16 mm, -
+   pad shape  only Proteus  0.222 mm^2 at ( -59.173,   -8.888) 0.23x1.43 mm  near C6-+ (OTGND) 1.15 mm, -
+   pad shape  only Proteus  0.222 mm^2 at ( -60.328,  -10.042) 1.43x0.23 mm  near C6-+ (OTGND) 1.15 mm, -
+   pad shape  only Proteus  0.220 mm^2 at ( -34.849,  -16.000) 0.23x1.40 mm  near C5-+ (OTGND) 1.15 mm, -
+   pad shape  only Proteus  0.219 mm^2 at ( -37.157,  -16.004) 0.23x1.35 mm  near C5-+ (OTGND) 1.16 mm, -
+   pad shape  only Proteus  0.218 mm^2 at (-100.539,   23.632) 1.75x1.80 mm  near R1-2 (#00014) 0.25 mm, -
+   pad shape  only Proteus  0.218 mm^2 at (  63.642,    9.951) 1.80x1.75 mm  near R11-1 (#00009) 0.25 mm, -
+   pad shape  only Proteus  0.218 mm^2 at (   2.042,  -10.999) 1.80x1.75 mm  near R23-2 (#00044) 0.25 mm, -
+   pad shape  only Proteus  0.216 mm^2 at ( -69.084,    9.945) 1.80x1.73 mm  near R9-1 (#00016) 0.25 mm, -
+   pad shape  only Proteus  0.216 mm^2 at (   8.444,  -20.766) 1.80x1.80 mm  near R21-2 (#00039) 0.27 mm, -
+   pad shape  only Proteus  0.210 mm^2 at ( -19.537,  -16.011) 0.83x0.75 mm  near Q1-3 (B-) 1.15 mm, -
+   pad shape  only Proteus  0.208 mm^2 at ( -19.544,  -17.637) 0.73x0.75 mm  near Q1-3 (B-) 1.15 mm, -
+   pad shape  only Proteus  0.206 mm^2 at (   5.307,  -20.893) 1.80x1.80 mm  near R22-2 (#00035) 0.24 mm, -
+   pad shape  only Proteus  0.202 mm^2 at (  97.303,   16.495) 1.80x1.75 mm  near R4-1 (#00024) 0.15 mm, -
+   pad shape  only Proteus  0.202 mm^2 at (  30.967,   15.870) 1.80x1.75 mm  near R3-1 (#00025) 0.15 mm, -
+   pad shape  only Proteus  0.202 mm^2 at (-100.483,   13.320) 1.80x1.75 mm  near R1-1 (#00027) 0.15 mm, -
+   pad shape  only Proteus  0.202 mm^2 at (  -3.958,    1.895) 1.80x1.75 mm  near R10-2 (#00023) 0.15 mm, -
+   pad shape  only Proteus  0.202 mm^2 at (   8.403,  -10.805) 1.80x1.75 mm  near R21-1 (#00041) 0.15 mm, -
+   pad shape  only Proteus  0.202 mm^2 at (  11.578,  -20.945) 1.80x1.75 mm  near R20-2 (#00041) 0.15 mm, -
+   pad shape  only Proteus  0.200 mm^2 at ( 124.319,    8.897) 1.80x1.73 mm  near R12-1 (#00013) 0.14 mm, -
+   pad shape  only Proteus  0.196 mm^2 at (  -3.843,   12.103) 1.80x1.80 mm  near R10-1 (#00003) 0.05 mm, -
+   pad shape  only Proteus  0.191 mm^2 at ( -17.939,  -15.995) 0.80x0.68 mm  near Q1-3 (B-) 1.15 mm, -
+   pad shape  only Proteus  0.184 mm^2 at ( 104.773,   21.833) 2.58x2.35 mm  near R16-1 (#00012) 0.39 mm, -
+   pad shape  only KiCad    0.176 mm^2 at ( -66.409,  -13.069) 0.70x0.70 mm  near D2-K (OTGND) 1.27 mm, -
+   pad shape  only KiCad    0.176 mm^2 at ( -54.246,  -15.506) 0.70x0.70 mm  near D5-K (OTGND) 1.28 mm, -
+   pad shape  only KiCad    0.176 mm^2 at ( -52.434,  -15.506) 0.70x0.70 mm  near D5-K (OTGND) 1.28 mm, -
+   pad shape  only KiCad    0.176 mm^2 at ( -66.409,  -18.681) 0.70x0.70 mm  near D3-K (OTGND) 1.27 mm, -
+   pad shape  only KiCad    0.176 mm^2 at ( -78.371,  -23.131) 0.70x0.70 mm  near D4-K (#00046) 1.28 mm, -
+   pad shape  only KiCad    0.159 mm^2 at ( -78.387,   -9.267) 0.62x0.68 mm  near D1-K (#00045) 1.28 mm, -
+   pad shape  only KiCad    0.159 mm^2 at ( -78.387,  -11.058) 0.62x0.68 mm  near D1-K (#00045) 1.28 mm, -
+   pad shape  only KiCad    0.158 mm^2 at ( -68.201,  -13.054) 0.68x0.62 mm  near D2-K (OTGND) 1.28 mm, -
+   pad shape  only KiCad    0.158 mm^2 at ( -54.261,  -13.714) 0.62x0.68 mm  near D5-K (OTGND) 1.28 mm, -
+   pad shape  only KiCad    0.158 mm^2 at ( -66.394,  -14.861) 0.62x0.68 mm  near D2-K (OTGND) 1.28 mm, -
+   pad shape  only KiCad    0.158 mm^2 at ( -66.394,  -16.889) 0.62x0.68 mm  near D3-K (OTGND) 1.28 mm, -
+   pad shape  only KiCad    0.158 mm^2 at ( -68.201,  -18.696) 0.68x0.62 mm  near D3-K (OTGND) 1.28 mm, -
+   pad shape  only KiCad    0.158 mm^2 at ( -76.579,  -21.304) 0.68x0.62 mm  near D4-K (#00046) 1.28 mm, -
+   pad shape  only KiCad    0.158 mm^2 at ( -76.579,  -23.146) 0.68x0.62 mm  near D4-K (#00046) 1.28 mm, -
+   pad shape  only Proteus  0.143 mm^2 at ( 105.107,   -8.368) 2.48x2.35 mm  near R16-2 (VS') 0.68 mm, -
+   pad shape  only KiCad    0.143 mm^2 at ( -76.563,   -9.253) 0.60x0.62 mm  near D1-K (#00045) 1.28 mm, -
+   pad shape  only KiCad    0.143 mm^2 at ( -76.563,  -11.072) 0.60x0.62 mm  near D1-K (#00045) 1.29 mm, -
+   pad shape  only KiCad    0.141 mm^2 at ( -68.215,  -14.875) 0.60x0.60 mm  near D2-K (OTGND) 1.28 mm, -
+   pad shape  only KiCad    0.141 mm^2 at ( -68.215,  -16.875) 0.60x0.60 mm  near D3-K (OTGND) 1.28 mm, -
+   pad shape  only Proteus  0.121 mm^2 at ( -28.493,   21.672) 2.35x2.35 mm  near R14-1 (#00002) 0.78 mm, -
+   pad shape  only Proteus  0.121 mm^2 at (  38.182,   21.672) 2.35x2.35 mm  near R15-1 (#00008) 0.78 mm, -
+   pad shape  only Proteus  0.121 mm^2 at ( -28.493,   -8.328) 2.35x2.35 mm  near R14-2 (VS') 0.78 mm, -
+   pad shape  only Proteus  0.121 mm^2 at (  38.182,   -8.328) 2.35x2.35 mm  near R15-2 (VS') 0.78 mm, -
+   pad shape  only KiCad    0.106 mm^2 at ( -78.286,  -21.214) 0.68x0.30 mm  near D4-K (#00046) 1.30 mm, -
+   pad shape  only Proteus  0.103 mm^2 at ( -92.863,   -8.558) 2.35x1.68 mm  near R13-2 (VS') 0.92 mm, -
+   pad shape  only KiCad    0.094 mm^2 at (  -7.795,  -17.470) 0.48x0.48 mm  near Q3-1 (#00038) 0.88 mm, -
+   pad shape  only KiCad    0.093 mm^2 at (  -7.796,  -10.494) 0.48x0.48 mm  near Q2-1 (#00038) 0.88 mm, -
+   pad shape  only KiCad    0.093 mm^2 at (  -7.796,  -11.731) 0.48x0.48 mm  near Q2-1 (#00038) 0.88 mm, -
+   pad shape  only Proteus  0.090 mm^2 at ( -69.070,    0.569) 1.80x0.83 mm  near R9-2 (#00023) 0.59 mm, -
+   pad shape  only Proteus  0.090 mm^2 at (  63.655,    0.569) 1.80x0.83 mm  near R11-2 (#00023) 0.59 mm, -
+   pad shape  only KiCad    0.082 mm^2 at (  -6.554,  -17.457) 0.45x0.43 mm  near Q3-1 (#00038) 0.89 mm, -
+   pad shape  only KiCad    0.082 mm^2 at (  -7.808,  -18.711) 0.43x0.45 mm  near Q3-1 (#00038) 0.88 mm, -
+   pad shape  only KiCad    0.081 mm^2 at (  -6.554,  -10.481) 0.45x0.43 mm  near Q2-1 (#00038) 0.89 mm, -
+   pad shape  only KiCad    0.081 mm^2 at (  -6.554,  -11.744) 0.45x0.43 mm  near Q2-1 (#00038) 0.89 mm, -
+   pad shape  only Proteus  0.078 mm^2 at ( -93.099,   21.218) 2.25x0.80 mm  near R13-1 (#00015) 1.04 mm, -
+   pad shape  only Proteus  0.073 mm^2 at ( 123.899,   -1.850) 0.85x0.83 mm  near R12-2 (#00023) 0.81 mm, -
+   pad shape  only KiCad    0.071 mm^2 at (  -6.541,  -18.724) 0.40x0.40 mm  near Q3-1 (#00038) 0.89 mm, -
+   pad shape  only KiCad    0.071 mm^2 at ( -62.227,  -23.209) 2.18x0.68 mm  near R24-2 (#00047) 0.98 mm, -
+   pad shape  only KiCad    0.071 mm^2 at ( -43.177,  -23.209) 2.18x0.68 mm  near R24-1 (B-) 0.98 mm, -
+   pad shape  only Proteus  0.052 mm^2 at ( -18.752,  -12.762) 2.05x0.05 mm  near Q1-1 (#00034) 1.02 mm, -
+   pad shape  only Proteus  0.035 mm^2 at ( -36.452,  -14.867) 0.35x0.15 mm  near C5-+ (OTGND) 1.22 mm, -
+   pad shape  only Proteus  0.035 mm^2 at ( -35.553,  -14.867) 0.35x0.15 mm  near C5-+ (OTGND) 1.22 mm, -
+   pad shape  only Proteus  0.033 mm^2 at ( 125.039,   -0.696) 0.83x0.83 mm  near R12-2 (#00023) 0.82 mm, -
+   pad shape  only Proteus  0.024 mm^2 at ( -92.294,   22.852) 0.60x0.93 mm  near R13-1 (#00015) 1.22 mm, -
+   pad shape  only Proteus  0.017 mm^2 at ( 103.792,   -7.003) 0.50x0.62 mm  near R16-2 (VS') 1.25 mm, -
+   pad shape  only Proteus  0.016 mm^2 at ( -18.290,  -17.813) 0.25x0.10 mm  near Q1-3 (B-) 1.08 mm, -
+   pad shape  only KiCad    0.013 mm^2 at ( -52.246,  -14.035) 0.10x0.25 mm  near D5-K (OTGND) 1.23 mm, -
+   pad shape  only Proteus  0.011 mm^2 at ( -17.744,  -17.296) 0.08x0.23 mm  near Q1-3 (B-) 1.09 mm, -
+
+== B.Cu: Proteus copper 1372.7 mm^2, KiCad copper 1333.6 mm^2
+   raw XOR 51.86 mm^2; after 0.05 mm tolerance: only Proteus 28.41 mm^2, only KiCad 3.88 mm^2, 430 clusters (323 below 0.01 mm^2)
+   pad shape   107 clusters, 31.96 mm^2
+   coverage: Proteus 100 draws / 146 flashes, 0 not on KiCad copper (0 explained by clearance / pad shape); KiCad 96 draws / 146 flashes, 0 not on Proteus copper (0 explained by pad shape)
+   pad shape     9 clusters, only KiCad   0.00 mm^2, only Proteus  12.18 mm^2  tube_power_amp:C_Rect_L13.0mm_W6.0mm_P9.70mm  (4 parts: C1 C2 C3 C4)
+   pad shape    39 clusters, only KiCad   0.00 mm^2, only Proteus   8.42 mm^2  Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal  (19 parts: R1 R10 R11 R12 R17 R18 ...)
+   pad shape    21 clusters, only KiCad   2.91 mm^2, only Proteus   0.00 mm^2  tube_power_amp:D_DO-41_SOD81_P10.16mm_Horizontal_AK  (5 parts: D1 D2 D3 D4 D5)
+   pad shape     5 clusters, only KiCad   0.00 mm^2, only Proteus   2.50 mm^2  tube_power_amp:CP_Radial_D10.0mm_P5.00mm_PM  (1 parts: C5)
+   pad shape     7 clusters, only KiCad   0.00 mm^2, only Proteus   2.31 mm^2  tube_power_amp:CP_Radial_D10.0mm_P5.08mm_PM  (1 parts: C6)
+   pad shape     7 clusters, only KiCad   0.00 mm^2, only Proteus   1.75 mm^2  Package_TO_SOT_THT:TO-220-3_Vertical  (1 parts: Q1)
+   pad shape     9 clusters, only KiCad   0.00 mm^2, only Proteus   1.08 mm^2  tube_power_amp:R_Axial_Power_L25.0mm_W6.4mm_P30.00mm  (4 parts: R13 R14 R15 R16)
+   pad shape     8 clusters, only KiCad   0.67 mm^2, only Proteus   0.00 mm^2  tube_power_amp:TO-92_Inline_P2.03mm  (2 parts: Q2 Q3)
+   pad shape     2 clusters, only KiCad   0.14 mm^2, only Proteus   0.00 mm^2  tube_power_amp:R_Axial_DIN0414_L11.9mm_D4.5mm_P19.05mm_Horizontal  (1 parts: R24)
+   pad shape  only Proteus  1.690 mm^2 at (-100.328,    0.462) 2.58x2.58 mm  near C1-1 (#00033) 0.00 mm, -
+   pad shape  only Proteus  1.690 mm^2 at ( -60.328,  -13.963) 2.58x2.58 mm  near C6-- (#00050) 0.01 mm, -
+   pad shape  only Proteus  1.643 mm^2 at (  31.123,   12.848) 2.58x2.55 mm  near C3-2 (#00025) 0.03 mm, -
+   pad shape  only Proteus  1.643 mm^2 at ( -36.002,  -21.027) 2.58x2.55 mm  near C5-- (B-) 0.03 mm, -
+   pad shape  only Proteus  1.582 mm^2 at (  97.188,   12.847) 2.55x2.55 mm  near C4-2 (#00024) 0.04 mm, -
+   pad shape  only Proteus  1.514 mm^2 at ( -35.552,   12.747) 2.58x2.50 mm  near C2-2 (#00026) 0.13 mm, -
+   pad shape  only Proteus  1.479 mm^2 at (-100.368,   10.205) 2.58x2.58 mm  near C1-2 (#00027) 0.06 mm, -
+   pad shape  only Proteus  1.459 mm^2 at ( -35.654,    3.308) 2.58x2.55 mm  near C2-1 (#00033) 0.16 mm, -
+   pad shape  only Proteus  1.449 mm^2 at (  97.296,    3.205) 2.50x2.55 mm  near C4-1 (#00028) 0.14 mm, -
+   pad shape  only Proteus  1.106 mm^2 at (  30.779,    3.536) 2.53x2.50 mm  near C3-1 (#00028) 0.49 mm, -
+   pad shape  only Proteus  0.450 mm^2 at ( -18.772,  -13.453) 2.05x0.78 mm  near Q1-2 (#00035) 0.83 mm, -
+   pad shape  only Proteus  0.450 mm^2 at ( -18.772,  -15.122) 2.05x0.78 mm  near Q1-2 (#00035) 0.84 mm, -
+   pad shape  only Proteus  0.283 mm^2 at (  18.098,  -11.212) 1.83x1.78 mm  near R17-1 (HT +6) 0.10 mm, -
+   pad shape  only Proteus  0.277 mm^2 at ( -13.652,   -9.096) 1.83x1.80 mm  near R18-1 (#00034) 0.11 mm, -
+   pad shape  only Proteus  0.277 mm^2 at ( -13.652,  -19.479) 1.83x1.80 mm  near R18-2 (B-) 0.11 mm, -
+   pad shape  only Proteus  0.259 mm^2 at (  31.921,    2.382) 0.93x0.90 mm  near C3-1 (#00028) 1.13 mm, -
+   pad shape  only Proteus  0.238 mm^2 at (  18.198,  -21.296) 1.83x1.80 mm  near R17-2 (#00038) 0.10 mm, -
+   pad shape  only Proteus  0.234 mm^2 at (-100.463,   23.623) 1.80x1.80 mm  near R1-2 (#00014) 0.18 mm, -
+   pad shape  only Proteus  0.234 mm^2 at (-100.463,   13.202) 1.80x1.80 mm  near R1-1 (#00027) 0.19 mm, -
+   pad shape  only Proteus  0.234 mm^2 at (  -3.938,   12.198) 1.80x1.80 mm  near R10-1 (#00003) 0.18 mm, -
+   pad shape  only Proteus  0.234 mm^2 at ( -69.092,   10.027) 1.80x1.80 mm  near R9-1 (#00016) 0.18 mm, -
+   pad shape  only Proteus  0.234 mm^2 at (  63.633,   10.027) 1.80x1.80 mm  near R11-1 (#00009) 0.19 mm, -
+   pad shape  only Proteus  0.234 mm^2 at ( 124.337,    9.023) 1.80x1.80 mm  near R12-1 (#00013) 0.18 mm, -
+   pad shape  only Proteus  0.234 mm^2 at (  -3.938,    1.777) 1.80x1.80 mm  near R10-2 (#00023) 0.18 mm, -
+   pad shape  only Proteus  0.234 mm^2 at ( -69.092,   -0.123) 1.80x1.80 mm  near R9-2 (#00023) 0.17 mm, -
+   pad shape  only Proteus  0.234 mm^2 at (  63.633,   -0.123) 1.80x1.80 mm  near R11-2 (#00023) 0.18 mm, -
+   pad shape  only Proteus  0.234 mm^2 at ( 124.337,   -1.398) 1.80x1.80 mm  near R12-2 (#00023) 0.18 mm, -
+   pad shape  only Proteus  0.234 mm^2 at (   2.033,  -10.923) 1.80x1.80 mm  near R23-2 (#00044) 0.18 mm, -
+   pad shape  only Proteus  0.234 mm^2 at (   8.383,  -10.923) 1.80x1.80 mm  near R21-1 (#00041) 0.18 mm, -
+   pad shape  only Proteus  0.234 mm^2 at (   5.208,  -20.827) 1.80x1.80 mm  near R22-2 (#00035) 0.18 mm, -
+   pad shape  only Proteus  0.234 mm^2 at (  11.558,  -20.827) 1.80x1.80 mm  near R20-2 (#00041) 0.18 mm, -
+   pad shape  only Proteus  0.224 mm^2 at ( -36.002,  -17.141) 1.43x0.23 mm  near C5-+ (OTGND) 1.14 mm, -
+   pad shape  only Proteus  0.222 mm^2 at ( -60.328,   -7.733) 1.43x0.23 mm  near C6-+ (OTGND) 1.16 mm, -
+   pad shape  only Proteus  0.222 mm^2 at ( -60.328,  -10.042) 1.43x0.23 mm  near C6-+ (OTGND) 1.15 mm, -
+   pad shape  only Proteus  0.220 mm^2 at ( -37.156,  -16.000) 0.23x1.40 mm  near C5-+ (OTGND) 1.16 mm, -
+   pad shape  only Proteus  0.220 mm^2 at ( -34.849,  -16.000) 0.23x1.40 mm  near C5-+ (OTGND) 1.15 mm, -
+   pad shape  only Proteus  0.218 mm^2 at ( -39.233,   26.874) 1.80x1.75 mm  near R6-2 (#00026) 0.25 mm, -
+   pad shape  only Proteus  0.218 mm^2 at ( -35.764,   26.807) 1.75x1.80 mm  near R2-2 (#00001) 0.25 mm, -
+   pad shape  only Proteus  0.218 mm^2 at (  93.203,   26.874) 1.80x1.75 mm  near R8-2 (#00024) 0.25 mm, -
+   pad shape  only Proteus  0.218 mm^2 at (  97.292,   16.301) 1.80x1.75 mm  near R4-1 (#00024) 0.25 mm, -
+   pad shape  only Proteus  0.218 mm^2 at (  14.742,  -10.999) 1.80x1.75 mm  near R19-1 (#00043) 0.25 mm, -
+   pad shape  only Proteus  0.214 mm^2 at (  30.896,   25.916) 1.80x1.80 mm  near R3-2 (#00007) 0.25 mm, -
+   pad shape  only Proteus  0.210 mm^2 at ( -19.537,  -16.011) 0.83x0.75 mm  near Q1-3 (B-) 1.15 mm, -
+   pad shape  only Proteus  0.210 mm^2 at ( -19.537,  -17.639) 0.83x0.75 mm  near Q1-3 (B-) 1.14 mm, -
+   pad shape  only Proteus  0.208 mm^2 at ( -39.138,   16.428) 1.80x1.80 mm  near R6-1 (#00031) 0.25 mm, -
+   pad shape  only Proteus  0.206 mm^2 at (   2.132,  -20.893) 1.80x1.80 mm  near R23-1 (OTGND) 0.24 mm, -
+   pad shape  only Proteus  0.206 mm^2 at (  31.055,   15.651) 1.80x1.80 mm  near R3-1 (#00025) 0.23 mm, -
+   pad shape  only Proteus  0.202 mm^2 at (  97.165,   26.818) 1.75x1.80 mm  near R4-2 (#00011) 0.15 mm, -
+   pad shape  only Proteus  0.202 mm^2 at (  26.517,   26.020) 1.80x1.75 mm  near R7-2 (#00025) 0.15 mm, -
+   pad shape  only Proteus  0.202 mm^2 at (   5.228,  -10.805) 1.80x1.75 mm  near R22-1 (#00039) 0.15 mm, -
+   pad shape  only Proteus  0.202 mm^2 at (  11.578,  -10.805) 1.80x1.75 mm  near R20-1 (#00042) 0.15 mm, -
+   pad shape  only Proteus  0.202 mm^2 at (   8.403,  -20.945) 1.80x1.75 mm  near R21-2 (#00039) 0.15 mm, -
+   pad shape  only Proteus  0.202 mm^2 at (  14.753,  -20.945) 1.80x1.75 mm  near R19-2 (#00042) 0.15 mm, -
+   pad shape  only Proteus  0.195 mm^2 at (  93.326,   16.454) 1.80x1.80 mm  near R8-1 (#00030) 0.06 mm, -
+   pad shape  only Proteus  0.195 mm^2 at (  26.633,   15.849) 1.80x1.80 mm  near R7-1 (#00029) 0.05 mm, -
+   pad shape  only Proteus  0.195 mm^2 at ( -88.291,   -1.873) 1.80x1.80 mm  near R5-2 (#00027) 0.04 mm, -
+   pad shape  only Proteus  0.191 mm^2 at ( -17.939,  -15.995) 0.80x0.68 mm  near Q1-3 (B-) 1.15 mm, -
+   pad shape  only Proteus  0.191 mm^2 at ( -17.939,  -17.655) 0.80x0.68 mm  near Q1-3 (B-) 1.15 mm, -
+   pad shape  only Proteus  0.189 mm^2 at ( -36.002,  -14.844) 1.33x0.20 mm  near C5-+ (OTGND) 1.16 mm, -
+   pad shape  only Proteus  0.184 mm^2 at ( 104.773,   -8.167) 2.58x2.35 mm  near R16-2 (VS') 0.39 mm, -
+   pad shape  only KiCad    0.176 mm^2 at ( -54.246,  -15.506) 0.70x0.70 mm  near D5-K (OTGND) 1.28 mm, -
+   pad shape  only KiCad    0.176 mm^2 at ( -52.434,  -15.506) 0.70x0.70 mm  near D5-K (OTGND) 1.28 mm, -
+   pad shape  only KiCad    0.176 mm^2 at ( -66.409,  -18.681) 0.70x0.70 mm  near D3-K (OTGND) 1.27 mm, -
+   pad shape  only KiCad    0.176 mm^2 at ( -78.371,  -21.319) 0.70x0.70 mm  near D4-K (#00046) 1.28 mm, -
+   pad shape  only KiCad    0.176 mm^2 at ( -78.371,  -23.131) 0.70x0.70 mm  near D4-K (#00046) 1.28 mm, -
+   pad shape  only Proteus  0.162 mm^2 at ( -88.129,  -12.079) 1.78x1.80 mm  near R5-1 (#00032) 0.14 mm, -
+   pad shape  only KiCad    0.159 mm^2 at ( -78.387,   -9.267) 0.62x0.68 mm  near D1-K (#00045) 1.28 mm, -
+   pad shape  only KiCad    0.159 mm^2 at ( -78.387,  -11.058) 0.62x0.68 mm  near D1-K (#00045) 1.28 mm, -
+   pad shape  only KiCad    0.158 mm^2 at ( -68.201,  -13.054) 0.68x0.62 mm  near D2-K (OTGND) 1.28 mm, -
+   pad shape  only KiCad    0.158 mm^2 at ( -52.419,  -13.714) 0.62x0.68 mm  near D5-K (OTGND) 1.28 mm, -
+   pad shape  only KiCad    0.158 mm^2 at ( -66.394,  -14.861) 0.62x0.68 mm  near D2-K (OTGND) 1.28 mm, -
+   pad shape  only KiCad    0.158 mm^2 at ( -66.394,  -16.889) 0.62x0.68 mm  near D3-K (OTGND) 1.28 mm, -
+   pad shape  only KiCad    0.158 mm^2 at ( -68.201,  -18.696) 0.68x0.62 mm  near D3-K (OTGND) 1.28 mm, -
+   pad shape  only KiCad    0.158 mm^2 at ( -76.579,  -21.304) 0.68x0.62 mm  near D4-K (#00046) 1.28 mm, -
+   pad shape  only KiCad    0.158 mm^2 at ( -76.579,  -23.146) 0.68x0.62 mm  near D4-K (#00046) 1.28 mm, -
+   pad shape  only Proteus  0.147 mm^2 at ( 104.484,   21.638) 2.53x2.35 mm  near R16-1 (#00012) 0.65 mm, -
+   pad shape  only KiCad    0.143 mm^2 at ( -76.563,   -9.253) 0.60x0.62 mm  near D1-K (#00045) 1.28 mm, -
+   pad shape  only KiCad    0.143 mm^2 at ( -76.563,  -11.072) 0.60x0.62 mm  near D1-K (#00045) 1.29 mm, -
+   pad shape  only KiCad    0.141 mm^2 at ( -68.215,  -14.875) 0.60x0.60 mm  near D2-K (OTGND) 1.28 mm, -
+   pad shape  only KiCad    0.141 mm^2 at ( -68.215,  -16.875) 0.60x0.60 mm  near D3-K (OTGND) 1.28 mm, -
+   pad shape  only Proteus  0.121 mm^2 at ( -92.787,   21.672) 2.35x2.35 mm  near R13-1 (#00015) 0.79 mm, -
+   pad shape  only Proteus  0.121 mm^2 at ( -28.493,   21.672) 2.35x2.35 mm  near R14-1 (#00002) 0.78 mm, -
+   pad shape  only Proteus  0.121 mm^2 at (  38.182,   21.672) 2.35x2.35 mm  near R15-1 (#00008) 0.78 mm, -
+   pad shape  only Proteus  0.121 mm^2 at ( -92.787,   -8.328) 2.35x2.35 mm  near R13-2 (VS') 0.79 mm, -
+   pad shape  only Proteus  0.121 mm^2 at ( -28.493,   -8.328) 2.35x2.35 mm  near R14-2 (VS') 0.78 mm, -
+   pad shape  only Proteus  0.121 mm^2 at (  38.182,   -8.328) 2.35x2.35 mm  near R15-2 (VS') 0.78 mm, -
+   pad shape  only Proteus  0.114 mm^2 at ( -36.236,   16.432) 0.60x1.70 mm  near R2-1 (#00026) 0.68 mm, -
+   pad shape  only KiCad    0.093 mm^2 at (  -7.797,  -17.471) 0.45x0.48 mm  near Q3-1 (#00038) 0.88 mm, -
+   pad shape  only KiCad    0.093 mm^2 at (  -7.796,  -10.494) 0.48x0.48 mm  near Q2-1 (#00038) 0.88 mm, -
+   pad shape  only KiCad    0.092 mm^2 at (  -7.798,  -11.730) 0.45x0.48 mm  near Q2-1 (#00038) 0.88 mm, -
+   pad shape  only KiCad    0.082 mm^2 at (  -6.554,  -17.457) 0.45x0.43 mm  near Q3-1 (#00038) 0.89 mm, -
+   pad shape  only KiCad    0.082 mm^2 at (  -7.808,  -18.711) 0.43x0.45 mm  near Q3-1 (#00038) 0.88 mm, -
+   pad shape  only KiCad    0.081 mm^2 at (  -6.554,  -10.481) 0.45x0.43 mm  near Q2-1 (#00038) 0.89 mm, -
+   pad shape  only KiCad    0.081 mm^2 at (  -6.554,  -11.744) 0.45x0.43 mm  near Q2-1 (#00038) 0.89 mm, -
+   pad shape  only Proteus  0.071 mm^2 at ( -34.899,   16.391) 0.58x1.65 mm  near R2-1 (#00026) 0.67 mm, -
+   pad shape  only KiCad    0.071 mm^2 at (  -6.541,  -18.724) 0.40x0.40 mm  near Q3-1 (#00038) 0.89 mm, -
+   pad shape  only KiCad    0.071 mm^2 at ( -62.227,  -23.209) 2.18x0.68 mm  near R24-2 (#00047) 0.98 mm, -
+   pad shape  only KiCad    0.071 mm^2 at ( -43.177,  -23.209) 2.18x0.68 mm  near R24-1 (B-) 0.98 mm, -
+   pad shape  only Proteus  0.052 mm^2 at ( -18.752,  -12.762) 2.05x0.05 mm  near Q1-1 (#00034) 1.02 mm, -
+   pad shape  only Proteus  0.044 mm^2 at ( -61.456,   -8.428) 0.18x0.40 mm  near C6-+ (OTGND) 1.22 mm, -
+   pad shape  only Proteus  0.044 mm^2 at ( -59.199,   -8.428) 0.18x0.40 mm  near C6-+ (OTGND) 1.22 mm, -
+   pad shape  only Proteus  0.044 mm^2 at ( -61.456,   -9.348) 0.18x0.40 mm  near C6-+ (OTGND) 1.22 mm, -
+   pad shape  only Proteus  0.042 mm^2 at ( -59.203,   -9.353) 0.18x0.40 mm  near C6-+ (OTGND) 1.21 mm, -
+   pad shape  only Proteus  0.020 mm^2 at ( 105.790,   22.937) 0.55x0.75 mm  near R16-1 (#00012) 1.24 mm, -
+   pad shape  only KiCad    0.015 mm^2 at ( -66.736,  -12.884) 0.28x0.10 mm  near D2-K (OTGND) 1.23 mm, -
+   pad shape  only KiCad    0.015 mm^2 at ( -66.224,  -13.396) 0.10x0.28 mm  near D2-K (OTGND) 1.23 mm, -
+   pad shape  only KiCad    0.013 mm^2 at ( -54.434,  -14.035) 0.10x0.25 mm  near D5-K (OTGND) 1.23 mm, -
+
+== plated drills: Proteus 146, KiCad 146, matched 146 within 0.05 mm
+     44 x Proteus 0.7620 mm -> KiCad 0.8000 mm  KiCad footprint drill kept (larger)
+     13 x Proteus 1.0160 mm -> KiCad 1.1000 mm  KiCad footprint drill kept (larger)
+      4 x Proteus 1.0160 mm -> KiCad 1.2000 mm  KiCad footprint drill kept (larger)
+     12 x Proteus 1.1430 mm -> KiCad 1.0000 mm  SMALLER
+      8 x Proteus 1.1430 mm -> KiCad 1.2000 mm  KiCad footprint drill kept (larger)
+     29 x Proteus 1.5240 mm -> KiCad 1.5240 mm
+     32 x Proteus 1.6002 mm -> KiCad 1.6000 mm
+      4 x Proteus 3.0000 mm -> KiCad 3.0000 mm
+== excellon (fab_2010_drill_metric.drl): 146 holes vs 146 drill gerber flashes, 146 matched within 0.05 mm, 0 mismatches
+     44 x Excellon 0.7620 mm = gerber 0.7620 mm
+     17 x Excellon 1.0160 mm = gerber 1.0160 mm
+     20 x Excellon 1.1430 mm = gerber 1.1430 mm
+     29 x Excellon 1.5240 mm = gerber 1.5240 mm
+     32 x Excellon 1.6002 mm = gerber 1.6002 mm
+      4 x Excellon 2.9997 mm = gerber 3.0000 mm
+   ERROR plated: drill at (-100.33, 0.46): Proteus 1.143 mm, KiCad 1.0 mm is smaller
+   ERROR plated: drill at (-100.33, 10.16): Proteus 1.143 mm, KiCad 1.0 mm is smaller
+   ERROR plated: drill at (-35.56, 3.175): Proteus 1.143 mm, KiCad 1.0 mm is smaller
+   ERROR plated: drill at (-35.56, 12.875): Proteus 1.143 mm, KiCad 1.0 mm is smaller
+   ERROR plated: drill at (31.115, 3.175): Proteus 1.143 mm, KiCad 1.0 mm is smaller
+   ERROR plated: drill at (31.115, 12.875): Proteus 1.143 mm, KiCad 1.0 mm is smaller
+   ERROR plated: drill at (97.155, 3.175): Proteus 1.143 mm, KiCad 1.0 mm is smaller
+   ERROR plated: drill at (97.155, 12.875): Proteus 1.143 mm, KiCad 1.0 mm is smaller
+   ERROR plated: drill at (-60.325, -8.89): Proteus 1.143 mm, KiCad 1.0 mm is smaller
+   ERROR plated: drill at (-60.325, -13.97): Proteus 1.143 mm, KiCad 1.0 mm is smaller
+   ERROR plated: drill at (-36.0, -16.0): Proteus 1.143 mm, KiCad 1.0 mm is smaller
+   ERROR plated: drill at (-36.0, -21.0): Proteus 1.143 mm, KiCad 1.0 mm is smaller

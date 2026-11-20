@@ -99,5 +99,10 @@ sh.text("OT (1650TA) and VA' are not on the board: OT1 / OT2 are the board's con
 sh.text("PDF terminal names: +6 = P6, -6 = N6, HT+6 = HT_P6, HT -6 = HT_N6, HT-0 = HT_0, P.I.GND = PI_GND, "
         "VA GND = VA_GND, IN8+9 = IN8_9, IN6+7 = IN6_7, VA' = VA_PRIME.", *P(9, 149))
 sh.text("Pin 6 of the EL34 sockets has no net (as in Proteus).", *P(9, 152))
+# pin 6 of U6-U9: passive pin + no-connect flag (a wire on it then changes the netlist and fails
+# compare_netlists and ERC; a no_connect-type pin would stay "unconnected" in KiCad 10's netlist).
+# Last, so that the UUIDs of the items above do not shift.
+for ch in (ch9, ch8, ch7, ch6):
+    sh.no_connect(*ch["nc"])
 sh.save()
 print("sheet01: written")

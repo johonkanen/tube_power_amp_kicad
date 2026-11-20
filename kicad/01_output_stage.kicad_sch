@@ -536,7 +536,7 @@
 						)
 					)
 				)
-				(pin no_connect line
+				(pin passive line
 					(at 2.54 -8.89 90)
 					(length 2.54)
 					(name "NC"
@@ -6104,6 +6104,22 @@
 			(justify left bottom)
 		)
 		(uuid "b94ffe4e-69ee-5999-9d3b-e87939915e11")
+	)
+	(no_connect
+		(at 189.23 68.58)
+		(uuid "38ff2d2b-3162-54dc-bdd9-05ad5555bcc1")
+	)
+	(no_connect
+		(at 189.23 104.14)
+		(uuid "1187c35e-b767-5526-a4e2-3978c7584476")
+	)
+	(no_connect
+		(at 189.23 160.02)
+		(uuid "0583996c-04a0-5f6d-8ed2-317546d3796f")
+	)
+	(no_connect
+		(at 189.23 195.58)
+		(uuid "de681290-3350-5f02-a074-388886fe5f6a")
 	)
 	(embedded_fonts no)
 )

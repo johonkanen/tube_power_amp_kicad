@@ -22,9 +22,6 @@ sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "p2k
 from p2k.symgen import *  # noqa: E402,F401,F403
 from p2k.symgen import _pin, run  # noqa: E402
 
-NC = "no_connect"
-
-
 def pin_types(sym, types):
     """Set the electrical type of pins {number: type}."""
     seen = set()
@@ -51,13 +48,16 @@ def el34():
     # report as undriven on the resistor-only cathode / heater nets); anode passive too (KiCad:
     # output; the tubes work in parallel pairs, U8 || U9 and U6 || U7, and ERC reports two
     # connected outputs as a pin_to_pin error); pin 6 (no net in the IPC, unused on the EL34) is
-    # a no_connect pin on unit 1, left open in the schematic.
+    # a PASSIVE pin on unit 1 that gets a no-connect flag in the sheet script. Not a no_connect
+    # type pin: KiCad 10 keeps a no_connect pin in its own unconnected-(...) net even when a wire
+    # joins it (ERC only warns no_connect_connected), so compare_netlists could not see a pin 6
+    # wired by mistake (STATUS.md "Phase 4"). A wired passive pin is in the wire's net.
     sym = from_std("Valve", "EL34", "EL34", "U", desc="EL34 power pentode, octal; Proteus pin ids "
                    "G3=1 H2=2 A=3 G2=4 G1=5 (6 = no connection) H1=7 K=8; unit 2 = heater",
                    pins={"1": "1", "2": "2", "3": "3", "4": "4", "5": "5", "7": "7", "8": "8"},
                    names={"1": "G3", "2": "H2", "3": "A", "4": "G2", "5": "G1", "7": "H1", "8": "K"})
     pin_types(sym, {"2": PAS, "3": PAS, "7": PAS, "8": PAS})
-    return add_pins(sym, "_1_1", [("6", "NC", NC, 2.54, -8.89, 90)])
+    return add_pins(sym, "_1_1", [("6", "NC", PAS, 2.54, -8.89, 90)])
 
 
 def build():

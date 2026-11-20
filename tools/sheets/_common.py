@@ -92,10 +92,11 @@ def tube_channel(sh, tube, cap, rgrid, rbias, bias, rk, vb, rscreen, cy, by, xj,
     (row by) to the capacitor / grid-stop node at x = xj, the grid wire jogging at x = xjog; the
     tube `tube` (unit 1) at (107, cy + 2); cathode K (pin 8) joined with G3 (pin 1), 1R cathode
     resistor `rk` (centre x = xk) and sense terminal `vb` at x = xvb (below the cathode row, or to
-    the left of it with vb_left); screen resistor `rscreen` on G2 (pin 4). Pin 6 stays open
-    (no_connect pin type). The heater (unit 2) is placed by the sheet script.
+    the left of it with vb_left); screen resistor `rscreen` on G2 (pin 4). Pin 6 (passive,
+    no net in Proteus) is returned as 'nc': the sheet script puts a no-connect flag on it (at the
+    end of the script, so the UUID sequence of everything else stays as it was). The heater (unit 2) is placed by the sheet script.
     Returns the open ends: 'in' (capacitor pin 1), 'gnd' (cathode resistor pin 2), 'anode'
-    (pin 3), 'vs' (screen resistor pin 2)."""
+    (pin 3), 'vs' (screen resistor pin 2), 'nc' (pin 6)."""
     tx, ty = 107, cy + 2
     row = ty + 10                                   # cathode row
     u = sh.place(sym(tube), tube, *P(tx, ty), value=sh_value(tube))
@@ -128,4 +129,4 @@ def tube_channel(sh, tube, cap, rgrid, rbias, bias, rk, vb, rscreen, cy, by, xj,
     # screen resistor
     _, s1, s2 = horiz2(sh, sym(rscreen), rscreen, *P(122, ty - 1), sh_value(rscreen), left=1)
     sh.wire(u.pin(4), s1)
-    return {"in": c1, "gnd": k2, "anode": u.pin(3), "vs": s2}
+    return {"in": c1, "gnd": k2, "anode": u.pin(3), "vs": s2, "nc": u.pin(6)}

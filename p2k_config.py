@@ -151,3 +151,14 @@ DRC_ACCEPTED = {
     "pth_inside_courtyard": "VB6-VB9 terminal pads in the octal socket courtyard (Proteus placement: "
                             "pad centre 0.07 mm outside the socket body outline)",
 }
+
+# --- Phase 4 checks (p2k.gerber_roundtrip, p2k.ipc356_diff) ---------------------------
+
+# The June 2010 fab Excellon drill file (source/fab_2010/OUTPUT - CADCAM Drill.TXT: inch, 146 hits,
+# same frame as the 2026 X2 export): gerber_roundtrip compares it 1:1 with the Proteus plated drill
+# gerber. The shared reader is metric-only, so the file is converted by tools/excellon_metric.py.
+DRILL_EXCELLON = "reference/fab_2010_drill_metric.drl"
+# KiCad footprint drills smaller than the Proteus drill, as a recorded decision. None recorded:
+# C1-C6 (KiCad 1.0 vs Proteus 1.143 mm) is an OPEN USER QUESTION (STATUS.md "Decisions"); until it
+# is answered ipc356_diff and gerber_roundtrip --check fail on exactly those 12 holes, and
+# tools/check_all.sh runs them through tools/phase4_checks.py, which accepts only that failure.

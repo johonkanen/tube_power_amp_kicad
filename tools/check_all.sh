@@ -6,7 +6,13 @@ set -u
 cd "$(dirname "$0")/.."
 [ -x tools/p2k/bin/p2k ] || { echo "tools/p2k missing: git submodule update --init"; exit 1; }
 fail=0
-step() { echo "== $1"; shift; "$@" || { echo "!! FAILED: $*"; fail=1; }; }
+mkdir -p build/tmp
+log=build/tmp/check_all.log; : > "$log"
+step() {
+    echo "== $1" | tee -a "$log"; shift
+    "$@" 2>&1 | tee -a "$log"
+    [ "${PIPESTATUS[0]}" -eq 0 ] || { echo "!! FAILED: $*" | tee -a "$log"; fail=1; }
+}
 
 step "KiCad environment" tools/p2k/bin/kipy -c "import pcbnew; v = pcbnew.GetBuildVersion(); print('pcbnew', v); assert v.startswith('10.0.7'), v"
 step "IPC-D-356A parser self-check" tools/p2k/bin/p2k ipc356 --check
@@ -27,7 +33,16 @@ step "PCB rebuilt from schematic + gerbers, up to date" tools/make_pcb.sh --chec
 step "Board pads, holes vs IPC (position, size, nets 1:1)" tools/p2k/bin/kipy -m p2k.check_board
 step "Board copper connectivity (KiCad geometry)" tools/p2k/bin/kipy -m p2k.assign_nets --check
 step "DRC with schematic parity" tools/p2k/bin/p2k drc
+# Phase 4: independent verification (KiCad's own exports vs the Proteus files). Both tools run
+# through tools/phase4_checks.py while the C1-C6 drill question is open (STATUS.md "Decisions"):
+# it passes only if the 12 C1-C6 drill errors are the tool's only errors.
+step "2010 Excellon drill file converted to metric, up to date" python3 tools/excellon_metric.py --check
+step "IPC-D-356 from the board vs Proteus (pads, holes, nets)" python3 tools/phase4_checks.py ipc356_diff
+step "Gerber round trip vs Proteus (copper XOR, coverage, drills, 2010 Excellon)" python3 tools/phase4_checks.py gerber_roundtrip
 
 echo
-[ $fail -eq 0 ] && echo "ALL CHECKS PASSED" || echo "SOME CHECKS FAILED"
+pending=$(grep -c "PENDING USER DECISION" "$log")
+if [ $fail -ne 0 ]; then echo "SOME CHECKS FAILED"
+elif [ "$pending" -ne 0 ]; then echo "ALL CHECKS PASSED, EXCEPT $pending PENDING USER DECISION(S):"; grep "PENDING USER DECISION" "$log" | sed 's/^/  /'
+else echo "ALL CHECKS PASSED"; fi
 exit $fail
