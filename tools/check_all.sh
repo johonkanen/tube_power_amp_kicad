@@ -22,6 +22,11 @@ step "Netlist comparison vs IPC" tools/p2k/bin/p2k compare_netlists
 step "Footprint library, map and fp-lib-table up to date" python3 tools/gen_footprints.py --check
 step "Footprints vs IPC pad geometry" tools/p2k/bin/kipy -m p2k.check_footprints --pcbnew
 step "Pin order vs unmoved KiCad base footprints" tools/p2k/bin/kipy tools/check_pin_order.py
+# Phase 3: PCB (build_pcb, gerber_to_tracks, assign_nets; no pours, no vias on this board)
+step "PCB rebuilt from schematic + gerbers, up to date" tools/make_pcb.sh --check
+step "Board pads, holes vs IPC (position, size, nets 1:1)" tools/p2k/bin/kipy -m p2k.check_board
+step "Board copper connectivity (KiCad geometry)" tools/p2k/bin/kipy -m p2k.assign_nets --check
+step "DRC with schematic parity" tools/p2k/bin/p2k drc
 
 echo
 [ $fail -eq 0 ] && echo "ALL CHECKS PASSED" || echo "SOME CHECKS FAILED"

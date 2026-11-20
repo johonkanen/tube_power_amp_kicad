@@ -124,3 +124,30 @@ OFF_BOARD_PARTS = {
 # The 4 IPC 'hole' records: plated 3.0 mm holes with a 6.35 mm pad on both layers, no net.
 HOLE_FOOTPRINT = "tube_power_amp:MountingHole_3.0mm_PTH_Pad6.35mm"
 HOLE_VALUE = "MountingHole_3.0mm"
+# Board thickness: 1.6 mm, the 2010 standard; the 2010 fab READ-ME (source/fab_2010) gives no
+# stack-up. The 2026 export's READ-ME lists Proteus 8's default 2-layer stack (2 x 0.036 Cu +
+# 1.483 FR4 = 1.555 mm, + 2 x 0.01 resist), written when the design was re-saved, not the 2010 order.
+PCB_THICKNESS = 1.6
+# Design rules from the Proteus copper as built (STATUS.md "Phase 3", tools/measure_gaps.py), mm.
+# No vias on this board: the via values are only the netclass defaults.
+PCB_RULES = dict(
+    min_track=0.5,        # thinnest conductor draw 0.508 (20 mil)
+    min_via=0.6,          # no vias (netclass default only)
+    min_annular=0.1,
+    min_drill=0.7,        # smallest drill 0.762 (Proteus) / 0.8 (KiCad footprints)
+    clearance=0.38,       # smallest different-net gap 0.381 (15 mil, pad-track); pad-pad 0.508, track-track 1.016
+    hole_clearance=0.25,  # drill to other-net copper: >= 0.381 gap + annular ring
+    hole_to_hole=1.0,     # smallest drill-to-drill 1.270 (Proteus), 1.232 with the KiCad TO-92 drills
+    edge_clearance=0.5,   # copper to outline >= 0.635
+    track=0.508,          # Default netclass
+    via=0.8,
+    via_drill=0.4,
+)
+# DRC error types that remain by design (p2k drc; STATUS.md "Phase 3", remaining DRC items).
+DRC_ACCEPTED = {
+    "courtyards_overlap": "KiCad courtyards vs the Proteus placement (16: octal sockets with the "
+                          "5 W resistors / R10 / R12 / VBx terminals, R24/R25 with each other and "
+                          "C5/C6/D5, R18 with Q2/Q3)",
+    "pth_inside_courtyard": "VB6-VB9 terminal pads in the octal socket courtyard (Proteus placement: "
+                            "pad centre 0.07 mm outside the socket body outline)",
+}

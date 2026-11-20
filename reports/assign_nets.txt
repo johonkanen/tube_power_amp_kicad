@@ -1,0 +1,8 @@
+== stage A: pads + tracks + vias (Proteus pad flashes)
+items 400, groups 51, shorts 0, orphans 0, opens 0
+== stage B: + Proteus pours
+items 400, groups 51, shorts 0, orphans 0, opens 0
+== assignment: 254 tracks/vias got a net, 0 without
+== after zone fill (KiCad pads, tracks, vias, filled zones)
+items 400, groups 51, shorts 0, orphans 0, opens 0
+items carrying another net than their group: 0
