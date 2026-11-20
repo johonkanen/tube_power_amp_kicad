@@ -20,10 +20,10 @@ Example: ~/dev/tube_psu_kicad (STATUS.md Phase 5, p2k_config.py; read only).
 
 Ask the user (one message, with the facts from STATUS.md), then implement only what was chosen:
 1. (Decided 2026-11-20: C1-C6 keep the KiCad 1.0 mm drills; nothing to do.)
-2. Octal socket side (STATUS.md Findings 10): the Proteus pad numbering is the mirror of the
-   octal standard for a top-mounted socket. Which side are the sockets on in the built amplifier?
-   If the solder side: move the socket footprint graphics / courtyard / 3D model to B with
-   standard numbering (copper and nets unchanged; all checks must still pass).
+2. Octal socket side (STATUS.md Findings 10): DECIDED 2026-11-20, the sockets U6-U9 are on the
+   bottom (solder) side. Implement: move the socket footprints to B with the standard octal
+   numbering (graphics / courtyard / 3D model on B; copper, pads and nets unchanged); update the
+   pin-order check and the accepted courtyard items accordingly; all checks must still pass.
 3. Usual Phase 5 choices: refdes placement on the silk (p2k place_refdes as a make_pcb.sh step;
    46 silk_overlap / 23 silk_over_copper / 4 silk_edge_clearance warnings today), footprint body
    graphics vs the Proteus silk, KiCad vs Proteus pad sizes (DRC does not force any), sheet names
