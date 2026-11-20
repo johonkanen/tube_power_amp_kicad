@@ -11,6 +11,20 @@ Plan: [PLAN.md](PLAN.md). Playbook: `tools/p2k/CONVERSION_PLAYBOOK.md`.
 | 4 Verification | **done** 2026-11-20 (Fable 5.2, clean context): `ipc356_diff` 146/146 records, 43 nets 1:1; `gerber_roundtrip` 0 unexplained clusters, 0 uncovered draws / flashes, 2010 Excellon 146/146; C1-C6 KiCad 1.0 mm drills accepted by the user (`DRILL_SMALLER`), so both checks pass outright; pin 6 of U6-U9 now passive + no-connect flag |
 | 5 Clean-up | **done** 2026-11-20 (Opus 5.5, clean context): user decisions implemented in the generators; octal sockets U6-U9 on the bottom side (standard octal numbering, copper unchanged), `place_refdes` in make_pcb.sh; DRC 93 → 48 (0 shorts / 0 unconnected / 0 parity); ALL CHECKS PASSED. **Conversion complete**; the board stays generated until the user's first manual layout change |
 
+## Shared-tool migration 2026-11-20
+
+Migration to the shared proteus2kicad tools (`tools/p2k/docs/CANDIDATES.md` section 7.1, the pilot).
+p2k pin: **a9a286c** (proteus2kicad main; code = 2fb1563 batch Z, later commits docs only).
+Proof of every commit: `~/dev/proteus2kicad/tools/regress.sh a9a286c tube_power_amp_kicad` (clean
+clone of the committed board, regenerate, `check_all.sh`, clean tree).
+
+1. **Bump** `tools/p2k` c5682dd → a9a286c. `p2k ipc356` re-baselines exactly the 2 lines of
+   `reference/pin_nets_by_component.md` of decision **D-R** (`Net aliases: none.`; the `Index:` line
+   with `HT_0 HT_N6 HT_P6 N6 P6`). Strict checks (D-Z): PA passes the default set, no
+   `STRICT_CHECKS_OFF`. Every other generated file byte-identical; check_all.sh only prints more
+   (strict-check lines, the `compare` / `build_pcb` / `ipc356_diff` count wording, the derive
+   `max_move` lines).
+
 ## Phase 0 – done (Opus 5.5, 2026-11-20)
 
 - **Inventory measured** (PLAN.md section 1 corrected): 43 nets, 146 IPC records (142 THT
