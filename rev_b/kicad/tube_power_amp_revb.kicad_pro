@@ -1,0 +1,34 @@
+{
+  "meta": {
+    "filename": "tube_power_amp_revb.kicad_pro",
+    "version": 3
+  },
+  "schematic": {},
+  "board": {},
+  "sheets": [
+    [
+      "451c49f3-c14c-5f4e-b828-2be954cd9e52",
+      "Root"
+    ],
+    [
+      "1434c555-c00a-550c-8842-61a459fc0599",
+      "01 Output stage, power tabs, grid drive"
+    ],
+    [
+      "db981763-20a3-57ec-b55d-e76f1b055714",
+      "02 -80 V input, VNC reference and monitor, watchdog"
+    ],
+    [
+      "3c130c1e-8249-5df9-b7ee-a789d394c6ed",
+      "03 Bias DAC and the four bias channels"
+    ],
+    [
+      "6096403a-7634-5ffe-bd5b-e0ad7a51a3db",
+      "04 Cathode-current sense, ADC, over-current latch"
+    ],
+    [
+      "24085554-568b-5123-be58-842f743ea977",
+      "05 Ribbons, DGND island, expander, warm-up timer, HV_PERMIT"
+    ]
+  ]
+}

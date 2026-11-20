@@ -1,0 +1,225 @@
+(kicad_sch
+	(version 20260101)
+	(generator "eeschema")
+	(generator_version "10.0")
+	(uuid "451c49f3-c14c-5f4e-b828-2be954cd9e52")
+	(paper "A3")
+	(title_block
+		(title "Tube power amp rev B")
+		(company "Tube amplifier")
+		(rev "rev B - initial schematic")
+		(comment 1 "From tube_amplifier_kicad docs/bias_supply.md, docs/interfaces.md (IF-1.1), docs/grounding.md")
+	)
+	(lib_symbols)
+	(sheet
+		(at 25.4 38.1)
+		(size 101.6 20.32)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "1434c555-c00a-550c-8842-61a459fc0599")
+		(property "Sheetname" "01 Output stage, power tabs, grid drive"
+			(at 25.4 37.4 0)
+			(effects
+				(font
+					(size 1.524 1.524)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "01_output_stage.kicad_sch"
+			(at 25.4 59.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "tube_power_amp_revb"
+				(path "/451c49f3-c14c-5f4e-b828-2be954cd9e52"
+					(page "2")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 152.4 38.1)
+		(size 101.6 20.32)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "db981763-20a3-57ec-b55d-e76f1b055714")
+		(property "Sheetname" "02 -80 V input, VNC reference and monitor, watchdog"
+			(at 152.4 37.4 0)
+			(effects
+				(font
+					(size 1.524 1.524)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "02_bias_reference.kicad_sch"
+			(at 152.4 59.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "tube_power_amp_revb"
+				(path "/451c49f3-c14c-5f4e-b828-2be954cd9e52"
+					(page "3")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 279.4 38.1)
+		(size 101.6 20.32)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "3c130c1e-8249-5df9-b7ee-a789d394c6ed")
+		(property "Sheetname" "03 Bias DAC and the four bias channels"
+			(at 279.4 37.4 0)
+			(effects
+				(font
+					(size 1.524 1.524)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "03_bias_channels.kicad_sch"
+			(at 279.4 59.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "tube_power_amp_revb"
+				(path "/451c49f3-c14c-5f4e-b828-2be954cd9e52"
+					(page "4")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 25.4 78.74000000000001)
+		(size 101.6 20.32)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "6096403a-7634-5ffe-bd5b-e0ad7a51a3db")
+		(property "Sheetname" "04 Cathode-current sense, ADC, over-current latch"
+			(at 25.4 78.04 0)
+			(effects
+				(font
+					(size 1.524 1.524)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "04_current_sense.kicad_sch"
+			(at 25.4 99.66000000000001 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "tube_power_amp_revb"
+				(path "/451c49f3-c14c-5f4e-b828-2be954cd9e52"
+					(page "5")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 152.4 78.74000000000001)
+		(size 101.6 20.32)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "24085554-568b-5123-be58-842f743ea977")
+		(property "Sheetname" "05 Ribbons, DGND island, expander, warm-up timer, HV_PERMIT"
+			(at 152.4 78.04 0)
+			(effects
+				(font
+					(size 1.524 1.524)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "05_control_safety.kicad_sch"
+			(at 152.4 99.66000000000001 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "tube_power_amp_revb"
+				(path "/451c49f3-c14c-5f4e-b828-2be954cd9e52"
+					(page "6")
+				)
+			)
+		)
+	)
+	(sheet_instances
+		(path "/"
+			(page "1")
+		)
+	)
+	(embedded_fonts no)
+)
