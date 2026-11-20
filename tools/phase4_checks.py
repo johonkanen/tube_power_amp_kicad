@@ -28,7 +28,7 @@ import sys
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 P2K = os.path.join(ROOT, "tools", "p2k", "bin", "p2k")
 
-PENDING_DRILLS = True                 # the open question: False once the user has decided
+PENDING_DRILLS = False                # decided 2026-11-20: KiCad drills kept (DRILL_SMALLER in p2k_config.py)
 PENDING_REFS = ("C1", "C2", "C3", "C4", "C5", "C6")
 PROTEUS_DRILL, KICAD_DRILL = 1.143, 1.0
 

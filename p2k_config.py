@@ -157,6 +157,11 @@ DRC_ACCEPTED = {
 # The June 2010 fab Excellon drill file (source/fab_2010/OUTPUT - CADCAM Drill.TXT: inch, 146 hits,
 # same frame as the 2026 X2 export): gerber_roundtrip compares it 1:1 with the Proteus plated drill
 # gerber. The shared reader is metric-only, so the file is converted by tools/excellon_metric.py.
+# KiCad footprint drills smaller than the Proteus drill, accepted by the user (2026-11-20):
+# C1-C4 C_Rect film caps and C5/C6 CP_Radial keep the KiCad 1.0 mm drills.
+DRILL_SMALLER = {
+    (1.143, 1.0): "C1-C6: KiCad C_Rect / CP_Radial 1.0 mm drills kept (Proteus 1.143 = 45 mil); user decision 2026-11-20",
+}
 DRILL_EXCELLON = "reference/fab_2010_drill_metric.drl"
 # KiCad footprint drills smaller than the Proteus drill, as a recorded decision. None recorded:
 # C1-C6 (KiCad 1.0 vs Proteus 1.143 mm) is an OPEN USER QUESTION (STATUS.md "Decisions"); until it

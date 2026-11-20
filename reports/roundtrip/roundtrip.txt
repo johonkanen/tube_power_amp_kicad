@@ -248,7 +248,7 @@ board outline -104.14 .. 134.62 x -25.4 .. 34.925 mm
      44 x Proteus 0.7620 mm -> KiCad 0.8000 mm  KiCad footprint drill kept (larger)
      13 x Proteus 1.0160 mm -> KiCad 1.1000 mm  KiCad footprint drill kept (larger)
       4 x Proteus 1.0160 mm -> KiCad 1.2000 mm  KiCad footprint drill kept (larger)
-     12 x Proteus 1.1430 mm -> KiCad 1.0000 mm  SMALLER
+     12 x Proteus 1.1430 mm -> KiCad 1.0000 mm  SMALLER, accepted: C1-C6: KiCad C_Rect / CP_Radial 1.0 mm drills kept (Proteus 1.143 = 45 mil); user decision 2026-11-20
       8 x Proteus 1.1430 mm -> KiCad 1.2000 mm  KiCad footprint drill kept (larger)
      29 x Proteus 1.5240 mm -> KiCad 1.5240 mm
      32 x Proteus 1.6002 mm -> KiCad 1.6000 mm
@@ -260,15 +260,3 @@ board outline -104.14 .. 134.62 x -25.4 .. 34.925 mm
      29 x Excellon 1.5240 mm = gerber 1.5240 mm
      32 x Excellon 1.6002 mm = gerber 1.6002 mm
       4 x Excellon 2.9997 mm = gerber 3.0000 mm
-   ERROR plated: drill at (-100.33, 0.46): Proteus 1.143 mm, KiCad 1.0 mm is smaller
-   ERROR plated: drill at (-100.33, 10.16): Proteus 1.143 mm, KiCad 1.0 mm is smaller
-   ERROR plated: drill at (-35.56, 3.175): Proteus 1.143 mm, KiCad 1.0 mm is smaller
-   ERROR plated: drill at (-35.56, 12.875): Proteus 1.143 mm, KiCad 1.0 mm is smaller
-   ERROR plated: drill at (31.115, 3.175): Proteus 1.143 mm, KiCad 1.0 mm is smaller
-   ERROR plated: drill at (31.115, 12.875): Proteus 1.143 mm, KiCad 1.0 mm is smaller
-   ERROR plated: drill at (97.155, 3.175): Proteus 1.143 mm, KiCad 1.0 mm is smaller
-   ERROR plated: drill at (97.155, 12.875): Proteus 1.143 mm, KiCad 1.0 mm is smaller
-   ERROR plated: drill at (-60.325, -8.89): Proteus 1.143 mm, KiCad 1.0 mm is smaller
-   ERROR plated: drill at (-60.325, -13.97): Proteus 1.143 mm, KiCad 1.0 mm is smaller
-   ERROR plated: drill at (-36.0, -16.0): Proteus 1.143 mm, KiCad 1.0 mm is smaller
-   ERROR plated: drill at (-36.0, -21.0): Proteus 1.143 mm, KiCad 1.0 mm is smaller
