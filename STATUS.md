@@ -750,7 +750,8 @@ ALL CHECKS PASSED
    terminal `VS'` → R19) is net `#00043`; the net named `VS'` (sheet 1 label: STANDBY, R13-R16
    screen resistors) is a different net. Proteus terminal parts do not join nets by their
    refdes, so on the board the two are separate pads (presumably joined by an external wire).
-   Reproduced as is; worth confirming against the built amplifier.
+   Reproduced as is; worth confirming against the built amplifier. **User decision 2026-11-20:
+   left as built (documentation note), no copper change.**
 2. **OT and VA' are not on the PCB**: the output transformer (1650TA) and the VA' terminal are
    drawn on sheet 1 but have no layout part; OT1/OT2 are the board's OT connections.
 3. **`VCC` is the heater rail**: the terminal `VCC` and R17 (bias regulator supply) are on net
@@ -979,3 +980,14 @@ ALL CHECKS PASSED
   `make_pcb.sh --check` stays in `check_all.sh` (STATUS.md "Phase 5", "Left open").
 - Phase 5 (agent's choices, no user decision needed): footprint name `Valve_Octal_Belton_PCD17.20mm`
   kept (the content changed: mirrored); `place_refdes` with the default `REFDES_PLACEMENT`.
+
+### User decisions after the conversion (2026-11-20, through the coordinating session)
+
+- Design findings: fix errors in the KiCad design, but leave component values as they are (the
+  boards will be redesigned). This board has no wiring errors to fix.
+- Finding 1 (`VS'` terminal on `#00043`): left as built, as a documentation note (presumably an
+  external wire to the `VS'` net); no copper change.
+- The board stops being generated from the Proteus data once the design is close to the original
+  and could in principle produce production files; for this board that point is reached now,
+  after the proteus2kicad tool consolidation (docs/CANDIDATES.md there) is migrated here
+  byte-identically. Until then it stays generated.
