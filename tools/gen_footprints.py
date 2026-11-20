@@ -7,8 +7,7 @@ Writes (through the shared generator tools/p2k/p2k/footprints.py)
   lib/tube_power_amp.pretty/   project footprints: derived from KiCad library footprints (pads
                                renumbered to the Proteus ids, pad centres moved onto the Proteus
                                positions) or built from the IPC-D-356A pads where KiCad has nothing
-  kicad/fp-lib-table           registers the project library (board-local: footprints.run does
-                               not write it; STATUS.md "p2k candidates")
+  kicad/fp-lib-table           registers the project library (p2k_config.py FP_LIB_TABLE)
 
 Usage: python3 tools/gen_footprints.py [--check]      (needs the KiCad AppImage mount)
 
@@ -21,15 +20,12 @@ footprints built from the IPC pads - octal socket, fly-lead terminal - have the 
 tools/p2k check_footprints verifies every footprint against the IPC pads (residual < 0.05 mm per
 pad) and reports the pad size / drill differences.
 """
-import copy
-import glob
-import math
 import os
 import sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(ROOT, "tools", "p2k"))  # proteus2kicad
-from p2k import footprints, fpgeom, gerber  # noqa: E402
+from p2k import footprints  # noqa: E402
 
 P = "tube_power_amp:"
 
@@ -69,22 +65,6 @@ RULES = [
 ]
 
 
-def octal_body():
-    """The octal socket outline of the Proteus Top Assembly layer (a 21 mm square turned 45 deg
-    around the socket centre): the closed 4-segment loop centred on U6's pads, board coordinates."""
-    path = glob.glob(os.path.join(ROOT, "source", "cadcam", "*Top Assembly.GBR"))[0]
-    draws = gerber.parse(path).of(gerber.Draw)
-    cx, cy = 118.4, 19.685   # U6: midpoint of pads 2/6 and 4/8 (reference/ipc356_pads.csv)
-    pts = []
-    for d in draws:
-        if math.hypot(d.x2 - d.x1, d.y2 - d.y1) > 15 and \
-                all(math.hypot(x - cx, y - cy) < 15.5 for x, y in ((d.x1, d.y1), (d.x2, d.y2))):
-            pts.append((round(d.x1, 3), round(d.y1, 3)))
-    if len(pts) != 4 or any(abs(math.hypot(x - cx, y - cy) - 14.856) > 0.01 for x, y in pts):
-        raise SystemExit(f"gen_footprints: U6 assembly outline not found as expected: {pts}")
-    return sorted(pts, key=lambda p: math.atan2(p[1] - cy, p[0] - cx))
-
-
 # Project footprints (spec keys: see p2k.footprints). `ipc` = refdes whose IPC pads give the
 # pad centres. All parts are THT and on the top side (Proteus Top Assembly), except the octal
 # sockets U6-U9 (bottom side, user decision).
@@ -119,13 +99,15 @@ PROJECT = {
     # Octal socket built from the IPC pads: KiCad's Valve_Octal is on a 2.54 mm grid (pads 10.2-10.8
     # mm from the centre, a 5.5 mm plated centre hole), Proteus has a 17.20 mm pitch circle and no
     # centre hole. Pad ids = the IPC pin ids. The sockets are mounted on the BOTTOM (solder) side
-    # (user decision 2026-11-20, STATUS.md Findings 10): the footprint is built mirrored (`bottom`,
-    # board-local key, see build_library below), so in the footprint's own view the pads run in the
-    # standard octal direction (as KiCad's Valve_Octal) and check_footprints places U6-U9 on B
-    # (graphics, courtyard on the B layers; pad positions and nets unchanged). No 3D model: KiCad
-    # has no octal socket model.
+    # (user decision 2026-11-20, STATUS.md Findings 10): the footprint is built mirrored (spec key
+    # `bottom`), so in the footprint's own view the pads run in the standard octal direction (as
+    # KiCad's Valve_Octal) and check_footprints places U6-U9 on B (graphics, courtyard on the B
+    # layers; pad positions and nets unchanged). Body: the socket outline of the Proteus Top
+    # Assembly layer (a 21 mm square turned 45 deg around U6's centre, the midpoint of pads 2/6 and
+    # 4/8): the 4 draws longer than 15 mm within 15.5 mm of the centre. No 3D model: KiCad has no
+    # octal socket model.
     "Valve_Octal_Belton_PCD17.20mm": dict(
-        ipc="U6", body_poly=octal_body(), bottom=True,
+        ipc="U6", body_from=dict(centre=(118.4, 19.685), min_len=15, radius=15.5, expect=4), bottom=True,
         descr="Octal tube socket (Proteus 8-PIN BELTON OCTAL), standard octal numbering, mounted on the "
               "solder side: 8 pads 3.81 mm / drill 1.6 on a 17.20 mm pitch circle, pad 6 without a net, "
               "body = the Proteus assembly outline"),
@@ -137,47 +119,5 @@ PROJECT = {
         descr="Plated 3.0 mm mounting hole with a 6.35 mm pad on both layers, no net"),
 }
 
-_build_library = footprints.build_library
-
-
-def build_library(project_fps, ipc=None):
-    """footprints.build_library with the board-local spec key `bottom`: the IPC pads of the spec's
-    `ipc` refdes are marked bottom side, so from_ipc builds the footprint mirrored (the shared tool
-    mirrors only bottom SMD parts; THT pads are 'both' in the IPC file). STATUS.md p2k candidates."""
-    ipc = copy.deepcopy(ipc or fpgeom.ipc_pads_by_refdes())
-    for spec in project_fps.values():
-        if spec.get("bottom"):
-            for p in ipc[spec["ipc"]]:
-                p["side"] = "bottom"
-    return _build_library(project_fps, ipc)
-
-
-footprints.build_library = build_library   # footprints.run calls it through the module
-
-FP_LIB_TABLE = """(fp_lib_table
-\t(version 7)
-\t(lib (name "tube_power_amp")(type "KiCad")(uri "${KIPRJMOD}/../lib/tube_power_amp.pretty")(options "")(descr "Project footprints, pad numbers = IPC pin ids (tools/gen_footprints.py)"))
-)
-"""
-
-
-def fp_lib_table(check):
-    path = os.path.join(ROOT, "kicad", "fp-lib-table")
-    cur = open(path).read() if os.path.exists(path) else None
-    if cur == FP_LIB_TABLE:
-        return True
-    if check:
-        print("gen_footprints: out of date: kicad/fp-lib-table")
-        return False
-    with open(path, "w") as f:
-        f.write(FP_LIB_TABLE)
-    print("gen_footprints: wrote kicad/fp-lib-table")
-    return True
-
-
 if __name__ == "__main__":
-    ok = fp_lib_table("--check" in sys.argv[1:])
-    try:
-        footprints.run(RULES, PROJECT)
-    except SystemExit as e:
-        sys.exit(e.code if ok else 1)
+    footprints.run(RULES, PROJECT)

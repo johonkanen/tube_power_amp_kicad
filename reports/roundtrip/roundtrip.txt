@@ -253,7 +253,7 @@ board outline -104.14 .. 134.62 x -25.4 .. 34.925 mm
      29 x Proteus 1.5240 mm -> KiCad 1.5240 mm
      32 x Proteus 1.6002 mm -> KiCad 1.6000 mm
       4 x Proteus 3.0000 mm -> KiCad 3.0000 mm
-== excellon (fab_2010_drill_metric.drl): 146 holes vs 146 drill gerber flashes, 146 matched within 0.05 mm, 0 mismatches
+== excellon (OUTPUT - CADCAM Drill.TXT): 146 holes vs 146 drill gerber flashes, 146 matched within 0.05 mm, 0 mismatches
      44 x Excellon 0.7620 mm = gerber 0.7620 mm
      17 x Excellon 1.0160 mm = gerber 1.0160 mm
      20 x Excellon 1.1430 mm = gerber 1.1430 mm

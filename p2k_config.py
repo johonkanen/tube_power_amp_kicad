@@ -119,6 +119,47 @@ OFF_BOARD_PARTS = {
     "VA_PRIME": "off board: VA' terminal (output transformer centre tap supply) drawn in the PDF only",
 }
 
+# kicad/fp-lib-table written / checked by tools/gen_footprints.py (footprints.run).
+FP_LIB_TABLE = True
+# THT parts on the bottom (solder) side: they fit the IPC pads only mirrored (check_footprints).
+BOTTOM_THT = {r: "octal socket on the solder side (user decision 2026-11-20, STATUS.md Findings 10)"
+              for r in ("U6", "U7", "U8", "U9")}
+
+# --- ERC (p2k erc) ---------------------------------------------------------------------
+
+# A wired no-connect pin is a netlist error for this conversion (KiCad: warning), STATUS.md "Phase 4".
+ERC_FATAL_WARNINGS = {"no_connect_connected"}
+
+# --- Pin order (p2k check_pin_order; playbook Phase 2, STATUS.md "Pin order") ------------
+
+# The UNMOVED KiCad base footprints with the Proteus renumbering, fitted onto the IPC pads. Inline
+# and two-pad parts fit both ways round: their body markers were compared on the renders
+# (reports/pin_order/); `polarity` states the pin on the marked base pad 1. The octal: KiCad's
+# Valve_Octal (2.54 mm grid) never fits closely; only its MIRRORED fit matches the Proteus ids, as
+# does an ideal standard octal on the Proteus 17.20 mm pitch circle (pad 1 at -45 deg, counter-
+# clockwise in KiCad's top view = clockwise seen from the pin side). The project footprint has the
+# standard numbering in its own view and fits the IPC pads only mirrored: bottom side (Phase 5).
+_OCTAL = "tube_power_amp:Valve_Octal_Belton_PCD17.20mm"
+_IDEAL_OCTAL = dict(n=8, pcd=17.2, step=45, start=-45, pad=3.81, drill=1.6)
+_U6_U9 = "U6 U7 U8 U9"
+PIN_ORDER = [
+    dict(refs="Q1", footprint="Package_TO_SOT_THT:TO-220-3_Vertical", mirror=False, res=0.01),
+    dict(refs="Q2 Q3", spec="TO-92_Inline_P2.03mm", mirror=False, res=0.51,
+         note="TO-92_Inline_Wide is P2.54, Proteus P2.032"),
+    dict(refs="D1 D2 D3 D4 D5", spec="D_DO-41_SOD81_P10.16mm_Horizontal_AK", polarity="K", mirror=False, res=0.01),
+    dict(refs="C5", spec="CP_Radial_D10.0mm_P5.00mm_PM", polarity="+", mirror=False, res=0.01),
+    dict(refs="C6", spec="CP_Radial_D10.0mm_P5.08mm_PM", polarity="+", mirror=False, res=0.05,
+         note="P5.00 vs P5.08"),
+    dict(refs=_U6_U9, footprint="Valve:Valve_Octal", mirror=True, res=2.3,
+         note="only the mirrored KiCad octal matches the Proteus ids"),
+    dict(name="ideal octal", refs=_U6_U9, ideal=_IDEAL_OCTAL, mirror=True, res=0.01, other=0.01),
+    dict(name="octal footprint", footprint=_OCTAL, on_ideal=_IDEAL_OCTAL, mirror=False, res=0.01, other=0.01,
+         note="standard octal numbering in its own view"),
+    dict(name="octal on IPC", refs=_U6_U9, footprint=_OCTAL, mirror=True, res=0.01, other=0.01,
+         note="fits only mirrored = bottom side"),
+]
+PIN_ORDER_BOTTOM = {"U6", "U7", "U8", "U9"}
+
 # --- PCB (Phase 3, build_pcb) ----------------------------------------------------------
 
 # The 4 IPC 'hole' records: plated 3.0 mm holes with a 6.35 mm pad on both layers, no net.
@@ -128,7 +169,7 @@ HOLE_VALUE = "MountingHole_3.0mm"
 # stack-up. The 2026 export's READ-ME lists Proteus 8's default 2-layer stack (2 x 0.036 Cu +
 # 1.483 FR4 = 1.555 mm, + 2 x 0.01 resist), written when the design was re-saved, not the 2010 order.
 PCB_THICKNESS = 1.6
-# Design rules from the Proteus copper as built (STATUS.md "Phase 3", tools/measure_gaps.py), mm.
+# Design rules from the Proteus copper as built (STATUS.md "Phase 3", kipy -m p2k.measure_gaps), mm.
 # No vias on this board: the via values are only the netclass defaults.
 PCB_RULES = dict(
     min_track=0.5,        # thinnest conductor draw 0.508 (20 mil)
@@ -154,16 +195,13 @@ DRC_ACCEPTED = {
 
 # --- Phase 4 checks (p2k.gerber_roundtrip, p2k.ipc356_diff) ---------------------------
 
-# The June 2010 fab Excellon drill file (source/fab_2010/OUTPUT - CADCAM Drill.TXT: inch, 146 hits,
-# same frame as the 2026 X2 export): gerber_roundtrip compares it 1:1 with the Proteus plated drill
-# gerber. The shared reader is metric-only, so the file is converted by tools/excellon_metric.py.
+# The June 2010 fab Excellon drill file (inch, 146 hits, same frame as the 2026 X2 export):
+# gerber_roundtrip reads it in its own unit and compares it 1:1 with the Proteus plated drill gerber.
+DRILL_EXCELLON = "source/fab_2010/OUTPUT - CADCAM Drill.TXT"
 # KiCad footprint drills smaller than the Proteus drill, accepted by the user (2026-11-20):
-# C1-C4 C_Rect film caps and C5/C6 CP_Radial keep the KiCad 1.0 mm drills.
+# C1-C4 C_Rect film caps and C5/C6 CP_Radial keep the KiCad 1.0 mm drills. The pad set makes both
+# checks require exactly these 12 pads with the smaller drill.
 DRILL_SMALLER = {
-    (1.143, 1.0): "C1-C6: KiCad C_Rect / CP_Radial 1.0 mm drills kept (Proteus 1.143 = 45 mil); user decision 2026-11-20",
+    (1.143, 1.0): ("C1-C6: KiCad C_Rect / CP_Radial 1.0 mm drills kept (Proteus 1.143 = 45 mil); user decision 2026-11-20",
+                   {"C1", "C2", "C3", "C4", "C5", "C6"}),
 }
-DRILL_EXCELLON = "reference/fab_2010_drill_metric.drl"
-# KiCad footprint drills smaller than the Proteus drill, as a recorded decision. None recorded:
-# C1-C6 (KiCad 1.0 vs Proteus 1.143 mm) is an OPEN USER QUESTION (STATUS.md "Decisions"); until it
-# is answered ipc356_diff and gerber_roundtrip --check fail on exactly those 12 holes, and
-# tools/check_all.sh runs them through tools/phase4_checks.py, which accepts only that failure.

@@ -22,18 +22,6 @@ sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "p2k
 from p2k.symgen import *  # noqa: E402,F401,F403
 from p2k.symgen import _pin, run  # noqa: E402
 
-def pin_types(sym, types):
-    """Set the electrical type of pins {number: type}."""
-    seen = set()
-    for pin in walk(sym, "pin"):
-        num = find(pin, "number")[1]
-        if num in types:
-            pin[1] = Sym(types[num])
-            seen.add(num)
-    assert seen == set(types), (sym[1], set(types) - seen)
-    return sym
-
-
 def add_pins(sym, unit, pins):
     """Append pins [(number, name, type, x, y, rot)] to body `unit` (e.g. '_1_1') of a std symbol."""
     body = next(s for s in find_all(sym, "symbol") if s[1].endswith(unit))
@@ -55,8 +43,8 @@ def el34():
     sym = from_std("Valve", "EL34", "EL34", "U", desc="EL34 power pentode, octal; Proteus pin ids "
                    "G3=1 H2=2 A=3 G2=4 G1=5 (6 = no connection) H1=7 K=8; unit 2 = heater",
                    pins={"1": "1", "2": "2", "3": "3", "4": "4", "5": "5", "7": "7", "8": "8"},
-                   names={"1": "G3", "2": "H2", "3": "A", "4": "G2", "5": "G1", "7": "H1", "8": "K"})
-    pin_types(sym, {"2": PAS, "3": PAS, "7": PAS, "8": PAS})
+                   names={"1": "G3", "2": "H2", "3": "A", "4": "G2", "5": "G1", "7": "H1", "8": "K"},
+                   pin_types={"2": PAS, "3": PAS, "7": PAS, "8": PAS})
     return add_pins(sym, "_1_1", [("6", "NC", PAS, 2.54, -8.89, 90)])
 
 

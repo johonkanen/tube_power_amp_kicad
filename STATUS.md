@@ -25,6 +25,43 @@ clone of the committed board, regenerate, `check_all.sh`, clean tree).
    (strict-check lines, the `compare` / `build_pcb` / `ipc356_diff` count wording, the derive
    `max_move` lines).
 
+2. **Migration** (board-local tools → shared keys). Every generated file byte-identical except the
+   accepted **R1** re-baseline: the one `== excellon (…)` line of `reports/roundtrip/roundtrip.txt` names
+   `OUTPUT - CADCAM Drill.TXT` instead of `fab_2010_drill_metric.drl` (same 146 / 146 holes).
+   - `tools/make_part_map.py` → data + `p2k.part_map.run(SPEC)` (`LATIN1 = True`, `OFF_BOARD` 3-tuples,
+     `COMMENT` = the old first line; `LATIN1_PARTS` dropped); `lib/part_map.csv` identical.
+   - `tools/gen_symbols.py`: `pin_types()` → `from_std(..., pin_types=...)` (`add_pins()` kept).
+   - `tools/sheets/_common.py`: `place_mirrored()` deleted, Q2 (sheet02) → `place(..., 0, mirror="x")`;
+     `term()` is now a one-line call of `sheetkit.terminal(..., symbol=sym(ref), value=sh_value(ref),
+     justify="away")`.
+   - `tools/erc.sh` deleted → `p2k erc` with `ERC_FATAL_WARNINGS = {"no_connect_connected"}`.
+   - `tools/gen_footprints.py`: `fp_lib_table()` → `FP_LIB_TABLE = True`; the `build_library` wrapper →
+     spec key `bottom=True`; `octal_body()` → `body_from=dict(centre=(118.4, 19.685), min_len=15,
+     radius=15.5, expect=4)` (the old extra 14.856 mm radius guard is not part of the key; `expect=4`
+     stays); `BOTTOM_THT` = U6-U9.
+   - `tools/check_pin_order.py` deleted → `PIN_ORDER` (9 entries: Q1, Q2/Q3, D1-D5, C5, C6, U6-U9 on
+     KiCad's Valve_Octal, ideal octal on the IPC pads, octal footprint vs ideal, octal footprint on the
+     IPC pads; the derived groups by `spec=` with `polarity` K / + / +) + `PIN_ORDER_BOTTOM` = U6-U9,
+     step `kipy -m p2k.check_pin_order`: every residual and angle equal to the board script's.
+   - `tools/phase4_checks.py` deleted → steps `p2k ipc356_diff`, `p2k gerber_roundtrip --check`;
+     `DRILL_SMALLER` C1-C6 entry in the pad-set form `(reason, {"C1", …, "C6"})`.
+   - `tools/excellon_metric.py`, `reference/fab_2010_drill_metric.drl` deleted (R1): `DRILL_EXCELLON =
+     "source/fab_2010/OUTPUT - CADCAM Drill.TXT"` (inch, read natively); its check_all step dropped.
+   - `tools/make_pcb.sh` → `exec tools/p2k/bin/p2k make_pcb "$@"` (default `PCB_STEPS`; the file stays,
+     the regression harness calls it); `tools/measure_gaps.py` deleted (use `kipy -m p2k.measure_gaps`).
+   - Strict opt-outs after the migration: none (`STRICT_CHECKS_OFF` absent).
+
+   Negative tests (all restored; tree clean afterwards):
+
+   | Change | Result |
+   |---|---|
+   | `PIN_ORDER` Valve_Octal entry `mirror=False` | check_pin_order FAILED: "U6 U7 U8 U9: mirrored 2.176, expected unmirrored <= 2.3" |
+   | `bottom=True` removed from the octal spec (library and footprint_fit.csv regenerated) | check_footprints FAILED; check_pin_order FAILED (3): octal footprint fits the ideal octal mirrored, octal fits the IPC pads unmirrored, footprint_fit.csv wrong side for U6-U9 |
+   | U7 on F.Cu (board copy, `P2K_PCB`) | check_pin_order FAILED: "wrong layer for ['U7']" |
+   | R5 on B.Cu (board copy) | check_pin_order FAILED: "wrong layer for ['R5']" |
+   | C5 spec renumber `1 → -`, `2 → +` | check_pin_order FAILED: "C5: the marked base pad 1 is pin '-', expected '+'" |
+   | C6 dropped from the `DRILL_SMALLER` pad set | ipc356_diff FAILED: "C6-+ / C6--: KiCad drill smaller, not in the entry's pad set" |
+
 ## Phase 0 – done (Opus 5.5, 2026-11-20)
 
 - **Inventory measured** (PLAN.md section 1 corrected): 43 nets, 146 IPC records (142 THT

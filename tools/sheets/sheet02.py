@@ -20,8 +20,8 @@ sh.glabel("HT +6", *P(57, 37), 180)
 sh.wire(r17b, P(69, TAIL))
 
 # Q2 (base left, emitter up: mirrored), Q3 (base right, emitter up)
-q2 = place_mirrored(sh, "MPSA92", "Q2", *P(59, 67), "x", value=sh_value("Q2"),
-                    ref_at=(*P(63, 64), 0, "left"), value_at=(*P(63, 66), 0, "left"))
+q2 = sh.place("MPSA92", "Q2", *P(59, 67), 0, mirror="x", value=sh_value("Q2"),
+              ref_at=(*P(63, 64), 0, "left"), value_at=(*P(63, 66), 0, "left"))
 q3 = sh.place("MPSA92", "Q3", *P(79, 67), 180, value=sh_value("Q3"),
               ref_at=(*P(84, 60), 0, "left"), value_at=(*P(84, 74), 0, "left"))
 sh.wire(q2.pin(1), P(61, TAIL), P(77, TAIL), q3.pin(1))
