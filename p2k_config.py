@@ -41,13 +41,14 @@ TRUNCATED_REFDES = {
     "BIASGN": "BIASGND",
     "P.I.GN": "P.I.GND",
 }
-# Expected net per restored refdes (checked by ipc356 --check).
+# Expected net per restored refdes, keyed by the KiCad refdes (ipc356 --check looks the KiCad
+# name up; a key that matches no part is silently ignored - "P.I.GND" was, until Phase 2).
 TRUNCATED_NETS = {
     "STANDBY": "VS'",
     "BIASPOTX": "#00035",   # R22-2, Q1-2
     "BIASPOTO": "#00044",   # R23-2
     "BIASGND": "OTGND",
-    "P.I.GND": "#00023",    # with VA GND and R9-R12 pin 2
+    "PI_GND": "#00023",     # with VA GND and R9-R12 pin 2
 }
 
 # Full Proteus refdes -> KiCad refdes (KiCad references: letter first, then letters, digits,
@@ -106,3 +107,20 @@ DRILL_PLATED = "Drill TOP-BOT Plated"
 DRILL_NONPLATED = None    # no NonPlated drill file: the mounting holes are plated
 OUTLINE = "Mechanical 1"
 OUTLINE_RECT = (-104.14, -25.4, 238.76, 60.325)  # x, y, width, height
+
+# --- Footprints (Phase 2, tools/gen_footprints.py, p2k check_footprints) ---------------
+
+# Pad sizes: "kicad" (KiCad library pad sizes and drills, pad centres on the Proteus positions;
+# the IPC-built footprints have the Proteus pads). Changing it is a user decision (Phase 3 DRC).
+FOOTPRINT_PAD_SIZES = "kicad"
+# Parts drawn in the PDF without a layout part (no IPC pads): no footprint.
+OFF_BOARD_PARTS = {
+    "OT": "off board: 1650TA output transformer (chassis-mounted), wired to the OT1 / OT2 terminals",
+    "VA_PRIME": "off board: VA' terminal (output transformer centre tap supply) drawn in the PDF only",
+}
+
+# --- PCB (Phase 3, build_pcb) ----------------------------------------------------------
+
+# The 4 IPC 'hole' records: plated 3.0 mm holes with a 6.35 mm pad on both layers, no net.
+HOLE_FOOTPRINT = "tube_power_amp:MountingHole_3.0mm_PTH_Pad6.35mm"
+HOLE_VALUE = "MountingHole_3.0mm"

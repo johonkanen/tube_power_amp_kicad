@@ -3,56 +3,47 @@
 Ready-to-paste prompt for the next agent session. Replaced at the end of every session.
 
 ```
-Convert the Proteus board in /home/jari/dev/tube_power_amp_kicad to KiCad 10: Phase 2
-(footprints). Phase 1 is done: 3 sheets, 72/72 parts, netlist identical to the IPC netlist,
-ERC 0 errors / 0 warnings.
+Convert the Proteus board in /home/jari/dev/tube_power_amp_kicad to KiCad 10: Phase 3 (PCB).
+Phases 0-2 are done: 3 sheets, 72/72 parts, netlist identical to the IPC netlist, ERC 0/0;
+every footprint fits the IPC pads (worst residual 0.001 mm, reports/footprint_fit.csv).
 
-Read, in this order: PLAN.md, STATUS.md (phase table, "Phase 0" notes for the later phases: pad /
-drill families, "Phase 1 transcription", "Findings", "p2k candidates", "Decisions"),
-tools/p2k/CONVERSION_PLAYBOOK.md (sections 1, 3 "Phase 2", 5), tools/p2k/README.md (footprints,
-check_footprints, config keys FOOTPRINT_PAD_SIZES, OFF_BOARD_PARTS, HOLE_FOOTPRINT),
-lib/part_map.csv (device / package columns), reference/ipc356_pads.csv. Run tools/check_all.sh
-first and compare with STATUS.md "Last check output" (ALL CHECKS PASSED, compare 72/72).
-Example: ~/dev/tube_psu_kicad/tools/gen_footprints.py with its lib/footprint_map.csv and
-STATUS.md Phase 2 section (read only; don't change that repo).
+Read, in this order: PLAN.md, STATUS.md (phase table, "Phase 2" incl. the pad size / drill
+differences and the pin-order table, "Findings" 10 (octal socket side, open user question),
+"p2k candidates", "Decisions"), tools/p2k/CONVERSION_PLAYBOOK.md (sections 1, 3 "Phase 3", 5),
+tools/p2k/README.md (pcb, build_pcb, gerber_to_tracks, assign_nets, check_board, drc; config keys
+PCB_RULES, PCB_THICKNESS, HOLE_FOOTPRINT / HOLE_VALUE, DRC_ACCEPTED). Run tools/check_all.sh first
+and compare with STATUS.md "Last check output" (ALL CHECKS PASSED).
+Example: ~/dev/tube_psu_kicad/tools/make_pcb.sh, tools/measure_gaps.py, its p2k_config.py
+(PCB_RULES, DRC_ACCEPTED) and STATUS.md Phase 3 section (read only; don't change that repo).
+
+Board facts (PLAN.md section 1): 2 copper layers (Top 158 / Bottom 96 conductor draws, widths
+0.508-2.54 mm), no pours, no vias, no free pads, 4 plated 3.0 mm mounting holes with 6.35 mm pads
+(HOLE_FOOTPRINT is set), outline 238.76 x 60.325 mm, all parts THT on top.
 
 Do:
-1. p2k_config.py: OFF_BOARD_PARTS = {"OT": ..., "VA_PRIME": ...} (drawn in the PDF, no pads).
-2. tools/gen_footprints.py (RULES, PROJECT; p2k.footprints.run) -> lib/footprint_map.csv and
-   lib/tube_power_amp.pretty, with --check. One rule per family (Proteus package in
-   lib/part_map.csv, pad size / drill in STATUS.md Phase 0 notes):
-   - R1-R12, R17-R23 (RES40, 1.778 / 0.762): axial resistor, pitch from the IPC pads;
-   - R13-R16 (1K/ 5W WIREWOUND, 2.54 / 1.143) and R24/R25 (2W METAL FILM, 2.286 / 1.016);
-   - C1-C4 (22N XICON, film), C5 (RAD ELEC R5 D10), C6 (ELEC-RAD20): pads + / - on C5, C6;
-   - D1-D5 (DO41, pads A / K);
-   - Q1 (TO220, 1=B 2=C 3=E, square pad 1), Q2/Q3 (TO92, 1=E 2=B 3=C);
-   - U6-U9 (8-PIN BELTON OCTAL, 3.81 mm pads, 1.6 mm drill, 8 pads; pin 6 has a pad without a
-     net): check the pin ids against the octal pinout (pin 1 next to the key, numbering
-     clockwise seen from the solder side) with the unmoved KiCad base footprint fit;
-   - the 29 terminals (C-120-60, 3.048 mm pad, 1.524 mm drill, one pad): fly-lead pads;
-   - the 4 mounting holes (3.0 mm plated, 6.35 mm pad on both layers): board-only footprint
-     (HOLE_FOOTPRINT / HOLE_VALUE).
-   Default: KiCad pad sizes with the pad centres on the Proteus positions; where KiCad has
-   nothing suitable (terminals, octal socket if the pitch circle differs, 5 W resistor) build
-   the footprint from the IPC pads. Pad-size choices that change clearances are a user decision.
-3. Re-run the sheet scripts so the Footprint fields are filled from the map (sch_builder reads
-   lib/footprint_map.csv); compare and ERC must still pass (project fp-lib-table for ERC).
-4. tools/p2k/bin/p2k check_footprints (and tools/p2k/bin/kipy -m p2k.check_footprints --pcbnew):
-   every part within 0.05 mm, reports/footprint_fit.csv written. Pin-order check for Q1-Q3,
-   D1-D5, C5/C6 and U6-U9 against the unmoved KiCad base footprints; report oddities.
-5. Add the steps to tools/check_all.sh (gen_footprints --check, check_footprints); negative-test
-   them (move a pad, swap two pad numbers).
+1. Measure the smallest Proteus gaps (track-track, track-pad, pad-pad, to the edge) and fill
+   PCB_RULES and PCB_THICKNESS in p2k_config.py (the 2010 board thickness: 1.6 mm unless the
+   sources say otherwise).
+2. tools/make_pcb.sh (as tube_psu, minus the pour steps: build_pcb, gerber_to_tracks,
+   assign_nets; no pours_to_zones) -> kicad/tube_power_amp.kicad_pcb, with --check (rebuild in
+   build/tmp, byte compare).
+3. assign_nets: 0 shorts / 0 orphans / 0 opens; check_board passes (pads, holes, nets 1:1).
+4. DRC with schematic parity (p2k drc): 0 shorts, 0 unconnected, 0 parity. Expect clearance
+   items where KiCad pads differ from Proteus: R24/R25 KiCad pads are 0.114 mm larger (2.4 vs
+   2.286); everything else is smaller. List the remaining DRC items with reasons
+   (DRC_ACCEPTED). If DRC forces Proteus pad sizes or drills on some parts, that is a user
+   decision: stop, record the per-refdes conflicts in STATUS.md, commit, push and report.
+5. Add the steps to tools/check_all.sh (make_pcb.sh --check, check_board, assign_nets --check,
+   drc) and negative-test them (move a track, change a net).
 
-This board is the pilot for the 2010 boards: record in STATUS.md what the preamp and PI/FX
-conversions can reuse (fly-lead terminal footprint, octal socket footprint and pin ids, THT pad
-size families, the 2010 package names -> KiCad footprints table).
+Open user questions (do not decide them): the octal socket side (STATUS.md Findings 10; the
+footprint keeps the Proteus ids on the top side); C1-C6 KiCad drills 1.0 vs Proteus 1.143 mm
+(Phase 4 DRILL_SMALLER or Proteus drills).
 
 Rules (PLAN.md section 5): don't change tools/p2k or its pin (board-local workarounds, noted in
 STATUS.md "p2k candidates"); don't touch other repos; report design findings, don't fix them;
 temporary files in build/tmp; never run the KiCad AppImage with --version (use tools/p2k/bin/kipy
 and tools/p2k/bin/kicad-cli). At the end: STATUS.md updated (results, last check output,
 findings, p2k candidates, decisions), README.md status line, next_prompt.md replaced with the
-Phase 3 (PCB) prompt, commit and push (git push origin main). If something needs a user decision
-(pad sizes, a footprint that does not fit), stop, record it in STATUS.md, commit and push, and
-report it.
+Phase 4 (verification) prompt, commit and push (git push origin main).
 ```

@@ -6,8 +6,8 @@ Plan: [PLAN.md](PLAN.md). Playbook: `tools/p2k/CONVERSION_PLAYBOOK.md`.
 |---|---|
 | 0 Skeleton and inventory | **done** 2026-11-20 (Opus 5.5) |
 | 1 Schematic | **done** 2026-11-20 (preparation Opus 5.5, transcription Fable 5.2): 72/72 parts, 0 wrong-net pins, every IPC net complete, ERC 0 errors / 0 warnings |
-| 2 Footprints | not started; next (next_prompt.md) |
-| 3 PCB | not started |
+| 2 Footprints | **done** 2026-11-20 (Opus 5.5): 72/72 parts fit the IPC pads (worst residual 0.001 mm, pcbnew placement 0.001 mm), 11 footprints (10 project + 1 board-only), pin order checked; open question: octal socket side (Findings 10) |
+| 3 PCB | not started; next (next_prompt.md) |
 | 4 Verification | not started |
 | 5 Clean-up | not started |
 
@@ -220,9 +220,111 @@ How the sheets were drawn:
   of the preparation had only U6, so it did not show. Pin numbers and names unchanged.
 - ERC warnings: none. (No isolated-label warnings appeared while the sheets were drawn one by one.)
 
+## Phase 2 – done (Opus 5.5, 2026-11-20)
+
+New in this repo (all generated, in check_all.sh):
+
+- **`p2k_config.py`**: `FOOTPRINT_PAD_SIZES = "kicad"` (the default, explicit), `OFF_BOARD_PARTS`
+  (OT, VA_PRIME), `HOLE_FOOTPRINT = tube_power_amp:MountingHole_3.0mm_PTH_Pad6.35mm` /
+  `HOLE_VALUE` (for Phase 3 `build_pcb`). `TRUNCATED_NETS` key `"P.I.GND"` → `"PI_GND"` (coordinator
+  note: the Proteus key was silently ignored; verified and fixed, p2k candidate 11).
+- **`tools/gen_footprints.py`** (RULES + PROJECT, `p2k.footprints.run`) → `lib/footprint_map.csv`
+  (74 rows: 72 parts, OT / VA_PRIME without footprint), `lib/tube_power_amp.pretty/` (10 files) and
+  **`kicad/fp-lib-table`** (written and `--check`ed by the board script; p2k candidate 12). One rule
+  per Proteus package, matched on `package` + span + pad size + drill.
+- Sheet scripts re-run: the 76 placed symbol units (72 parts + the 4 EL34 heater units) carry their
+  footprint; nothing else changed in the sheets (diff = the Footprint lines only); ERC 0/0, compare
+  unchanged.
+- **`tools/check_pin_order.py`** (board script, p2k candidate 13): fits the **unmoved** KiCad base
+  footprints with the Proteus renumbering onto the IPC pads, both unmirrored and mirrored, plus an
+  ideal standard octal on the Proteus pitch circle; fails when a result differs from its recorded
+  expectation. `--render` (system python3 with matplotlib) writes `reports/pin_order/<ref>.png`:
+  Proteus silk + IPC pads + the fitted KiCad graphics, used to compare the body markers by eye.
+- **`tools/check_all.sh`**: + footprint library / map / fp-lib-table up to date
+  (`gen_footprints.py --check`), footprints vs IPC pads (`kipy -m p2k.check_footprints --pcbnew`),
+  pin order (`kipy tools/check_pin_order.py`).
+
+### Footprints and fit
+
+| Parts | Proteus package (2010) | Footprint | How | Pads IPC → footprint (mm, pad / drill) | Fit |
+|---|---|---|---|---|---|
+| R1-R12, R17-R23 | RES40 | `Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal` | KiCad, unchanged (P10.16 exact) | 1.778/0.762 → 1.6/0.8 | 0.000 |
+| R13-R16 | 1K/ 5W WIREWOUND | `R_Axial_Power_L25.0mm_W6.4mm_P30.00mm` | derived from `..._P30.48mm` (Proteus silk 24 x 6.1 mm), pads moved 0.24 mm in | 2.54/1.143 → 2.4/1.2 | 0.000 |
+| R24, R25 | 2W METAL FILM RESISTOR | `R_Axial_DIN0414_L11.9mm_D4.5mm_P19.05mm_Horizontal` | derived from `..._P20.32mm` | 2.286/1.016 → **2.4**/1.2 | 0.000 |
+| C1-C4 | 22N XICON | `C_Rect_L13.0mm_W6.0mm_P9.70mm` | derived from `C_Rect_L13.0mm_W6.0mm_P10.00mm_FKS3_FKP3_MKS4` (Proteus silk 12.8 x 6.0 mm) | 2.54/1.143 → 2.0/**1.0** | 0.000 |
+| C5 | RAD ELEC R5 D10 | `CP_Radial_D10.0mm_P5.00mm_PM` | KiCad `CP_Radial_D10.0mm_P5.00mm`, pads 1 → `+`, 2 → `-` | 2.54/1.143 → 2.0/**1.0** | 0.000 |
+| C6 | ELEC-RAD20 | `CP_Radial_D10.0mm_P5.08mm_PM` | same base, pads moved to P5.08 (Proteus silk circle 10 mm) | 2.54/1.143 → 2.0/**1.0** | 0.000 |
+| D1-D5 | DO41 | `D_DO-41_SOD81_P10.16mm_Horizontal_AK` | KiCad, pads 1 → `K` (band), 2 → `A` | 2.286/1.016 → 2.2/1.1 | 0.000 |
+| Q1 | TO220 | `Package_TO_SOT_THT:TO-220-3_Vertical` | KiCad, unchanged (1=B 2=C 3=E; KiCad pad 1 rectangular, Proteus all three square) | 2.032 sq/1.016 → 1.905x2.0/1.1 | 0.000 |
+| Q2, Q3 | TO92 | `TO-92_Inline_P2.03mm` | derived from `TO-92_Inline_Wide` (KiCad has P1.27 / P2.54; Proteus P2.032 = 80 mil) | 1.524/0.762 → 1.5/0.8 | 0.000 |
+| U6-U9 | 8-PIN BELTON OCTAL | `Valve_Octal_Belton_PCD17.20mm` | **built from the IPC pads** (U6): KiCad `Valve:Valve_Octal` is on a 2.54 mm grid (pads 10.2-10.8 mm from the centre, 5.5 mm plated centre hole); body = the Proteus Top Assembly outline (21 mm square at 45°, read from the gerber by gen_footprints) | 3.81/1.6 (Proteus) | 0.001 |
+| 29 terminals | C-120-60 | `FlyLead_Pad_D3.048mm_Drill1.524mm` | built from the IPC pads (AC5); circle graphics | 3.048/1.524 (Proteus) | 0.000 |
+| H1-H4 (Phase 3) | mounting holes | `MountingHole_3.0mm_PTH_Pad6.35mm` | board-only, plated, pad number 1, no net | 6.35/3.0 (Proteus) | – |
+
+`check_footprints`: 72/72 parts, 142 pads, worst residual 0.001 mm; `--pcbnew` placement worst 0.001
+mm; every part on the top side (no THT pattern fits only mirrored); `reports/footprint_fit.csv`
+(placement for Phase 3) and `reports/footprint_pads.csv` written.
+
+**Pad size / drill differences with KiCad pads** (for the Phase 3 DRC; user decision only if DRC or the
+gerber round trip forces it): KiCad pads are **smaller** than Proteus everywhere except **R24/R25**
+(2.4 vs 2.286 mm: +0.057 mm per side, the only clearance reduction). KiCad drills are **smaller** than
+Proteus only on **C1-C6** (1.0 vs 1.143 mm = 45 mil) → Phase 4 needs `DRILL_SMALLER = {(1.143, 1.0): ...}`
+or Proteus drills on those footprints (`ipc_sizes`). All other KiCad drills are larger (0.8 vs 0.762,
+1.1 vs 1.016, 1.2 vs 1.016 / 1.143).
+
+### Pin order (`tools/check_pin_order.py`, renders in `reports/pin_order/`)
+
+| Parts | Unmoved KiCad base | Unmirrored | Mirrored | Body marker (render) |
+|---|---|---|---|---|
+| Q1 | TO-220-3_Vertical | 0.000 @ 270° | 0.000 @ 90° | KiCad tab on +x = Proteus hatched tab on +x: **1=B 2=C 3=E as KiCad** |
+| Q2, Q3 | TO-92_Inline_Wide | 0.508 @ 180° (pitch 2.54 vs 2.032) | 0.508 | KiCad flat side up / arc down = Proteus silk: **1=E 2=B 3=C as KiCad (EBC)** |
+| D1-D5 | D_DO-41 (1=K) | 0.000 | 0.000 | KiCad band at K = Proteus band at K on all five: **polarity as KiCad** |
+| C5 / C6 | CP_Radial_D10 (1=+) | 0.000 / 0.040 | same | KiCad `+` and square pad at `+` = Proteus `+` mark: **polarity as KiCad** |
+| U6-U9 | Valve:Valve_Octal | **19.377** | **2.176** | only the **mirrored** KiCad octal matches; an ideal standard octal on the 17.20 mm circle: unmirrored 17.201, mirrored **0.002** |
+
+Inline and two-pad parts fit either way (a 180° turn reverses the order), so for them the body markers
+decide; they agree with KiCad. **The octal sockets are the one oddity** (Findings 10): the Proteus pad
+ids run clockwise seen from the component (top) side; the octal standard (KiCad) runs clockwise seen
+from the pin / solder side of a top-mounted socket. The footprint keeps the Proteus ids and the top
+side (reproduces Proteus; copper is identical either way).
+
+Negative tests (restored afterwards): octal pad 4 moved 0.1 mm → `gen_footprints --check` "out of
+date" (exit 1) and check_footprints fails U6-U9 (residual 0.087); TO-92 pads 2/3 swapped → Q2/Q3 fail
+(2.032 mm); a map entry changed → `--check` out of date and check_footprints "schematic footprint !=
+map (re-run the sheet scripts)"; `kicad/fp-lib-table` removed → `--check` exit 1; pin-order
+expectation for the octal set to unmirrored → check_pin_order FAILED. `TRUNCATED_NETS`: expected net
+of `"P.I.GND"` broken → `ipc356 --check` still OK (key ignored); key `"PI_GND"` broken → FAIL; fixed.
+
+### Reusable for the preamp and PI/FX conversions (2010 boards)
+
+- **Fly-lead terminal** (Proteus `C-120-60`, 3.048 mm pad, 1.524 mm drill, one pad): spec
+  `FlyLead_Pad_D3.048mm_Drill1.524mm` = `dict(ipc="<any terminal>", descr=...)` (built from the IPC
+  pad; symbol PIN, rule `("PIN", dict(package="C-120-60", n=1, pad=(3.048, 3.048), drill=1.524), ...)`).
+  Same name in every repo so the redesign can share it.
+- **Octal socket** (`8-PIN BELTON OCTAL`): build from the IPC pads (`ipc=` one socket), 17.20 mm pitch
+  circle, 3.81 / 1.6 pads, no centre hole, body from the Top Assembly loop (`octal_body()` in
+  `tools/gen_footprints.py`). **Pin ids = the Proteus package: 1 at -45° (lower right in the IPC frame),
+  then clockwise seen from the top** (2 bottom, 3 lower left, 4 left, 5 upper left, 6 top, 7 upper right,
+  8 right); this is the mirror of the octal standard. Check the same way on the other boards
+  (`tools/check_pin_order.py`, ideal octal). For a **noval** socket (ECC83) do the same check with
+  `Valve:Valve_Noval_P` and an ideal 9-pin circle before trusting either.
+- **THT pad / drill families of the 2010 exports** (all round unless noted): 1.524/0.762 (TO-92),
+  1.778/0.762 (RES40), 2.032 square/1.016 (TO-220), 2.286/1.016 (DO41, 2 W resistor), 2.54/1.143
+  (film / electrolytic capacitors, 5 W resistor), 3.048/1.524 (terminals), 3.81/1.6 (octal),
+  6.35/3.0 plated mounting holes.
+- **2010 package names → KiCad footprints**: the table above (RES40 → DIN0207 P10.16; 1K/ 5W
+  WIREWOUND → Power L25 W6.4 at P30.00; 2W METAL FILM RESISTOR → DIN0414 at P19.05; 22N XICON →
+  C_Rect L13 W6 at P9.70; RAD ELEC R5 D10 → CP_Radial_D10 P5.00; ELEC-RAD20 → CP_Radial_D10 at P5.08;
+  DO41 → D_DO-41 P10.16 (1=K); TO220 → TO-220-3_Vertical; TO92 → TO-92_Inline_Wide at P2.032). Check
+  the pitch on each board (the rules match on span; a different pitch gives "no footprint rule").
+- Pin ids of the 2010 library parts: diodes A/K, electrolytics +/-, TO-220 / TO-92 as the device
+  (TIPL760 B C E, MPSA92 E B C): renumber the KiCad pads in the spec (`renumber`).
+- `kicad/fp-lib-table` from gen_footprints (`fp_lib_table()`), `OFF_BOARD_PARTS` for schematic-only
+  parts, `TRUNCATED_NETS` keyed by the **KiCad** refdes.
+
 ## Last check output
 
-`tools/check_all.sh` (2026-11-20, end of Phase 1):
+`tools/check_all.sh` (2026-11-20, end of Phase 2):
 
 ```
 == KiCad environment
@@ -261,6 +363,22 @@ erc: 0 errors, 0 warnings (reports/erc.rpt)
 compare: parts 72/72 present, 0 missing, 0 extra; pins compared 142, wrong-net pins 0; IPC nets touched 47, complete 47
 compare: per sheet (drawn/total) 1:44/44 2:14/14 3:14/14
 compare: OK
+== Footprint library, map and fp-lib-table up to date
+gen_footprints: 72 parts, 11 footprints (10 project), up to date
+== Footprints vs IPC pad geometry
+check_footprints: pcbnew placement of 72 parts, worst pad offset 0.001 mm
+check_footprints: 72/72 parts fitted, 142 pads, 11 footprints, worst residual 0.001 mm (limit 0.05)
+check_footprints: OK
+== Pin order vs unmoved KiCad base footprints
+parts            KiCad base (unmoved)                                 unmirrored           mirrored  best
+Q1               Package_TO_SOT_THT:TO-220-3_Vertical               0.000 @  270       0.000 @   90  unmirrored
+Q2 Q3            Package_TO_SOT_THT:TO-92_Inline_Wide               0.508 @  180       0.508 @    0  unmirrored
+D1 D2 D3 D4 D5   Diode_THT:D_DO-41_SOD81_P10.16mm_Horizontal        0.000 @    0       0.000 @  180  unmirrored
+C5               Capacitor_THT:CP_Radial_D10.0mm_P5.00mm            0.000 @  270       0.000 @   90  unmirrored
+C6               Capacitor_THT:CP_Radial_D10.0mm_P5.00mm            0.040 @  270       0.040 @   90  unmirrored
+U6 U7 U8 U9      Valve:Valve_Octal                                 19.377 @    0       2.176 @   90  mirrored
+U6 U7 U8 U9      ideal standard octal, PCD 17.20 mm            17.201              0.002             mirrored
+check_pin_order: OK (results as recorded in STATUS.md)
 
 ALL CHECKS PASSED
 ```
@@ -299,6 +417,22 @@ ALL CHECKS PASSED
 9. **Nothing else found on the three sheets**: every PDF connection agrees with the IPC netlist
    (compare 0 wrong-net pins without any net alias), the PDF values equal the part map, and no
    pin is drawn unconnected except pin 6 of the tubes and the OT secondaries.
+
+10. **Octal socket pin numbering is mirrored against the octal standard** (Phase 2). The Proteus
+   `8-PIN BELTON OCTAL` pads run 1 → 8 clockwise seen from the component (top) side; the standard
+   (and KiCad's `Valve_Octal`) runs clockwise seen from the pins, i.e. from the solder side of a
+   top-mounted socket. Proteus places U6-U9 on the top (Top Silk / Top Assembly). With a socket
+   mounted on the top side, no rotation makes it work: e.g. tube pin 3 (anode) would land on the pad
+   without a net. Since the amplifier was built, the sockets were most likely **mounted on the solder
+   side** (tubes through the chassis below the board; then the pattern is correct), or the board was
+   wired differently. **Please confirm with the built amplifier** which side the sockets are on. The
+   conversion keeps the Proteus pads, ids and top side (copper identical either way); if the sockets
+   are on the solder side, Phase 5 can move the socket footprint to B (silk / courtyard / 3D model)
+   with standard numbering. Pitch circle 17.20 mm (Belton datasheet sockets are typically ~17.45 mm;
+   it fitted in practice).
+11. Smaller Proteus details seen in Phase 2: Q1's three pads are all square (KiCad: pad 1 only); the
+   22n Xicon film pads are 9.70 mm apart (not a 10 / 10.16 grid); C6 (ELEC-RAD20) is P5.08 while C5
+   is P5.00; the TO-92 pitch is 2.032 mm (80 mil).
 
 ## p2k candidates
 
@@ -350,6 +484,22 @@ ALL CHECKS PASSED
 10. `compare_netlists` prints "IPC nets touched 47, complete 47" on a 43-net board: the four
    pads without a net (U6-U9 pin 6) are counted as nets of their own (cosmetic).
 
+11. **`ipc356` checks `TRUNCATED_NETS` by the KiCad refdes and ignores unknown keys.** The entry
+   `"P.I.GND"` (Proteus name; KiCad `PI_GND`) was never checked (negative test: wrong net → still OK).
+   Fixed here (key `PI_GND`, comment in p2k_config.py). The shared tool would need: accept the Proteus
+   or the KiCad name, and fail on a key that matches no restored refdes (found by the PI/FX session).
+12. **`footprints.run` does not write `kicad/fp-lib-table`.** Board-local: `fp_lib_table()` in
+   `tools/gen_footprints.py` writes / `--check`s it (tube_psu has a hand-written one). The shared tool
+   would need: write the project fp-lib-table with the library (as make_skeleton writes sym-lib-table).
+13. **No shared pin-order check.** The playbook asks for a fit of the *unmoved* base footprint with the
+   renumbering; here `tools/check_pin_order.py` does it (both mirror states, expectations, ideal octal,
+   `--render` overlay of the KiCad graphics on the Proteus silk). Two-pad and inline parts fit either
+   way, so the body marker (band, flat, tab, `+`) has to be looked at; a shared `p2k.pin_order` with a
+   per-part `(base, renumber)` list and the render would serve the preamp / PI boards.
+14. `footprints` `body_poly` takes fixed coordinates; the octal body here is read from the Top Assembly
+   gerber at generation time (`octal_body()`). A spec key like `body_from=("Top Assembly", refdes)`
+   (closed loop around the part) would avoid the board code (tube_psu's silk_bodies.py is the same idea).
+
 ## Decisions
 
 - Sheet names (no title blocks in the PDF): Output stage / Bias regulator / Bias supply, chosen
@@ -364,3 +514,13 @@ ALL CHECKS PASSED
 - Phase 1 transcription (agent's choices, no user decision needed): sheet 1 heaters as a separate
   block and the cathode row below the tubes (KiCad EL34 symbol shape; nets unchanged); EL34 anode
   pin type `passive`; A3 sheets with the PDF geometry at 1:1 on the 1.27 mm grid.
+- Phase 2 (agent's choices, no user decision needed): KiCad pad sizes (`FOOTPRINT_PAD_SIZES =
+  "kicad"`, the playbook default) with the pad centres on the Proteus positions; derived footprints
+  where KiCad has the package at another pitch (5 W and 2 W resistors, film cap, C6, TO-92) – the 5 W
+  resistor is derived from KiCad's L25 x 6.4 mm box rather than built from the IPC pads, because the
+  box fits the Proteus silk and keeps the 3D model; built from the IPC pads: octal socket (pitch circle
+  differs), fly-lead terminal; octal footprint keeps the Proteus pin ids and the top side (Findings 10);
+  footprint names describe the Proteus geometry (`_P30.00mm`, `_P9.70mm`, `_PM` = pads +/-, `_AK`).
+- **Open for the user** (non-blocking): which side the octal sockets are mounted on (Findings 10);
+  in Phase 3/4: R24/R25 KiCad pads 0.114 mm larger than Proteus, C1-C6 KiCad drills 1.0 vs 1.143 mm
+  (`DRILL_SMALLER` or Proteus drills).

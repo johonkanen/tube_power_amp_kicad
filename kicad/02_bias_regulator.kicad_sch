@@ -720,7 +720,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "tube_power_amp:FlyLead_Pad_D3.048mm_Drill1.524mm"
 			(at 143.51 77.47 0)
 			(effects
 				(font
@@ -784,7 +784,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal"
 			(at 136.652 96.52 0)
 			(effects
 				(font
@@ -912,7 +912,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "tube_power_amp:TO-92_Inline_P2.03mm"
 			(at 130.81 125.095 0)
 			(effects
 				(font
@@ -986,7 +986,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "tube_power_amp:TO-92_Inline_P2.03mm"
 			(at 146.05 121.285 0)
 			(effects
 				(font
@@ -1096,7 +1096,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Package_TO_SOT_THT:TO-220-3_Vertical"
 			(at 180.34 155.575 0)
 			(effects
 				(font
@@ -1168,7 +1168,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal"
 			(at 126.492 165.1 0)
 			(effects
 				(font
@@ -1329,7 +1329,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "tube_power_amp:FlyLead_Pad_D3.048mm_Drill1.524mm"
 			(at 181.61 72.39 0)
 			(effects
 				(font
@@ -1393,7 +1393,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal"
 			(at 174.752 83.82 0)
 			(effects
 				(font
@@ -1470,7 +1470,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal"
 			(at 174.752 99.06 0)
 			(effects
 				(font
@@ -1547,7 +1547,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal"
 			(at 174.752 114.3 0)
 			(effects
 				(font
@@ -1624,7 +1624,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal"
 			(at 174.752 134.62 0)
 			(effects
 				(font
@@ -1729,7 +1729,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "tube_power_amp:FlyLead_Pad_D3.048mm_Drill1.524mm"
 			(at 201.93 128.27 0)
 			(effects
 				(font
@@ -1831,7 +1831,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "tube_power_amp:FlyLead_Pad_D3.048mm_Drill1.524mm"
 			(at 201.93 158.75 0)
 			(effects
 				(font
@@ -1895,7 +1895,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal"
 			(at 196.088 165.1 0)
 			(effects
 				(font

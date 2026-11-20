@@ -25,7 +25,9 @@ Phase 0 (skeleton and inventory) done: `p2k_config.py` complete, `reference/` ch
 generated from the IPC netlist, `tools/check_all.sh` passes. Phase 1 preparation done: part map,
 symbol library, KiCad project skeleton (3 empty sheets), ERC and netlist comparison in
 `check_all.sh`. Phase 1 (schematic) done: the 3 sheets are
-transcribed (72/72 parts, netlist identical to the IPC netlist, ERC clean). Next: Phase 2 footprints.
+transcribed (72/72 parts, netlist identical to the IPC netlist, ERC clean). Phase 2 (footprints)
+done: every part fits the IPC pads (worst 0.001 mm), pin order checked (octal socket numbering is
+mirrored against the standard: socket side to be confirmed, STATUS.md Findings 10). Next: Phase 3 PCB.
 
 Built in about 2010. The export in `source/cadcam/` matches the June 2010 fab Gerbers (`source/fab_2010/`) exactly: every hole and track.
 
