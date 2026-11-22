@@ -18,7 +18,7 @@ WANT = [
     ("Device", "NetTie_2"), ("Device", "Fuse"), ("Device", "D_Bridge_+AA-"),
     ("Valve", "EL34"), ("Transistor_FET", "2N7002"), ("Diode", "BAT54S"),
     ("Analog_DAC", "DAC7578xPW"), ("Reference_Voltage", "ADR4525"), ("Analog_ADC", "ADS7828"), ("Amplifier_Operational", "OPA4197xD"),
-    ("Comparator", "LM339"), ("Comparator", "LM393"), ("Reference_Voltage", "LM4040DBZ-10"),
+    ("Comparator", "LM2901"), ("Diode", "BAV99"), ("74xGxx", "74LVC2G17"), ("Reference_Voltage", "LM4040DBZ-10"),
     ("74xx", "74HC74"), ("74xx", "74HC4060"), ("74xGxx", "74LVC1G11"), ("74xGxx", "74LVC1G08"),
     ("Isolator", "PC817"), ("Interface_Expansion", "MCP23S17x-x-SS"),
     ("Connector_Generic", "Conn_02x07_Odd_Even"), ("Connector_Generic", "Conn_02x05_Odd_Even"),

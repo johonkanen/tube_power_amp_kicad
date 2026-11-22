@@ -16,3 +16,5 @@ build/
 reports/erc.rpt
 reports/drc.json
 reports/next/
+rev_b/sim/bias_supply/out/
+__pycache__/

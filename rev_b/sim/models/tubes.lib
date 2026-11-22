@@ -1,0 +1,207 @@
+* Tube models for ngspice (KiCad 10 simulator)
+*
+* Sources and verification status: see sim/models/README.md and docs/references.md.
+*
+*   12AX7_DZ*  Dempwolf & Zoelzer, "A Physically-motivated Triode Model for Circuit
+*              Simulations", DAFx-11 (2011), eqs. (10)-(12), Table 1. Parameters fitted to
+*              measurements of real 12AX7s (RSD-1, RSD-2, EHX-1). Includes grid current.
+*              Capacitances from the paper (Cak 0.9p, Cgk 2.3p, Cag 2.4p).
+*   *_K        Norman Koren, "Improved vacuum tube models for SPICE simulations" (1996/2003).
+*              Equations from Koren's Tube_params page. Parameters fitted to datasheet curves;
+*              cross-checked in Koren's errata (wdv.com) and Cohen & Helie, DAFx-10, Table 2.
+*              Koren pentode models are NOT fitted to measurements; treat them as a starting
+*              point to refit against our own tubes (uTracer + ExtractModel).
+*
+* Pin order: triodes  A G K
+*            pentodes A G2 G1 K   (plate, screen, control grid, cathode; g3 tied to K)
+
+*------------------------------------------------------------------ Dempwolf-Zoelzer triode
+* Ik = G*(ln(1+exp(C*(Va/mu+Vg)))/C)^gamma ; Ig = Gg*(ln(1+exp(Cg*Vg))/Cg)^xi + Ig0
+* Ia = Ik - Ig. Voltages relative to the cathode.
+.subckt TRIODE_DZ A G K params: G=2.242e-3 MU=103.2 GAMMA=1.26 C=3.40
++ GG=6.177e-4 XI=1.314 CG=9.901 IG0=8.025e-8 CAK=0.9p CGK=2.3p CAG=2.4p
+.func sp(x) {x > 30 ? x : ln(1 + exp(x))}
+Bk A K I = {G*pwr(sp(C*(V(A,K)/MU + V(G,K)))/C, GAMMA) - (GG*pwr(sp(CG*V(G,K))/CG, XI) + IG0)}
+Bg G K I = {GG*pwr(sp(CG*V(G,K))/CG, XI) + IG0}
+C1 A K {CAK}
+C2 G K {CGK}
+C3 A G {CAG}
+.ends TRIODE_DZ
+
+* One half of a 12AX7. Default = RSD-1 fit; the other two fits show tube-to-tube spread.
+.subckt 12AX7_DZ A G K
+X1 A G K TRIODE_DZ
+.ends 12AX7_DZ
+.subckt 12AX7_DZ_RSD2 A G K
+X1 A G K TRIODE_DZ params: G=2.173e-3 MU=100.2 GAMMA=1.28 C=3.19 GG=5.911e-4 XI=1.358 CG=11.76 IG0=4.527e-8
+.ends 12AX7_DZ_RSD2
+.subckt 12AX7_DZ_EHX1 A G K
+X1 A G K TRIODE_DZ params: G=1.371e-3 MU=86.9 GAMMA=1.349 C=4.56 GG=3.263e-4 XI=1.156 CG=11.99 IG0=3.917e-8
+.ends 12AX7_DZ_EHX1
+
+*------------------------------------------------------------------ Koren triode
+* E1 = Vak/KP*ln(1+exp(KP*(1/MU + Vgk/sqrt(KVB+Vak^2)))) ; Ia = (E1^EX/KG1)*(1+sgn(E1))
+* Grid current: diode + RGI (Koren).
+.subckt TRIODE_K A G K params: MU=100 EX=1.4 KG1=1060 KP=600 KVB=300 RGI=2000
++ CCG=2.3p CGP=2.4p CCP=0.9p
+.func sp(x) {x > 30 ? x : ln(1 + exp(x))}
+Be1 E1 0 V = {V(A,K)/KP*sp(KP*(1/MU + V(G,K)/sqrt(KVB + V(A,K)*V(A,K))))}
+Ba A K I = {V(E1) > 0 ? 2*pwr(V(E1),EX)/KG1 : 0}
+Re1 E1 0 1G
+D1 G 5 DGRID
+R1 5 K {RGI}
+C1 G K {CCG}
+C2 G A {CGP}
+C3 A K {CCP}
+.model DGRID D(IS=1n RS=1 CJO=10p TT=1n)
+.ends TRIODE_K
+
+.subckt 12AX7_K A G K
+X1 A G K TRIODE_K params: MU=100 EX=1.4 KG1=1060 KP=600 KVB=300 RGI=2000 CCG=2.3p CGP=2.4p CCP=0.9p
+.ends 12AX7_K
+.subckt 12AT7_K A G K
+X1 A G K TRIODE_K params: MU=60 EX=1.35 KG1=460 KP=300 KVB=300 RGI=2000 CCG=2.7p CGP=2.2p CCP=1p
+.ends 12AT7_K
+
+*------------------------------------------------------------------ Koren pentode / beam tetrode
+* E1 = Vg2k/KP*ln(1+exp(KP*(1/MU + Vg1k/Vg2k)))
+* Ia  = (E1^EX/KG1)*(1+sgn(E1))*atan(Vak/KVB)
+* Ig2 = ((Vg2k/MU + Vg1k)^EX)/KG2   (zero when the base is negative)
+.subckt PENTODE_K A G2 G1 K params: MU=11 EX=1.35 KG1=650 KG2=4200 KP=60 KVB=24 RGI=1000
++ CCG=15p CPG1=1p CCP=8p
+.func sp(x) {x > 30 ? x : ln(1 + exp(x))}
+Be1 E1 0 V = {max(V(G2,K),1e-3)/KP*sp(KP*(1/MU + V(G1,K)/max(V(G2,K),1e-3)))}
+Ba A K I = {V(E1) > 0 ? 2*pwr(V(E1),EX)/KG1*atan(V(A,K)/KVB) : 0}
+Bs G2 K I = {V(G2,K)/MU + V(G1,K) > 0 ? pwr(V(G2,K)/MU + V(G1,K),EX)/KG2 : 0}
+Re1 E1 0 1G
+D1 G1 5 DGRID
+R1 5 K {RGI}
+C1 G1 K {CCG}
+C2 G1 A {CPG1}
+C3 A K {CCP}
+.model DGRID D(IS=1n RS=1 CJO=10p TT=1n)
+.ends PENTODE_K
+
+.subckt EL34_K A G2 G1 K
+X1 A G2 G1 K PENTODE_K params: MU=11 EX=1.35 KG1=650 KG2=4200 KP=60 KVB=24 RGI=1000 CCG=15p CPG1=1p CCP=8p
+.ends EL34_K
+.subckt 6L6GC_K A G2 G1 K
+X1 A G2 G1 K PENTODE_K params: MU=8.7 EX=1.35 KG1=1460 KG2=4500 KP=48 KVB=12 RGI=1000 CCG=14p CPG1=0.85p CCP=12p
+.ends 6L6GC_K
+.subckt KT88_K A G2 G1 K
+X1 A G2 G1 K PENTODE_K params: MU=8.8 EX=1.35 KG1=730 KG2=4200 KP=32 KVB=16 RGI=1000 CCG=14p CPG1=0.85p CCP=12p
+.ends KT88_K
+.subckt 6550_K A G2 G1 K
+X1 A G2 G1 K PENTODE_K params: MU=7.9 EX=1.35 KG1=890 KG2=4200 KP=60 KVB=24 RGI=1000 CCG=14p CPG1=0.85p CCP=12p
+.ends 6550_K
+.subckt EL84_K A G2 G1 K
+X1 A G2 G1 K PENTODE_K params: MU=16 EX=1.35 KG1=570 KG2=4200 KP=50 KVB=24 RGI=1000 CCG=10.8p CPG1=0.5p CCP=6.5p
+.ends EL84_K
+
+*------------------------------------------------------------------ Reefman pentode / beam tetrode
+* D. Reefman, "Spice models for vacuum tubes using the uTracer" (EM4 Theory, 2016-2019),
+* sections 4.1-4.5 and 6.3-6.4. Constant space current: Ik depends on Vg1, Vg2 (and weakly Va);
+* the split between plate and screen depends on Va, so screen current rises when the plate
+* swings low. Structure ported from the BTetrodeD / BTetrodeDE subcircuits in Reefman's
+* TubeLib.inc (Jan-23-2016) to ngspice syntax (no PWRS; ternaries instead).
+*
+* E1   = Vg2k/KP*ln(1+exp(KP*(1/MU + Vg1k/sqrt(KVB+Vg2k^2))))      ("Koren current" base)
+* Ik0  = E1^EX (0 when E1 <= 0)
+* D (pentode, Derk):    f(Va) = 1/(1+BE*Va)
+* DE (beam tetrode):    f(Va) = exp(-(BE*Va)^1.5)
+* Ia   = Ik0*(OOKG1MOOKG2 + AOKG1*Va - ALKG1PALSKG2*f(Va) - Psec)
+* Psec = SC/KG2*Va*(1+tanh(-AP*(Va - Vg2k/LAM + W + NU*Vg1k)))     (secondary emission)
+* Ig2  = Ik0/KG2*(1 + ALS*f(Va))
+* As in TubeLib, the secondary-emission term lowers Ia but is not added to Ig2.
+* Va is clamped at 0 V and Ia at >= 0 (the TubeLib form goes unstable when the plate dips below
+* the cathode in a push-pull stage: the tube turns into a source).
+.subckt PENTODE_R A G2 G1 K params: MU=12.5 EX=1.363 KG1=217.7 KP=50.5 KVB=1282.7 KG2=1950.2
++ SC=0.022 AP=0.033 W=64 NU=2.91 LAM=4.23 OOKG1MOOKG2=4.08e-3 AOKG1=1.6e-6 ALKG1PALSKG2=4.08e-3
++ BE=0.105 ALS=6.09 BEAM=0 RGI=2000 CCG1=15p CPG1=1p CCP=8p
+.func sp(x) {x > 30 ? x : ln(1 + exp(x))}
+Be1 E1 0 V = {max(V(G2,K),0)/KP*sp(KP*(1/MU + V(G1,K)/sqrt(KVB + V(G2,K)*V(G2,K))))}
+Bf F 0 V = {BEAM > 0.5 ? exp(-pwr(min(BE*max(V(A,K),0),50),1.5)) : 1/(1 + BE*max(V(A,K),0))}
+Bps PS 0 V = {SC/KG2*max(V(A,K),0)*(1 + tanh(-AP*(max(V(A,K),0) - V(G2,K)/LAM + W + NU*V(G1,K))))}
+Ba A K I = {V(E1) > 0 ? pwr(V(E1),EX)*max(OOKG1MOOKG2 + AOKG1*max(V(A,K),0) - ALKG1PALSKG2*V(F) - V(PS), 0) : 0}
+Bs G2 K I = {V(E1) > 0 ? pwr(V(E1),EX)/KG2*(1 + ALS*V(F)) : 0}
+Re1 E1 0 1G
+Rf F 0 1G
+Rps PS 0 1G
+Rcp A K 1G
+D1 G1 5 DGRID
+R1 5 K {RGI}
+C1 G1 K {CCG1}
+C2 G1 A {CPG1}
+C3 A K {CCP}
+.model DGRID D(IS=1n RS=1 CJO=10p TT=1n)
+.ends PENTODE_R
+
+* EL34: Reefman, TubeLib.inc, uTracer measurement, model created 15-Dec-13 (BTetrodeD).
+.subckt EL34_R A G2 G1 K
+X1 A G2 G1 K PENTODE_R params: MU=12.50 EX=1.363 KG1=217.7 KP=50.5 KVB=1282.7 KG2=1950.2
++ SC=0.022 AP=0.033 W=64 NU=2.91 LAM=4.23 OOKG1MOOKG2=4.08e-3 AOKG1=1.6e-6 ALKG1PALSKG2=4.08e-3
++ BE=0.105 ALS=6.09 BEAM=0 RGI=2000 CCG1=15.4p CPG1=1.1p CCP=8.4p
+.ends EL34_R
+
+* 6L6GC: Reefman, TubeLib.inc, uTracer measurement, model created 07-Dec-13 (BTetrodeDE).
+.subckt 6L6GC_R A G2 G1 K
+X1 A G2 G1 K PENTODE_R params: MU=9.41 EX=1.306 KG1=446.6 KP=45.2 KVB=3205.1 KG2=6672.5
++ SC=0.031 AP=0.017 W=-5 NU=3.08 LAM=14.66 OOKG1MOOKG2=2.09e-3 AOKG1=1.1e-6 ALKG1PALSKG2=2.09e-3
++ BE=0.069 ALS=8.10 BEAM=1 RGI=2000 CCG1=10p CPG1=0.6p CCP=6.5p
+.ends 6L6GC_R
+
+*------------------------------------------------------------------ Reefman triodes (Koren form)
+* TubeLib.inc TriodeK fits to uTracer measurements (ECC83 09-Dec-13, ECC81 08-Dec-13).
+* Reefman's TriodeK computes Ia = E1^EX/KG1; TRIODE_K (Koren) has 2*E1^EX/KG1, so KG1 is
+* doubled here (ECC83 389.8 -> 779.6, ECC81 306.7 -> 613.4).
+.subckt 12AX7_R A G K
+X1 A G K TRIODE_K params: MU=108.93 EX=0.988 KG1=779.6 KP=677.7 KVB=10751 RGI=2000 CCG=1.6p CGP=1.6p CCP=0.33p
+.ends 12AX7_R
+.subckt 12AT7_R A G K
+X1 A G K TRIODE_K params: MU=63.24 EX=1.338 KG1=613.4 KP=208.5 KVB=2363 RGI=2000 CCG=2.2p CGP=1.6p CCP=0.2p
+.ends 12AT7_R
+
+*------------------------------------------------------------------ Beam tetrode, extended (our fit)
+* BEAM_X: our own extension of Reefman's constant-space-current beam tetrode model, used for the
+* KT88 and 6550, which have no measured fit in TubeLib. Reefman's DerkE alone fitted the KT88
+* datasheet curves poorly (screen current flat where the datasheet falls with Va). Added:
+*   plate Durchgriff (Vg1 -> Vg1 + Va/MUA), screen share 1 + ALS/(1 + BES*Va) (Reefman's 4.4 form),
+*   and a screen share that rises towards Vg1 = 0, exp(GS*Vg1/Vg2).
+* E1  = Vg2k/KP*ln(1+exp(KP*(1/MU + (Vg1k + Vak/MUA)/sqrt(KVB+Vg2k^2))))
+* Ik0 = E1^EX ;  AL = 1 - KG1/KG2*(1+ALS)
+* Ik  = Ik0/KG1*(1 - AL*exp(-(BE*Va)^1.5))
+* Ig2 = min(Ik, Ik0/KG2*(1 + ALS/(1+BES*Va))*exp(GS*Vg1k/Vg2k)) ;  Ia = Ik - Ig2
+* Fitted with sim/models/fit_beam_tetrode.py to data in sim/models/kt88_datasheet.py.
+.subckt BEAM_X A G2 G1 K params: MU=7.1975 EX=1.6138 KP=744.13 KVB=412 KG1=1047.3 KG2=15351
++ MUA=90.79 BE=0.043896 ALS=4.1876 BES=0.021253 GS=23.41 RGI=1000 CCG1=14p CPG1=0.85p CCP=12p
+.func sp(x) {x > 30 ? x : ln(1 + exp(x))}
+Be1 E1 0 V = {max(V(G2,K),0)/KP*sp(KP*(1/MU + (V(G1,K) + max(V(A,K),0)/MUA)/sqrt(KVB + V(G2,K)*V(G2,K))))}
+Bik IK 0 V = {V(E1) > 0 ? pwr(V(E1),EX)/KG1*(1 - (1 - KG1/KG2*(1 + ALS))*exp(-pwr(min(BE*max(V(A,K),0),50),1.5))) : 0}
+Big IG 0 V = {V(E1) > 0 ? min(V(IK), pwr(V(E1),EX)/KG2*(1 + ALS/(1 + BES*max(V(A,K),0)))*exp(GS*V(G1,K)/max(V(G2,K),1))) : 0}
+Ba A K I = {V(IK) - V(IG)}
+Bs G2 K I = {V(IG)}
+Re1 E1 0 1G
+Rik IK 0 1G
+Rig IG 0 1G
+Rcp A K 1G
+D1 G1 5 DGRID
+R1 5 K {RGI}
+C1 G1 K {CCG1}
+C2 G1 A {CPG1}
+C3 A K {CCP}
+.model DGRID D(IS=1n RS=1 CJO=10p TT=1n)
+.ends BEAM_X
+
+* KT88: fitted to the Genalex KT88 data sheet (M-O Valve, issue 5, 1974) curves and tables.
+* Median error at Vg2 = 300 V: plate 6.4%, screen 13%. Peak current at Vg1 = 0 reads about 15% low,
+* zero-signal screen current reads low. See sim/models/README.md (push-pull bench).
+.subckt KT88_X A G2 G1 K
+X1 A G2 G1 K BEAM_X params: MU=7.1975 EX=1.6138 KP=744.13 KVB=412 KG1=1047.3 KG2=15351
++ MUA=90.79 BE=0.043896 ALS=4.1876 BES=0.021253 GS=23.41 CCG1=16p CPG1=1.2p CCP=12p
+.ends KT88_X
+
+* 6550: the KT88 shape rescaled (MU, KG1, KG2, GS) to the RCA 6550 data sheet (5-62) tables.
+.subckt 6550_X A G2 G1 K
+X1 A G2 G1 K BEAM_X params: MU=8.4753 EX=1.6138 KP=744.13 KVB=412 KG1=769.23 KG2=7627.6
++ MUA=90.79 BE=0.043896 ALS=4.1876 BES=0.021253 GS=14.236 CCG1=14p CPG1=0.85p CCP=12p
+.ends 6550_X
