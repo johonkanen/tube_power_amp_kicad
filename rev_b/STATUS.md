@@ -1,5 +1,123 @@
 # Power amp rev B: status
 
+## Second pass (2026-11-23)
+
+Against interfaces.md **IF-1.2** (IF-2 on W17, which this board doesn't use), the bias decisions of
+2026-11-22 and review 7.1. What changed and why: [README.md](README.md) "Second pass". ERC 0 errors /
+1 explained warning; 326 parts; footprints on every part; BOM `bom/tube_power_amp_revb_bom.csv`.
+
+### S1. Interface check against IF-1.2
+
+| # | Item (interfaces.md section) | Verdict | Notes |
+|---|---|---|---|
+| 1 | W04-b J101 V_ANODE + GND_PWR, 4.8 mm tabs (2.1, 4.3) | OK | One ground entry, the AGND star |
+| 2 | W05-b J102 V_SCREEN (2.1) | OK | |
+| 3 | W06-b J103 heaters 6.3 mm, 6.0-6.4 A, 6.3 V ±5 % at the sockets (3.1) | question | Unchanged from the first pass: 0.1-0.2 V lost in leads and tabs at 6.4 A; who holds the socket voltage (PSU set point, sense)? |
+| 4 | Heaters float, EL34 Vhk with the +90 V option (5) | OK | 10 V margin to 100 V |
+| 5 | W09-b J201 -80 V + BIAS_RTN on DGND (2.1, 5) | OK | |
+| 6 | -80 V: 25 mA requested (3.1-3.3) | OK | Board needs 5.4 / 14.2 / 21.3 mA (cold / typical / hot end), about 22.7 mA worst case with the monitor and ADC dividers (+0.7 mA over the [BIAS] figures). The PSU's allocation is still the PSU owner's answer |
+| 7 | -80 V ±2 V (3.1) | OK | 72 V string in regulation down to -78 V (with the zener self-heating counted); rail monitor release worst -76.57 V, 1.2 V clear of -77.8 V |
+| 8 | 10 Ω fusible resistor at the input (2.1, 3.1) | question | Drawn (1 W fusible wirewound). The 100 µF behind it takes 8 A peak / 0.32 J if the -80 V appears as a step (hot-plug); the CRF datasheet's energy curve allows it (0.9 W·s) but no peak-current time base is given: a bench test, or a slow-rising -80 V from the PSU (its ramp time is a PSU question) |
+| 9 | No hold-up required (3.1) | OK | BIAS_OK low 28-65 ms after the source goes, bias drift 0.02 V (drawn monitors) |
+| 10 | Sequencing: BIAS_OK before the HV (3.1, 3.4) | OK | BIAS_OK 84-88 ms after the rails are good; never early in six rail orders |
+| 11 | W11-a J104 OT_A / OT_B / OT_CT (2.1) | OK | |
+| 12 | W24-b J105 Lock-3.96 header, ≥ 390 V between adjacent pins (2.3, 10) | **problem** | KK-396 headers (Molex 26-60-4050, series 41791) are rated **250 V**, JST VH 250 V. TE MTA-156 (3.96 mm) 600 V AC, Molex Mini-Fit Jr (4.20 mm) 600 V AC/DC. Proposal P1 |
+| 13 | W24 DC 280 V, 390 V PI cold; caps ≥ 450 V (10) | OK | 630 V MKP, 15 mm footprint |
+| 14 | Coupling cap / grid leak OPEN; max fixed-bias grid resistance (10, 14) | question | Datasheet limits: 6550 50 kΩ, 6L6GC 100 kΩ, KT88 100 kΩ (GEC), EL34 500 kΩ; 100k drawn = 107 kΩ in circuit. Proposal P2, user decision |
+| 15 | W24 grounds solid at this end (5) | OK | |
+| 16 | W14-b J501 template 2x7 (6.1) | OK | MUTE_ALL_N 100k pull-down, RESET_N 10k pull-up |
+| 17 | Expander required (6.3, 7.3) | OK | U501 MCP23S17-E/SS, address 000 |
+| 18 | Map 7.3: GPA0 OC_CLR, GPA1 HV_PERMIT_REQ, GPA2-5 reserved | OK | 100k pull-downs |
+| 19 | W15-b J502 2x5 pinout (6.3) | OK | |
+| 20 | I2C 5 V, 100 kHz, 4.7k pull-ups here (6.3) | OK | |
+| 21 | I2C addresses (6.3 says OPEN; review section 10 accepted) | OK | DAC 0x48, ADC 0x4B: record in 6.3 (P6) |
+| 22 | BIAS_EN 5 V 10 kHz ±50 %, 74AHCT + 100 Ω on the card, ≥ 470 Ω here (6.2, 6.3; review X10) | OK | 1k + 56k hold: 3.8 mA peak, release 1.2-4.5 ms, cold 76-131 ms, 5-15 kHz, static high or low = cold |
+| 23 | BIAS_OK = VNC good, -80 V rail present, +15 V present; independent of BIAS_EN (6.3, 8) | OK | Drawn as three comparators; "+15 V present" = above 13.0 V (release 13.25 V): P4 |
+| 24 | BIAS_OK thresholds -63.0 / -64.5 V and -75.0 / -75.5 V, 0.1 % dividers (8) | OK | Real circuit, 0-85 °C worst case: within the [BIAS] ranges (README) |
+| 25 | OC_TRIP_N latched; card pull-down (6.3) | question | The accepted X9 wording ("powers up tripped; the firmware pulses OC_CLR after reading the currents") is not yet in 6.3 / 8: P3 |
+| 26 | Over-current 220 mA ±5 %, two-pole filter (8) | OK | ±3.4 % worst case with the drawn parts |
+| 27 | HV_PERMIT_MON (6.3) | question | 6.3 says "high = the power amp is driving HV_PERMIT"; the circuit senses loop current (an opto in the loop). Accepted X9 wording "loop current flowing" not yet applied: P3 |
+| 28 | HV_PERMIT current loop 5-10 mA; HV side TLP293 with 680 Ω across its LED (8; X33) | OK | 9.1-9.5 mA from 14.45-15 V; 1.8 mA bypasses the 680 Ω, 7.3-7.7 mA in the HV LED (turn-on 3.5-4 mA) |
+| 29 | HV_PERMIT = BIAS_OK AND NOT OC_TRIP AND WARM_OK AND HV_PERMIT_REQ (8) | OK | Plus OC_OK alone on the low-side switch |
+| 30 | Hardware warm-up timer (8) | OK | Kept, 31 s |
+| 31 | 5 V CMOS logic, no 3.3 V parts (6.2) | OK | |
+| 32 | Fail-safe: card absent / unconfigured / ribbon out (6.2, 8) | OK | |
+| 33 | Fail-safe: -15 V missing (6.2) | OK | |
+| 34 | -80 V lost with the HV on (8) | OK | Rail monitor trips before the bias moves; the HV's own discharge stays the HV supplies' item (K12) |
+| 35 | Grounding (5, grounding.md 4) | OK | |
+| 36 | OT secondary COM not here (5) | OK | |
+| 37 | V_ANODE 0.5 A peak budget (3.1, 3.2) | question | Board passes about 0.57 A average (KT88 set, full sine); copper sized for the 1.0 A trip. P5 |
+| 38 | Envelope, outline as built (12.1, 12.3) | question | The rear I/O box overlaps the rear edge by 42 x 4 mm at x 280-322 (still open on the rear I/O side): keep that strip of this board free of tall parts below the board (≤ about 8 mm) until it is resolved |
+| 39 | Connector positions (12.3) | OK | |
+| 40 | Rail row 3.2: +15 / -15 / +5 V | OK | +15 V 41 / 50 mA (row says about 40), -15 V 9 / 10 mA (says 25), +5 V 6 / 9 mA (says 15) |
+| 41 | 70 °C under the plate (SPEC ENV-2, parts ≥ 85 °C) | question | LM4040-10 exists only in I grade (85 °C) and the ADS7828 is an 85 °C part: placed at the cool rear end, assumed 85 °C local, no margin; to confirm by M39 or replace (an 85 °C part list is in the BOM notes) |
+| 42 | Relay family (3.1) | OK | No relay on this board |
+
+**42 rows: 33 OK, 1 problem (12), 8 questions (3, 8, 14, 25, 27, 37, 38, 41).**
+
+### S2. Interface changes proposed (to the coordinating session)
+
+| # | What | Why | Boards | interfaces.md |
+|---|---|---|---|---|
+| P1 | W24 connector family: a 3.96 mm header rated ≥ 450 V DC between adjacent pins — **TE MTA-156** (600 V AC; DC rating to confirm with TE) or **Molex Mini-Fit Jr** (600 V AC/DC, 4.20 mm), instead of KK-396 (250 V). Pinout unchanged. (Alternative without a family change: a 1x9 KK-396 with pins 2, 4, 6, 8 removed, but 250 V is a per-pin rating, so this is not a real fix) | Measured line voltage up to 390 V | PI + FX, power amp | 2 (families), 2.3, 10 |
+| P2 | Record the fixed-bias grid-circuit limits in 10: 6550 50 kΩ, 6L6GC 100 kΩ, KT88 100 kΩ (GEC; 220 kΩ below 35 W, Gold Lion), EL34 500 kΩ. The coupling-cap / grid-leak choice then has three options: ≤ 100k (above the 6550 rating, at the 6L6GC / KT88 limit), 220k (above three of four), or 39k + 270n (meets all, costs drive) | Asked by the review (K3); none of the options in 10 meets the 6550 | power amp, PI + FX | 10, 14 |
+| P3 | Apply X9's accepted wording: 6.3 OC_TRIP_N "the latch powers up tripped; the firmware clears it with OC_CLR after reading the four currents, before HV_PERMIT_REQ"; HV_PERMIT_MON "high = loop current flowing (opto in the loop)" | Accepted 2026-11-21, not in IF-1.2 | power amp, control board | 6.3, 8, 3.4 |
+| P4 | BIAS_OK's "+15 V present" = +15 V above 13.0 V (back at 13.25 V) | Below about 11.5 V the 10 V reference drops out and the monitors' thresholds move toward 0 V (permissive); 13.0 V keeps them valid | power amp | 6.3, 8 |
+| P5 | V_ANODE row: 0.6 A average (KT88 set, full sine overdrive), sized for the 1.0 A trip | X35, accepted with change | HV supplies, power amp | 3.1, 3.2 |
+| P6 | 6.3: I2C addresses DAC 0x48, ADC 0x4B (OPEN there, accepted in review 10) | Close the item | — | 6.3, 14 |
+| P7 | bias_supply.md watchdog: with the 5 V BIAS_EN (6.3) the pump needs 56k (not 100k) across its 1 µF to keep the cold time at about 130 ms; plus the 1k series resistor | Master simulated a 3.3 V drive | power amp (master doc only) | 6.3 note; bias_supply.md |
+
+### S3. Rail currents (interfaces.md 3.2)
+
+| Rail | Typical | Max | Notes |
+|---|---|---|---|
+| -80 V | 14.2 mA | 21.3 mA (typical board), ~22.7 mA worst | 5.4 mA all cold; monitors.md section 4 |
+| +15 V | 41 mA | 50 mA | bias circuit + monitors 21 / 30 mA (sim), 2x OPA4197 8 mA, 2x LM2901B 1.6 mA, HV_PERMIT loop 9.4 + 1.5 mA |
+| -15 V | 9 mA | 10 mA | the two OPA4197 |
+| +5 V | 6 mA | 9 mA | DAC, ADR4525, ADC, expander, logic, pull-ups |
+| Heaters | 6.0 A (EL34) | 6.4 A (KT88) | + 4 mA warm-up sense |
+| V_ANODE / V_SCREEN | — | 0.6 A average (KT88 full sine) / 0.25 A peak | passes through the board |
+
+### S4. Still open
+
+- **User:** coupling cap / grid leak with the grid-resistance limits (P2); W24 connector family (P1);
+  fit the anode flyback clamps (SAFE-5, drawn as an option); keep the warm-up timer (kept).
+- **PSU owner:** 25 mA on -80 V; the -80 V rise time (inrush through the fusible resistor).
+- **HV supplies:** HV discharge after an inhibit (K12); confirm TLP293 drop at 7-8 mA.
+- **Rear I/O:** the 42 x 4 mm overlap at this board's rear edge.
+- Datasheet checks left: DAC7578 power-on state and ~CLR, ADS7828 external reference (firmware PD1 = 0),
+  MMBTA92 / A42 / BSP92P leakage at 90 °C, PC817 CTR at 4 and 9 mA, LM2901B orderable suffix,
+  the 1 W fusible part's inrush rating, a ≥ 450 V DC W24 header.
+- Two 85 °C parts at an 85 °C assumption (LM4040-10, ADS7828E): no margin until measured.
+
+### S5. Missing simulations
+
+| # | Simulate | Why |
+|---|---|---|
+| S1 | Bias channel with vendor models (OPA4197, MMBTA92 / A42, BSP92P), at 90 °C | Loop stability, noise, leakage at temperature |
+| S9 | Zener filter with the ceramic capacitors (about 6 µF effective at 72 V instead of 10 µF) | Noise and -80 V rejection; corner 0.16 → about 0.3 Hz |
+| S10 | Comparator vendor model (LM2901B) in the monitor block | Confirms the behavioural model's start-up behaviour below 2 V supply |
+| S11 | C201 inrush through R201 with the PSU's real -80 V ramp | Fusible resistor survival |
+| S4 | Over-current threshold on measured tubes with a guitar signal | ±5 % margin (bias_supply.md open item 3) |
+| S6 / S7 / S8 | HV discharge after inhibit; tube arc through the sense chain; board thermal (M28, M20, M39) | as first pass |
+
+Done this pass: monitors as real circuits (tolerance 0-85 °C, hysteresis, start-up in six rail
+orders, -80 V lost), -80 V / +15 V current with the dividers, the BIAS_EN pump with the card's driver.
+Not re-run: the sense filter (the drawn circuit is the master's `two_real_220` variant) and the
+zener corner run (datasheet TC equals the figures used; self-heating estimated in README).
+
+### S6. Next steps
+
+1. Decisions P1 / P2; then the coupling parts' values.
+2. Placement study in 239 x 60 mm with the temperature zones of the README; a ≥ 450 V W24 header
+   footprint; blade-tab part and spacing (replace the placeholders).
+3. S1, S9, S11; vendor-model check of the monitors (S10).
+4. Tidy schematic pass (the drawing is still netlist-first).
+
+---
+
+## First pass (2026-11-21)
+
 2026-11-21, initial schematic session. What is drawn and how to build it: [README.md](README.md).
 Contract: tube_amplifier_kicad `docs/interfaces.md` IF-1.1. Nothing here changes it; the changes
 this board needs are listed as proposals (section 3) for the coordinating session.

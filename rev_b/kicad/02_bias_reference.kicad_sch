@@ -1081,6 +1081,161 @@
 			)
 			(embedded_fonts no)
 		)
+		(symbol "tube_power_amp_revb:C"
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(offset 0.254)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "C"
+				(at 0.635 2.54 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(property "Value" "C"
+				(at 0.635 -2.54 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(property "Footprint" ""
+				(at 0.9652 -3.81 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" "Unpolarized capacitor"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_keywords" "cap capacitor"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_fp_filters" "C_*"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "C_0_1"
+				(polyline
+					(pts
+						(xy -2.032 0.762) (xy 2.032 0.762)
+					)
+					(stroke
+						(width 0.508)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -2.032 -0.762) (xy 2.032 -0.762)
+					)
+					(stroke
+						(width 0.508)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "C_1_1"
+				(pin passive line
+					(at 0 3.81 270)
+					(length 2.794)
+					(name ""
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 -3.81 90)
+					(length 2.794)
+					(name ""
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "tube_power_amp_revb:Q_PMOS"
 			(pin_numbers
 				(hide yes)
@@ -1708,162 +1863,7 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "tube_power_amp_revb:C"
-			(pin_numbers
-				(hide yes)
-			)
-			(pin_names
-				(offset 0.254)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(in_pos_files yes)
-			(duplicate_pin_numbers_are_jumpers no)
-			(property "Reference" "C"
-				(at 0.635 2.54 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left)
-				)
-			)
-			(property "Value" "C"
-				(at 0.635 -2.54 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left)
-				)
-			)
-			(property "Footprint" ""
-				(at 0.9652 -3.81 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Datasheet" ""
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Description" "Unpolarized capacitor"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "ki_keywords" "cap capacitor"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "ki_fp_filters" "C_*"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(symbol "C_0_1"
-				(polyline
-					(pts
-						(xy -2.032 0.762) (xy 2.032 0.762)
-					)
-					(stroke
-						(width 0.508)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -2.032 -0.762) (xy 2.032 -0.762)
-					)
-					(stroke
-						(width 0.508)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-			)
-			(symbol "C_1_1"
-				(pin passive line
-					(at 0 3.81 270)
-					(length 2.794)
-					(name ""
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 0 -3.81 90)
-					(length 2.794)
-					(name ""
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
-		(symbol "tube_power_amp_revb:LM393"
+		(symbol "tube_power_amp_revb:LM2901"
 			(pin_names
 				(offset 0.127)
 			)
@@ -1873,27 +1873,29 @@
 			(in_pos_files yes)
 			(duplicate_pin_numbers_are_jumpers no)
 			(property "Reference" "U"
-				(at 3.81 3.81 0)
+				(at 0 5.08 0)
 				(show_name no)
 				(do_not_autoplace no)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
+					(justify left)
 				)
 			)
-			(property "Value" "LM393"
-				(at 6.35 -3.81 0)
+			(property "Value" "LM2901"
+				(at 0 -5.08 0)
 				(show_name no)
 				(do_not_autoplace no)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
+					(justify left)
 				)
 			)
 			(property "Footprint" ""
-				(at 0 0 0)
+				(at -1.27 2.54 0)
 				(show_name no)
 				(do_not_autoplace no)
 				(hide yes)
@@ -1903,8 +1905,8 @@
 					)
 				)
 			)
-			(property "Datasheet" "http://www.ti.com/lit/ds/symlink/lm393.pdf"
-				(at 0 0 0)
+			(property "Datasheet" "https://www.st.com/resource/en/datasheet/lm2901.pdf"
+				(at 1.27 5.08 0)
 				(show_name no)
 				(do_not_autoplace no)
 				(hide yes)
@@ -1914,7 +1916,7 @@
 					)
 				)
 			)
-			(property "Description" "Low-Power, Low-Offset Voltage, Dual Comparators, DIP-8/SOIC-8/TO-99-8"
+			(property "Description" "Quad Differential Comparators, DIP-14/SOIC-14/TSSOP-14"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -1946,7 +1948,7 @@
 					)
 				)
 			)
-			(property "ki_fp_filters" "SOIC*3.9x4.9mm*P1.27mm* DIP*W7.62mm* SOP*5.28x5.23mm*P1.27mm* VSSOP*3x3mm*P0.65mm* TSSOP*4.4x3mm*P0.65mm*"
+			(property "ki_fp_filters" "SOIC*3.9x8.7mm*P1.27mm* DIP*W7.62mm* TSSOP*4.4x5mm*P0.65mm*"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -1957,7 +1959,87 @@
 					)
 				)
 			)
-			(symbol "LM393_1_1"
+			(symbol "LM2901_1_1"
+				(polyline
+					(pts
+						(xy -5.08 5.08) (xy 5.08 0) (xy -5.08 -5.08) (xy -5.08 5.08)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type background)
+					)
+				)
+				(polyline
+					(pts
+						(xy 3.302 -0.508) (xy 2.794 -0.508) (xy 3.302 0) (xy 2.794 0.508) (xy 2.286 0) (xy 2.794 -0.508) (xy 2.286 -0.508)
+					)
+					(stroke
+						(width 0.127)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(pin open_collector line
+					(at 7.62 0 180)
+					(length 2.54)
+					(name ""
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin input line
+					(at -7.62 -2.54 0)
+					(length 2.54)
+					(name "-"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin input line
+					(at -7.62 2.54 0)
+					(length 2.54)
+					(name "+"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "5"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(symbol "LM2901_2_1"
 				(polyline
 					(pts
 						(xy -5.08 5.08) (xy 5.08 0) (xy -5.08 -5.08) (xy -5.08 5.08)
@@ -2010,7 +2092,7 @@
 							)
 						)
 					)
-					(number "2"
+					(number "6"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -2028,7 +2110,7 @@
 							)
 						)
 					)
-					(number "3"
+					(number "7"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -2037,7 +2119,7 @@
 					)
 				)
 			)
-			(symbol "LM393_2_1"
+			(symbol "LM2901_3_1"
 				(polyline
 					(pts
 						(xy -5.08 5.08) (xy 5.08 0) (xy -5.08 -5.08) (xy -5.08 5.08)
@@ -2063,24 +2145,6 @@
 					)
 				)
 				(pin input line
-					(at -7.62 2.54 0)
-					(length 2.54)
-					(name "+"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "5"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin input line
 					(at -7.62 -2.54 0)
 					(length 2.54)
 					(name "-"
@@ -2090,7 +2154,25 @@
 							)
 						)
 					)
-					(number "6"
+					(number "10"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin input line
+					(at -7.62 2.54 0)
+					(length 2.54)
+					(name "+"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "11"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -2108,7 +2190,7 @@
 							)
 						)
 					)
-					(number "7"
+					(number "13"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -2117,18 +2199,42 @@
 					)
 				)
 			)
-			(symbol "LM393_3_1"
-				(pin power_in line
-					(at -2.54 -7.62 90)
-					(length 3.81)
-					(name "V-"
+			(symbol "LM2901_4_1"
+				(polyline
+					(pts
+						(xy -5.08 5.08) (xy 5.08 0) (xy -5.08 -5.08) (xy -5.08 5.08)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type background)
+					)
+				)
+				(polyline
+					(pts
+						(xy 3.302 -0.508) (xy 2.794 -0.508) (xy 3.302 0) (xy 2.794 0.508) (xy 2.286 0) (xy 2.794 -0.508) (xy 2.286 -0.508)
+					)
+					(stroke
+						(width 0.127)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(pin input line
+					(at -7.62 -2.54 0)
+					(length 2.54)
+					(name "-"
 						(effects
 							(font
 								(size 1.27 1.27)
 							)
 						)
 					)
-					(number "4"
+					(number "8"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -2136,6 +2242,44 @@
 						)
 					)
 				)
+				(pin input line
+					(at -7.62 2.54 0)
+					(length 2.54)
+					(name "+"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "9"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin open_collector line
+					(at 7.62 0 180)
+					(length 2.54)
+					(name ""
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "14"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(symbol "LM2901_5_1"
 				(pin power_in line
 					(at -2.54 7.62 270)
 					(length 3.81)
@@ -2146,7 +2290,25 @@
 							)
 						)
 					)
-					(number "8"
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin power_in line
+					(at -2.54 -7.62 90)
+					(length 3.81)
+					(name "V-"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "12"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -2811,7 +2973,7 @@
 			(embedded_fonts no)
 		)
 	)
-	(text "02 -80 V input, clean negative reference VNC (about -73 V), VNC monitor (BIAS_OK, VNC_FAULT clamp) and the BIAS_EN watchdog. Circuit and values: docs/bias_supply.md, sim/bias_supply/bias.py (master repo)."
+	(text "02 -80 V input, clean negative reference VNC (about -70.5 V, 72 V string), BIAS_OK monitors (VNC, -80 V rail, +15 V) and the BIAS_EN watchdog. docs/bias_supply.md (2026-11-22), rev_b/sim/bias_supply/monitors.py."
 		(exclude_from_sim no)
 		(at 30.48 10.16 0)
 		(effects
@@ -2847,7 +3009,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "tube_power_amp_revb:BladeTab_x2_P5.00mm_Drill1.4mm_PLACEHOLDER"
 			(at 30.48 53.34 0)
 			(effects
 				(font
@@ -2984,7 +3146,7 @@
 			)
 		)
 	)
-	(text "BIAS_RTN lands on the DGND island (grounding.md 4); the -80 V current returns mostly through GND_PWR"
+	(text "BIAS_RTN lands on the DGND island (grounding.md 4); the -80 V current returns mostly through GND_PWR. 25 mA requested from the PSU, -80 V +-2 V, no hold-up required (interfaces.md 3.1)"
 		(exclude_from_sim no)
 		(at 30.48 74.93 0)
 		(effects
@@ -3012,7 +3174,7 @@
 				)
 			)
 		)
-		(property "Value" "10R fusible 0.5W"
+		(property "Value" "10R 1W fusible wirewound"
 			(at 71.12 55.88 270)
 			(effects
 				(font
@@ -3020,7 +3182,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_THT:R_Axial_DIN0309_L9.0mm_D3.2mm_P12.70mm_Horizontal"
 			(at 71.12 55.118 0)
 			(effects
 				(font
@@ -3131,7 +3293,7 @@
 				)
 			)
 		)
-		(property "Value" "1N4004 (reverse clamp)"
+		(property "Value" "S1G (reverse clamp)"
 			(at 91.44 73.66 0)
 			(effects
 				(font
@@ -3139,7 +3301,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Diode_SMD:D_SMA"
 			(at 91.44 71.12 0)
 			(effects
 				(font
@@ -3305,15 +3467,15 @@
 				)
 			)
 		)
-		(property "Value" "100u/100V"
-			(at 119.25 72.39 0)
+		(property "Value" "100u/100V 105C"
+			(at 122 72.39 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_THT:CP_Radial_D10.0mm_P5.00mm"
 			(at 112.7252 74.93 0)
 			(effects
 				(font
@@ -3462,7 +3624,7 @@
 			)
 		)
 	)
-	(text "100 uF: the hold-up the sim assumed (185 ms to BIAS_OK low after the -80 V source goes)"
+	(text "100 uF: the board's own hold-up behind the BIAS_OK timing (22-117 ms, 28-65 ms with the drawn monitors)"
 		(exclude_from_sim no)
 		(at 83.82 92.71 0)
 		(effects
@@ -3490,7 +3652,7 @@
 				)
 			)
 		)
-		(property "Value" "3.9k"
+		(property "Value" "3.3k 1206"
 			(at 152.4 55.88 270)
 			(effects
 				(font
@@ -3498,7 +3660,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_1206_3216Metric"
 			(at 152.4 55.118 0)
 			(effects
 				(font
@@ -3609,7 +3771,7 @@
 				)
 			)
 		)
-		(property "Value" "BZX84-B33 (2%)"
+		(property "Value" "BZT52H-B36 (2 %)"
 			(at 172.72 91.44 0)
 			(effects
 				(font
@@ -3617,7 +3779,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Diode_SMD:D_SOD-123F"
 			(at 172.72 88.9 0)
 			(effects
 				(font
@@ -3771,7 +3933,7 @@
 				)
 			)
 		)
-		(property "Value" "BZX84-B43 (2%)"
+		(property "Value" "BZT52H-B36 (2 %)"
 			(at 172.72 116.84 0)
 			(effects
 				(font
@@ -3779,7 +3941,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Diode_SMD:D_SOD-123F"
 			(at 172.72 114.3 0)
 			(effects
 				(font
@@ -3861,7 +4023,7 @@
 		)
 		(uuid "34245c9b-d14f-561c-87a7-6686101a3a5a")
 	)
-	(text "76 V string (33 + 43 V, 2 %)"
+	(text "72 V string (2x 36 V, 2 %, SOD123F on 1 cm2 cathode pads: 150 K/W, self-heating 13 K)"
 		(exclude_from_sim no)
 		(at 180.34 132.08 0)
 		(effects
@@ -3897,7 +4059,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
 			(at 193.04 55.118 0)
 			(effects
 				(font
@@ -4004,7 +4166,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Diode_SMD:D_SOD-123"
 			(at 193.04 78.74 0)
 			(effects
 				(font
@@ -4087,7 +4249,7 @@
 		(uuid "03ceba44-92fd-5b1f-b1a3-9b819c92ee3c")
 	)
 	(symbol
-		(lib_id "tube_power_amp_revb:C_Polarized")
+		(lib_id "tube_power_amp_revb:C")
 		(at 213.36 88.9 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -4103,15 +4265,15 @@
 				)
 			)
 		)
-		(property "Value" "10u/100V"
-			(at 220.3 90.17 0)
+		(property "Value" "10u/100V X7S 1210"
+			(at 225.25 90.17 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_1210_3225Metric"
 			(at 214.3252 92.71 0)
 			(effects
 				(font
@@ -4129,7 +4291,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Polarized capacitor"
+		(property "Description" "Unpolarized capacitor"
 			(at 213.36 88.9 0)
 			(effects
 				(font
@@ -4163,9 +4325,29 @@
 		)
 		(uuid "7ecb7318-2bea-5413-ac0d-633496c710fd")
 	)
+	(label "ZF"
+		(at 213.36 82.55 90)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "36046e0a-40dc-5363-bb7f-513dc15f902e")
+	)
+	(wire
+		(pts
+			(xy 213.36 92.71) (xy 213.36 95.25)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2f15d497-58cc-5b3a-b6f5-eff6d33df7b4")
+	)
 	(symbol
 		(lib_id "tube_power_amp_revb:GND")
-		(at 213.36 82.55 0)
+		(at 213.36 95.25 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -4173,7 +4355,7 @@
 		(dnp no)
 		(uuid "316430e5-9d8d-5a3d-bf42-dc25b75b2e44")
 		(property "Reference" "#PWR205"
-			(at 213.36 88.9 0)
+			(at 213.36 101.6 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4182,7 +4364,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 213.36 86.36 0)
+			(at 213.36 99.06 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4190,7 +4372,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 213.36 82.55 0)
+			(at 213.36 95.25 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4199,7 +4381,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 213.36 82.55 0)
+			(at 213.36 95.25 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4208,7 +4390,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 213.36 82.55 0)
+			(at 213.36 95.25 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4228,25 +4410,178 @@
 			)
 		)
 	)
+	(symbol
+		(lib_id "tube_power_amp_revb:C")
+		(at 229.87 88.9 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "3f661c36-85ed-5973-a1e8-7d20813d3096")
+		(property "Reference" "C203"
+			(at 234.61 87.63 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "10u/100V X7S 1210"
+			(at 241.76 90.17 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_1210_3225Metric"
+			(at 230.8352 92.71 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 229.87 88.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Unpolarized capacitor"
+			(at 229.87 88.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "1fe271a5-41d4-56a9-97f1-18f80a9fb5e6")
+		)
+		(pin "2"
+			(uuid "07dabbb1-9583-59e7-a82b-25f282461119")
+		)
+		(instances
+			(project "tube_power_amp_revb"
+				(path "/451c49f3-c14c-5f4e-b828-2be954cd9e52/db981763-20a3-57ec-b55d-e76f1b055714"
+					(reference "C203")
+					(unit 1)
+				)
+			)
+		)
+	)
 	(wire
 		(pts
-			(xy 213.36 92.71) (xy 213.36 95.25)
+			(xy 229.87 85.09) (xy 229.87 82.55)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "36046e0a-40dc-5363-bb7f-513dc15f902e")
+		(uuid "1543907f-06b2-5132-9301-09b857d78bed")
 	)
 	(label "ZF"
-		(at 213.36 95.25 270)
+		(at 229.87 82.55 90)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify right bottom)
+			(justify left bottom)
 		)
-		(uuid "2f15d497-58cc-5b3a-b6f5-eff6d33df7b4")
+		(uuid "e5cd3a67-def7-5ac8-b7be-a6615ad9f937")
+	)
+	(wire
+		(pts
+			(xy 229.87 92.71) (xy 229.87 95.25)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f61d98b1-333e-52b7-932e-e630905e251b")
+	)
+	(symbol
+		(lib_id "tube_power_amp_revb:GND")
+		(at 229.87 95.25 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "76e6ef96-b3df-5732-a43d-98a70c80613e")
+		(property "Reference" "#PWR206"
+			(at 229.87 101.6 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 229.87 99.06 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 229.87 95.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 229.87 95.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 229.87 95.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "bd154f06-e329-54f2-b2e8-95dd52f67b81")
+		)
+		(instances
+			(project "tube_power_amp_revb"
+				(path "/451c49f3-c14c-5f4e-b828-2be954cd9e52/db981763-20a3-57ec-b55d-e76f1b055714"
+					(reference "#PWR206")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(text "C202 / C211 ceramic, not electrolytic: the leakage of an electrolytic here (up to 3 uA) would shift VNC 0.3 V through the 100k"
+		(exclude_from_sim no)
+		(at 193.04 140.97 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "72e48c57-3f93-567a-b16e-1a32925df7b8")
 	)
 	(symbol
 		(lib_id "tube_power_amp_revb:Q_PMOS")
@@ -4275,7 +4610,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Package_TO_SOT_SMD:SOT-223-3_TabPin2"
 			(at 259.08 50.8 0)
 			(effects
 				(font
@@ -4328,7 +4663,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "1543907f-06b2-5132-9301-09b857d78bed")
+		(uuid "8d0dd685-9952-5681-ab6d-12c8ac25f382")
 	)
 	(label "ZF"
 		(at 246.38 53.34 180)
@@ -4338,7 +4673,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "e5cd3a67-def7-5ac8-b7be-a6615ad9f937")
+		(uuid "201fa709-a1bc-5db7-9ebc-8730cac8e5e9")
 	)
 	(wire
 		(pts
@@ -4348,7 +4683,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "f61d98b1-333e-52b7-932e-e630905e251b")
+		(uuid "fe6ba111-8d36-58cd-81e6-a43774a2977f")
 	)
 	(global_label "M80"
 		(shape passive)
@@ -4360,7 +4695,7 @@
 			)
 			(justify left)
 		)
-		(uuid "72e48c57-3f93-567a-b16e-1a32925df7b8")
+		(uuid "4bb2a895-1a7d-5423-8977-6928d953b1d7")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 256.54 45.72 0)
 			(effects
@@ -4380,7 +4715,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "8d0dd685-9952-5681-ab6d-12c8ac25f382")
+		(uuid "5e7cc189-b3c0-5262-ad63-d26b0be5c0cd")
 	)
 	(label "VS1"
 		(at 256.54 60.96 270)
@@ -4390,7 +4725,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "201fa709-a1bc-5db7-9ebc-8730cac8e5e9")
+		(uuid "b80c585e-289a-5cb9-9a2d-71abbff392cf")
 	)
 	(symbol
 		(lib_id "tube_power_amp_revb:Q_PMOS")
@@ -4419,7 +4754,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Package_TO_SOT_SMD:SOT-223-3_TabPin2"
 			(at 259.08 86.36 0)
 			(effects
 				(font
@@ -4472,7 +4807,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "fe6ba111-8d36-58cd-81e6-a43774a2977f")
+		(uuid "f4e81bcd-c7a4-514c-9d87-ea2a0f2bf620")
 	)
 	(label "ZF"
 		(at 246.38 88.9 180)
@@ -4482,7 +4817,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "4bb2a895-1a7d-5423-8977-6928d953b1d7")
+		(uuid "29f7c7af-bc85-54aa-9479-5e277b19144b")
 	)
 	(wire
 		(pts
@@ -4492,7 +4827,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "5e7cc189-b3c0-5262-ad63-d26b0be5c0cd")
+		(uuid "dcdaf961-e702-55d6-ab1c-ccaa63a4059f")
 	)
 	(global_label "M80"
 		(shape passive)
@@ -4504,7 +4839,7 @@
 			)
 			(justify left)
 		)
-		(uuid "b80c585e-289a-5cb9-9a2d-71abbff392cf")
+		(uuid "2a1f1a95-d6c1-5bf7-8b8a-eda90d243214")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 256.54 81.28 0)
 			(effects
@@ -4524,7 +4859,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "f4e81bcd-c7a4-514c-9d87-ea2a0f2bf620")
+		(uuid "d261451d-2148-5e57-a305-bad6aeff7cf4")
 	)
 	(label "VS2"
 		(at 256.54 96.52 270)
@@ -4534,7 +4869,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "29f7c7af-bc85-54aa-9479-5e277b19144b")
+		(uuid "b5f06f34-a327-55ef-8a46-134a6be0b492")
 	)
 	(symbol
 		(lib_id "tube_power_amp_revb:R")
@@ -4561,7 +4896,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
 			(at 284.48 55.118 0)
 			(effects
 				(font
@@ -4611,7 +4946,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "dcdaf961-e702-55d6-ab1c-ccaa63a4059f")
+		(uuid "c13f47f6-216c-5103-a28c-10c6f250e7cd")
 	)
 	(label "VS1"
 		(at 278.13 53.34 180)
@@ -4621,7 +4956,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "2a1f1a95-d6c1-5bf7-8b8a-eda90d243214")
+		(uuid "08c6f790-449e-50bf-9e6e-41d6b1c17ebf")
 	)
 	(wire
 		(pts
@@ -4631,7 +4966,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "d261451d-2148-5e57-a305-bad6aeff7cf4")
+		(uuid "f8d76950-dad2-5c7d-af8a-823cfa54ad0d")
 	)
 	(global_label "VNC"
 		(shape passive)
@@ -4643,7 +4978,7 @@
 			)
 			(justify left)
 		)
-		(uuid "b5f06f34-a327-55ef-8a46-134a6be0b492")
+		(uuid "c0be956c-42aa-519d-b1b0-e9902690ae25")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 290.83 53.34 0)
 			(effects
@@ -4680,7 +5015,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
 			(at 284.48 90.678 0)
 			(effects
 				(font
@@ -4730,7 +5065,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "c13f47f6-216c-5103-a28c-10c6f250e7cd")
+		(uuid "eab28981-b822-5882-a011-f6b7fbcae41b")
 	)
 	(label "VS2"
 		(at 278.13 88.9 180)
@@ -4740,7 +5075,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "08c6f790-449e-50bf-9e6e-41d6b1c17ebf")
+		(uuid "7cfcc772-86c6-5b1b-914b-ab54e24a3ec4")
 	)
 	(wire
 		(pts
@@ -4750,7 +5085,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "f8d76950-dad2-5c7d-af8a-823cfa54ad0d")
+		(uuid "588db57f-aaa5-5df7-9b72-1fae17504742")
 	)
 	(global_label "VNC"
 		(shape passive)
@@ -4762,7 +5097,7 @@
 			)
 			(justify left)
 		)
-		(uuid "c0be956c-42aa-519d-b1b0-e9902690ae25")
+		(uuid "79bba7b9-d220-501b-b46c-83e9c39495a3")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 290.83 88.9 0)
 			(effects
@@ -4799,7 +5134,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
 			(at 314.96 55.118 0)
 			(effects
 				(font
@@ -4849,7 +5184,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "eab28981-b822-5882-a011-f6b7fbcae41b")
+		(uuid "c9f00c81-17dc-527c-b93c-cc06c9dad379")
 	)
 	(global_label "VNC"
 		(shape passive)
@@ -4861,7 +5196,7 @@
 			)
 			(justify right)
 		)
-		(uuid "7cfcc772-86c6-5b1b-914b-ab54e24a3ec4")
+		(uuid "fbd3c3d8-6d78-5e73-8add-df1c896f1be1")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 308.61 53.34 0)
 			(effects
@@ -4881,7 +5216,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "588db57f-aaa5-5df7-9b72-1fae17504742")
+		(uuid "817f5d54-e6b5-5f4b-ac3a-ecfd4d54753b")
 	)
 	(global_label "M80"
 		(shape passive)
@@ -4893,7 +5228,7 @@
 			)
 			(justify left)
 		)
-		(uuid "79bba7b9-d220-501b-b46c-83e9c39495a3")
+		(uuid "c17d9d23-8b39-57a8-81bd-4ae08b3bfbae")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 321.31 53.34 0)
 			(effects
@@ -4930,7 +5265,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
 			(at 314.96 90.678 0)
 			(effects
 				(font
@@ -4980,7 +5315,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "c9f00c81-17dc-527c-b93c-cc06c9dad379")
+		(uuid "083b9f0a-5827-52a2-8b44-dfe4cc5339cc")
 	)
 	(symbol
 		(lib_id "tube_power_amp_revb:GND")
@@ -4990,8 +5325,8 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "76e6ef96-b3df-5732-a43d-98a70c80613e")
-		(property "Reference" "#PWR206"
+		(uuid "d9029cc9-16a3-5013-9041-f8e4813cf1ce")
+		(property "Reference" "#PWR207"
 			(at 308.61 95.25 0)
 			(effects
 				(font
@@ -5036,12 +5371,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "bd154f06-e329-54f2-b2e8-95dd52f67b81")
+			(uuid "db67c325-9c5c-54c1-8df6-e6cb1726932b")
 		)
 		(instances
 			(project "tube_power_amp_revb"
 				(path "/451c49f3-c14c-5f4e-b828-2be954cd9e52/db981763-20a3-57ec-b55d-e76f1b055714"
-					(reference "#PWR206")
+					(reference "#PWR207")
 					(unit 1)
 				)
 			)
@@ -5055,7 +5390,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "fbd3c3d8-6d78-5e73-8add-df1c896f1be1")
+		(uuid "470c5813-0eac-57b7-a9ae-b770a5d9f2f2")
 	)
 	(global_label "VNC"
 		(shape passive)
@@ -5067,7 +5402,7 @@
 			)
 			(justify left)
 		)
-		(uuid "817f5d54-e6b5-5f4b-ac3a-ecfd4d54753b")
+		(uuid "3bf5ee6d-0d28-5595-91e7-03e6b8019d11")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 321.31 88.9 0)
 			(effects
@@ -5087,8 +5422,8 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "3f661c36-85ed-5973-a1e8-7d20813d3096")
-		(property "Reference" "C203"
+		(uuid "711bf101-5517-5244-b5e2-f177af786c74")
+		(property "Reference" "C204"
 			(at 340.02 69.85 0)
 			(effects
 				(font
@@ -5096,15 +5431,15 @@
 				)
 			)
 		)
-		(property "Value" "10u/100V"
-			(at 342.22 72.39 0)
+		(property "Value" "10u/100V 105C"
+			(at 344.97 72.39 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_THT:CP_Radial_D6.3mm_P2.50mm"
 			(at 336.2452 74.93 0)
 			(effects
 				(font
@@ -5132,15 +5467,15 @@
 			)
 		)
 		(pin "1"
-			(uuid "1fe271a5-41d4-56a9-97f1-18f80a9fb5e6")
+			(uuid "39ad8cff-1a4f-536c-a5ad-f1d1bc7e9231")
 		)
 		(pin "2"
-			(uuid "07dabbb1-9583-59e7-a82b-25f282461119")
+			(uuid "e684fbed-103b-5721-b588-50a47f7a3b6f")
 		)
 		(instances
 			(project "tube_power_amp_revb"
 				(path "/451c49f3-c14c-5f4e-b828-2be954cd9e52/db981763-20a3-57ec-b55d-e76f1b055714"
-					(reference "C203")
+					(reference "C204")
 					(unit 1)
 				)
 			)
@@ -5154,7 +5489,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "c17d9d23-8b39-57a8-81bd-4ae08b3bfbae")
+		(uuid "44ef15d0-c861-5223-b256-9f7e48f05aae")
 	)
 	(symbol
 		(lib_id "tube_power_amp_revb:GND")
@@ -5164,8 +5499,8 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "d9029cc9-16a3-5013-9041-f8e4813cf1ce")
-		(property "Reference" "#PWR207"
+		(uuid "23d42da4-f4a5-5709-8171-879b0f2f1547")
+		(property "Reference" "#PWR208"
 			(at 335.28 71.12 0)
 			(effects
 				(font
@@ -5210,12 +5545,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "db67c325-9c5c-54c1-8df6-e6cb1726932b")
+			(uuid "8b700238-7929-5e0c-8092-d9b6f9762f10")
 		)
 		(instances
 			(project "tube_power_amp_revb"
 				(path "/451c49f3-c14c-5f4e-b828-2be954cd9e52/db981763-20a3-57ec-b55d-e76f1b055714"
-					(reference "#PWR207")
+					(reference "#PWR208")
 					(unit 1)
 				)
 			)
@@ -5229,7 +5564,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "083b9f0a-5827-52a2-8b44-dfe4cc5339cc")
+		(uuid "5a54dd84-6a93-5df5-9e9b-233855563466")
 	)
 	(global_label "VNC"
 		(shape passive)
@@ -5241,7 +5576,7 @@
 			)
 			(justify right)
 		)
-		(uuid "470c5813-0eac-57b7-a9ae-b770a5d9f2f2")
+		(uuid "0d73dac8-a387-5307-8669-005d6a308dad")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 335.28 77.47 0)
 			(effects
@@ -5262,7 +5597,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "3bf5ee6d-0d28-5595-91e7-03e6b8019d11")
+		(uuid "a9037c69-a7c5-5182-8b85-a2e15900d88d")
 	)
 	(symbol
 		(lib_id "tube_power_amp_revb:R")
@@ -5281,7 +5616,7 @@
 				)
 			)
 		)
-		(property "Value" "2.2k"
+		(property "Value" "1.0k"
 			(at 30.48 144.78 270)
 			(effects
 				(font
@@ -5289,7 +5624,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_1206_3216Metric"
 			(at 30.48 144.018 0)
 			(effects
 				(font
@@ -5339,7 +5674,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "44ef15d0-c861-5223-b256-9f7e48f05aae")
+		(uuid "9d4a443d-beec-5e4b-8bdc-fdb16b821c8f")
 	)
 	(symbol
 		(lib_id "tube_power_amp_revb:+15V")
@@ -5349,8 +5684,8 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "23d42da4-f4a5-5709-8171-879b0f2f1547")
-		(property "Reference" "#PWR208"
+		(uuid "fd3d0717-2fc6-596e-ad32-77206dcf78ee")
+		(property "Reference" "#PWR209"
 			(at 24.13 146.05 0)
 			(effects
 				(font
@@ -5395,12 +5730,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "8b700238-7929-5e0c-8092-d9b6f9762f10")
+			(uuid "6f98cfee-cb5e-5f89-89c5-f196c3a9f8eb")
 		)
 		(instances
 			(project "tube_power_amp_revb"
 				(path "/451c49f3-c14c-5f4e-b828-2be954cd9e52/db981763-20a3-57ec-b55d-e76f1b055714"
-					(reference "#PWR208")
+					(reference "#PWR209")
 					(unit 1)
 				)
 			)
@@ -5414,7 +5749,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "5a54dd84-6a93-5df5-9e9b-233855563466")
+		(uuid "3aefeb67-f2e6-50a3-8be9-2fd638602f5b")
 	)
 	(global_label "VREF10"
 		(shape passive)
@@ -5426,7 +5761,7 @@
 			)
 			(justify left)
 		)
-		(uuid "0d73dac8-a387-5307-8669-005d6a308dad")
+		(uuid "6da61ac6-d4fe-50a3-89e0-6b7d4388ccb8")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 36.83 142.24 0)
 			(effects
@@ -5455,7 +5790,7 @@
 				)
 			)
 		)
-		(property "Value" "LM4040DBZ-10 (10 V, 0.5 %)"
+		(property "Value" "LM4040A10 (10 V, 0.1 %)"
 			(at 50.8 163.195 0)
 			(effects
 				(font
@@ -5516,7 +5851,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "a9037c69-a7c5-5182-8b85-a2e15900d88d")
+		(uuid "a9c39cb0-c93b-5e68-bcdc-3663c3434dd4")
 	)
 	(global_label "VREF10"
 		(shape passive)
@@ -5528,7 +5863,7 @@
 			)
 			(justify left)
 		)
-		(uuid "9d4a443d-beec-5e4b-8bdc-fdb16b821c8f")
+		(uuid "a8148164-b882-527f-bbca-eab77d802a72")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 57.15 160.02 0)
 			(effects
@@ -5548,7 +5883,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "3aefeb67-f2e6-50a3-8be9-2fd638602f5b")
+		(uuid "f1457f78-121c-5761-aa75-5d4a3a0fa6cb")
 	)
 	(symbol
 		(lib_id "tube_power_amp_revb:GND")
@@ -5558,8 +5893,8 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "fd3d0717-2fc6-596e-ad32-77206dcf78ee")
-		(property "Reference" "#PWR209"
+		(uuid "89bc1c2a-8348-5fa8-852f-d238f4162163")
+		(property "Reference" "#PWR210"
 			(at 44.45 166.37 0)
 			(effects
 				(font
@@ -5604,12 +5939,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "6f98cfee-cb5e-5f89-89c5-f196c3a9f8eb")
+			(uuid "9a3c731a-d1a0-5d93-8e19-84b38cd3efab")
 		)
 		(instances
 			(project "tube_power_amp_revb"
 				(path "/451c49f3-c14c-5f4e-b828-2be954cd9e52/db981763-20a3-57ec-b55d-e76f1b055714"
-					(reference "#PWR209")
+					(reference "#PWR210")
 					(unit 1)
 				)
 			)
@@ -5617,7 +5952,7 @@
 	)
 	(no_connect
 		(at 49.53 160.02)
-		(uuid "6da61ac6-d4fe-50a3-89e0-6b7d4388ccb8")
+		(uuid "0561a9e4-68e3-5b2c-a20e-637eba65c26e")
 	)
 	(symbol
 		(lib_id "tube_power_amp_revb:C")
@@ -5627,8 +5962,8 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "711bf101-5517-5244-b5e2-f177af786c74")
-		(property "Reference" "C204"
+		(uuid "f2b807e1-50df-5940-b867-db93875e22aa")
+		(property "Reference" "C205"
 			(at 75.86 158.75 0)
 			(effects
 				(font
@@ -5644,7 +5979,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
 			(at 72.0852 163.83 0)
 			(effects
 				(font
@@ -5672,15 +6007,15 @@
 			)
 		)
 		(pin "1"
-			(uuid "39ad8cff-1a4f-536c-a5ad-f1d1bc7e9231")
+			(uuid "a8850aa6-6d73-5e04-a59c-faac29a6b4d1")
 		)
 		(pin "2"
-			(uuid "e684fbed-103b-5721-b588-50a47f7a3b6f")
+			(uuid "a2dd134b-7db1-5932-9c43-460d9a4b1952")
 		)
 		(instances
 			(project "tube_power_amp_revb"
 				(path "/451c49f3-c14c-5f4e-b828-2be954cd9e52/db981763-20a3-57ec-b55d-e76f1b055714"
-					(reference "C204")
+					(reference "C205")
 					(unit 1)
 				)
 			)
@@ -5694,7 +6029,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "a9c39cb0-c93b-5e68-bcdc-3663c3434dd4")
+		(uuid "9bf899e1-254f-52c5-a7c4-7d42afff6e49")
 	)
 	(global_label "VREF10"
 		(shape passive)
@@ -5706,7 +6041,7 @@
 			)
 			(justify left)
 		)
-		(uuid "a8148164-b882-527f-bbca-eab77d802a72")
+		(uuid "5871a8eb-c42b-5def-81e1-321491ef4b86")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 71.12 153.67 0)
 			(effects
@@ -5726,7 +6061,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "f1457f78-121c-5761-aa75-5d4a3a0fa6cb")
+		(uuid "af663a92-71e6-5c47-ae2e-4c8cdf6da241")
 	)
 	(symbol
 		(lib_id "tube_power_amp_revb:GND")
@@ -5736,8 +6071,8 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "89bc1c2a-8348-5fa8-852f-d238f4162163")
-		(property "Reference" "#PWR210"
+		(uuid "f8d483a9-ccce-52b0-9cae-5ae60d11f2e5")
+		(property "Reference" "#PWR211"
 			(at 71.12 172.72 0)
 			(effects
 				(font
@@ -5782,12 +6117,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "9a3c731a-d1a0-5d93-8e19-84b38cd3efab")
+			(uuid "5e7408ab-5438-5717-9727-9bb3f0dbce5f")
 		)
 		(instances
 			(project "tube_power_amp_revb"
 				(path "/451c49f3-c14c-5f4e-b828-2be954cd9e52/db981763-20a3-57ec-b55d-e76f1b055714"
-					(reference "#PWR210")
+					(reference "#PWR211")
 					(unit 1)
 				)
 			)
@@ -5810,15 +6145,15 @@
 				)
 			)
 		)
-		(property "Value" "10k"
-			(at 95.63 143.51 0)
+		(property "Value" "10k 0.1%"
+			(at 98.38 143.51 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_1206_3216Metric"
 			(at 89.662 142.24 0)
 			(effects
 				(font
@@ -5868,7 +6203,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "0561a9e4-68e3-5b2c-a20e-637eba65c26e")
+		(uuid "2a192c6a-6d16-5d42-a4b2-b7d224aa66a1")
 	)
 	(global_label "VREF10"
 		(shape passive)
@@ -5880,7 +6215,7 @@
 			)
 			(justify left)
 		)
-		(uuid "9bf899e1-254f-52c5-a7c4-7d42afff6e49")
+		(uuid "43de81be-4660-5013-a553-b3e3cf0e97c1")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 91.44 135.89 0)
 			(effects
@@ -5900,7 +6235,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "5871a8eb-c42b-5def-81e1-321491ef4b86")
+		(uuid "4e21b9d6-a2ce-5061-b869-054f63eec487")
 	)
 	(label "VREF5"
 		(at 91.44 148.59 270)
@@ -5910,7 +6245,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "af663a92-71e6-5c47-ae2e-4c8cdf6da241")
+		(uuid "33de4250-298b-51e8-806b-2fd30b4d8624")
 	)
 	(symbol
 		(lib_id "tube_power_amp_revb:R")
@@ -5929,15 +6264,15 @@
 				)
 			)
 		)
-		(property "Value" "10k"
-			(at 95.63 179.07 0)
+		(property "Value" "10k 0.1%"
+			(at 98.38 179.07 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_1206_3216Metric"
 			(at 89.662 177.8 0)
 			(effects
 				(font
@@ -5987,7 +6322,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "2a192c6a-6d16-5d42-a4b2-b7d224aa66a1")
+		(uuid "d4f1bc7c-2da5-5675-b45f-44844a6c3e4c")
 	)
 	(label "VREF5"
 		(at 91.44 171.45 90)
@@ -5997,7 +6332,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "43de81be-4660-5013-a553-b3e3cf0e97c1")
+		(uuid "839194f9-0466-52e2-841e-c8e6c6932da6")
 	)
 	(wire
 		(pts
@@ -6007,7 +6342,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "4e21b9d6-a2ce-5061-b869-054f63eec487")
+		(uuid "b99a88b8-847e-5b33-9ce6-7d4240dcea4a")
 	)
 	(symbol
 		(lib_id "tube_power_amp_revb:GND")
@@ -6017,8 +6352,8 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "f8d483a9-ccce-52b0-9cae-5ae60d11f2e5")
-		(property "Reference" "#PWR211"
+		(uuid "374f439e-5bae-58a5-b714-73ccda7f0847")
+		(property "Reference" "#PWR212"
 			(at 91.44 190.5 0)
 			(effects
 				(font
@@ -6063,12 +6398,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "5e7408ab-5438-5717-9727-9bb3f0dbce5f")
+			(uuid "0b395270-d624-54c3-a17c-3d0e18df3b16")
 		)
 		(instances
 			(project "tube_power_amp_revb"
 				(path "/451c49f3-c14c-5f4e-b828-2be954cd9e52/db981763-20a3-57ec-b55d-e76f1b055714"
-					(reference "#PWR211")
+					(reference "#PWR212")
 					(unit 1)
 				)
 			)
@@ -6082,8 +6417,8 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "f2b807e1-50df-5940-b867-db93875e22aa")
-		(property "Reference" "C205"
+		(uuid "3480267f-dd52-5e7a-8366-522a92c07d3c")
+		(property "Reference" "C206"
 			(at 116.5 168.91 0)
 			(effects
 				(font
@@ -6099,7 +6434,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
 			(at 112.7252 173.99 0)
 			(effects
 				(font
@@ -6127,15 +6462,15 @@
 			)
 		)
 		(pin "1"
-			(uuid "a8850aa6-6d73-5e04-a59c-faac29a6b4d1")
+			(uuid "1cd9be21-565a-597d-90c3-e7f8c01e1d03")
 		)
 		(pin "2"
-			(uuid "a2dd134b-7db1-5932-9c43-460d9a4b1952")
+			(uuid "03165b51-775d-57ca-b67b-50047b4a5c61")
 		)
 		(instances
 			(project "tube_power_amp_revb"
 				(path "/451c49f3-c14c-5f4e-b828-2be954cd9e52/db981763-20a3-57ec-b55d-e76f1b055714"
-					(reference "C205")
+					(reference "C206")
 					(unit 1)
 				)
 			)
@@ -6149,7 +6484,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "33de4250-298b-51e8-806b-2fd30b4d8624")
+		(uuid "b693896c-fbbc-59c9-afb8-fd0ce53dc8b7")
 	)
 	(label "VREF5"
 		(at 111.76 163.83 90)
@@ -6159,7 +6494,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "d4f1bc7c-2da5-5675-b45f-44844a6c3e4c")
+		(uuid "d4ba05ba-36e9-54e0-9c2b-db150290f62b")
 	)
 	(wire
 		(pts
@@ -6169,7 +6504,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "839194f9-0466-52e2-841e-c8e6c6932da6")
+		(uuid "63352805-2001-5a17-a42f-0341eaa56ab6")
 	)
 	(symbol
 		(lib_id "tube_power_amp_revb:GND")
@@ -6179,8 +6514,8 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "374f439e-5bae-58a5-b714-73ccda7f0847")
-		(property "Reference" "#PWR212"
+		(uuid "4e8a68e7-60c5-5c4c-bd48-35280ec3d1e7")
+		(property "Reference" "#PWR213"
 			(at 111.76 182.88 0)
 			(effects
 				(font
@@ -6225,16 +6560,27 @@
 			)
 		)
 		(pin "1"
-			(uuid "0b395270-d624-54c3-a17c-3d0e18df3b16")
+			(uuid "3b6dd174-b665-5f4d-938d-f63ae643a520")
 		)
 		(instances
 			(project "tube_power_amp_revb"
 				(path "/451c49f3-c14c-5f4e-b828-2be954cd9e52/db981763-20a3-57ec-b55d-e76f1b055714"
-					(reference "#PWR212")
+					(reference "#PWR213")
 					(unit 1)
 				)
 			)
 		)
+	)
+	(text "VREF10 regulates down to +15 V = 11.5 V (1.0k, 1.3 mA of loads); LM4040 3.6 mA"
+		(exclude_from_sim no)
+		(at 30.48 195.58 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "266517ae-d303-5e91-881f-94c2dfe72e0a")
 	)
 	(symbol
 		(lib_id "tube_power_amp_revb:R")
@@ -6253,7 +6599,7 @@
 				)
 			)
 		)
-		(property "Value" "953k"
+		(property "Value" "169k 0.1%"
 			(at 152.4 144.78 270)
 			(effects
 				(font
@@ -6261,7 +6607,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_1206_3216Metric"
 			(at 152.4 144.018 0)
 			(effects
 				(font
@@ -6311,7 +6657,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "b99a88b8-847e-5b33-9ce6-7d4240dcea4a")
+		(uuid "ead350a5-e1fe-52f1-ab69-772cbf9f0a0a")
 	)
 	(global_label "VNC"
 		(shape passive)
@@ -6323,7 +6669,7 @@
 			)
 			(justify right)
 		)
-		(uuid "b693896c-fbbc-59c9-afb8-fd0ce53dc8b7")
+		(uuid "abbfe0a7-ae09-5f17-b96e-ca57468b4387")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 146.05 142.24 0)
 			(effects
@@ -6343,9 +6689,9 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "d4ba05ba-36e9-54e0-9c2b-db150290f62b")
+		(uuid "18ee939c-f549-5ad6-96e0-9c1159914280")
 	)
-	(label "VMON"
+	(label "MVA"
 		(at 158.75 142.24 0)
 		(effects
 			(font
@@ -6353,11 +6699,11 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "63352805-2001-5a17-a42f-0341eaa56ab6")
+		(uuid "485639f8-1857-5073-a40f-e5c9e09a5767")
 	)
 	(symbol
 		(lib_id "tube_power_amp_revb:R")
-		(at 152.4 177.8 90)
+		(at 172.72 142.24 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -6365,23 +6711,23 @@
 		(dnp no)
 		(uuid "5d533e5d-23ef-5b3a-94ef-9dbdce430859")
 		(property "Reference" "R212"
-			(at 152.4 175.26 270)
+			(at 172.72 139.7 270)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Value" "64.9k"
-			(at 152.4 180.34 270)
+		(property "Value" "234k 0.1%"
+			(at 172.72 144.78 270)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Footprint" ""
-			(at 152.4 179.578 0)
+		(property "Footprint" "Resistor_SMD:R_1206_3216Metric"
+			(at 172.72 144.018 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6390,7 +6736,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 152.4 177.8 0)
+			(at 172.72 142.24 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6399,7 +6745,7 @@
 			)
 		)
 		(property "Description" "Resistor"
-			(at 152.4 177.8 0)
+			(at 172.72 142.24 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6424,55 +6770,269 @@
 	)
 	(wire
 		(pts
-			(xy 148.59 177.8) (xy 146.05 177.8)
+			(xy 168.91 142.24) (xy 166.37 142.24)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "266517ae-d303-5e91-881f-94c2dfe72e0a")
+		(uuid "8370e097-2fc6-57d2-a1d2-c5a24855ee3d")
 	)
-	(label "VMON"
-		(at 146.05 177.8 180)
+	(label "MVA"
+		(at 166.37 142.24 180)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 			(justify right bottom)
 		)
-		(uuid "ead350a5-e1fe-52f1-ab69-772cbf9f0a0a")
+		(uuid "adb09ae9-7509-5411-bcbe-19ec84913be2")
 	)
 	(wire
 		(pts
-			(xy 156.21 177.8) (xy 158.75 177.8)
+			(xy 176.53 142.24) (xy 179.07 142.24)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "abbfe0a7-ae09-5f17-b96e-ca57468b4387")
+		(uuid "e1f583e4-7915-577a-b320-9995f69784e0")
+	)
+	(label "MV"
+		(at 179.07 142.24 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "99b061fd-629d-5d0a-8b71-5371a4a622ca")
+	)
+	(symbol
+		(lib_id "tube_power_amp_revb:R")
+		(at 193.04 160.02 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "487e3364-788d-5688-9c90-70caf577f2d5")
+		(property "Reference" "R213"
+			(at 197.78 158.75 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "29.4k 0.1%"
+			(at 201.08 161.29 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_1206_3216Metric"
+			(at 191.262 160.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 193.04 160.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 193.04 160.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "da931373-9c99-50c0-a17d-2579fed9d61d")
+		)
+		(pin "2"
+			(uuid "af65d834-bf60-507e-9015-7e87830faaf1")
+		)
+		(instances
+			(project "tube_power_amp_revb"
+				(path "/451c49f3-c14c-5f4e-b828-2be954cd9e52/db981763-20a3-57ec-b55d-e76f1b055714"
+					(reference "R213")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 193.04 156.21) (xy 193.04 153.67)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ef37cca7-d9e6-5b07-bb6e-832ac6663fea")
+	)
+	(label "MV"
+		(at 193.04 153.67 90)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "aa490b60-1c0c-5e71-9181-07e105045335")
+	)
+	(wire
+		(pts
+			(xy 193.04 163.83) (xy 193.04 166.37)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "37085d83-ed0c-5f9d-a82f-b6d4007d1e31")
 	)
 	(global_label "VREF10"
 		(shape passive)
-		(at 158.75 177.8 0)
+		(at 193.04 166.37 270)
 		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify left)
+			(justify right)
 		)
-		(uuid "18ee939c-f549-5ad6-96e0-9c1159914280")
+		(uuid "dc47d893-1039-5789-ad75-90a4248275e1")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 158.75 177.8 0)
+			(at 193.04 166.37 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
+				(justify right)
 				(hide yes)
 			)
 		)
+	)
+	(symbol
+		(lib_id "tube_power_amp_revb:R")
+		(at 213.36 142.24 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "a800dbe5-a59d-5f1b-82ef-8306fb351a27")
+		(property "Reference" "R214"
+			(at 213.36 139.7 270)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "3.57M"
+			(at 213.36 144.78 270)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_1206_3216Metric"
+			(at 213.36 144.018 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 213.36 142.24 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 213.36 142.24 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "cd2ddf1b-87a7-56fe-84cb-477422c26d96")
+		)
+		(pin "2"
+			(uuid "cba770c4-b712-5e74-8c77-534e427a59ac")
+		)
+		(instances
+			(project "tube_power_amp_revb"
+				(path "/451c49f3-c14c-5f4e-b828-2be954cd9e52/db981763-20a3-57ec-b55d-e76f1b055714"
+					(reference "R214")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 209.55 142.24) (xy 207.01 142.24)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "44500be6-ac7b-50a1-87c5-f5fc44f2eba2")
+	)
+	(label "MV"
+		(at 207.01 142.24 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "76524722-68f2-5229-88e7-9b42dabcb2a3")
+	)
+	(wire
+		(pts
+			(xy 217.17 142.24) (xy 219.71 142.24)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f600d8d8-c95e-5ad8-a497-81da7cb8aa5f")
+	)
+	(label "MON_OV"
+		(at 219.71 142.24 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "e1b20507-93c0-521f-9734-58b0439577de")
 	)
 	(symbol
 		(lib_id "tube_power_amp_revb:C")
@@ -6482,8 +7042,8 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "3480267f-dd52-5e7a-8366-522a92c07d3c")
-		(property "Reference" "C206"
+		(uuid "4b5bde5f-08ff-585b-930a-fb5dc09b2ede")
+		(property "Reference" "C207"
 			(at 177.46 176.53 0)
 			(effects
 				(font
@@ -6491,15 +7051,15 @@
 				)
 			)
 		)
-		(property "Value" "1n"
-			(at 176.36 179.07 0)
+		(property "Value" "10n"
+			(at 176.91 179.07 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
 			(at 173.6852 181.61 0)
 			(effects
 				(font
@@ -6527,15 +7087,15 @@
 			)
 		)
 		(pin "1"
-			(uuid "1cd9be21-565a-597d-90c3-e7f8c01e1d03")
+			(uuid "122d3c7d-5fc7-560e-9223-f55461910d51")
 		)
 		(pin "2"
-			(uuid "03165b51-775d-57ca-b67b-50047b4a5c61")
+			(uuid "141fc4b2-e662-5e86-b498-ccbee60c704d")
 		)
 		(instances
 			(project "tube_power_amp_revb"
 				(path "/451c49f3-c14c-5f4e-b828-2be954cd9e52/db981763-20a3-57ec-b55d-e76f1b055714"
-					(reference "C206")
+					(reference "C207")
 					(unit 1)
 				)
 			)
@@ -6549,9 +7109,9 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "485639f8-1857-5073-a40f-e5c9e09a5767")
+		(uuid "a2623b17-5841-5fe1-b867-b57ed15976f4")
 	)
-	(label "VMON"
+	(label "MV"
 		(at 172.72 171.45 90)
 		(effects
 			(font
@@ -6559,7 +7119,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "8370e097-2fc6-57d2-a1d2-c5a24855ee3d")
+		(uuid "1468f593-7a46-5376-b08c-a7c9ede8d9cd")
 	)
 	(wire
 		(pts
@@ -6569,7 +7129,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "adb09ae9-7509-5411-bcbe-19ec84913be2")
+		(uuid "24e34df6-b641-5b42-a602-4d1f0b358c7b")
 	)
 	(symbol
 		(lib_id "tube_power_amp_revb:GND")
@@ -6579,8 +7139,8 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "4e8a68e7-60c5-5c4c-bd48-35280ec3d1e7")
-		(property "Reference" "#PWR213"
+		(uuid "d6f213f2-5879-5236-9281-e26bb76e374f")
+		(property "Reference" "#PWR214"
 			(at 172.72 190.5 0)
 			(effects
 				(font
@@ -6625,290 +7185,6 @@
 			)
 		)
 		(pin "1"
-			(uuid "3b6dd174-b665-5f4d-938d-f63ae643a520")
-		)
-		(instances
-			(project "tube_power_amp_revb"
-				(path "/451c49f3-c14c-5f4e-b828-2be954cd9e52/db981763-20a3-57ec-b55d-e76f1b055714"
-					(reference "#PWR213")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "tube_power_amp_revb:LM393")
-		(at 213.36 151.13 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "8313960e-8d37-5cd2-8414-57c39da31093")
-		(property "Reference" "U202"
-			(at 217.17 147.32 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "LM393"
-			(at 219.71 154.94 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 213.36 151.13 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "http://www.ti.com/lit/ds/symlink/lm393.pdf"
-			(at 213.36 151.13 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Low-Power, Low-Offset Voltage, Dual Comparators, DIP-8/SOIC-8/TO-99-8"
-			(at 213.36 151.13 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "276a8663-5fd3-5b44-a10d-686f4ed2fcf5")
-		)
-		(pin "2"
-			(uuid "ce45af9e-6275-5cf8-b555-4c627917d37d")
-		)
-		(pin "3"
-			(uuid "0dea979c-500e-5bdf-9c9a-006f622a6406")
-		)
-		(instances
-			(project "tube_power_amp_revb"
-				(path "/451c49f3-c14c-5f4e-b828-2be954cd9e52/db981763-20a3-57ec-b55d-e76f1b055714"
-					(reference "U202")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(wire
-		(pts
-			(xy 205.74 148.59) (xy 203.2 148.59)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "e1f583e4-7915-577a-b320-9995f69784e0")
-	)
-	(label "VMON"
-		(at 203.2 148.59 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "99b061fd-629d-5d0a-8b71-5371a4a622ca")
-	)
-	(wire
-		(pts
-			(xy 205.74 153.67) (xy 203.2 153.67)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "ef37cca7-d9e6-5b07-bb6e-832ac6663fea")
-	)
-	(label "VREF5"
-		(at 203.2 153.67 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "aa490b60-1c0c-5e71-9181-07e105045335")
-	)
-	(wire
-		(pts
-			(xy 220.98 151.13) (xy 223.52 151.13)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "37085d83-ed0c-5f9d-a82f-b6d4007d1e31")
-	)
-	(global_label "VNC_FAULT"
-		(shape passive)
-		(at 223.52 151.13 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "dc47d893-1039-5789-ad75-90a4248275e1")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 223.52 151.13 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-	)
-	(symbol
-		(lib_id "tube_power_amp_revb:R")
-		(at 243.84 133.35 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "487e3364-788d-5688-9c90-70caf577f2d5")
-		(property "Reference" "R213"
-			(at 248.58 132.08 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "10k"
-			(at 248.03 134.62 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 242.062 133.35 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 243.84 133.35 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Resistor"
-			(at 243.84 133.35 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "da931373-9c99-50c0-a17d-2579fed9d61d")
-		)
-		(pin "2"
-			(uuid "af65d834-bf60-507e-9015-7e87830faaf1")
-		)
-		(instances
-			(project "tube_power_amp_revb"
-				(path "/451c49f3-c14c-5f4e-b828-2be954cd9e52/db981763-20a3-57ec-b55d-e76f1b055714"
-					(reference "R213")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(wire
-		(pts
-			(xy 243.84 129.54) (xy 243.84 127)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "44500be6-ac7b-50a1-87c5-f5fc44f2eba2")
-	)
-	(symbol
-		(lib_id "tube_power_amp_revb:+15V")
-		(at 243.84 127 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "d6f213f2-5879-5236-9281-e26bb76e374f")
-		(property "Reference" "#PWR214"
-			(at 243.84 130.81 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "+15V"
-			(at 243.84 123.444 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 243.84 127 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 243.84 127 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"+15V\""
-			(at 243.84 127 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
 			(uuid "f9e2ed19-b294-59af-8786-110024283840")
 		)
 		(instances
@@ -6920,65 +7196,33 @@
 			)
 		)
 	)
-	(wire
-		(pts
-			(xy 243.84 137.16) (xy 243.84 139.7)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "76524722-68f2-5229-88e7-9b42dabcb2a3")
-	)
-	(global_label "VNC_FAULT"
-		(shape passive)
-		(at 243.84 139.7 270)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "f600d8d8-c95e-5ad8-a497-81da7cb8aa5f")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 243.84 139.7 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-				(hide yes)
-			)
-		)
-	)
 	(symbol
-		(lib_id "tube_power_amp_revb:R")
-		(at 243.84 160.02 0)
+		(lib_id "tube_power_amp_revb:D")
+		(at 193.04 187.96 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "a800dbe5-a59d-5f1b-82ef-8306fb351a27")
-		(property "Reference" "R214"
-			(at 248.58 158.75 0)
+		(uuid "d1fd1318-f798-5f32-941e-2a66e7f1c8c4")
+		(property "Reference" "D205"
+			(at 197.78 186.69 270)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Value" "10M"
-			(at 248.03 161.29 0)
+		(property "Value" "BAS416 (low leakage)"
+			(at 206.58 189.23 270)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Footprint" ""
-			(at 242.062 160.02 0)
+		(property "Footprint" "Diode_SMD:D_SOD-323"
+			(at 193.04 187.96 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6987,7 +7231,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 243.84 160.02 0)
+			(at 193.04 187.96 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6995,8 +7239,8 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Resistor"
-			(at 243.84 160.02 0)
+		(property "Description" "Diode"
+			(at 193.04 187.96 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7005,15 +7249,15 @@
 			)
 		)
 		(pin "1"
-			(uuid "cd2ddf1b-87a7-56fe-84cb-477422c26d96")
+			(uuid "f6da3c27-1fb2-5c20-81f6-3c76cc010bbc")
 		)
 		(pin "2"
-			(uuid "cba770c4-b712-5e74-8c77-534e427a59ac")
+			(uuid "773d1fca-105f-527c-ae5c-a53806b04c5b")
 		)
 		(instances
 			(project "tube_power_amp_revb"
 				(path "/451c49f3-c14c-5f4e-b828-2be954cd9e52/db981763-20a3-57ec-b55d-e76f1b055714"
-					(reference "R214")
+					(reference "D205")
 					(unit 1)
 				)
 			)
@@ -7021,129 +7265,7 @@
 	)
 	(wire
 		(pts
-			(xy 243.84 156.21) (xy 243.84 153.67)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "e1b20507-93c0-521f-9734-58b0439577de")
-	)
-	(global_label "VNC_FAULT"
-		(shape passive)
-		(at 243.84 153.67 90)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "a2623b17-5841-5fe1-b867-b57ed15976f4")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 243.84 153.67 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-	)
-	(wire
-		(pts
-			(xy 243.84 163.83) (xy 243.84 166.37)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "1468f593-7a46-5376-b08c-a7c9ede8d9cd")
-	)
-	(label "VMON"
-		(at 243.84 166.37 270)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "24e34df6-b641-5b42-a602-4d1f0b358c7b")
-	)
-	(symbol
-		(lib_id "tube_power_amp_revb:LM393")
-		(at 213.36 204.47 0)
-		(unit 2)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "853e8ca7-6d66-527d-9541-01af64d4e2ab")
-		(property "Reference" "U202"
-			(at 217.17 200.66 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "LM393"
-			(at 219.71 208.28 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 213.36 204.47 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "http://www.ti.com/lit/ds/symlink/lm393.pdf"
-			(at 213.36 204.47 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Low-Power, Low-Offset Voltage, Dual Comparators, DIP-8/SOIC-8/TO-99-8"
-			(at 213.36 204.47 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "5"
-			(uuid "ecf386f5-b4cb-520a-be62-fd603bef751f")
-		)
-		(pin "6"
-			(uuid "5a5e449d-527e-526e-9edf-30590f63921b")
-		)
-		(pin "7"
-			(uuid "0cc7f273-2f86-5f59-a698-82feb87e98b6")
-		)
-		(instances
-			(project "tube_power_amp_revb"
-				(path "/451c49f3-c14c-5f4e-b828-2be954cd9e52/db981763-20a3-57ec-b55d-e76f1b055714"
-					(reference "U202")
-					(unit 2)
-				)
-			)
-		)
-	)
-	(wire
-		(pts
-			(xy 205.74 201.93) (xy 203.2 201.93)
+			(xy 193.04 191.77) (xy 193.04 194.31)
 		)
 		(stroke
 			(width 0)
@@ -7151,8 +7273,8 @@
 		)
 		(uuid "c576b9ff-fe0a-5856-ac6d-2dda3a94591e")
 	)
-	(label "VREF5"
-		(at 203.2 201.93 180)
+	(label "MV"
+		(at 193.04 194.31 270)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -7163,7 +7285,7 @@
 	)
 	(wire
 		(pts
-			(xy 205.74 207.01) (xy 203.2 207.01)
+			(xy 193.04 184.15) (xy 193.04 181.61)
 		)
 		(stroke
 			(width 0)
@@ -7171,55 +7293,26 @@
 		)
 		(uuid "fa05b166-0e86-5d22-af25-be41bea145ac")
 	)
-	(label "VMON"
-		(at 203.2 207.01 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "1eb927c1-e78d-5992-ad4a-5e6ae3aa1716")
-	)
-	(wire
-		(pts
-			(xy 220.98 204.47) (xy 223.52 204.47)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "470aa141-2678-5787-ac6e-3922fac898dc")
-	)
-	(label "VNC_OK_OC"
-		(at 223.52 204.47 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "2cec636a-4a9d-5d87-aae4-6c3e468c3d5a")
-	)
 	(symbol
-		(lib_id "tube_power_amp_revb:R")
-		(at 243.84 195.58 0)
+		(lib_id "tube_power_amp_revb:GND")
+		(at 193.04 181.61 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "4afd61ed-a91a-5479-bc33-093f69512db3")
-		(property "Reference" "R215"
-			(at 248.58 194.31 0)
+		(uuid "eba0f267-a24c-5204-826c-ade77789f111")
+		(property "Reference" "#PWR215"
+			(at 193.04 187.96 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
-		(property "Value" "22k"
-			(at 248.03 196.85 0)
+		(property "Value" "GND"
+			(at 193.04 185.42 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7227,7 +7320,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 242.062 195.58 0)
+			(at 193.04 181.61 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7236,7 +7329,203 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 243.84 195.58 0)
+			(at 193.04 181.61 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 193.04 181.61 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "075e5246-48c6-500d-a350-9c9f29034b1c")
+		)
+		(instances
+			(project "tube_power_amp_revb"
+				(path "/451c49f3-c14c-5f4e-b828-2be954cd9e52/db981763-20a3-57ec-b55d-e76f1b055714"
+					(reference "#PWR215")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "tube_power_amp_revb:LM2901")
+		(at 254 160.02 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "8313960e-8d37-5cd2-8414-57c39da31093")
+		(property "Reference" "U202"
+			(at 254 154.94 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "LM2901B"
+			(at 254 165.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Package_SO:SOIC-14_3.9x8.7mm_P1.27mm"
+			(at 252.73 157.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.st.com/resource/en/datasheet/lm2901.pdf"
+			(at 255.27 154.94 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Quad Differential Comparators, DIP-14/SOIC-14/TSSOP-14"
+			(at 254 160.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "ce45af9e-6275-5cf8-b555-4c627917d37d")
+		)
+		(pin "4"
+			(uuid "fd6b8f0f-fbfa-5b9e-82cf-cf9a559e1d77")
+		)
+		(pin "5"
+			(uuid "e3380f1a-dadb-59a5-9a05-823236063a7e")
+		)
+		(instances
+			(project "tube_power_amp_revb"
+				(path "/451c49f3-c14c-5f4e-b828-2be954cd9e52/db981763-20a3-57ec-b55d-e76f1b055714"
+					(reference "U202")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 246.38 157.48) (xy 243.84 157.48)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1eb927c1-e78d-5992-ad4a-5e6ae3aa1716")
+	)
+	(label "MV"
+		(at 243.84 157.48 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "470aa141-2678-5787-ac6e-3922fac898dc")
+	)
+	(wire
+		(pts
+			(xy 246.38 162.56) (xy 243.84 162.56)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2cec636a-4a9d-5d87-aae4-6c3e468c3d5a")
+	)
+	(label "VREF5"
+		(at 243.84 162.56 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "009105c6-7f23-512a-bc61-e8ac71ded104")
+	)
+	(wire
+		(pts
+			(xy 261.62 160.02) (xy 264.16 160.02)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2c1365eb-1961-57e4-b550-7e266ce687da")
+	)
+	(label "MON_OV"
+		(at 264.16 160.02 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "842d02f5-ab03-5912-8744-15b90bb883b8")
+	)
+	(symbol
+		(lib_id "tube_power_amp_revb:R")
+		(at 284.48 142.24 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "4afd61ed-a91a-5479-bc33-093f69512db3")
+		(property "Reference" "R215"
+			(at 289.22 140.97 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "10k"
+			(at 288.67 143.51 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
+			(at 282.702 142.24 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 284.48 142.24 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7245,7 +7534,7 @@
 			)
 		)
 		(property "Description" "Resistor"
-			(at 243.84 195.58 0)
+			(at 284.48 142.24 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7270,25 +7559,25 @@
 	)
 	(wire
 		(pts
-			(xy 243.84 191.77) (xy 243.84 189.23)
+			(xy 284.48 138.43) (xy 284.48 135.89)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "009105c6-7f23-512a-bc61-e8ac71ded104")
+		(uuid "fa2a0870-b8d0-5d5e-b416-9b7b53f6ad32")
 	)
 	(symbol
 		(lib_id "tube_power_amp_revb:+15V")
-		(at 243.84 189.23 0)
+		(at 284.48 135.89 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "eba0f267-a24c-5204-826c-ade77789f111")
-		(property "Reference" "#PWR215"
-			(at 243.84 193.04 0)
+		(uuid "b23c6111-1c32-56f8-828d-618839b06bb0")
+		(property "Reference" "#PWR216"
+			(at 284.48 139.7 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7297,7 +7586,7 @@
 			)
 		)
 		(property "Value" "+15V"
-			(at 243.84 185.674 0)
+			(at 284.48 132.334 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7305,7 +7594,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 243.84 189.23 0)
+			(at 284.48 135.89 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7314,7 +7603,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 243.84 189.23 0)
+			(at 284.48 135.89 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7323,7 +7612,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"+15V\""
-			(at 243.84 189.23 0)
+			(at 284.48 135.89 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7332,12 +7621,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "075e5246-48c6-500d-a350-9c9f29034b1c")
+			(uuid "018978f9-93de-576f-996c-7a1d753d1be7")
 		)
 		(instances
 			(project "tube_power_amp_revb"
 				(path "/451c49f3-c14c-5f4e-b828-2be954cd9e52/db981763-20a3-57ec-b55d-e76f1b055714"
-					(reference "#PWR215")
+					(reference "#PWR216")
 					(unit 1)
 				)
 			)
@@ -7345,51 +7634,51 @@
 	)
 	(wire
 		(pts
-			(xy 243.84 199.39) (xy 243.84 201.93)
+			(xy 284.48 146.05) (xy 284.48 148.59)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "2c1365eb-1961-57e4-b550-7e266ce687da")
+		(uuid "41ba59d6-1ab9-5aa8-833b-e96a000e8d62")
 	)
-	(label "VNC_OK_OC"
-		(at 243.84 201.93 270)
+	(label "MON_OV"
+		(at 284.48 148.59 270)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 			(justify right bottom)
 		)
-		(uuid "842d02f5-ab03-5912-8744-15b90bb883b8")
+		(uuid "234c36f0-c08b-5cc2-8f67-ca7de6db5550")
 	)
 	(symbol
-		(lib_id "tube_power_amp_revb:R")
-		(at 264.16 213.36 90)
+		(lib_id "tube_power_amp_revb:D")
+		(at 304.8 160.02 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "c232127f-3240-5d3a-b0c9-0d36c1e3f9cd")
-		(property "Reference" "R216"
-			(at 264.16 210.82 270)
+		(uuid "f0ec31aa-368d-5de9-88b2-7910a46514c6")
+		(property "Reference" "D206"
+			(at 309.54 158.75 270)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Value" "10k"
-			(at 264.16 215.9 270)
+		(property "Value" "1N4148W"
+			(at 311.19 161.29 270)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Footprint" ""
-			(at 264.16 215.138 0)
+		(property "Footprint" "Diode_SMD:D_SOD-123"
+			(at 304.8 160.02 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7398,7 +7687,137 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 264.16 213.36 0)
+			(at 304.8 160.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Diode"
+			(at 304.8 160.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "00f8af26-9ad4-5e0f-a7f6-d688f0199fad")
+		)
+		(pin "2"
+			(uuid "dd558d58-9305-553f-9c76-c2f3792f6336")
+		)
+		(instances
+			(project "tube_power_amp_revb"
+				(path "/451c49f3-c14c-5f4e-b828-2be954cd9e52/db981763-20a3-57ec-b55d-e76f1b055714"
+					(reference "D206")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 304.8 163.83) (xy 304.8 166.37)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3cd8d691-3efa-5869-b971-509a5e49737f")
+	)
+	(global_label "MON_FAULT"
+		(shape passive)
+		(at 304.8 166.37 270)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "cb63e886-5611-5f71-9da4-3828cfb02d62")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 304.8 166.37 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 304.8 156.21) (xy 304.8 153.67)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e4f91fa1-b67b-56f8-afd0-c14950e3c793")
+	)
+	(label "MON_OV"
+		(at 304.8 153.67 90)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "2c61a881-976f-5070-bfeb-c0bd4654e94a")
+	)
+	(text "VNC monitor: trip -63.0 V, release -64.5 V (0.1 % divider)"
+		(exclude_from_sim no)
+		(at 152.4 205.74 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "3f8d1fd7-3601-561f-ba03-5ee4c66138c6")
+	)
+	(symbol
+		(lib_id "tube_power_amp_revb:R")
+		(at 152.4 222.25 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "c232127f-3240-5d3a-b0c9-0d36c1e3f9cd")
+		(property "Reference" "R216"
+			(at 152.4 219.71 270)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "271k 0.1%"
+			(at 152.4 224.79 270)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_1206_3216Metric"
+			(at 152.4 224.028 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 152.4 222.25 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7407,7 +7826,7 @@
 			)
 		)
 		(property "Description" "Resistor"
-			(at 264.16 213.36 0)
+			(at 152.4 222.25 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7432,102 +7851,59 @@
 	)
 	(wire
 		(pts
-			(xy 260.35 213.36) (xy 257.81 213.36)
+			(xy 148.59 222.25) (xy 146.05 222.25)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "fa2a0870-b8d0-5d5e-b416-9b7b53f6ad32")
+		(uuid "e72deb04-9d88-56c6-9fdc-323d929ad3c1")
 	)
-	(label "VNC_OK_OC"
-		(at 257.81 213.36 180)
+	(global_label "M80"
+		(shape passive)
+		(at 146.05 222.25 180)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify right bottom)
+			(justify right)
 		)
-		(uuid "41ba59d6-1ab9-5aa8-833b-e96a000e8d62")
+		(uuid "1f87d83e-3ebf-5f7c-a04b-f4b043eba0e2")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 146.05 222.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
 	)
 	(wire
 		(pts
-			(xy 267.97 213.36) (xy 270.51 213.36)
+			(xy 156.21 222.25) (xy 158.75 222.25)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "234c36f0-c08b-5cc2-8f67-ca7de6db5550")
+		(uuid "1300573e-7aaf-5ab5-9053-ef2e1ca39528")
 	)
-	(symbol
-		(lib_id "tube_power_amp_revb:GND")
-		(at 270.51 213.36 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "b23c6111-1c32-56f8-828d-618839b06bb0")
-		(property "Reference" "#PWR216"
-			(at 270.51 219.71 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
+	(label "MR"
+		(at 158.75 222.25 0)
+		(effects
+			(font
+				(size 1.27 1.27)
 			)
+			(justify left bottom)
 		)
-		(property "Value" "GND"
-			(at 270.51 217.17 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 270.51 213.36 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 270.51 213.36 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 270.51 213.36 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "018978f9-93de-576f-996c-7a1d753d1be7")
-		)
-		(instances
-			(project "tube_power_amp_revb"
-				(path "/451c49f3-c14c-5f4e-b828-2be954cd9e52/db981763-20a3-57ec-b55d-e76f1b055714"
-					(reference "#PWR216")
-					(unit 1)
-				)
-			)
-		)
+		(uuid "2d8f6eb1-2b41-5b42-979d-d7ddf52e3b6f")
 	)
 	(symbol
 		(lib_id "tube_power_amp_revb:R")
-		(at 284.48 195.58 0)
+		(at 193.04 240.03 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -7535,23 +7911,23 @@
 		(dnp no)
 		(uuid "b4d93319-b88b-5db8-9309-5eb84d510f77")
 		(property "Reference" "R217"
-			(at 289.22 194.31 0)
+			(at 197.78 238.76 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Value" "1k"
-			(at 288.12 196.85 0)
+		(property "Value" "16.9k 0.1%"
+			(at 201.08 241.3 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Footprint" ""
-			(at 282.702 195.58 0)
+		(property "Footprint" "Resistor_SMD:R_1206_3216Metric"
+			(at 191.262 240.03 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7560,7 +7936,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 284.48 195.58 0)
+			(at 193.04 240.03 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7569,7 +7945,7 @@
 			)
 		)
 		(property "Description" "Resistor"
-			(at 284.48 195.58 0)
+			(at 193.04 240.03 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7594,37 +7970,37 @@
 	)
 	(wire
 		(pts
-			(xy 284.48 191.77) (xy 284.48 189.23)
+			(xy 193.04 236.22) (xy 193.04 233.68)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "3cd8d691-3efa-5869-b971-509a5e49737f")
+		(uuid "b3680d3f-3bef-57f3-b472-3adbc5f44881")
 	)
-	(label "VNC_OK_OC"
-		(at 284.48 189.23 90)
+	(label "MR"
+		(at 193.04 233.68 90)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 			(justify left bottom)
 		)
-		(uuid "cb63e886-5611-5f71-9da4-3828cfb02d62")
+		(uuid "daef56b1-12ee-5c3a-ba93-209bfff6290d")
 	)
 	(wire
 		(pts
-			(xy 284.48 199.39) (xy 284.48 201.93)
+			(xy 193.04 243.84) (xy 193.04 246.38)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "e4f91fa1-b67b-56f8-afd0-c14950e3c793")
+		(uuid "c93686e7-9285-587e-b7eb-ec3f0fbaed0a")
 	)
-	(global_label "BIAS_OK_A"
+	(global_label "VREF10"
 		(shape passive)
-		(at 284.48 201.93 270)
+		(at 193.04 246.38 270)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -7632,9 +8008,9 @@
 			)
 			(justify right)
 		)
-		(uuid "2c61a881-976f-5070-bfeb-c0bd4654e94a")
+		(uuid "4a73e78e-0db9-57ec-b83b-ba7b776eeced")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 284.48 201.93 0)
+			(at 193.04 246.38 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7645,32 +8021,32 @@
 		)
 	)
 	(symbol
-		(lib_id "tube_power_amp_revb:C")
-		(at 304.8 213.36 0)
+		(lib_id "tube_power_amp_revb:R")
+		(at 213.36 222.25 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "4b5bde5f-08ff-585b-930a-fb5dc09b2ede")
-		(property "Reference" "C207"
-			(at 309.54 212.09 0)
+		(uuid "3dbda2f8-7eb6-5702-a07a-3739845a2c55")
+		(property "Reference" "R218"
+			(at 213.36 219.71 270)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Value" "100n"
-			(at 309.54 214.63 0)
+		(property "Value" "7.32M"
+			(at 213.36 224.79 270)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Footprint" ""
-			(at 305.7652 217.17 0)
+		(property "Footprint" "Resistor_SMD:R_1206_3216Metric"
+			(at 213.36 224.028 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7679,7 +8055,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 304.8 213.36 0)
+			(at 213.36 222.25 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7687,8 +8063,8 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Unpolarized capacitor"
-			(at 304.8 213.36 0)
+		(property "Description" "Resistor"
+			(at 213.36 222.25 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7697,15 +8073,15 @@
 			)
 		)
 		(pin "1"
-			(uuid "122d3c7d-5fc7-560e-9223-f55461910d51")
+			(uuid "cca02907-eb95-5d95-8808-f807e0cd8eaa")
 		)
 		(pin "2"
-			(uuid "141fc4b2-e662-5e86-b498-ccbee60c704d")
+			(uuid "b8db5603-32e3-5176-b882-ee999385794f")
 		)
 		(instances
 			(project "tube_power_amp_revb"
 				(path "/451c49f3-c14c-5f4e-b828-2be954cd9e52/db981763-20a3-57ec-b55d-e76f1b055714"
-					(reference "C207")
+					(reference "R218")
 					(unit 1)
 				)
 			)
@@ -7713,331 +8089,47 @@
 	)
 	(wire
 		(pts
-			(xy 304.8 209.55) (xy 304.8 207.01)
+			(xy 209.55 222.25) (xy 207.01 222.25)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "3f8d1fd7-3601-561f-ba03-5ee4c66138c6")
+		(uuid "51bde2c3-1b1b-5795-b5d6-a8e9669c22da")
 	)
-	(global_label "BIAS_OK_A"
-		(shape passive)
-		(at 304.8 207.01 90)
-		(fields_autoplaced yes)
+	(label "MR"
+		(at 207.01 222.25 180)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify left)
+			(justify right bottom)
 		)
-		(uuid "e72deb04-9d88-56c6-9fdc-323d929ad3c1")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 304.8 207.01 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
+		(uuid "ab2d7bf2-bc97-5e5f-afa6-3c61ebbc96fa")
 	)
 	(wire
 		(pts
-			(xy 304.8 217.17) (xy 304.8 219.71)
+			(xy 217.17 222.25) (xy 219.71 222.25)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "1f87d83e-3ebf-5f7c-a04b-f4b043eba0e2")
+		(uuid "60f2630e-779f-5218-b933-1a176d652402")
 	)
-	(symbol
-		(lib_id "tube_power_amp_revb:GND")
-		(at 304.8 219.71 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "075e96dc-6b59-568f-8c4e-67f7b1e41a03")
-		(property "Reference" "#PWR217"
-			(at 304.8 226.06 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
+	(label "MON_OR"
+		(at 219.71 222.25 0)
+		(effects
+			(font
+				(size 1.27 1.27)
 			)
+			(justify left bottom)
 		)
-		(property "Value" "GND"
-			(at 304.8 223.52 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 304.8 219.71 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 304.8 219.71 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 304.8 219.71 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "ea5c85eb-db86-5f87-8504-5c1dfc503631")
-		)
-		(instances
-			(project "tube_power_amp_revb"
-				(path "/451c49f3-c14c-5f4e-b828-2be954cd9e52/db981763-20a3-57ec-b55d-e76f1b055714"
-					(reference "#PWR217")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "tube_power_amp_revb:LM393")
-		(at 294.64 151.13 0)
-		(unit 3)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "d34cb851-e273-5a3f-a6a7-2519cae3a443")
-		(property "Reference" "U202"
-			(at 299.38 149.86 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "LM393"
-			(at 299.93 152.4 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 294.64 151.13 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "http://www.ti.com/lit/ds/symlink/lm393.pdf"
-			(at 294.64 151.13 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Low-Power, Low-Offset Voltage, Dual Comparators, DIP-8/SOIC-8/TO-99-8"
-			(at 294.64 151.13 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "4"
-			(uuid "9f602d42-b5fa-5a5a-933a-f8fb79d68160")
-		)
-		(pin "8"
-			(uuid "6acb5b2d-14bf-5c09-926d-016aeaa5d5a8")
-		)
-		(instances
-			(project "tube_power_amp_revb"
-				(path "/451c49f3-c14c-5f4e-b828-2be954cd9e52/db981763-20a3-57ec-b55d-e76f1b055714"
-					(reference "U202")
-					(unit 3)
-				)
-			)
-		)
-	)
-	(wire
-		(pts
-			(xy 292.1 143.51) (xy 292.1 140.97)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "1300573e-7aaf-5ab5-9053-ef2e1ca39528")
-	)
-	(symbol
-		(lib_id "tube_power_amp_revb:+15V")
-		(at 292.1 140.97 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "01874d53-ac87-54b9-8101-a4256cdf86e6")
-		(property "Reference" "#PWR218"
-			(at 292.1 144.78 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "+15V"
-			(at 292.1 137.414 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 292.1 140.97 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 292.1 140.97 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"+15V\""
-			(at 292.1 140.97 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "e44f5677-db4c-54d8-aa90-1226829acca7")
-		)
-		(instances
-			(project "tube_power_amp_revb"
-				(path "/451c49f3-c14c-5f4e-b828-2be954cd9e52/db981763-20a3-57ec-b55d-e76f1b055714"
-					(reference "#PWR218")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(wire
-		(pts
-			(xy 292.1 158.75) (xy 292.1 161.29)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "2d8f6eb1-2b41-5b42-979d-d7ddf52e3b6f")
-	)
-	(symbol
-		(lib_id "tube_power_amp_revb:GND")
-		(at 292.1 161.29 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "72ccaa8e-c9eb-5aa6-a4d7-d6d464e61634")
-		(property "Reference" "#PWR219"
-			(at 292.1 167.64 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "GND"
-			(at 292.1 165.1 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 292.1 161.29 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 292.1 161.29 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 292.1 161.29 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "af845041-e9c1-55df-adba-a710e428bc36")
-		)
-		(instances
-			(project "tube_power_amp_revb"
-				(path "/451c49f3-c14c-5f4e-b828-2be954cd9e52/db981763-20a3-57ec-b55d-e76f1b055714"
-					(reference "#PWR219")
-					(unit 1)
-				)
-			)
-		)
+		(uuid "790f30d6-f3f2-534e-8a9f-727a588ed784")
 	)
 	(symbol
 		(lib_id "tube_power_amp_revb:C")
-		(at 314.96 151.13 0)
+		(at 172.72 257.81 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -8045,23 +8137,23 @@
 		(dnp no)
 		(uuid "87095e72-e64b-50cf-82f5-ca02d5e6a2df")
 		(property "Reference" "C208"
-			(at 319.7 149.86 0)
+			(at 177.46 256.54 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Value" "100n"
-			(at 319.7 152.4 0)
+		(property "Value" "10n"
+			(at 176.91 259.08 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Footprint" ""
-			(at 315.9252 154.94 0)
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
+			(at 173.6852 261.62 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8070,7 +8162,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 314.96 151.13 0)
+			(at 172.72 257.81 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8079,7 +8171,7 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor"
-			(at 314.96 151.13 0)
+			(at 172.72 257.81 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8104,25 +8196,45 @@
 	)
 	(wire
 		(pts
-			(xy 314.96 147.32) (xy 314.96 144.78)
+			(xy 172.72 254) (xy 172.72 251.46)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "b3680d3f-3bef-57f3-b472-3adbc5f44881")
+		(uuid "eea83dc1-fb24-512e-948d-1e2199d1aa8a")
+	)
+	(label "MR"
+		(at 172.72 251.46 90)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "9794d845-73bf-575b-a2be-fddd004ac681")
+	)
+	(wire
+		(pts
+			(xy 172.72 261.62) (xy 172.72 264.16)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "149e60b3-0469-56c1-a3a9-a331cbed3987")
 	)
 	(symbol
-		(lib_id "tube_power_amp_revb:+15V")
-		(at 314.96 144.78 0)
+		(lib_id "tube_power_amp_revb:GND")
+		(at 172.72 264.16 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "ca5a87fc-532a-5b2b-9f89-b43ca6f515b2")
-		(property "Reference" "#PWR220"
-			(at 314.96 148.59 0)
+		(uuid "075e96dc-6b59-568f-8c4e-67f7b1e41a03")
+		(property "Reference" "#PWR217"
+			(at 172.72 270.51 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8130,8 +8242,8 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "+15V"
-			(at 314.96 141.224 0)
+		(property "Value" "GND"
+			(at 172.72 267.97 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8139,7 +8251,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 314.96 144.78 0)
+			(at 172.72 264.16 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8148,7 +8260,443 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 314.96 144.78 0)
+			(at 172.72 264.16 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 172.72 264.16 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "ea5c85eb-db86-5f87-8504-5c1dfc503631")
+		)
+		(instances
+			(project "tube_power_amp_revb"
+				(path "/451c49f3-c14c-5f4e-b828-2be954cd9e52/db981763-20a3-57ec-b55d-e76f1b055714"
+					(reference "#PWR217")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "tube_power_amp_revb:D")
+		(at 193.04 267.97 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "1c0e3eba-a4e6-5e9e-867d-8904a398167e")
+		(property "Reference" "D207"
+			(at 197.78 266.7 270)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "BAS416 (low leakage)"
+			(at 206.58 269.24 270)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Diode_SMD:D_SOD-323"
+			(at 193.04 267.97 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 193.04 267.97 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Diode"
+			(at 193.04 267.97 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "30c66ce1-51b1-547a-a277-205d116dc1b8")
+		)
+		(pin "2"
+			(uuid "78eb2b51-64b9-51aa-964d-52bbd9c5f706")
+		)
+		(instances
+			(project "tube_power_amp_revb"
+				(path "/451c49f3-c14c-5f4e-b828-2be954cd9e52/db981763-20a3-57ec-b55d-e76f1b055714"
+					(reference "D207")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 193.04 271.78) (xy 193.04 274.32)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "30c4df7c-e4d6-539a-ab16-3eb53df95c45")
+	)
+	(label "MR"
+		(at 193.04 274.32 270)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "3fced9c9-40f3-5b7a-922a-1f49b9010d7e")
+	)
+	(wire
+		(pts
+			(xy 193.04 264.16) (xy 193.04 261.62)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ba08d999-31d8-56d7-bad9-7a22730bec70")
+	)
+	(symbol
+		(lib_id "tube_power_amp_revb:GND")
+		(at 193.04 261.62 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "01874d53-ac87-54b9-8101-a4256cdf86e6")
+		(property "Reference" "#PWR218"
+			(at 193.04 267.97 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 193.04 265.43 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 193.04 261.62 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 193.04 261.62 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 193.04 261.62 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "e44f5677-db4c-54d8-aa90-1226829acca7")
+		)
+		(instances
+			(project "tube_power_amp_revb"
+				(path "/451c49f3-c14c-5f4e-b828-2be954cd9e52/db981763-20a3-57ec-b55d-e76f1b055714"
+					(reference "#PWR218")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "tube_power_amp_revb:LM2901")
+		(at 254 240.03 0)
+		(unit 2)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "853e8ca7-6d66-527d-9541-01af64d4e2ab")
+		(property "Reference" "U202"
+			(at 254 234.95 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "LM2901B"
+			(at 254 245.11 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Package_SO:SOIC-14_3.9x8.7mm_P1.27mm"
+			(at 252.73 237.49 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.st.com/resource/en/datasheet/lm2901.pdf"
+			(at 255.27 234.95 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Quad Differential Comparators, DIP-14/SOIC-14/TSSOP-14"
+			(at 254 240.03 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "a7848385-93d2-5dbf-b877-daabece9518e")
+		)
+		(pin "6"
+			(uuid "5a5e449d-527e-526e-9edf-30590f63921b")
+		)
+		(pin "7"
+			(uuid "0cc7f273-2f86-5f59-a698-82feb87e98b6")
+		)
+		(instances
+			(project "tube_power_amp_revb"
+				(path "/451c49f3-c14c-5f4e-b828-2be954cd9e52/db981763-20a3-57ec-b55d-e76f1b055714"
+					(reference "U202")
+					(unit 2)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 246.38 237.49) (xy 243.84 237.49)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "17981a7c-3c73-5f48-9292-0f5ae8ef3266")
+	)
+	(label "MR"
+		(at 243.84 237.49 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "7ba5bdf2-4c70-5cc4-9354-e55b5c9ae540")
+	)
+	(wire
+		(pts
+			(xy 246.38 242.57) (xy 243.84 242.57)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "fcd4a36f-44e1-5193-bbb9-f8128dbcfa89")
+	)
+	(label "VREF5"
+		(at 243.84 242.57 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "bf5d3e5d-7d2e-5b6a-bf36-276268ec9d65")
+	)
+	(wire
+		(pts
+			(xy 261.62 240.03) (xy 264.16 240.03)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3baf2a51-6a02-5ba9-b6ff-d66394aee2e4")
+	)
+	(label "MON_OR"
+		(at 264.16 240.03 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "4c73fc1e-3f46-5b98-9416-b03a0c2cac45")
+	)
+	(symbol
+		(lib_id "tube_power_amp_revb:R")
+		(at 284.48 222.25 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "1ed6b51d-fe94-5733-af3d-91970616dce0")
+		(property "Reference" "R219"
+			(at 289.22 220.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "10k"
+			(at 288.67 223.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
+			(at 282.702 222.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 284.48 222.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 284.48 222.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "218cf23a-c5ab-593c-8f59-107be6ce0f7a")
+		)
+		(pin "2"
+			(uuid "3fd262c8-4204-5096-987c-2cfeae28fac9")
+		)
+		(instances
+			(project "tube_power_amp_revb"
+				(path "/451c49f3-c14c-5f4e-b828-2be954cd9e52/db981763-20a3-57ec-b55d-e76f1b055714"
+					(reference "R219")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 284.48 218.44) (xy 284.48 215.9)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1babb88e-4933-5fdf-a9af-a831fb433724")
+	)
+	(symbol
+		(lib_id "tube_power_amp_revb:+15V")
+		(at 284.48 215.9 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "72ccaa8e-c9eb-5aa6-a4d7-d6d464e61634")
+		(property "Reference" "#PWR219"
+			(at 284.48 219.71 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "+15V"
+			(at 284.48 212.344 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 284.48 215.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 284.48 215.9 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8157,7 +8705,299 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"+15V\""
-			(at 314.96 144.78 0)
+			(at 284.48 215.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "af845041-e9c1-55df-adba-a710e428bc36")
+		)
+		(instances
+			(project "tube_power_amp_revb"
+				(path "/451c49f3-c14c-5f4e-b828-2be954cd9e52/db981763-20a3-57ec-b55d-e76f1b055714"
+					(reference "#PWR219")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 284.48 226.06) (xy 284.48 228.6)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "eafdc494-23ba-55cc-b1ad-41508fcbf83b")
+	)
+	(label "MON_OR"
+		(at 284.48 228.6 270)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "6bfc65ef-f31e-58c3-973b-23b1b7b1f5cc")
+	)
+	(symbol
+		(lib_id "tube_power_amp_revb:D")
+		(at 304.8 240.03 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "bb38214c-9332-5412-bb71-f17c84eeb8d2")
+		(property "Reference" "D208"
+			(at 309.54 238.76 270)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "1N4148W"
+			(at 311.19 241.3 270)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Diode_SMD:D_SOD-123"
+			(at 304.8 240.03 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 304.8 240.03 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Diode"
+			(at 304.8 240.03 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "e52f498c-fe74-532c-b01e-a0d879515064")
+		)
+		(pin "2"
+			(uuid "29e4686d-adf9-5554-be3a-28e10b6efab5")
+		)
+		(instances
+			(project "tube_power_amp_revb"
+				(path "/451c49f3-c14c-5f4e-b828-2be954cd9e52/db981763-20a3-57ec-b55d-e76f1b055714"
+					(reference "D208")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 304.8 243.84) (xy 304.8 246.38)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2c329494-1b14-5856-9f82-5dc4a040dad7")
+	)
+	(global_label "MON_FAULT"
+		(shape passive)
+		(at 304.8 246.38 270)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "ab819d34-5d7f-508e-998b-2f7e3fc8e3c5")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 304.8 246.38 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 304.8 236.22) (xy 304.8 233.68)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d178d27f-5c05-5374-9932-83187eb6af32")
+	)
+	(label "MON_OR"
+		(at 304.8 233.68 90)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "ffd51c52-dc1c-5309-97e4-80076faec258")
+	)
+	(text "Rail monitor: trip -75.0 V, release -75.5 V (0.1 % divider)"
+		(exclude_from_sim no)
+		(at 152.4 285.75 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "c27a922a-0baa-5fa7-a7d6-abae5097c41b")
+	)
+	(symbol
+		(lib_id "tube_power_amp_revb:R")
+		(at 335.28 142.24 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "fde79e36-cbbc-56fa-a8a0-686bc9c4377c")
+		(property "Reference" "R220"
+			(at 335.28 139.7 270)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "42.2k"
+			(at 335.28 144.78 270)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
+			(at 335.28 144.018 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 335.28 142.24 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 335.28 142.24 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "360a082e-e63a-5a1e-80a9-433578572bed")
+		)
+		(pin "2"
+			(uuid "748c3454-f252-53e2-ae01-848dd62eb740")
+		)
+		(instances
+			(project "tube_power_amp_revb"
+				(path "/451c49f3-c14c-5f4e-b828-2be954cd9e52/db981763-20a3-57ec-b55d-e76f1b055714"
+					(reference "R220")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 331.47 142.24) (xy 328.93 142.24)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "df2c61a8-7fa1-52b8-8c18-39e7747ff47b")
+	)
+	(symbol
+		(lib_id "tube_power_amp_revb:+15V")
+		(at 328.93 142.24 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "ca5a87fc-532a-5b2b-9f89-b43ca6f515b2")
+		(property "Reference" "#PWR220"
+			(at 328.93 146.05 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "+15V"
+			(at 328.93 138.684 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 328.93 142.24 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 328.93 142.24 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"+15V\""
+			(at 328.93 142.24 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8179,42 +9019,51 @@
 	)
 	(wire
 		(pts
-			(xy 314.96 154.94) (xy 314.96 157.48)
+			(xy 339.09 142.24) (xy 341.63 142.24)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "daef56b1-12ee-5c3a-ba93-209bfff6290d")
+		(uuid "42485ce1-91e0-52be-b943-b1124810039d")
+	)
+	(label "P15S"
+		(at 341.63 142.24 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "243de775-6d00-5de9-b98e-36e276a77a2f")
 	)
 	(symbol
-		(lib_id "tube_power_amp_revb:GND")
-		(at 314.96 157.48 0)
+		(lib_id "tube_power_amp_revb:R")
+		(at 335.28 177.8 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "14856755-d67e-5301-ab65-f9f2f6c970f3")
-		(property "Reference" "#PWR221"
-			(at 314.96 163.83 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "GND"
-			(at 314.96 161.29 0)
+		(uuid "96d5232a-2ca6-5120-b404-2ac6016a3003")
+		(property "Reference" "R221"
+			(at 335.28 175.26 270)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Footprint" ""
-			(at 314.96 157.48 0)
+		(property "Value" "10k"
+			(at 335.28 180.34 270)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
+			(at 335.28 179.578 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8223,7 +9072,105 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 314.96 157.48 0)
+			(at 335.28 177.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 335.28 177.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "7e3e8366-3263-58fe-8542-3534586bbbde")
+		)
+		(pin "2"
+			(uuid "17339dc2-6e2c-548e-bfc6-ef6952326012")
+		)
+		(instances
+			(project "tube_power_amp_revb"
+				(path "/451c49f3-c14c-5f4e-b828-2be954cd9e52/db981763-20a3-57ec-b55d-e76f1b055714"
+					(reference "R221")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 331.47 177.8) (xy 328.93 177.8)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ff15fc2d-b7cb-5b18-8994-a1ce5eba3de2")
+	)
+	(label "P15S"
+		(at 328.93 177.8 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "cd0d913a-7592-505e-939e-73c49f10b838")
+	)
+	(wire
+		(pts
+			(xy 339.09 177.8) (xy 341.63 177.8)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "633bf236-e572-558d-8400-f8c748bdbb27")
+	)
+	(symbol
+		(lib_id "tube_power_amp_revb:GND")
+		(at 341.63 177.8 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "14856755-d67e-5301-ab65-f9f2f6c970f3")
+		(property "Reference" "#PWR221"
+			(at 341.63 184.15 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 341.63 181.61 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 341.63 177.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 341.63 177.8 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8232,7 +9179,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 314.96 157.48 0)
+			(at 341.63 177.8 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8252,27 +9199,2023 @@
 			)
 		)
 	)
-	(text "VNC monitor: trips at VNC about -68.4 V (divider to VREF10 against VREF5; 1.4 V hysteresis). The master sim used -71 V: moved for the zener (2 %) and MOSFET Vgs(th) spread (VNC can sit at -72 V); re-simulate."
+	(symbol
+		(lib_id "tube_power_amp_revb:C")
+		(at 355.6 177.8 0)
+		(unit 1)
 		(exclude_from_sim no)
-		(at 152.4 234.95 0)
-		(effects
-			(font
-				(size 1.27 1.27)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "c8cebf73-dd68-5386-ac55-2ab09001aa3f")
+		(property "Reference" "C209"
+			(at 360.34 176.53 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 			)
-			(justify left bottom)
 		)
-		(uuid "c93686e7-9285-587e-b7eb-ec3f0fbaed0a")
+		(property "Value" "100n"
+			(at 360.34 179.07 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
+			(at 356.5652 181.61 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 355.6 177.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Unpolarized capacitor"
+			(at 355.6 177.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "68635a6c-9077-58c7-92da-f7603789eb73")
+		)
+		(pin "2"
+			(uuid "f18ff64f-c7cc-51ad-ba13-f0b07e62eeea")
+		)
+		(instances
+			(project "tube_power_amp_revb"
+				(path "/451c49f3-c14c-5f4e-b828-2be954cd9e52/db981763-20a3-57ec-b55d-e76f1b055714"
+					(reference "C209")
+					(unit 1)
+				)
+			)
+		)
 	)
-	(text "BIAS_OK_A is pulled up from +15 V (22k / 10k = 4.7 V): +15 V missing or comparator unpowered = not OK. VNC_FAULT (15 V) drives every channel's second clamp (sheet 03)."
-		(exclude_from_sim no)
-		(at 152.4 243.84 0)
+	(wire
+		(pts
+			(xy 355.6 173.99) (xy 355.6 171.45)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a1132048-3c18-50d0-8053-baf7be091730")
+	)
+	(label "P15S"
+		(at 355.6 171.45 90)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 			(justify left bottom)
 		)
-		(uuid "4a73e78e-0db9-57ec-b83b-ba7b776eeced")
+		(uuid "defb5ecd-96e0-55bd-bf8e-e07697862820")
+	)
+	(wire
+		(pts
+			(xy 355.6 181.61) (xy 355.6 184.15)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4cc9a99d-ea15-5ed3-bec5-8101f1d0ec33")
+	)
+	(symbol
+		(lib_id "tube_power_amp_revb:GND")
+		(at 355.6 184.15 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "240a78f8-3ed3-5f5f-b6b5-dc947b228f6c")
+		(property "Reference" "#PWR222"
+			(at 355.6 190.5 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 355.6 187.96 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 355.6 184.15 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 355.6 184.15 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 355.6 184.15 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "64609116-3bfd-5870-a810-77c076503484")
+		)
+		(instances
+			(project "tube_power_amp_revb"
+				(path "/451c49f3-c14c-5f4e-b828-2be954cd9e52/db981763-20a3-57ec-b55d-e76f1b055714"
+					(reference "#PWR222")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "tube_power_amp_revb:R")
+		(at 335.28 204.47 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "9f824aad-4535-56fc-9c8f-878262e16139")
+		(property "Reference" "R222"
+			(at 340.02 203.2 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "10k"
+			(at 339.47 205.74 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
+			(at 333.502 204.47 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 335.28 204.47 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 335.28 204.47 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "55f0a6be-b6f3-59d1-a9aa-5d9c84424725")
+		)
+		(pin "2"
+			(uuid "cd540cab-49d8-5e5a-b1bc-79348640ee2d")
+		)
+		(instances
+			(project "tube_power_amp_revb"
+				(path "/451c49f3-c14c-5f4e-b828-2be954cd9e52/db981763-20a3-57ec-b55d-e76f1b055714"
+					(reference "R222")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 335.28 200.66) (xy 335.28 198.12)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c932e70f-812f-55c8-9ba1-f908b30b038f")
+	)
+	(global_label "VREF2V5"
+		(shape passive)
+		(at 335.28 198.12 90)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "d2ff6735-3d50-5680-a942-bf37c0841987")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 335.28 198.12 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 335.28 208.28) (xy 335.28 210.82)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "725101d3-3cb2-5b86-a787-89341a6c9b7b")
+	)
+	(label "PREF"
+		(at 335.28 210.82 270)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "8afedb0b-1fcc-586d-bd38-1beee08cad04")
+	)
+	(symbol
+		(lib_id "tube_power_amp_revb:R")
+		(at 365.76 204.47 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "97d783b2-1ca5-50c4-9bfc-bfb4f000fd3b")
+		(property "Reference" "R223"
+			(at 370.5 203.2 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "2.37M"
+			(at 371.05 205.74 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_1206_3216Metric"
+			(at 363.982 204.47 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 365.76 204.47 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 365.76 204.47 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "898758cc-d34a-5fff-88b1-2ef5504286a3")
+		)
+		(pin "2"
+			(uuid "935710d1-8e39-5023-9f0c-f06788cb7717")
+		)
+		(instances
+			(project "tube_power_amp_revb"
+				(path "/451c49f3-c14c-5f4e-b828-2be954cd9e52/db981763-20a3-57ec-b55d-e76f1b055714"
+					(reference "R223")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 365.76 200.66) (xy 365.76 198.12)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8fde13c6-72ba-5cd6-b202-332c337fd274")
+	)
+	(label "PREF"
+		(at 365.76 198.12 90)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "fbe01c8f-1791-5a4c-893d-3de59dcd1f4c")
+	)
+	(wire
+		(pts
+			(xy 365.76 208.28) (xy 365.76 210.82)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ec1facaa-a2a1-5134-b78a-e39442b83b40")
+	)
+	(label "MON_O15"
+		(at 365.76 210.82 270)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "877d44b8-03ea-5f8e-9b51-9cfc46f34a53")
+	)
+	(symbol
+		(lib_id "tube_power_amp_revb:LM2901")
+		(at 396.24 168.91 0)
+		(unit 3)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "d34cb851-e273-5a3f-a6a7-2519cae3a443")
+		(property "Reference" "U202"
+			(at 396.24 163.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "LM2901B"
+			(at 396.24 173.99 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Package_SO:SOIC-14_3.9x8.7mm_P1.27mm"
+			(at 394.97 166.37 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.st.com/resource/en/datasheet/lm2901.pdf"
+			(at 397.51 163.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Quad Differential Comparators, DIP-14/SOIC-14/TSSOP-14"
+			(at 396.24 168.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "10"
+			(uuid "f4536f91-8a2f-570d-9d23-67b901fe46c8")
+		)
+		(pin "11"
+			(uuid "bc6fccc8-a61c-544e-9606-b2f3cbf3427f")
+		)
+		(pin "13"
+			(uuid "9ff367ab-c85c-5755-a2a1-44a60d5807fa")
+		)
+		(instances
+			(project "tube_power_amp_revb"
+				(path "/451c49f3-c14c-5f4e-b828-2be954cd9e52/db981763-20a3-57ec-b55d-e76f1b055714"
+					(reference "U202")
+					(unit 3)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 388.62 166.37) (xy 386.08 166.37)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "aa5413b7-8e94-5a7c-9e26-7fe3ad07ab22")
+	)
+	(label "PREF"
+		(at 386.08 166.37 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "954c1102-7e8f-5540-b74c-d3182495e7fb")
+	)
+	(wire
+		(pts
+			(xy 388.62 171.45) (xy 386.08 171.45)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4ab2d9b0-84cc-501e-84ce-26a377e4d355")
+	)
+	(label "P15S"
+		(at 386.08 171.45 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "f8557bdf-9193-54ef-953b-d17f44f65a18")
+	)
+	(wire
+		(pts
+			(xy 403.86 168.91) (xy 406.4 168.91)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "db7da26c-b858-5c3f-87c8-98f58c5888a8")
+	)
+	(label "MON_O15"
+		(at 406.4 168.91 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "8c087dbb-2a7b-5b03-98a0-63f6a5c6ee1e")
+	)
+	(symbol
+		(lib_id "tube_power_amp_revb:R")
+		(at 426.72 151.13 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "84383151-3ea6-5c92-98a9-cd9d1ca26e8f")
+		(property "Reference" "R224"
+			(at 431.46 149.86 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "10k"
+			(at 430.91 152.4 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
+			(at 424.942 151.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 426.72 151.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 426.72 151.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "67ce98c6-322c-5ffd-a4a3-db949a0defb9")
+		)
+		(pin "2"
+			(uuid "4693c421-59cf-50a1-be69-ec97534987ef")
+		)
+		(instances
+			(project "tube_power_amp_revb"
+				(path "/451c49f3-c14c-5f4e-b828-2be954cd9e52/db981763-20a3-57ec-b55d-e76f1b055714"
+					(reference "R224")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 426.72 147.32) (xy 426.72 144.78)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0175d7fb-8aed-5955-90c3-26810442cb0c")
+	)
+	(symbol
+		(lib_id "tube_power_amp_revb:+15V")
+		(at 426.72 144.78 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "5fb6b49b-8970-532a-a27f-90f43167adb5")
+		(property "Reference" "#PWR223"
+			(at 426.72 148.59 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "+15V"
+			(at 426.72 141.224 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 426.72 144.78 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 426.72 144.78 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"+15V\""
+			(at 426.72 144.78 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "546e30e3-d7ae-526c-b7b5-06608cc09d4b")
+		)
+		(instances
+			(project "tube_power_amp_revb"
+				(path "/451c49f3-c14c-5f4e-b828-2be954cd9e52/db981763-20a3-57ec-b55d-e76f1b055714"
+					(reference "#PWR223")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 426.72 154.94) (xy 426.72 157.48)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "addb23e5-ab06-5549-93a0-f9dc7bdd2dee")
+	)
+	(label "MON_O15"
+		(at 426.72 157.48 270)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "14cb1317-fe5e-5f24-b959-49113e9c6aa2")
+	)
+	(symbol
+		(lib_id "tube_power_amp_revb:D")
+		(at 447.04 168.91 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "0a97ada8-3fc9-534b-a67d-49b75469758f")
+		(property "Reference" "D209"
+			(at 451.78 167.64 270)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "1N4148W"
+			(at 453.43 170.18 270)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Diode_SMD:D_SOD-123"
+			(at 447.04 168.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 447.04 168.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Diode"
+			(at 447.04 168.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "379f408d-c92e-54c5-b252-70137fa5fc25")
+		)
+		(pin "2"
+			(uuid "5db2d4f0-ac52-5716-a204-fcee864d5e51")
+		)
+		(instances
+			(project "tube_power_amp_revb"
+				(path "/451c49f3-c14c-5f4e-b828-2be954cd9e52/db981763-20a3-57ec-b55d-e76f1b055714"
+					(reference "D209")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 447.04 172.72) (xy 447.04 175.26)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "23aed51c-9d0b-5e14-beb6-45849686914e")
+	)
+	(global_label "MON_FAULT"
+		(shape passive)
+		(at 447.04 175.26 270)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "3b5c3e7d-cf66-5cd5-855a-12ff7c931e75")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 447.04 175.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 447.04 165.1) (xy 447.04 162.56)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d8e6b90f-7808-5264-a6a6-3cbf9545bfbb")
+	)
+	(label "MON_O15"
+		(at 447.04 162.56 90)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "87746ec7-1afe-53bd-8e15-477462dabf4e")
+	)
+	(text "+15 V present: trip 13.0 V, release 13.25 V, against VREF2V5 (from +5 V, independent of VREF10)"
+		(exclude_from_sim no)
+		(at 335.28 223.52 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "effd6d17-a910-5c57-aaba-b407d5663cc9")
+	)
+	(symbol
+		(lib_id "tube_power_amp_revb:R")
+		(at 325.12 266.7 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "df971f45-68d7-5c89-a6a5-5f947731c6a5")
+		(property "Reference" "R225"
+			(at 325.12 264.16 270)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "100k"
+			(at 325.12 269.24 270)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
+			(at 325.12 268.478 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 325.12 266.7 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 325.12 266.7 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "705c832b-c25b-5fd5-bbdb-dbeb4f387d1e")
+		)
+		(pin "2"
+			(uuid "87a0c12c-2d63-5e12-a6d6-0497f5f3db3c")
+		)
+		(instances
+			(project "tube_power_amp_revb"
+				(path "/451c49f3-c14c-5f4e-b828-2be954cd9e52/db981763-20a3-57ec-b55d-e76f1b055714"
+					(reference "R225")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 321.31 266.7) (xy 318.77 266.7)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b5afda4c-056c-57a0-9d3b-10fb5b089fdd")
+	)
+	(global_label "MON_FAULT"
+		(shape passive)
+		(at 318.77 266.7 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "b7b6cc8f-9c40-5aee-a182-19e9b9552a32")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 318.77 266.7 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 328.93 266.7) (xy 331.47 266.7)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "56e3943f-cb62-5e46-92e7-702de5ed1098")
+	)
+	(symbol
+		(lib_id "tube_power_amp_revb:GND")
+		(at 331.47 266.7 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "c693e151-5f91-5991-bb9c-7374a0107fbb")
+		(property "Reference" "#PWR224"
+			(at 331.47 273.05 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 331.47 270.51 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 331.47 266.7 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 331.47 266.7 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 331.47 266.7 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "2f074250-910d-5d92-afae-0be7effd6f82")
+		)
+		(instances
+			(project "tube_power_amp_revb"
+				(path "/451c49f3-c14c-5f4e-b828-2be954cd9e52/db981763-20a3-57ec-b55d-e76f1b055714"
+					(reference "#PWR224")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "tube_power_amp_revb:LM2901")
+		(at 396.24 257.81 0)
+		(unit 4)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "c8dfece0-e4a3-5ab4-9d91-129945bac0dc")
+		(property "Reference" "U202"
+			(at 396.24 252.73 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "LM2901B"
+			(at 396.24 262.89 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Package_SO:SOIC-14_3.9x8.7mm_P1.27mm"
+			(at 394.97 255.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.st.com/resource/en/datasheet/lm2901.pdf"
+			(at 397.51 252.73 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Quad Differential Comparators, DIP-14/SOIC-14/TSSOP-14"
+			(at 396.24 257.81 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "8"
+			(uuid "51517ae2-b801-5d16-a0b9-9f66328e8f14")
+		)
+		(pin "9"
+			(uuid "d0546392-fed8-56a8-895f-faf0b8053fba")
+		)
+		(pin "14"
+			(uuid "8981d13e-394f-5f5a-a74e-a135d120cbe2")
+		)
+		(instances
+			(project "tube_power_amp_revb"
+				(path "/451c49f3-c14c-5f4e-b828-2be954cd9e52/db981763-20a3-57ec-b55d-e76f1b055714"
+					(reference "U202")
+					(unit 4)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 388.62 255.27) (xy 386.08 255.27)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e2b419a2-4bac-53f5-806c-69d7d5186dfd")
+	)
+	(label "VREF5"
+		(at 386.08 255.27 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "19e924d0-de7b-571f-b472-d8610659b3b7")
+	)
+	(wire
+		(pts
+			(xy 388.62 260.35) (xy 386.08 260.35)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e3706330-646a-59cd-9853-fd4141f65d25")
+	)
+	(global_label "MON_FAULT"
+		(shape passive)
+		(at 386.08 260.35 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "96feca51-56c2-507a-8542-1fc8777f21c6")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 386.08 260.35 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 403.86 257.81) (xy 406.4 257.81)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "dc3b3e4c-ff20-5e5c-afca-d201e683092f")
+	)
+	(label "OKH"
+		(at 406.4 257.81 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "26f2a767-1812-592f-a542-56fc05ec0403")
+	)
+	(symbol
+		(lib_id "tube_power_amp_revb:R")
+		(at 426.72 240.03 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "169104cf-06fa-51c4-8d18-a9d44caf3648")
+		(property "Reference" "R226"
+			(at 431.46 238.76 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "22k"
+			(at 430.91 241.3 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
+			(at 424.942 240.03 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 426.72 240.03 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 426.72 240.03 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "5fad47dc-be23-5fc3-b2c4-5f243f6c8c14")
+		)
+		(pin "2"
+			(uuid "df7ce454-d214-59ba-a087-a0646c249b41")
+		)
+		(instances
+			(project "tube_power_amp_revb"
+				(path "/451c49f3-c14c-5f4e-b828-2be954cd9e52/db981763-20a3-57ec-b55d-e76f1b055714"
+					(reference "R226")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 426.72 236.22) (xy 426.72 233.68)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "9c640768-7c46-5087-b93d-401f1bea447e")
+	)
+	(symbol
+		(lib_id "tube_power_amp_revb:+15V")
+		(at 426.72 233.68 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "c3e5296d-0988-5e95-953c-5ccfe6659c78")
+		(property "Reference" "#PWR225"
+			(at 426.72 237.49 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "+15V"
+			(at 426.72 230.124 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 426.72 233.68 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 426.72 233.68 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"+15V\""
+			(at 426.72 233.68 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "10c7e1b0-7d2b-5343-bfc4-b0b59cb54779")
+		)
+		(instances
+			(project "tube_power_amp_revb"
+				(path "/451c49f3-c14c-5f4e-b828-2be954cd9e52/db981763-20a3-57ec-b55d-e76f1b055714"
+					(reference "#PWR225")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 426.72 243.84) (xy 426.72 246.38)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "827bbbb4-0f7b-5415-9bab-3991029535ac")
+	)
+	(label "OKH"
+		(at 426.72 246.38 270)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "3341fff2-d209-542b-a3de-c57df6ed2adc")
+	)
+	(symbol
+		(lib_id "tube_power_amp_revb:R")
+		(at 447.04 266.7 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "f487b1bf-60f3-5ebe-a614-832577a6a881")
+		(property "Reference" "R227"
+			(at 447.04 264.16 270)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "10k"
+			(at 447.04 269.24 270)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
+			(at 447.04 268.478 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 447.04 266.7 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 447.04 266.7 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "85133a65-e47a-591b-8873-635ab3e074d4")
+		)
+		(pin "2"
+			(uuid "69e43902-2cec-59a2-ab26-3a174f4bcbd4")
+		)
+		(instances
+			(project "tube_power_amp_revb"
+				(path "/451c49f3-c14c-5f4e-b828-2be954cd9e52/db981763-20a3-57ec-b55d-e76f1b055714"
+					(reference "R227")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 443.23 266.7) (xy 440.69 266.7)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a510da10-e1e4-5166-abc8-9f5bdf7e91dd")
+	)
+	(label "OKH"
+		(at 440.69 266.7 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "3b91404a-8f3f-54ce-bbc5-87f7f757b63f")
+	)
+	(wire
+		(pts
+			(xy 450.85 266.7) (xy 453.39 266.7)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "9cf619fc-0fae-5789-8025-5f5622461d82")
+	)
+	(symbol
+		(lib_id "tube_power_amp_revb:GND")
+		(at 453.39 266.7 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "92fe96ca-3b86-5095-b05d-6b5d8cc8f3a1")
+		(property "Reference" "#PWR226"
+			(at 453.39 273.05 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 453.39 270.51 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 453.39 266.7 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 453.39 266.7 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 453.39 266.7 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "d30fb38d-e9df-54cb-9871-5cb57d5e925a")
+		)
+		(instances
+			(project "tube_power_amp_revb"
+				(path "/451c49f3-c14c-5f4e-b828-2be954cd9e52/db981763-20a3-57ec-b55d-e76f1b055714"
+					(reference "#PWR226")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "tube_power_amp_revb:R")
+		(at 467.36 248.92 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "6029a856-7275-5422-8a5f-e233244bdf78")
+		(property "Reference" "R228"
+			(at 467.36 246.38 270)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "1k"
+			(at 467.36 251.46 270)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
+			(at 467.36 250.698 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 467.36 248.92 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 467.36 248.92 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "7fa4b9f6-9d4d-51e9-bc66-521670c63e1a")
+		)
+		(pin "2"
+			(uuid "a1ac3bb3-9afb-5191-af95-aedb368d9387")
+		)
+		(instances
+			(project "tube_power_amp_revb"
+				(path "/451c49f3-c14c-5f4e-b828-2be954cd9e52/db981763-20a3-57ec-b55d-e76f1b055714"
+					(reference "R228")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 463.55 248.92) (xy 461.01 248.92)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "eaef5194-29e1-5cfc-8330-339de5f7cd24")
+	)
+	(label "OKH"
+		(at 461.01 248.92 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "054bf832-5f89-5bb6-9dca-a84ea9ecdb76")
+	)
+	(wire
+		(pts
+			(xy 471.17 248.92) (xy 473.71 248.92)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "13ca9c1b-81b6-50bb-86b4-c9fa9abc05fa")
+	)
+	(global_label "BIAS_OK_PRE"
+		(shape passive)
+		(at 473.71 248.92 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "501657ae-f46e-5332-9716-279f82e4b2c8")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 473.71 248.92 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+	)
+	(symbol
+		(lib_id "tube_power_amp_revb:LM2901")
+		(at 477.52 160.02 0)
+		(unit 5)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "4482fce4-0b41-52b4-bf16-791baeb0c7a9")
+		(property "Reference" "U202"
+			(at 482.26 158.75 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "LM2901B"
+			(at 483.91 161.29 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Package_SO:SOIC-14_3.9x8.7mm_P1.27mm"
+			(at 476.25 157.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.st.com/resource/en/datasheet/lm2901.pdf"
+			(at 478.79 154.94 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Quad Differential Comparators, DIP-14/SOIC-14/TSSOP-14"
+			(at 477.52 160.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "3"
+			(uuid "0fe408f3-f7b0-5355-b23e-dc60311e0a21")
+		)
+		(pin "12"
+			(uuid "00bc57d4-6420-5ac1-bcf9-dda89223bb07")
+		)
+		(instances
+			(project "tube_power_amp_revb"
+				(path "/451c49f3-c14c-5f4e-b828-2be954cd9e52/db981763-20a3-57ec-b55d-e76f1b055714"
+					(reference "U202")
+					(unit 5)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 474.98 152.4) (xy 474.98 149.86)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ec2dc1ce-2269-595a-9be9-6ab105464447")
+	)
+	(symbol
+		(lib_id "tube_power_amp_revb:+15V")
+		(at 474.98 149.86 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "49496913-35dd-5c17-b4c5-9e3bfa48e9fc")
+		(property "Reference" "#PWR227"
+			(at 474.98 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "+15V"
+			(at 474.98 146.304 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 474.98 149.86 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 474.98 149.86 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"+15V\""
+			(at 474.98 149.86 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "b9649daf-9c44-596a-be6b-fcbda142ef67")
+		)
+		(instances
+			(project "tube_power_amp_revb"
+				(path "/451c49f3-c14c-5f4e-b828-2be954cd9e52/db981763-20a3-57ec-b55d-e76f1b055714"
+					(reference "#PWR227")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 474.98 167.64) (xy 474.98 170.18)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "832a2135-89d2-5b31-9d8d-196e80a3c357")
+	)
+	(symbol
+		(lib_id "tube_power_amp_revb:GND")
+		(at 474.98 170.18 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "08a08981-b058-5aa4-ab25-5a419cbadec4")
+		(property "Reference" "#PWR228"
+			(at 474.98 176.53 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 474.98 173.99 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 474.98 170.18 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 474.98 170.18 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 474.98 170.18 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "0a4d36a4-1c78-5b48-8e38-5020fba89179")
+		)
+		(instances
+			(project "tube_power_amp_revb"
+				(path "/451c49f3-c14c-5f4e-b828-2be954cd9e52/db981763-20a3-57ec-b55d-e76f1b055714"
+					(reference "#PWR228")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "tube_power_amp_revb:C")
+		(at 497.84 160.02 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "c46a7415-96fe-5c5c-b69e-8700df2ff7cb")
+		(property "Reference" "C210"
+			(at 502.58 158.75 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "100n"
+			(at 502.58 161.29 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
+			(at 498.8052 163.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 497.84 160.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Unpolarized capacitor"
+			(at 497.84 160.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "5e36345a-58c0-5225-aaaf-94111219cdac")
+		)
+		(pin "2"
+			(uuid "c4827391-507f-54e2-bcc7-9d12ae5b5251")
+		)
+		(instances
+			(project "tube_power_amp_revb"
+				(path "/451c49f3-c14c-5f4e-b828-2be954cd9e52/db981763-20a3-57ec-b55d-e76f1b055714"
+					(reference "C210")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 497.84 156.21) (xy 497.84 153.67)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d3452a14-8b5b-5892-9c34-81a2867b4df0")
+	)
+	(symbol
+		(lib_id "tube_power_amp_revb:+15V")
+		(at 497.84 153.67 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "b5b5b7fc-51d4-5934-86ce-06c6e462a99d")
+		(property "Reference" "#PWR229"
+			(at 497.84 157.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "+15V"
+			(at 497.84 150.114 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 497.84 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 497.84 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"+15V\""
+			(at 497.84 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "51679188-627a-5f23-ad7e-a8a08a1ceef8")
+		)
+		(instances
+			(project "tube_power_amp_revb"
+				(path "/451c49f3-c14c-5f4e-b828-2be954cd9e52/db981763-20a3-57ec-b55d-e76f1b055714"
+					(reference "#PWR229")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 497.84 163.83) (xy 497.84 166.37)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ca2c2a40-c8bf-56bd-85ea-5ded31e37245")
+	)
+	(symbol
+		(lib_id "tube_power_amp_revb:GND")
+		(at 497.84 166.37 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "6289a510-1f0e-524d-932a-c8182b811afe")
+		(property "Reference" "#PWR230"
+			(at 497.84 172.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 497.84 170.18 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 497.84 166.37 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 497.84 166.37 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 497.84 166.37 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "91369763-cd50-5eca-bd17-67c8f564ffe4")
+		)
+		(instances
+			(project "tube_power_amp_revb"
+				(path "/451c49f3-c14c-5f4e-b828-2be954cd9e52/db981763-20a3-57ec-b55d-e76f1b055714"
+					(reference "#PWR230")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(text "MON_FAULT (diode-OR, 13 V = fault) clamps every channel (sheet 03). BIAS_OK_PRE = no fault, pulled up from +15 V (22k / 10k: 4.5-4.9 V; +15 V missing = not OK) -> Schmitt buffer (sheet 04) -> BIAS_OK_A. Independent of BIAS_EN (interfaces.md 6.3, 8)."
+		(exclude_from_sim no)
+		(at 314.96 292.1 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "a1584989-f1a6-5a7d-bc45-23041deef6a3")
 	)
 	(symbol
 		(lib_id "tube_power_amp_revb:R")
@@ -8282,8 +11225,8 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "3dbda2f8-7eb6-5702-a07a-3739845a2c55")
-		(property "Reference" "R218"
+		(uuid "2a5aaeab-7650-5dd7-80dc-b434a09cd772")
+		(property "Reference" "R229"
 			(at 375.92 50.8 270)
 			(effects
 				(font
@@ -8299,7 +11242,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
 			(at 375.92 55.118 0)
 			(effects
 				(font
@@ -8327,15 +11270,15 @@
 			)
 		)
 		(pin "1"
-			(uuid "cca02907-eb95-5d95-8808-f807e0cd8eaa")
+			(uuid "811d2617-749f-592f-95af-a99a20124379")
 		)
 		(pin "2"
-			(uuid "b8db5603-32e3-5176-b882-ee999385794f")
+			(uuid "f3b2eab7-1f7e-513a-99d5-f6fdcbc2fb56")
 		)
 		(instances
 			(project "tube_power_amp_revb"
 				(path "/451c49f3-c14c-5f4e-b828-2be954cd9e52/db981763-20a3-57ec-b55d-e76f1b055714"
-					(reference "R218")
+					(reference "R229")
 					(unit 1)
 				)
 			)
@@ -8349,7 +11292,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "51bde2c3-1b1b-5795-b5d6-a8e9669c22da")
+		(uuid "95442f27-dfca-5e78-a740-1a0995b4744b")
 	)
 	(global_label "BIAS_EN_A"
 		(shape passive)
@@ -8361,7 +11304,7 @@
 			)
 			(justify right)
 		)
-		(uuid "ab2d7bf2-bc97-5e5f-afa6-3c61ebbc96fa")
+		(uuid "70455543-9bd2-52f9-a302-906dea074089")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 369.57 53.34 0)
 			(effects
@@ -8381,7 +11324,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "60f2630e-779f-5218-b933-1a176d652402")
+		(uuid "c206a402-8613-5f8d-8df3-e9a3a9ec79e7")
 	)
 	(symbol
 		(lib_id "tube_power_amp_revb:GND")
@@ -8391,8 +11334,8 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "240a78f8-3ed3-5f5f-b6b5-dc947b228f6c")
-		(property "Reference" "#PWR222"
+		(uuid "f37fae2c-227d-5037-b5c0-2c765ec7083d")
+		(property "Reference" "#PWR231"
 			(at 382.27 59.69 0)
 			(effects
 				(font
@@ -8437,44 +11380,44 @@
 			)
 		)
 		(pin "1"
-			(uuid "64609116-3bfd-5870-a810-77c076503484")
+			(uuid "91a422cf-ffc7-5f70-905f-521290be2332")
 		)
 		(instances
 			(project "tube_power_amp_revb"
 				(path "/451c49f3-c14c-5f4e-b828-2be954cd9e52/db981763-20a3-57ec-b55d-e76f1b055714"
-					(reference "#PWR222")
+					(reference "#PWR231")
 					(unit 1)
 				)
 			)
 		)
 	)
 	(symbol
-		(lib_id "tube_power_amp_revb:C")
-		(at 396.24 53.34 90)
+		(lib_id "tube_power_amp_revb:R")
+		(at 392.43 53.34 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "c8cebf73-dd68-5386-ac55-2ab09001aa3f")
-		(property "Reference" "C209"
-			(at 396.24 50.8 270)
+		(uuid "5895f322-18e7-5261-ab92-e48b802f8b89")
+		(property "Reference" "R230"
+			(at 392.43 50.8 270)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Value" "100n"
-			(at 396.24 55.88 270)
+		(property "Value" "1k"
+			(at 392.43 55.88 270)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Footprint" ""
-			(at 400.05 52.3748 0)
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
+			(at 392.43 55.118 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8483,7 +11426,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 396.24 53.34 0)
+			(at 392.43 53.34 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8491,8 +11434,8 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Unpolarized capacitor"
-			(at 396.24 53.34 0)
+		(property "Description" "Resistor"
+			(at 392.43 53.34 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8501,15 +11444,15 @@
 			)
 		)
 		(pin "1"
-			(uuid "68635a6c-9077-58c7-92da-f7603789eb73")
+			(uuid "0c81c4fc-ff7f-5bef-b7af-24cfd794a16c")
 		)
 		(pin "2"
-			(uuid "f18ff64f-c7cc-51ad-ba13-f0b07e62eeea")
+			(uuid "d07e3fea-d2c6-5931-be78-afa37b3b81dc")
 		)
 		(instances
 			(project "tube_power_amp_revb"
 				(path "/451c49f3-c14c-5f4e-b828-2be954cd9e52/db981763-20a3-57ec-b55d-e76f1b055714"
-					(reference "C209")
+					(reference "R230")
 					(unit 1)
 				)
 			)
@@ -8517,17 +11460,17 @@
 	)
 	(wire
 		(pts
-			(xy 392.43 53.34) (xy 389.89 53.34)
+			(xy 388.62 53.34) (xy 386.08 53.34)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "790f30d6-f3f2-534e-8a9f-727a588ed784")
+		(uuid "044570e9-8e49-53d5-9fbe-7e2d7bde25d4")
 	)
 	(global_label "BIAS_EN_A"
 		(shape passive)
-		(at 389.89 53.34 180)
+		(at 386.08 53.34 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -8535,9 +11478,9 @@
 			)
 			(justify right)
 		)
-		(uuid "eea83dc1-fb24-512e-948d-1e2199d1aa8a")
+		(uuid "148e1c76-8b3a-56be-b525-ad3249a69a05")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 389.89 53.34 0)
+			(at 386.08 53.34 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8549,35 +11492,142 @@
 	)
 	(wire
 		(pts
-			(xy 400.05 53.34) (xy 402.59 53.34)
+			(xy 396.24 53.34) (xy 398.78 53.34)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "9794d845-73bf-575b-a2be-fddd004ac681")
+		(uuid "91ae4ec2-270d-5d4b-8b37-a1f61ad68284")
 	)
-	(label "WP"
-		(at 402.59 53.34 0)
+	(label "WPS"
+		(at 398.78 53.34 0)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 			(justify left bottom)
 		)
-		(uuid "149e60b3-0469-56c1-a3a9-a331cbed3987")
+		(uuid "4de25633-0fd3-5ae5-a282-e771f075522d")
 	)
 	(symbol
-		(lib_id "tube_power_amp_revb:BAT54S")
-		(at 416.56 71.12 0)
+		(lib_id "tube_power_amp_revb:C")
+		(at 408.94 53.34 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "d1fd1318-f798-5f32-941e-2a66e7f1c8c4")
-		(property "Reference" "D205"
-			(at 419.1 76.2 0)
+		(uuid "0ad34ceb-729d-51c9-9022-9b58d40f205c")
+		(property "Reference" "C211"
+			(at 408.94 50.8 270)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "100n"
+			(at 408.94 55.88 270)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
+			(at 412.75 52.3748 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 408.94 53.34 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Unpolarized capacitor"
+			(at 408.94 53.34 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "3cc64249-f941-5766-be74-4cbee0d4f8d8")
+		)
+		(pin "2"
+			(uuid "7b5f190a-dd3f-515c-9e30-334cb10f8c2d")
+		)
+		(instances
+			(project "tube_power_amp_revb"
+				(path "/451c49f3-c14c-5f4e-b828-2be954cd9e52/db981763-20a3-57ec-b55d-e76f1b055714"
+					(reference "C211")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 405.13 53.34) (xy 402.59 53.34)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e8fe0746-403b-5e2e-be2e-be0feded0bdf")
+	)
+	(label "WPS"
+		(at 402.59 53.34 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "769884b0-7183-5025-bf16-5327467debcf")
+	)
+	(wire
+		(pts
+			(xy 412.75 53.34) (xy 415.29 53.34)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "6686f0ff-8072-560c-893e-1f8cfc05b920")
+	)
+	(label "WP"
+		(at 415.29 53.34 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "deecabc5-5285-5a50-ab17-5541905013b9")
+	)
+	(symbol
+		(lib_id "tube_power_amp_revb:BAT54S")
+		(at 426.72 71.12 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "9be3c20e-5eb3-5c5c-a27b-a59a01444018")
+		(property "Reference" "D210"
+			(at 429.26 76.2 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8586,7 +11636,7 @@
 			)
 		)
 		(property "Value" "BAT54S (pump)"
-			(at 410.21 67.945 0)
+			(at 420.37 67.945 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8595,7 +11645,7 @@
 			)
 		)
 		(property "Footprint" "Package_TO_SOT_SMD:SOT-23"
-			(at 418.465 67.945 0)
+			(at 428.625 67.945 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8605,7 +11655,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.diodes.com/assets/Datasheets/ds11005.pdf"
-			(at 413.512 71.12 0)
+			(at 423.672 71.12 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8614,6 +11664,87 @@
 			)
 		)
 		(property "Description" "Vr 30V, If 200mA, Dual schottky barrier diode, in series, SOT-323"
+			(at 426.72 71.12 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "f0dd0dd9-2ccf-5a3c-8eee-40ade6119bb8")
+		)
+		(pin "2"
+			(uuid "64238a10-390c-5bf7-885b-bce938977ac3")
+		)
+		(pin "3"
+			(uuid "2f9fb8c1-4bb5-5e0b-b8b8-0acfc1b832de")
+		)
+		(instances
+			(project "tube_power_amp_revb"
+				(path "/451c49f3-c14c-5f4e-b828-2be954cd9e52/db981763-20a3-57ec-b55d-e76f1b055714"
+					(reference "D210")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 419.1 71.12) (xy 416.56 71.12)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4f0264dd-611e-5df2-9a0d-e55ac60db175")
+	)
+	(symbol
+		(lib_id "tube_power_amp_revb:GND")
+		(at 416.56 71.12 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "0fb6d95c-23a7-59fd-8262-8c6c8c6d0b51")
+		(property "Reference" "#PWR232"
+			(at 416.56 77.47 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 416.56 74.93 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 416.56 71.12 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 416.56 71.12 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
 			(at 416.56 71.12 0)
 			(effects
 				(font
@@ -8623,18 +11754,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "f6da3c27-1fb2-5c20-81f6-3c76cc010bbc")
-		)
-		(pin "2"
-			(uuid "773d1fca-105f-527c-ae5c-a53806b04c5b")
-		)
-		(pin "3"
-			(uuid "d2b4b078-c95a-55fc-a96e-7e74dae0e600")
+			(uuid "4362b1dc-bdfe-52dc-99d9-c0be8d0fc88c")
 		)
 		(instances
 			(project "tube_power_amp_revb"
 				(path "/451c49f3-c14c-5f4e-b828-2be954cd9e52/db981763-20a3-57ec-b55d-e76f1b055714"
-					(reference "D205")
+					(reference "#PWR232")
 					(unit 1)
 				)
 			)
@@ -8642,130 +11767,55 @@
 	)
 	(wire
 		(pts
-			(xy 408.94 71.12) (xy 406.4 71.12)
+			(xy 426.72 76.2) (xy 426.72 78.74)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "30c4df7c-e4d6-539a-ab16-3eb53df95c45")
-	)
-	(symbol
-		(lib_id "tube_power_amp_revb:GND")
-		(at 406.4 71.12 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "5fb6b49b-8970-532a-a27f-90f43167adb5")
-		(property "Reference" "#PWR223"
-			(at 406.4 77.47 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "GND"
-			(at 406.4 74.93 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 406.4 71.12 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 406.4 71.12 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 406.4 71.12 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "546e30e3-d7ae-526c-b7b5-06608cc09d4b")
-		)
-		(instances
-			(project "tube_power_amp_revb"
-				(path "/451c49f3-c14c-5f4e-b828-2be954cd9e52/db981763-20a3-57ec-b55d-e76f1b055714"
-					(reference "#PWR223")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(wire
-		(pts
-			(xy 416.56 76.2) (xy 416.56 78.74)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "3fced9c9-40f3-5b7a-922a-1f49b9010d7e")
+		(uuid "e16a93c9-4ac8-5b79-9e2b-ac4cfa9a3dfd")
 	)
 	(label "WP"
-		(at 416.56 78.74 270)
+		(at 426.72 78.74 270)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 			(justify right bottom)
 		)
-		(uuid "ba08d999-31d8-56d7-bad9-7a22730bec70")
+		(uuid "f7f6f637-e5ed-5004-9890-34e1276ef6c0")
 	)
 	(wire
 		(pts
-			(xy 424.18 71.12) (xy 426.72 71.12)
+			(xy 434.34 71.12) (xy 436.88 71.12)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "17981a7c-3c73-5f48-9292-0f5ae8ef3266")
+		(uuid "04c39041-8bbc-5a30-b055-7da654552801")
 	)
 	(label "WST"
-		(at 426.72 71.12 0)
+		(at 436.88 71.12 0)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 			(justify left bottom)
 		)
-		(uuid "7ba5bdf2-4c70-5cc4-9354-e55b5c9ae540")
+		(uuid "052d8667-26f6-5842-ad64-2e81e1558557")
 	)
 	(symbol
 		(lib_id "tube_power_amp_revb:C")
-		(at 436.88 88.9 0)
+		(at 447.04 88.9 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "c46a7415-96fe-5c5c-b69e-8700df2ff7cb")
-		(property "Reference" "C210"
-			(at 441.62 87.63 0)
+		(uuid "0c2e513b-8039-51c8-b7a5-18a5fef0a62f")
+		(property "Reference" "C212"
+			(at 451.78 87.63 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8773,15 +11823,15 @@
 			)
 		)
 		(property "Value" "1u"
-			(at 440.52 90.17 0)
+			(at 450.68 90.17 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Footprint" ""
-			(at 437.8452 92.71 0)
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
+			(at 448.0052 92.71 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8790,7 +11840,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 436.88 88.9 0)
+			(at 447.04 88.9 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8799,7 +11849,7 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor"
-			(at 436.88 88.9 0)
+			(at 447.04 88.9 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8808,15 +11858,15 @@
 			)
 		)
 		(pin "1"
-			(uuid "5e36345a-58c0-5225-aaaf-94111219cdac")
+			(uuid "6740e496-7426-534e-84e9-e612b8a1e824")
 		)
 		(pin "2"
-			(uuid "c4827391-507f-54e2-bcc7-9d12ae5b5251")
+			(uuid "53a7e7de-7f37-55a9-aed6-508972b35d61")
 		)
 		(instances
 			(project "tube_power_amp_revb"
 				(path "/451c49f3-c14c-5f4e-b828-2be954cd9e52/db981763-20a3-57ec-b55d-e76f1b055714"
-					(reference "C210")
+					(reference "C212")
 					(unit 1)
 				)
 			)
@@ -8824,45 +11874,45 @@
 	)
 	(wire
 		(pts
-			(xy 436.88 85.09) (xy 436.88 82.55)
+			(xy 447.04 85.09) (xy 447.04 82.55)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "fcd4a36f-44e1-5193-bbb9-f8128dbcfa89")
+		(uuid "2fff324f-cc13-5ee2-b4a4-9e123512475a")
 	)
 	(label "WST"
-		(at 436.88 82.55 90)
+		(at 447.04 82.55 90)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 			(justify left bottom)
 		)
-		(uuid "bf5d3e5d-7d2e-5b6a-bf36-276268ec9d65")
+		(uuid "db6b4708-2deb-5183-bddd-e9fef09f18e5")
 	)
 	(wire
 		(pts
-			(xy 436.88 92.71) (xy 436.88 95.25)
+			(xy 447.04 92.71) (xy 447.04 95.25)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "3baf2a51-6a02-5ba9-b6ff-d66394aee2e4")
+		(uuid "0b02edce-69d7-5bed-8a9d-57509cb1afa1")
 	)
 	(symbol
 		(lib_id "tube_power_amp_revb:GND")
-		(at 436.88 95.25 0)
+		(at 447.04 95.25 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "c693e151-5f91-5991-bb9c-7374a0107fbb")
-		(property "Reference" "#PWR224"
-			(at 436.88 101.6 0)
+		(uuid "7b2c2f49-1e10-568f-bb98-4d7016b62c00")
+		(property "Reference" "#PWR233"
+			(at 447.04 101.6 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8871,7 +11921,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 436.88 99.06 0)
+			(at 447.04 99.06 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8879,7 +11929,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 436.88 95.25 0)
+			(at 447.04 95.25 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8888,7 +11938,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 436.88 95.25 0)
+			(at 447.04 95.25 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8897,7 +11947,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 436.88 95.25 0)
+			(at 447.04 95.25 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8906,12 +11956,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "2f074250-910d-5d92-afae-0be7effd6f82")
+			(uuid "29c40524-2093-5771-b9a4-96c6eaf86291")
 		)
 		(instances
 			(project "tube_power_amp_revb"
 				(path "/451c49f3-c14c-5f4e-b828-2be954cd9e52/db981763-20a3-57ec-b55d-e76f1b055714"
-					(reference "#PWR224")
+					(reference "#PWR233")
 					(unit 1)
 				)
 			)
@@ -8919,31 +11969,31 @@
 	)
 	(symbol
 		(lib_id "tube_power_amp_revb:R")
-		(at 457.2 88.9 0)
+		(at 463.55 88.9 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "1ed6b51d-fe94-5733-af3d-91970616dce0")
-		(property "Reference" "R219"
-			(at 461.94 87.63 0)
+		(uuid "3f592ce0-94bf-5fc4-8d71-3da58a3ea124")
+		(property "Reference" "R231"
+			(at 468.29 87.63 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Value" "100k"
-			(at 461.94 90.17 0)
+		(property "Value" "56k"
+			(at 467.74 90.17 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Footprint" ""
-			(at 455.422 88.9 0)
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
+			(at 461.772 88.9 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8952,7 +12002,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 457.2 88.9 0)
+			(at 463.55 88.9 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8961,7 +12011,7 @@
 			)
 		)
 		(property "Description" "Resistor"
-			(at 457.2 88.9 0)
+			(at 463.55 88.9 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8970,15 +12020,15 @@
 			)
 		)
 		(pin "1"
-			(uuid "218cf23a-c5ab-593c-8f59-107be6ce0f7a")
+			(uuid "aefbad4e-a1dd-5671-b833-f796c31e2385")
 		)
 		(pin "2"
-			(uuid "3fd262c8-4204-5096-987c-2cfeae28fac9")
+			(uuid "cccd6aae-eed0-5eab-9f2b-ee1244727b99")
 		)
 		(instances
 			(project "tube_power_amp_revb"
 				(path "/451c49f3-c14c-5f4e-b828-2be954cd9e52/db981763-20a3-57ec-b55d-e76f1b055714"
-					(reference "R219")
+					(reference "R231")
 					(unit 1)
 				)
 			)
@@ -8986,45 +12036,45 @@
 	)
 	(wire
 		(pts
-			(xy 457.2 85.09) (xy 457.2 82.55)
+			(xy 463.55 85.09) (xy 463.55 82.55)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "4c73fc1e-3f46-5b98-9416-b03a0c2cac45")
+		(uuid "642b2ad1-22a4-5332-8577-af60d7f54830")
 	)
 	(label "WST"
-		(at 457.2 82.55 90)
+		(at 463.55 82.55 90)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 			(justify left bottom)
 		)
-		(uuid "1babb88e-4933-5fdf-a9af-a831fb433724")
+		(uuid "d0d895e6-dc63-56bb-830d-4e95de037518")
 	)
 	(wire
 		(pts
-			(xy 457.2 92.71) (xy 457.2 95.25)
+			(xy 463.55 92.71) (xy 463.55 95.25)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "eafdc494-23ba-55cc-b1ad-41508fcbf83b")
+		(uuid "b80cfdc7-1679-55b7-a1f2-6727d6d3850c")
 	)
 	(symbol
 		(lib_id "tube_power_amp_revb:GND")
-		(at 457.2 95.25 0)
+		(at 463.55 95.25 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "c3e5296d-0988-5e95-953c-5ccfe6659c78")
-		(property "Reference" "#PWR225"
-			(at 457.2 101.6 0)
+		(uuid "9ba3a264-b7df-5591-aa86-b4cff635b604")
+		(property "Reference" "#PWR234"
+			(at 463.55 101.6 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9033,7 +12083,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 457.2 99.06 0)
+			(at 463.55 99.06 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9041,7 +12091,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 457.2 95.25 0)
+			(at 463.55 95.25 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9050,7 +12100,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 457.2 95.25 0)
+			(at 463.55 95.25 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9059,7 +12109,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 457.2 95.25 0)
+			(at 463.55 95.25 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9068,12 +12118,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "10c7e1b0-7d2b-5343-bfc4-b0b59cb54779")
+			(uuid "e55ac70a-59f5-5944-aead-ee79fdcb1a32")
 		)
 		(instances
 			(project "tube_power_amp_revb"
 				(path "/451c49f3-c14c-5f4e-b828-2be954cd9e52/db981763-20a3-57ec-b55d-e76f1b055714"
-					(reference "#PWR225")
+					(reference "#PWR234")
 					(unit 1)
 				)
 			)
@@ -9081,7 +12131,7 @@
 	)
 	(symbol
 		(lib_id "tube_power_amp_revb:2N7002")
-		(at 477.52 71.12 0)
+		(at 483.87 71.12 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -9089,7 +12139,7 @@
 		(dnp no)
 		(uuid "8eee0f49-4b68-5223-844f-e42547ab1499")
 		(property "Reference" "Q203"
-			(at 482.6 69.215 0)
+			(at 488.95 69.215 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9098,7 +12148,7 @@
 			)
 		)
 		(property "Value" "2N7002"
-			(at 482.6 71.12 0)
+			(at 488.95 71.12 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9107,7 +12157,7 @@
 			)
 		)
 		(property "Footprint" "Package_TO_SOT_SMD:SOT-23"
-			(at 482.6 73.025 0)
+			(at 488.95 73.025 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9117,7 +12167,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.onsemi.com/pub/Collateral/NDS7002A-D.PDF"
-			(at 482.6 74.93 0)
+			(at 488.95 74.93 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9127,7 +12177,7 @@
 			)
 		)
 		(property "Description" "0.115A Id, 60V Vds, N-Channel MOSFET, SOT-23"
-			(at 477.52 71.12 0)
+			(at 483.87 71.12 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9155,45 +12205,45 @@
 	)
 	(wire
 		(pts
-			(xy 472.44 71.12) (xy 469.9 71.12)
+			(xy 478.79 71.12) (xy 476.25 71.12)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "6bfc65ef-f31e-58c3-973b-23b1b7b1f5cc")
+		(uuid "d81e96fd-d2db-57ca-b341-0d7e21e5a445")
 	)
 	(label "WST"
-		(at 469.9 71.12 180)
+		(at 476.25 71.12 180)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 			(justify right bottom)
 		)
-		(uuid "2c329494-1b14-5856-9f82-5dc4a040dad7")
+		(uuid "32b0cc79-2069-5f8a-a9b3-a7572ec24819")
 	)
 	(wire
 		(pts
-			(xy 480.06 76.2) (xy 480.06 78.74)
+			(xy 486.41 76.2) (xy 486.41 78.74)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "ab819d34-5d7f-508e-998b-2f7e3fc8e3c5")
+		(uuid "52b604b9-aa5b-514c-8a5c-46a32c444ab3")
 	)
 	(symbol
 		(lib_id "tube_power_amp_revb:GND")
-		(at 480.06 78.74 0)
+		(at 486.41 78.74 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "92fe96ca-3b86-5095-b05d-6b5d8cc8f3a1")
-		(property "Reference" "#PWR226"
-			(at 480.06 85.09 0)
+		(uuid "986ec0ec-c00f-54ba-841c-de957c7bd6d0")
+		(property "Reference" "#PWR235"
+			(at 486.41 85.09 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9202,7 +12252,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 480.06 82.55 0)
+			(at 486.41 82.55 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9210,7 +12260,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 480.06 78.74 0)
+			(at 486.41 78.74 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9219,7 +12269,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 480.06 78.74 0)
+			(at 486.41 78.74 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9228,7 +12278,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 480.06 78.74 0)
+			(at 486.41 78.74 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9237,12 +12287,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "d30fb38d-e9df-54cb-9871-5cb57d5e925a")
+			(uuid "d865389b-5e9e-552c-b10a-a43bd22d6a54")
 		)
 		(instances
 			(project "tube_power_amp_revb"
 				(path "/451c49f3-c14c-5f4e-b828-2be954cd9e52/db981763-20a3-57ec-b55d-e76f1b055714"
-					(reference "#PWR226")
+					(reference "#PWR235")
 					(unit 1)
 				)
 			)
@@ -9250,17 +12300,17 @@
 	)
 	(wire
 		(pts
-			(xy 480.06 66.04) (xy 480.06 63.5)
+			(xy 486.41 66.04) (xy 486.41 63.5)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "d178d27f-5c05-5374-9932-83187eb6af32")
+		(uuid "79bb827f-5c6e-52e5-abba-2df59594c6fa")
 	)
 	(global_label "CLAMP_WD"
 		(shape passive)
-		(at 480.06 63.5 90)
+		(at 486.41 63.5 90)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -9268,9 +12318,9 @@
 			)
 			(justify left)
 		)
-		(uuid "ffd51c52-dc1c-5309-97e4-80076faec258")
+		(uuid "4398d252-29e7-53be-8752-180f2d85b6aa")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 480.06 63.5 0)
+			(at 486.41 63.5 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9282,15 +12332,15 @@
 	)
 	(symbol
 		(lib_id "tube_power_amp_revb:R")
-		(at 497.84 53.34 90)
+		(at 504.19 53.34 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "fde79e36-cbbc-56fa-a8a0-686bc9c4377c")
-		(property "Reference" "R220"
-			(at 497.84 50.8 270)
+		(uuid "719619a4-d44c-5f7c-8a79-24f28c1d52ca")
+		(property "Reference" "R232"
+			(at 504.19 50.8 270)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9298,15 +12348,15 @@
 			)
 		)
 		(property "Value" "100k"
-			(at 497.84 55.88 270)
+			(at 504.19 55.88 270)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Footprint" ""
-			(at 497.84 55.118 0)
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
+			(at 504.19 55.118 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9315,7 +12365,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 497.84 53.34 0)
+			(at 504.19 53.34 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9324,6 +12374,84 @@
 			)
 		)
 		(property "Description" "Resistor"
+			(at 504.19 53.34 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "33d210d4-e429-5e07-a08d-378f350326ce")
+		)
+		(pin "2"
+			(uuid "55864400-a9a0-5aa6-b5cc-bd5365bf2d4d")
+		)
+		(instances
+			(project "tube_power_amp_revb"
+				(path "/451c49f3-c14c-5f4e-b828-2be954cd9e52/db981763-20a3-57ec-b55d-e76f1b055714"
+					(reference "R232")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 500.38 53.34) (xy 497.84 53.34)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e68b75b6-338e-5359-8cb7-4caa1b314818")
+	)
+	(symbol
+		(lib_id "tube_power_amp_revb:+15V")
+		(at 497.84 53.34 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "7c24f4f8-5981-5652-89c3-332195953a4b")
+		(property "Reference" "#PWR236"
+			(at 497.84 57.15 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "+15V"
+			(at 497.84 49.784 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 497.84 53.34 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 497.84 53.34 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"+15V\""
 			(at 497.84 53.34 0)
 			(effects
 				(font
@@ -9333,15 +12461,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "360a082e-e63a-5a1e-80a9-433578572bed")
-		)
-		(pin "2"
-			(uuid "748c3454-f252-53e2-ae01-848dd62eb740")
+			(uuid "994152f6-b753-5624-b95c-42ece96f2f01")
 		)
 		(instances
 			(project "tube_power_amp_revb"
 				(path "/451c49f3-c14c-5f4e-b828-2be954cd9e52/db981763-20a3-57ec-b55d-e76f1b055714"
-					(reference "R220")
+					(reference "#PWR236")
 					(unit 1)
 				)
 			)
@@ -9349,92 +12474,17 @@
 	)
 	(wire
 		(pts
-			(xy 494.03 53.34) (xy 491.49 53.34)
+			(xy 508 53.34) (xy 510.54 53.34)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "c27a922a-0baa-5fa7-a7d6-abae5097c41b")
-	)
-	(symbol
-		(lib_id "tube_power_amp_revb:+15V")
-		(at 491.49 53.34 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "49496913-35dd-5c17-b4c5-9e3bfa48e9fc")
-		(property "Reference" "#PWR227"
-			(at 491.49 57.15 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "+15V"
-			(at 491.49 49.784 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 491.49 53.34 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 491.49 53.34 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"+15V\""
-			(at 491.49 53.34 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "b9649daf-9c44-596a-be6b-fcbda142ef67")
-		)
-		(instances
-			(project "tube_power_amp_revb"
-				(path "/451c49f3-c14c-5f4e-b828-2be954cd9e52/db981763-20a3-57ec-b55d-e76f1b055714"
-					(reference "#PWR227")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(wire
-		(pts
-			(xy 501.65 53.34) (xy 504.19 53.34)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "df2c61a8-7fa1-52b8-8c18-39e7747ff47b")
+		(uuid "84d45cb3-d9eb-55aa-b8bd-6be13d7b4c20")
 	)
 	(global_label "CLAMP_WD"
 		(shape passive)
-		(at 504.19 53.34 0)
+		(at 510.54 53.34 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -9442,9 +12492,9 @@
 			)
 			(justify left)
 		)
-		(uuid "42485ce1-91e0-52be-b943-b1124810039d")
+		(uuid "7f2c55d5-0b9e-5ffa-9995-b4be313c3476")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 504.19 53.34 0)
+			(at 510.54 53.34 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9454,7 +12504,7 @@
 			)
 		)
 	)
-	(text "Watchdog: only a toggling BIAS_EN (10 kHz, 5 V) charges WST and turns Q203 on, which releases the clamps (CLAMP_WD low). Stopped high or low, card missing: CLAMP_WD = +15 V -> every channel clamped -> cold in about 130 ms. CLAMP_WD also clears the DAC (sheet 03)."
+	(text "Watchdog: only a toggling BIAS_EN (5-15 kHz, 5 V) charges WST and turns Q203 on, releasing the clamps (CLAMP_WD low). Stopped high or low, card missing: cold in 76-131 ms. R229 1k limits the card's 74AHCT to 3.8 mA peak (control board request >= 470 ohm); R230 56k (was 100k) for the 5 V drive."
 		(exclude_from_sim no)
 		(at 355.6 114.3 0)
 		(effects
@@ -9463,7 +12513,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "243de775-6d00-5de9-b98e-36e276a77a2f")
+		(uuid "8f056344-bddd-596f-b715-a27d99592dfd")
 	)
 	(sheet_instances
 		(path "/"

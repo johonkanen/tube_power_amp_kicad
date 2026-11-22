@@ -1,0 +1,98 @@
+refs,qty,value,footprint,candidate part,note
+C101 C102,2,100n/630V,Capacitor_SMD:C_1812_4532Metric,100n 630 V X7R 1812,
+C103 C104 C105 C106,4,47n/630V MKP (OPEN: 47n-100n),Capacitor_THT:C_Rect_L18.0mm_W7.0mm_P15.00mm_FKS3_FKP3,"MKP 630 V, 15 mm pitch (47n or 100n)",value OPEN
+C201,1,100u/100V 105C,Capacitor_THT:CP_Radial_D10.0mm_P5.00mm,"UPW2A101MPD (Nichicon, 105 C)",
+C202 C203,2,10u/100V X7S 1210,Capacitor_SMD:C_1210_3225Metric,GRM32EC72A106KE05 (Murata),about 30 % left at 72 V
+C204,1,10u/100V 105C,Capacitor_THT:CP_Radial_D6.3mm_P2.50mm,"UPW2A100MED (Nichicon, 105 C)",
+C205 C206 C209 C210 C211 C301 C304 C305 C401 C402 C406 C410 C414 C418 C419 C420 C422 C423 C424 C425 C426 C427 C501 C505 C506 C509 C510 C511,28,100n,Capacitor_SMD:C_0805_2012Metric,100n 50 V X7R 0805,
+C207 C208 C403 C407 C411 C415,6,10n,Capacitor_SMD:C_0805_2012Metric,10n 50 V X7R 0805,
+C212 C302 C303 C421 C507,5,1u,Capacitor_SMD:C_0805_2012Metric,1u 50 V X7R 0805,
+C306 C310 C314 C318,4,330n,Capacitor_SMD:C_0805_2012Metric,330n 50 V X7R 0805 (C0G 1206 preferred),
+C307 C311 C315 C319,4,100n/100V,Capacitor_SMD:C_1210_3225Metric,100n 100 V X7R 1210,
+C308 C309 C312 C313 C316 C317 C320 C321,8,1u/100V,Capacitor_SMD:C_1210_3225Metric,1u 100 V X7R 1210,
+C404 C405 C408 C409 C412 C413 C416 C417,8,220n,Capacitor_SMD:C_0805_2012Metric,220n 50 V X7R 0805 (C0G 1206 preferred),
+C502 C503,2,10u/25V,Capacitor_SMD:C_1206_3216Metric,10u/25V X7R 1206,
+C504,1,10u/10V,Capacitor_SMD:C_1206_3216Metric,10u/10V X7R 1206,
+C508,1,15n,Capacitor_SMD:C_0805_2012Metric,15n 50 V X7R 0805,
+D101 D102 D103 D104,4,"UF4007 (option, SAFE-5)",Diode_THT:D_DO-41_SOD81_P10.16mm_Horizontal,UF4007,
+D105 D106 D107 D108,4,S3M (3 A),Diode_SMD:D_SMC,S3M-E3/57T (Vishay),
+D201,1,S1G (reverse clamp),Diode_SMD:D_SMA,S1G (1N4004 class),
+D202 D203,2,BZT52H-B36 (2 %),Diode_SMD:D_SOD-123F,"BZT52H-B36,115 (Nexperia)",1 cm2 cathode copper (150 K/W)
+D204,1,1N4148W (speed-up),Diode_SMD:D_SOD-123,1N4148W-7-F (Diodes Inc),
+D205 D207,2,BAS416 (low leakage),Diode_SMD:D_SOD-323,"BAS416,115 (Nexperia)",
+D206 D208 D209,3,1N4148W,Diode_SMD:D_SOD-123,1N4148W-7-F (Diodes Inc),
+D210,1,BAT54S (pump),Package_TO_SOT_SMD:SOT-23,"BAT54S,215 (Nexperia)",
+D401 D402 D403 D404,4,"BAV199 (ADC clamp, low leakage)",Package_TO_SOT_SMD:SOT-23,"BAV199,215 (Nexperia)",low leakage
+D501,1,MB1S,Package_TO_SOT_SMD:TO-269AA,MB1S (onsemi),
+D502,1,BZX84C2V4,Package_TO_SOT_SMD:SOT-23,"BZX84-C2V4,215 (Nexperia)",
+D503 D504,2,BAT54,Diode_SMD:D_SOD-323,BAT54J (Nexperia),
+D505,1,1N4148W (stop at Q14),Diode_SMD:D_SOD-123,1N4148W-7-F (Diodes Inc),
+D506,1,1N4148W (reverse),Diode_SMD:D_SOD-123,1N4148W-7-F (Diodes Inc),
+J101,1,W04-b V_ANODE / GND_PWR (4.8 mm tabs),tube_power_amp_revb:BladeTab_x2_P5.00mm_Drill1.4mm_PLACEHOLDER,4.8 mm PCB blade tabs,PLACEHOLDER footprint
+J102,1,W05-b V_SCREEN (4.8 mm tab),tube_power_amp_revb:BladeTab_x1_P5.00mm_Drill1.4mm_PLACEHOLDER,4.8 mm PCB blade tab,PLACEHOLDER footprint
+J103,1,W06-b HEATER (6.3 mm tabs),tube_power_amp_revb:BladeTab_x2_P5.00mm_Drill1.4mm_PLACEHOLDER,6.3 mm PCB blade tabs,PLACEHOLDER footprint; 6.4 A
+J104,1,W11-a OT_A / OT_B / OT_CT (4.8 mm tabs),tube_power_amp_revb:BladeTab_x3_P5.00mm_Drill1.4mm_PLACEHOLDER,4.8 mm PCB blade tabs,PLACEHOLDER footprint; anode nets
+J105,1,W24-b DRIVE (Lock-3.96; 280-390 V DC on pins 2 / 4),Connector_Molex:Molex_KK-396_A-41791-0005_1x05_P3.96mm_Vertical,TE MTA-156 1x5 (600 V AC) - KK-396 is 250 V,PLACEHOLDER: KK-396 pattern; header family must be rated >= 450 V DC (open)
+J201,1,W09-b -80V / BIAS_RTN (4.8 mm tabs),tube_power_amp_revb:BladeTab_x2_P5.00mm_Drill1.4mm_PLACEHOLDER,4.8 mm PCB blade tabs,PLACEHOLDER footprint
+J501,1,W14-b CONTROL (template 2x7),Connector_IDC:IDC-Header_2x07_P2.54mm_Vertical,61201421621 (Wurth),"shrouded, keyed"
+J502,1,W15-b BIAS (2x5),Connector_IDC:IDC-Header_2x05_P2.54mm_Vertical,61201021621 (Wurth),"shrouded, keyed"
+J503,1,W16-a HV_PERMIT+ / HV_PERMIT- (Lock-2.54),Connector_Molex:Molex_KK-254_AE-6410-02A_1x02_P2.54mm_Vertical,22-27-2021 (Molex KK-254),
+N101 N102 N103 N104,4,Kelvin at shunt pad,NetTie:NetTie-2_SMD_Pad0.5mm,,Kelvin tap at the shunt pad
+Q201 Q202,2,BSP92P (250 V),Package_TO_SOT_SMD:SOT-223-3_TabPin2,BSP92P H6327 (Infineon),250 V
+Q203 Q301 Q302 Q303 Q308 Q309 Q314 Q315 Q320 Q321,10,2N7002,Package_TO_SOT_SMD:SOT-23,"2N7002,215 (Nexperia)",
+Q304 Q310 Q316 Q322 Q501 Q503,6,MMBT3904,Package_TO_SOT_SMD:SOT-23,MMBT3904 (Nexperia),
+Q305 Q306 Q311 Q312 Q317 Q318 Q323 Q324,8,MMBTA92,Package_TO_SOT_SMD:SOT-23,MMBTA92 (300 V),
+Q307 Q313 Q319 Q325,4,MMBTA42,Package_TO_SOT_SMD:SOT-23,MMBTA42 (300 V),
+Q502,1,MMBT3906,Package_TO_SOT_SMD:SOT-23,MMBT3906 (Nexperia),
+R101 R105 R109 R113,4,100k (OPEN: 100k-220k),Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal,metal film 0.6 W 350 V,grid circuit
+R102 R106 R110 R114,4,5.6k,Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal,metal film 0.6 W 350 V,grid circuit
+R103 R107 R111 R115,4,1k 5W flameproof,tube_power_amp_revb:R_Axial_Power_L25.0mm_W6.4mm_P30.00mm,1k 5 W flameproof metal oxide (as rev A),
+R104 R108 R112 R116,4,1R 1W,Resistor_SMD:R_2512_6332Metric,1R 1 W 1 % 50 ppm/K metal strip (2512),
+R201,1,10R 1W fusible wirewound,Resistor_THT:R_Axial_DIN0309_L9.0mm_D3.2mm_P12.70mm_Horizontal,CRF251-4 / CRF110 10R (Yageo Vitrohm),"fusible wirewound; inrush of C201 (8 A peak, 0.32 J) to confirm"
+R202,1,3.3k 1206,Resistor_SMD:R_1206_3216Metric,3.3k 1 % 1206,
+R203 R206 R225 R229 R232 R427 R428 R430 R432 R433 R502 R504 R505 R508 R519 R520 R522,17,100k,Resistor_SMD:R_0805_2012Metric,100k 1 % 0805,
+R204 R205 R503,3,10R,Resistor_SMD:R_0805_2012Metric,10R 1 % 0805,
+R207 R402 R403 R408 R409 R414 R415 R420 R421,9,47k,Resistor_SMD:R_0805_2012Metric,47k 1 % 0805,
+R208,1,1.0k,Resistor_SMD:R_1206_3216Metric,1.0k 1 % 1206,
+R209 R210,2,10k 0.1%,Resistor_SMD:R_1206_3216Metric,10k 0.1 % 25 ppm/K thin film 1206,
+R211,1,169k 0.1%,Resistor_SMD:R_1206_3216Metric,169k 0.1 % 25 ppm/K thin film 1206,
+R212,1,234k 0.1%,Resistor_SMD:R_1206_3216Metric,234k 0.1 % 25 ppm/K thin film 1206,
+R213,1,29.4k 0.1%,Resistor_SMD:R_1206_3216Metric,29.4k 0.1 % 25 ppm/K thin film 1206,
+R214,1,3.57M,Resistor_SMD:R_1206_3216Metric,3.57M 1 % 1206,
+R215 R219 R221 R222 R224 R227 R301 R302 R313 R324 R335 R401 R407 R413 R419 R501 R518 R524 R526 R528 R530,21,10k,Resistor_SMD:R_0805_2012Metric,10k 1 % 0805,
+R216,1,271k 0.1%,Resistor_SMD:R_1206_3216Metric,271k 0.1 % 25 ppm/K thin film 1206,
+R217,1,16.9k 0.1%,Resistor_SMD:R_1206_3216Metric,16.9k 0.1 % 25 ppm/K thin film 1206,
+R218,1,7.32M,Resistor_SMD:R_1206_3216Metric,7.32M 1 % 1206,
+R220,1,42.2k,Resistor_SMD:R_0805_2012Metric,42.2k 1 % 0805,
+R223,1,2.37M,Resistor_SMD:R_1206_3216Metric,2.37M 1 % 1206,
+R226 R310 R311 R321 R322 R332 R333 R343 R344,9,22k,Resistor_SMD:R_0805_2012Metric,22k 1 % 0805,
+R228 R230 R304 R305 R306 R307 R312 R315 R316 R317 R318 R323 R326 R327 R328 R329 R334 R337 R338 R339 R340 R345 R406 R412 R418 R424,26,1k,Resistor_SMD:R_0805_2012Metric,1k 1 % 0805,
+R231,1,56k,Resistor_SMD:R_0805_2012Metric,56k 1 % 0805,
+R303 R314 R325 R336,4,1M,Resistor_SMD:R_1206_3216Metric,1M 1 % 1206,
+R308 R319 R330 R341,4,30k,Resistor_SMD:R_0805_2012Metric,30k 1 % 0805,
+R309 R320 R331 R342 R506 R507 R511 R512 R513 R514 R515 R516,12,100R,Resistor_SMD:R_0805_2012Metric,100R 1 % 0805,
+R404 R410 R416 R422,4,9.09k 0.1%,Resistor_SMD:R_1206_3216Metric,9.09k 0.1 % 25 ppm/K thin film 1206,
+R405 R411 R417 R423,4,1.01k 0.1%,Resistor_SMD:R_1206_3216Metric,1.01k 0.1 % 25 ppm/K thin film 1206,
+R425,1,39k 0.1%,Resistor_SMD:R_1206_3216Metric,39k 0.1 % 25 ppm/K thin film 1206,
+R426,1,11k 0.1%,Resistor_SMD:R_1206_3216Metric,11k 0.1 % 25 ppm/K thin film 1206,
+R429 R431,2,909k,Resistor_SMD:R_0805_2012Metric,909k 1 % 0805,
+R434,1,18k,Resistor_SMD:R_0805_2012Metric,18k 1 % 0805,
+R509 R510 R523 R525 R529,5,4.7k,Resistor_SMD:R_0805_2012Metric,4.7k 1 % 0805,
+R517,1,330R 0.5W,tube_power_amp_revb:R_Axial_Power_L25.0mm_W6.4mm_P30.00mm,1k 5 W flameproof metal oxide (as rev A),
+R521,1,220k,Resistor_SMD:R_0805_2012Metric,220k 1 % 0805,
+R527,1,1.3k 0.25W,tube_power_amp_revb:R_Axial_Power_L25.0mm_W6.4mm_P30.00mm,1k 5 W flameproof metal oxide (as rev A),
+U201,1,"LM4040A10 (10 V, 0.1 %)",Package_TO_SOT_SMD:SOT-23,LM4040A10IDBZR (TI),10 V only in I grade (-40 to 85 C)
+U202 U402,2,LM2901B,Package_SO:SOIC-14_3.9x8.7mm_P1.27mm,"LM2901BIDR (TI, -40 to 125 C)",orderable suffix to confirm
+U301,1,"DAC7578SPW (12-bit x8, I2C 0x48)",Package_SO:TSSOP-16_4.4x5mm_P0.65mm,DAC7578SPW (TI),power-on reset to zero: confirm in the datasheet
+U302,1,"ADR4525 (2.5 V, low noise)",Package_SO:SOIC-8_3.9x4.9mm_P1.27mm,ADR4525BRZ (ADI),
+U303 U401,2,OPA4197ID,Package_SO:SOIC-14_3.9x8.7mm_P1.27mm,OPA4197IDR (TI),
+U403,1,74LVC2G17 (Schmitt),Package_TO_SOT_SMD:SOT-363_SC-70-6,74LVC2G17GW (Nexperia),
+U404,1,74HC74,Package_SO:SOIC-14_3.9x8.7mm_P1.27mm,74HC74D (Nexperia),
+U405,1,"ADS7828E (12-bit x8, I2C 0x4B)",Package_SO:TSSOP-16_4.4x5mm_P0.65mm,ADS7828E (TI),-40 to 85 C: keep it at the cool end
+U501,1,MCP23S17-E/SS (addr 000),Package_SO:SSOP-28_5.3x10.2mm_P0.65mm,MCP23S17-E/SS (Microchip),
+U502,1,PC817 (heater present),Package_DIP:DIP-4_W7.62mm,PC817X1NSZ1B (Sharp),THT for the heater-side isolation
+U503,1,74HC4060,Package_SO:SOIC-16_3.9x9.9mm_P1.27mm,74HC4060D (Nexperia),
+U504,1,74LVC1G11,Package_TO_SOT_SMD:SOT-363_SC-70-6,74LVC1G11GW (Nexperia),
+U505,1,74LVC1G08,Package_TO_SOT_SMD:SOT-353_SC-70-5,74LVC1G08GW (Nexperia),
+U506,1,PC817 (loop monitor),Package_DIP:DIP-4_W7.62mm,PC817X1NSZ1B (Sharp),THT for the heater-side isolation
+V1 V2 V3 V4,4,EL34 / 6L6GC / KT88 / 6550 (octal),tube_power_amp_revb:Valve_Octal_Belton_PCD17.20mm,Belton octal PCB socket (as rev A),"solder side, as built"

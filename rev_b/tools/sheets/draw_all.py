@@ -1,8 +1,14 @@
 #!/usr/bin/env python3
-"""Draw the five power amp rev B sheets (initial schematic, 2026-11-21).
+"""Draw the five power amp rev B sheets (initial schematic 2026-11-21; second pass 2026-11-23), and
+write lib/footprint_map.csv and bom/tube_power_amp_revb_bom.csv from the same part list.
+
+Second pass: interfaces.md IF-1.2 and the bias decisions of 2026-11-22 (bias_supply.md
+"Corrections" / "Proposed wording"): two-pole sense filter (47k / 220 nF twice), 72 V zener
+string with 3.3k, BIAS_OK from two real monitors (VNC, -80 V rail) and +15 V present, over-current
+comparator 220 mA +-5 % (0.1 % divider), BIAS_EN pump behind 1k, Schmitt inputs on the slow lines.
 
 Sources (tube_amplifier_kicad, read only): docs/bias_supply.md and sim/bias_supply (bias supply,
-cathode-current sense, over-current trip), docs/interfaces.md IF-1.1 (connectors, ribbons 6.1 /
+cathode-current sense, over-current trip), docs/interfaces.md IF-1.2 (connectors, ribbons 6.1 /
 6.3, safety lines 8, map 7.3), docs/grounding.md (AGND star at GND_PWR, DGND island, soft tie,
 100 ohm crossings), sim/power_stage (1k screen resistors, grid stoppers) and SPECIFICATION.md
 PA-1..PA-6, SAFE-1..SAFE-6. Rev A (the 2010 OUTPUT board) is the mechanical reference only.
@@ -28,7 +34,8 @@ from p2k.sch_builder import Sheet, lib  # noqa: E402
 from p2k.sexpr import find, find_all  # noqa: E402
 
 POWER = {"GND", "GNDD", "+5V", "+15V", "-15V"}
-MULTI = {"EL34", "OPA4197xD", "LM339", "LM393", "74HC74"}
+MULTI = {"EL34", "OPA4197xD", "LM2901", "74HC74", "74LVC2G17"}
+PARTS = {}   # ref -> (symbol, value), filled in the collect pass
 GRID = 2.54
 
 
@@ -72,6 +79,9 @@ class Drawer:
 
     def part(self, sym, ref, c, r, nets, value=None, rot=0, unit=1, stub=GRID):
         ref = self.auto_ref(ref, sym)
+        if self.mode == "collect" and not ref.startswith("#"):
+            if ref not in PARTS or (value and len(value) > len(PARTS[ref][1] or "")):
+                PARTS[ref] = (sym, value or PARTS.get(ref, (sym, ""))[1])
         for n in nets.values():
             if n and n != "NC":
                 self.nets.add(n)
@@ -149,10 +159,13 @@ TUBES = ((1, "V1", "DRV_A", "OT_A"), (2, "V2", "DRV_A", "OT_A"), (3, "V3", "DRV_
 
 # ------------------------------------------------------------------ sheet 01
 def sheet01(d):
-    d.text("01 Output stage: 4 octal sockets (solder side, as built; standard octal numbering), per-tube 47n coupling "
-           "cap, 100k grid leak to its own bias (BIASn, sheet 03), 5.6k grid stopper, 1k 5 W flameproof screen resistor "
-           "from V_SCREEN, 1 ohm cathode shunt with a power diode and a Kelvin tap (KELVn) to the sense amp (sheet 04).",
+    d.text("01 Output stage: 4 octal sockets (solder side, as built; standard octal numbering), per-tube coupling "
+           "cap and grid leak to its own bias (BIASn, sheet 03) - values OPEN -, 5.6k grid stopper, 1k 5 W flameproof screen "
+           "resistor from V_SCREEN, 1 ohm cathode shunt with a power diode and a Kelvin tap (KELVn) to the sense amp (sheet 04).",
            0, -1.4, 2)
+    d.text("Coupling cap / grid leak OPEN (interfaces.md 10, 14; review U7): 47n / 100k drawn; 47n / 220k (sim/pi_nfb) or "
+           "100n / 220k (PI + FX). Footprints take either: 15 mm film box (630 V), axial 0207 (350 V). The datasheet "
+           "limit for fixed bias (README 'Grid circuit resistance') is lower than 220k for 6L6GC and 6550.", 6, 9.3, 1.6)
     d.text("Ground: GND = AGND, the local star at the GND_PWR tab (J101 pin 2). The cathode shunts, the drive grounds "
            "(W24, solid at this end), the HV decoupling and the bias circuit return here. Heaters float: no heater "
            "reference on this board (interfaces.md 5). OT secondary COM is not connected here.", 0, -0.9, 1.6)
@@ -162,7 +175,7 @@ def sheet01(d):
     d.part("Conn_01x02", "J103", 0, 4, {1: "HTR1", 2: "HTR2"}, value="W06-b HEATER (6.3 mm tabs)")
     d.part("Conn_01x03", "J104", 0, 5.6, {1: "OT_A", 2: "OT_B", 3: "V_ANODE"}, value="W11-a OT_A / OT_B / OT_CT (4.8 mm tabs)")
     d.part("Conn_01x05", "J105", 0, 7.6, {1: "GND", 2: "DRV_A", 3: "GND", 4: "DRV_B", 5: "GND"},
-           value="W24-b DRIVE (Lock-3.96)")
+           value="W24-b DRIVE (Lock-3.96; 280-390 V DC on pins 2 / 4)")
     for i, n in enumerate(("V_ANODE", "V_SCREEN", "HTR1", "HTR2", "GND")):
         d.flag(n, 2, 1 + i * 0.7)
     C(d, "C101", 3, 1, "V_ANODE", "GND", "100n/630V")
@@ -177,8 +190,8 @@ def sheet01(d):
     for n, v, drv, ot in TUBES:
         c0 = 6 + (n - 1) * 5
         d.text(f"{v}: {'side A' if ot == 'OT_A' else 'side B'}", c0, 0.4)
-        C(d, f"C1{n}0", c0, 1, drv, f"GRID{n}", "47n/630V", rot=90)
-        R(d, f"R1{n}0", c0 + 1, 2, f"GRID{n}", f"BIAS{n}", "100k", rot=0)
+        C(d, f"C1{n}0", c0, 1, drv, f"GRID{n}", "47n/630V MKP (OPEN: 47n-100n)", rot=90)
+        R(d, f"R1{n}0", c0 + 1, 2, f"GRID{n}", f"BIAS{n}", "100k (OPEN: 100k-220k)", rot=0)
         R(d, f"R1{n}1", c0 + 2, 1, f"GRID{n}", f"G1_{n}", "5.6k", rot=90)
         R(d, f"R1{n}2", c0 + 2, 3, "V_SCREEN", f"G2_{n}", "1k 5W flameproof", rot=90)
         d.part("EL34", v, c0 + 3, 2, {1: f"K{n}", 3: ot, 4: f"G2_{n}", 5: f"G1_{n}", 8: f"K{n}"},
@@ -195,67 +208,96 @@ def sheet01(d):
 
 # ------------------------------------------------------------------ sheet 02
 def sheet02(d):
-    d.text("02 -80 V input, clean negative reference VNC (about -73 V), VNC monitor (BIAS_OK, VNC_FAULT clamp) and the "
-           "BIAS_EN watchdog. Circuit and values: docs/bias_supply.md, sim/bias_supply/bias.py (master repo).", 0, -1.4, 2)
+    d.text("02 -80 V input, clean negative reference VNC (about -70.5 V, 72 V string), BIAS_OK monitors (VNC, -80 V rail, "
+           "+15 V) and the BIAS_EN watchdog. docs/bias_supply.md (2026-11-22), rev_b/sim/bias_supply/monitors.py.", 0, -1.4, 2)
     d.part("Conn_01x02", "J201", 0, 1, {1: "M80_IN", 2: "GNDD"}, value="W09-b -80V / BIAS_RTN (4.8 mm tabs)")
-    d.text("BIAS_RTN lands on the DGND island (grounding.md 4); the -80 V current returns mostly through GND_PWR", 0, 2.2)
-    R(d, "R201", 2, 1, "M80_IN", "M80", "10R fusible 0.5W", rot=90)
-    d.part("D", "D201", 3, 2, {1: "GND", 2: "M80"}, value="1N4004 (reverse clamp)")
-    CP(d, "C201", 4, 2, "GND", "M80", "100u/100V")
-    d.text("100 uF: the hold-up the sim assumed (185 ms to BIAS_OK low after the -80 V source goes)", 2.6, 3.2)
+    d.text("BIAS_RTN lands on the DGND island (grounding.md 4); the -80 V current returns mostly through GND_PWR. "
+           "25 mA requested from the PSU, -80 V +-2 V, no hold-up required (interfaces.md 3.1)", 0, 2.2)
+    R(d, "R201", 2, 1, "M80_IN", "M80", "10R 1W fusible wirewound", rot=90)
+    d.part("D", "D201", 3, 2, {1: "GND", 2: "M80"}, value="S1G (reverse clamp)")
+    CP(d, "C201", 4, 2, "GND", "M80", "100u/100V 105C")
+    d.text("100 uF: the board's own hold-up behind the BIAS_OK timing (22-117 ms, 28-65 ms with the drawn monitors)", 2.6, 3.2)
     # zener reference
-    R(d, "R202", 6, 1, "M80", "ZR", "3.9k", rot=90)
-    d.part("D_Zener", "D202", 7, 3, {1: "GND", 2: "Z1"}, value="BZX84-B33 (2%)")
-    d.part("D_Zener", "D203", 7, 4.4, {1: "Z1", 2: "ZR"}, value="BZX84-B43 (2%)")
-    d.text("76 V string (33 + 43 V, 2 %)", 7.4, 5.4)
+    R(d, "R202", 6, 1, "M80", "ZR", "3.3k 1206", rot=90)
+    d.part("D_Zener", "D202", 7, 3, {1: "GND", 2: "Z1"}, value="BZT52H-B36 (2 %)")
+    d.part("D_Zener", "D203", 7, 4.4, {1: "Z1", 2: "ZR"}, value="BZT52H-B36 (2 %)")
+    d.text("72 V string (2x 36 V, 2 %, SOD123F on 1 cm2 cathode pads: 150 K/W, self-heating 13 K)", 7.4, 5.4)
     R(d, "R203", 8, 1, "ZR", "ZF", "100k", rot=90)
     d.part("D", "D204", 8, 2.4, {1: "ZR", 2: "ZF"}, value="1N4148W (speed-up)", rot=90)
-    CP(d, "C202", 9, 3, "GND", "ZF", "10u/100V")
+    C(d, "C202", 9, 3, "ZF", "GND", "10u/100V X7S 1210")
+    C(d, "C211", 9.8, 3, "ZF", "GND", "10u/100V X7S 1210")
+    d.text("C202 / C211 ceramic, not electrolytic: the leakage of an electrolytic here (up to 3 uA) would shift VNC 0.3 V "
+           "through the 100k", 8, 5.9)
     d.part("Q_PMOS", "Q201", 11, 1, {"G": "ZF", "D": "M80", "S": "VS1"}, value="BSP92P (250 V)")
     d.part("Q_PMOS", "Q202", 11, 3, {"G": "ZF", "D": "M80", "S": "VS2"}, value="BSP92P (250 V)")
     R(d, "R204", 12.5, 1, "VS1", "VNC", "10R", rot=90)
     R(d, "R205", 12.5, 3, "VS2", "VNC", "10R", rot=90)
     R(d, "R206", 14, 1, "VNC", "M80", "100k", rot=90)
     R(d, "R207", 14, 3, "GND", "VNC", "47k", rot=90)
-    CP(d, "C203", 15, 2, "GND", "VNC", "10u/100V")
+    CP(d, "C203", 15, 2, "GND", "VNC", "10u/100V 105C")
     d.text("Two P-MOSFET followers in parallel: one open still regulates; both open -> VNC rises -> BIAS_OK low", 10, 4.4)
     # references
-    R(d, "R208", 0, 6, "+15V", "VREF10", "2.2k", rot=90)
-    d.part("LM4040DBZ-10", "U201", 1, 7, {1: "VREF10", 2: "GND", 3: "NC"}, value="LM4040DBZ-10 (10 V, 0.5 %)")
+    R(d, "R208", 0, 6, "+15V", "VREF10", "1.0k", rot=90)
+    d.part("LM4040DBZ-10", "U201", 1, 7, {1: "VREF10", 2: "GND", 3: "NC"}, value="LM4040A10 (10 V, 0.1 %)")
     C(d, "C204", 2, 7, "VREF10", "GND", "100n")
-    R(d, "R209", 3, 6, "VREF10", "VREF5", "10k", rot=0)
-    R(d, "R210", 3, 8, "VREF5", "GND", "10k", rot=0)
+    R(d, "R209", 3, 6, "VREF10", "VREF5", "10k 0.1%", rot=0)
+    R(d, "R210", 3, 8, "VREF5", "GND", "10k 0.1%", rot=0)
     C(d, "C205", 4, 7.6, "VREF5", "GND", "100n")
-    # VNC monitor
-    R(d, "R211", 6, 6, "VNC", "VMON", "953k", rot=90)
-    R(d, "R212", 6, 8, "VMON", "VREF10", "64.9k", rot=90)
-    C(d, "C206", 7, 8, "VMON", "GND", "1n")
-    d.part("LM393", "U202", 9, 6.5, {3: "VMON", 2: "VREF5", 1: "VNC_FAULT"}, value="LM393", unit=1)
-    R(d, "R213", 10.5, 5.5, "+15V", "VNC_FAULT", "10k", rot=0)
-    R(d, "R214", 10.5, 7, "VNC_FAULT", "VMON", "10M", rot=0)
-    d.part("LM393", "U202", 9, 9.5, {5: "VREF5", 6: "VMON", 7: "VNC_OK_OC"}, value="LM393", unit=2)
-    R(d, "R215", 10.5, 9, "+15V", "VNC_OK_OC", "22k", rot=0)
-    R(d, "R216", 11.5, 10, "VNC_OK_OC", "GND", "10k", rot=90)
-    R(d, "R217", 12.5, 9, "VNC_OK_OC", "BIAS_OK_A", "1k", rot=0)
-    C(d, "C207", 13.5, 10, "BIAS_OK_A", "GND", "100n")
-    d.part("LM393", "U202", 13, 6.5, {8: "+15V", 4: "GND"}, value="LM393", unit=3)
-    C(d, "C208", 14, 6.5, "+15V", "GND", "100n")
-    d.text("VNC monitor: trips at VNC about -68.4 V (divider to VREF10 against VREF5; 1.4 V hysteresis). The master "
-           "sim used -71 V: moved for the zener (2 %) and MOSFET Vgs(th) spread (VNC can sit at -72 V); re-simulate.",
-           6, 11.2)
-    d.text("BIAS_OK_A is pulled up from +15 V (22k / 10k = 4.7 V): +15 V missing or comparator unpowered = not OK. "
-           "VNC_FAULT (15 V) drives every channel's second clamp (sheet 03).", 6, 11.7)
+    d.text("VREF10 regulates down to +15 V = 11.5 V (1.0k, 1.3 mA of loads); LM4040 3.6 mA", 0, 9)
+    # VNC monitor (unit A)
+    R(d, "R211", 6, 6, "VNC", "MVA", "169k 0.1%", rot=90)
+    R(d, "R212", 7, 6, "MVA", "MV", "234k 0.1%", rot=90)
+    R(d, "R213", 8, 7, "MV", "VREF10", "29.4k 0.1%", rot=0)
+    R(d, "R214", 9, 6, "MV", "MON_OV", "3.57M", rot=90)
+    C(d, "C206", 7, 8, "MV", "GND", "10n")
+    d.part("D", "D205", 8, 8.6, {1: "MV", 2: "GND"}, value="BAS416 (low leakage)", rot=90)
+    d.part("LM2901", "U202", 11, 7, {5: "MV", 4: "VREF5", 2: "MON_OV"}, value="LM2901B", unit=1)
+    R(d, "R215", 12.5, 6, "+15V", "MON_OV", "10k", rot=0)
+    d.part("D", "D206", 13.5, 7, {1: "MON_FAULT", 2: "MON_OV"}, value="1N4148W", rot=90)
+    d.text("VNC monitor: trip -63.0 V, release -64.5 V (0.1 % divider)", 6, 9.6)
+    # rail monitor (unit B)
+    R(d, "R216", 6, 10.5, "M80", "MR", "271k 0.1%", rot=90)
+    R(d, "R217", 8, 11.5, "MR", "VREF10", "16.9k 0.1%", rot=0)
+    R(d, "R218", 9, 10.5, "MR", "MON_OR", "7.32M", rot=90)
+    C(d, "C207", 7, 12.5, "MR", "GND", "10n")
+    d.part("D", "D207", 8, 13.1, {1: "MR", 2: "GND"}, value="BAS416 (low leakage)", rot=90)
+    d.part("LM2901", "U202", 11, 11.5, {7: "MR", 6: "VREF5", 1: "MON_OR"}, value="LM2901B", unit=2)
+    R(d, "R219", 12.5, 10.5, "+15V", "MON_OR", "10k", rot=0)
+    d.part("D", "D208", 13.5, 11.5, {1: "MON_FAULT", 2: "MON_OR"}, value="1N4148W", rot=90)
+    d.text("Rail monitor: trip -75.0 V, release -75.5 V (0.1 % divider)", 6, 14.1)
+    # +15 V monitor (unit C)
+    R(d, "R220", 15, 6, "+15V", "P15S", "42.2k", rot=90)
+    R(d, "R221", 15, 8, "P15S", "GND", "10k", rot=90)
+    C(d, "C208", 16, 8, "P15S", "GND", "100n")
+    R(d, "R222", 15, 9.5, "VREF2V5", "PREF", "10k", rot=0)
+    R(d, "R223", 16.5, 9.5, "PREF", "MON_O15", "2.37M", rot=0)
+    d.part("LM2901", "U202", 18, 7.5, {11: "PREF", 10: "P15S", 13: "MON_O15"}, value="LM2901B", unit=3)
+    R(d, "R224", 19.5, 6.5, "+15V", "MON_O15", "10k", rot=0)
+    d.part("D", "D209", 20.5, 7.5, {1: "MON_FAULT", 2: "MON_O15"}, value="1N4148W", rot=90)
+    d.text("+15 V present: trip 13.0 V, release 13.25 V, against VREF2V5 (from +5 V, independent of VREF10)", 15, 10.6)
+    # combine
+    R(d, "R225", 14.5, 13, "MON_FAULT", "GND", "100k", rot=90)
+    d.part("LM2901", "U202", 18, 12.5, {9: "VREF5", 8: "MON_FAULT", 14: "OKH"}, value="LM2901B", unit=4)
+    R(d, "R226", 19.5, 11.5, "+15V", "OKH", "22k", rot=0)
+    R(d, "R227", 20.5, 13, "OKH", "GND", "10k", rot=90)
+    R(d, "R232", 21.5, 12, "OKH", "BIAS_OK_PRE", "1k", rot=90)
+    d.part("LM2901", "U202", 22, 7, {3: "+15V", 12: "GND"}, value="LM2901B", unit=5)
+    C(d, "C209", 23, 7, "+15V", "GND", "100n")
+    d.text("MON_FAULT (diode-OR, 13 V = fault) clamps every channel (sheet 03). BIAS_OK_PRE = no fault, pulled up from "
+           "+15 V (22k / 10k: 4.5-4.9 V; +15 V missing = not OK) -> Schmitt buffer (sheet 04) -> BIAS_OK_A. "
+           "Independent of BIAS_EN (interfaces.md 6.3, 8).", 14, 14.4)
     # watchdog
-    R(d, "R218", 17, 1, "BIAS_EN_A", "GND", "100k", rot=90)
-    C(d, "C209", 18, 1, "BIAS_EN_A", "WP", "100n", rot=90)
-    d.part("BAT54S", "D205", 19, 2, {1: "GND", 3: "WP", 2: "WST"}, value="BAT54S (pump)")
-    C(d, "C210", 20, 3, "WST", "GND", "1u")
-    R(d, "R219", 21, 3, "WST", "GND", "100k", rot=0)
-    NMOS(d, "Q203", 22, 2, "WST", "CLAMP_WD")
-    R(d, "R220", 23, 1, "+15V", "CLAMP_WD", "100k", rot=90)
-    d.text("Watchdog: only a toggling BIAS_EN (10 kHz, 5 V) charges WST and turns Q203 on, which releases the clamps "
-           "(CLAMP_WD low). Stopped high or low, card missing: CLAMP_WD = +15 V -> every channel clamped -> cold "
-           "in about 130 ms. CLAMP_WD also clears the DAC (sheet 03).", 16, 4.4)
+    R(d, "R228", 17, 1, "BIAS_EN_A", "GND", "100k", rot=90)
+    R(d, "R229", 17.8, 1, "BIAS_EN_A", "WPS", "1k", rot=90)
+    C(d, "C210", 18.6, 1, "WPS", "WP", "100n", rot=90)
+    d.part("BAT54S", "D210", 19.5, 2, {1: "GND", 3: "WP", 2: "WST"}, value="BAT54S (pump)")
+    C(d, "C212", 20.5, 3, "WST", "GND", "1u")
+    R(d, "R230", 21.3, 3, "WST", "GND", "56k", rot=0)
+    NMOS(d, "Q203", 22.3, 2, "WST", "CLAMP_WD")
+    R(d, "R231", 23.3, 1, "+15V", "CLAMP_WD", "100k", rot=90)
+    d.text("Watchdog: only a toggling BIAS_EN (5-15 kHz, 5 V) charges WST and turns Q203 on, releasing the clamps "
+           "(CLAMP_WD low). Stopped high or low, card missing: cold in 76-131 ms. R229 1k limits the card's 74AHCT to "
+           "3.8 mA peak (control board request >= 470 ohm); R230 56k (was 100k) for the 5 V drive.", 16, 4.4)
 
 
 # ------------------------------------------------------------------ sheet 03
@@ -265,7 +307,7 @@ OPA = {1: (1, 3, 2, 1), 2: (2, 5, 6, 7), 3: (3, 10, 9, 8), 4: (4, 12, 13, 14)}  
 
 def sheet03(d):
     d.text("03 Bias DAC (I2C, power-on reset to zero) and four cold-by-default bias channels: Vg1 = VNC + Ic x 30k, "
-           "Ic = Vdac / 1k. DAC 0 V = -74 V (cold), 2.5 V = -2.6 V. docs/bias_supply.md, sim/bias_supply.", 0, -1.4, 2)
+           "Ic = Vdac / 1k. DAC 0 V = -71 V (cold), 2.5 V = -0.3 V (typical board). docs/bias_supply.md, sim/bias_supply.", 0, -1.4, 2)
     d.part("DAC7578xPW", "U301", 1, 3, {1: "GND", 2: "GND", 3: "+5V", 4: "DAC1", 13: "DAC2", 5: "DAC3", 12: "DAC4",
                                         6: "NC", 7: "NC", 10: "NC", 11: "NC", 8: "VREF2V5", 9: "DAC_CLR_N",
                                         14: "GND", 15: "I2C_SDA_A", 16: "I2C_SCL_A"},
@@ -291,7 +333,7 @@ def sheet03(d):
         C(d, f"C3{n}0", c0, r0 + 1.8, f"FLT{n}", "GND", "330n")
         R(d, f"R3{n}1", c0 + 0.8, r0 + 1.8, f"FLT{n}", "GND", "1M", rot=0)
         NMOS(d, f"Q3{n}0", c0, r0 + 3.2, "CLAMP_WD", f"FLT{n}")
-        NMOS(d, f"Q3{n}1", c0 + 1.2, r0 + 3.2, "VNC_FAULT", f"FLT{n}")
+        NMOS(d, f"Q3{n}1", c0 + 1.2, r0 + 3.2, "MON_FAULT", f"FLT{n}")
         u, ip, im, o = OPA[n]
         d.part("OPA4197xD", "U303", c0 + 2, r0 + 1.2, {ip: f"FLT{n}", im: f"E{n}", o: f"U{n}"}, value="OPA4197ID", unit=u)
         R(d, f"R3{n}2", c0 + 3.2, r0 + 0.6, f"U{n}", f"BQ{n}", "1k", rot=90)
@@ -311,7 +353,7 @@ def sheet03(d):
         R(d, f"R3{n}A", c0 + 3.6, r0 + 10.2, f"FE{n}", f"BIAS{n}", "1k", rot=0)
         C(d, f"C3{n}3", c0 + 4.4, r0 + 11.2, f"BIAS{n}", "GND", "1u/100V")
     d.text("Per channel: DAC -> 10k / 330n (48 Hz), 1M pull-down (DAC high-Z = cold), two clamps (watchdog, VNC "
-           "monitor); op amp + NPN: Ic = Vdac / 1k; PNP mirror at +15 V (300 V parts) sources Ic into OUT; "
+           "monitors: MON_FAULT); op amp + NPN: Ic = Vdac / 1k; PNP mirror at +15 V (300 V parts) sources Ic into OUT; "
            "30k || 100n to VNC; 300 V NPN follower, 2x 22k (midpoint filtered) to -80 V, 1k / 1u to BIASn.", 5, 13.4)
 
 
@@ -333,43 +375,48 @@ def sheet04(d):
         C(d, f"C4{n}0", 1.5, r0 + 1.2, f"A1_{n}", f"KELV{n}", "10n")
         R(d, f"R4{n}1", 2.5, r0 + 0.6, f"A1_{n}", f"A2_{n}", "47k", rot=90)
         R(d, f"R4{n}2", 3.7, r0 + 0.6, f"A2_{n}", f"A3_{n}", "47k", rot=90)
-        C(d, f"C4{n}1", 4.6, r0 + 1.2, f"A3_{n}", f"KELV{n}", "330n")
+        C(d, f"C4{n}3", 3.1, r0 + 1.2, f"A2_{n}", f"KELV{n}", "220n")
+        C(d, f"C4{n}1", 4.6, r0 + 1.2, f"A3_{n}", f"KELV{n}", "220n")
         u, ip, im, o = SENSE[n]
         d.part("OPA4197xD", "U401", 6, r0 + 0.8, {ip: f"A3_{n}", im: f"FB{n}", o: f"Y{n}"}, value="OPA4197ID", unit=u)
-        R(d, f"R4{n}3", 7.4, r0 + 0.2, f"Y{n}", f"FB{n}", "9.09k", rot=90)
-        R(d, f"R4{n}4", 7.4, r0 + 1.4, f"FB{n}", f"KELV{n}", "1k", rot=90)
+        R(d, f"R4{n}3", 7.4, r0 + 0.2, f"Y{n}", f"FB{n}", "9.09k 0.1%", rot=90)
+        R(d, f"R4{n}4", 7.4, r0 + 1.4, f"FB{n}", f"KELV{n}", "1.01k 0.1%", rot=90)
         R(d, f"R4{n}5", 8.8, r0 + 0.6, f"Y{n}", f"ISNS{n}", "1k", rot=90)
         C(d, f"C4{n}2", 9.8, r0 + 1.2, f"ISNS{n}", "GND", "100n")
-        d.part("BAT54S", f"D4{n}0", 10.8, r0 + 1.0, {1: "GND", 2: "+5V", 3: f"ISNS{n}"}, value="BAT54S (ADC clamp)")
+        d.part("BAT54S", f"D4{n}0", 10.8, r0 + 1.0, {1: "GND", 2: "+5V", 3: f"ISNS{n}"}, value="BAV199 (ADC clamp, low leakage)")
         u, ip, im, o = CMP[n]
-        d.part("LM339", "U403", 13, r0 + 0.8, {ip: "VOC", im: f"ISNS{n}", o: "OC_ANY_N"}, value="LM339", unit=u)
-    d.text("The filter is drawn as simulated: 10k / 10n, then 47k + 47k into 330n (two real poles, about 4.6 Hz), "
-           "gain 10. The master netlist's 'Cb1 a2 b1 330n' has b1 unconnected (floating): the documented "
-           "'2nd-order Sallen-Key' was never simulated; returned to FB it trips in 28 ms with 3x the ripple "
-           "(rev_b/sim/checks.py). Values stay as simulated: 23 ms trip at 400 mA, 1.2 mA pp ripple.", 0, 9.1 + 1.8)
-    d.part("LM339", "U403", 13, 9.5, {3: "+15V", 12: "GND"}, value="LM339", unit=5)
+        d.part("LM2901", "U403", 13, r0 + 0.8, {ip: "VOC", im: f"ISNS{n}", o: "OC_ANY_N"}, value="LM2901B", unit=u)
+    d.text("Filter (decided 2026-11-22, PA-4): 10k / 10n, then two real poles 47k / 220n twice (5.3 and 40 Hz, -3 dB "
+           "5.0 Hz), gain 10.0 (9.09k / 1.01k 0.1 %): 10 V/A. Trip 25 ms after a step to 400 mA, 45-50 ms after a mirror short; "
+           "13 mA pp ripple at 82 Hz full overdrive (bias_supply.md). 1R shunt 1 %, 50 ppm/K.", 0, 9.1 + 1.8)
+    d.part("LM2901", "U403", 13, 9.5, {3: "+15V", 12: "GND"}, value="LM2901B", unit=5)
     C(d, "C403", 14, 9.5, "+15V", "GND", "100n")
-    R(d, "R401", 15, 7.5, "VREF10", "VOC", "39k", rot=90)
-    R(d, "R402", 16, 8.5, "VOC", "GND", "11k", rot=0)
+    R(d, "R401", 15, 7.5, "VREF10", "VOC", "39k 0.1%", rot=90)
+    R(d, "R402", 16, 8.5, "VOC", "GND", "11k 0.1%", rot=0)
     C(d, "C404", 17, 8.5, "VOC", "GND", "100n")
-    d.text("VOC = 10 V x 11 / 50 = 2.20 V = 220 mA average (SAFE-2)", 15, 9.6)
+    d.text("VOC = 10 V x 11 / 50 = 2.20 V = 220 mA average (SAFE-2), +-2.4 % worst case (README)", 15, 9.6)
     # over-current latch
     R(d, "R403", 16, 1, "+5V", "OC_ANY_N", "100k", rot=90)
     C(d, "C405", 17, 2, "OC_ANY_N", "GND", "1u")
-    d.part("74HC74", "U404", 19, 2, {1: "OC_ANY_N", 2: "OC_ANY_N", 3: "OC_CLR_A", 4: "+5V", 5: "OC_OK", 6: "NC"},
+    d.part("74LVC2G17", "U405", 17.5, 3.4, {1: "OC_ANY_N", 6: "OC_ANY_S"}, value="74LVC2G17 (Schmitt)", unit=1)
+    d.part("74LVC2G17", "U405", 17.5, 4.6, {3: "BIAS_OK_PRE", 4: "BIAS_OK_A"}, value="74LVC2G17 (Schmitt)", unit=2)
+    d.part("74LVC2G17", "U405", 16.5, 5.6, {5: "+5V", 2: "GND"}, value="74LVC2G17 (Schmitt)", unit=3)
+    C(d, "C411", 17.5, 5.4, "+5V", "GND", "100n")
+    d.part("74HC74", "U404", 19, 2, {1: "OC_ANY_S", 2: "OC_ANY_S", 3: "OC_CLR_A", 4: "+5V", 5: "OC_OK", 6: "NC"},
            value="74HC74", unit=1)
     d.part("74HC74", "U404", 19, 5, {13: "+5V", 12: "GND", 11: "GND", 10: "+5V", 9: "NC", 8: "NC"}, value="74HC74", unit=2)
     d.part("74HC74", "U404", 22, 2, {14: "+5V", 7: "GND"}, value="74HC74", unit=3)
     C(d, "C406", 23, 2, "+5V", "GND", "100n")
     R(d, "R404", 21, 4.5, "OC_CLR_A", "GND", "100k", rot=0)
-    d.text("Latch: any comparator low -> ~R low -> OC_OK = 0 (tripped). Power-on: 100k / 1u holds ~R low about "
+    d.text("Schmitt buffer U405: the slow RC edge of OC_ANY_N and the comparator-driven BIAS_OK_PRE into CMOS inputs. "
+           "Latch: any comparator low -> ~R low -> OC_OK = 0 (tripped). Power-on: 100k / 1u holds ~R low about "
            "70 ms -> starts tripped. OC_CLR rising edge clocks D = OC_ANY_N: clears only if no comparator is "
            "tripped. OC_OK -> HV_PERMIT (both switches) and OC_TRIP_N (sheet 05).", 15, 6.4)
     # ADC
     d.part("ADS7828", "U402", 19, 10, {1: "ISNS1", 2: "ISNS2", 3: "ISNS3", 4: "ISNS4", 5: "VNC_ADC", 6: "M80_ADC",
                                        7: "P15_ADC", 8: "GND", 9: "GND", 10: "VREF2V5", 11: "GND", 12: "+5V",
                                        13: "+5V", 14: "I2C_SCL_A", 15: "I2C_SDA_A", 16: "+5V"},
-           value="ADS7828 (12-bit x8, I2C 0x4B)")
+           value="ADS7828E (12-bit x8, I2C 0x4B)")
     C(d, "C407", 22, 9, "+5V", "GND", "100n")
     R(d, "R405", 15, 12, "VNC", "VNC_ADC", "909k", rot=90)
     R(d, "R406", 15, 13.2, "VNC_ADC", "VREF10", "100k", rot=90)
@@ -486,6 +533,128 @@ def sheet05(d):
            "monitor LED - W16 - the HV supplies' opto LED - W16 - Q503 - GND: 9.4 mA. No current = HV off.", 8, 17.0)
 
 
+# ------------------------------------------------------------------ footprints and BOM
+LOC = "tube_power_amp_revb:"
+R0805, R1206 = "Resistor_SMD:R_0805_2012Metric", "Resistor_SMD:R_1206_3216Metric"
+AX0207 = "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal"
+SOT23 = "Package_TO_SOT_SMD:SOT-23"
+SYMFP = {   # symbol -> (footprint, candidate part, note)
+    "EL34": (LOC + "Valve_Octal_Belton_PCD17.20mm", "Belton octal PCB socket (as rev A)", "solder side, as built"),
+    "2N7002": (SOT23, "2N7002,215 (Nexperia)", ""),
+    "BAT54S": (SOT23, "BAT54S,215 (Nexperia)", ""),
+    "Q_PMOS": ("Package_TO_SOT_SMD:SOT-223-3_TabPin2", "BSP92P H6327 (Infineon)", "250 V"),
+    "NetTie_2": ("NetTie:NetTie-2_SMD_Pad0.5mm", "", "Kelvin tap at the shunt pad"),
+    "DAC7578xPW": ("Package_SO:TSSOP-16_4.4x5mm_P0.65mm", "DAC7578SPW (TI)", "power-on reset to zero: confirm in the datasheet"),
+    "ADR4525": ("Package_SO:SOIC-8_3.9x4.9mm_P1.27mm", "ADR4525BRZ (ADI)", ""),
+    "ADS7828": ("Package_SO:TSSOP-16_4.4x5mm_P0.65mm", "ADS7828E (TI)", "-40 to 85 C: keep it at the cool end"),
+    "OPA4197xD": ("Package_SO:SOIC-14_3.9x8.7mm_P1.27mm", "OPA4197IDR (TI)", ""),
+    "LM2901": ("Package_SO:SOIC-14_3.9x8.7mm_P1.27mm", "LM2901BIDR (TI, -40 to 125 C)", "orderable suffix to confirm"),
+    "LM4040DBZ-10": (SOT23, "LM4040A10IDBZR (TI)", "10 V only in I grade (-40 to 85 C)"),
+    "74HC74": ("Package_SO:SOIC-14_3.9x8.7mm_P1.27mm", "74HC74D (Nexperia)", ""),
+    "74HC4060": ("Package_SO:SOIC-16_3.9x9.9mm_P1.27mm", "74HC4060D (Nexperia)", ""),
+    "74LVC1G11": ("Package_TO_SOT_SMD:SOT-363_SC-70-6", "74LVC1G11GW (Nexperia)", ""),
+    "74LVC1G08": ("Package_TO_SOT_SMD:SOT-353_SC-70-5", "74LVC1G08GW (Nexperia)", ""),
+    "74LVC2G17": ("Package_TO_SOT_SMD:SOT-363_SC-70-6", "74LVC2G17GW (Nexperia)", ""),
+    "PC817": ("Package_DIP:DIP-4_W7.62mm", "PC817X1NSZ1B (Sharp)", "THT for the heater-side isolation"),
+    "MCP23S17x-x-SS": ("Package_SO:SSOP-28_5.3x10.2mm_P0.65mm", "MCP23S17-E/SS (Microchip)", ""),
+    "D_Bridge_+AA-": ("Package_TO_SOT_SMD:TO-269AA", "MB1S (onsemi)", ""),
+    "Conn_02x07_Odd_Even": ("Connector_IDC:IDC-Header_2x07_P2.54mm_Vertical", "61201421621 (Wurth)", "shrouded, keyed"),
+    "Conn_02x05_Odd_Even": ("Connector_IDC:IDC-Header_2x05_P2.54mm_Vertical", "61201021621 (Wurth)", "shrouded, keyed"),
+}
+CONN = {"J101": (LOC + "BladeTab_x2_P5.00mm_Drill1.4mm_PLACEHOLDER", "4.8 mm PCB blade tabs", "PLACEHOLDER footprint"),
+        "J102": (LOC + "BladeTab_x1_P5.00mm_Drill1.4mm_PLACEHOLDER", "4.8 mm PCB blade tab", "PLACEHOLDER footprint"),
+        "J103": (LOC + "BladeTab_x2_P5.00mm_Drill1.4mm_PLACEHOLDER", "6.3 mm PCB blade tabs", "PLACEHOLDER footprint; 6.4 A"),
+        "J104": (LOC + "BladeTab_x3_P5.00mm_Drill1.4mm_PLACEHOLDER", "4.8 mm PCB blade tabs", "PLACEHOLDER footprint; anode nets"),
+        "J105": ("Connector_Molex:Molex_KK-396_A-41791-0005_1x05_P3.96mm_Vertical", "TE MTA-156 1x5 (600 V AC) - KK-396 is 250 V",
+                 "PLACEHOLDER: KK-396 pattern; header family must be rated >= 450 V DC (open)"),
+        "J201": (LOC + "BladeTab_x2_P5.00mm_Drill1.4mm_PLACEHOLDER", "4.8 mm PCB blade tabs", "PLACEHOLDER footprint"),
+        "J503": ("Connector_Molex:Molex_KK-254_AE-6410-02A_1x02_P2.54mm_Vertical", "22-27-2021 (Molex KK-254)", "")}
+
+
+def footprint_for(ref, sym, v):
+    v = v or ""
+    if sym.startswith("Conn"):
+        return CONN.get(ref) or SYMFP[sym]
+    if sym in SYMFP:
+        return SYMFP[sym]
+    if sym == "R":
+        if "5W" in v:
+            return LOC + "R_Axial_Power_L25.0mm_W6.4mm_P30.00mm", "1k 5 W flameproof metal oxide (as rev A)", ""
+        if "fusible" in v:
+            return ("Resistor_THT:R_Axial_DIN0309_L9.0mm_D3.2mm_P12.70mm_Horizontal", "CRF251-4 / CRF110 10R (Yageo Vitrohm)",
+                    "fusible wirewound; inrush of C201 (8 A peak, 0.32 J) to confirm")
+        if v.startswith("1R"):
+            return "Resistor_SMD:R_2512_6332Metric", "1R 1 W 1 % 50 ppm/K metal strip (2512)", ""
+        if ref[2:3] == "1" and ref[1] == "1" and len(ref) == 4 and ref[3] in "01" and ref[2] in "1234":
+            pass
+        if v.startswith(("100k (OPEN", "5.6k")):
+            return AX0207, "metal film 0.6 W 350 V", "grid circuit"
+        if "0.1%" in v:
+            return R1206, f"{v.split()[0]} 0.1 % 25 ppm/K thin film 1206", ""
+        if v.endswith("M") or v in ("3.3k 1206", "1.3k 0.25W", "330R 0.5W", "1.0k"):
+            return R1206, f"{v.split()[0]} 1 % 1206", ""
+        return R0805, f"{v.split()[0]} 1 % 0805", ""
+    if sym in ("C", "C_Polarized"):
+        if "630V" in v and "MKP" in v:
+            return "Capacitor_THT:C_Rect_L18.0mm_W7.0mm_P15.00mm_FKS3_FKP3", "MKP 630 V, 15 mm pitch (47n or 100n)", "value OPEN"
+        if "630V" in v:
+            return "Capacitor_SMD:C_1812_4532Metric", "100n 630 V X7R 1812", ""
+        if "100u/100V" in v:
+            return "Capacitor_THT:CP_Radial_D10.0mm_P5.00mm", "UPW2A101MPD (Nichicon, 105 C)", ""
+        if v == "10u/100V 105C":
+            return "Capacitor_THT:CP_Radial_D6.3mm_P2.50mm", "UPW2A100MED (Nichicon, 105 C)", ""
+        if "X7S 1210" in v:
+            return "Capacitor_SMD:C_1210_3225Metric", "GRM32EC72A106KE05 (Murata)", "about 30 % left at 72 V"
+        if "/100V" in v:
+            return "Capacitor_SMD:C_1210_3225Metric", f"{v.split('/')[0]} 100 V X7R 1210", ""
+        if v.startswith("10u"):
+            return "Capacitor_SMD:C_1206_3216Metric", f"{v} X7R 1206", ""
+        if v.startswith(("220n", "330n")):
+            return "Capacitor_SMD:C_0805_2012Metric", f"{v} 50 V X7R 0805 (C0G 1206 preferred)", ""
+        return "Capacitor_SMD:C_0805_2012Metric", f"{v} 50 V X7R 0805", ""
+    if sym in ("D", "D_Schottky", "D_Zener"):
+        table = {"UF4007": ("Diode_THT:D_DO-41_SOD81_P10.16mm_Horizontal", "UF4007"),
+                 "S3M": ("Diode_SMD:D_SMC", "S3M-E3/57T (Vishay)"), "S1G": ("Diode_SMD:D_SMA", "S1G (1N4004 class)"),
+                 "1N4148W": ("Diode_SMD:D_SOD-123", "1N4148W-7-F (Diodes Inc)"), "BAS416": ("Diode_SMD:D_SOD-323", "BAS416,115 (Nexperia)"),
+                 "BZT52H": ("Diode_SMD:D_SOD-123F", "BZT52H-B36,115 (Nexperia)"), "BAT54": ("Diode_SMD:D_SOD-323", "BAT54J (Nexperia)"),
+                 "BZX84C2V4": (SOT23, "BZX84-C2V4,215 (Nexperia)")}
+        for k, (fp, mpn) in table.items():
+            if v.startswith(k):
+                return fp, mpn, ("1 cm2 cathode copper (150 K/W)" if k == "BZT52H" else "")
+    if sym in ("Q_NPN", "Q_PNP"):
+        return SOT23, {"MMBT3904": "MMBT3904 (Nexperia)", "MMBT3906": "MMBT3906 (Nexperia)", "MMBTA92": "MMBTA92 (300 V)",
+                       "MMBTA42": "MMBTA42 (300 V)"}[v], ""
+    raise KeyError(f"no footprint rule for {ref} {sym} {v}")
+
+
+def write_parts():
+    import csv
+    rows = []
+    for ref in sorted(PARTS, key=lambda r: (r[0], int("".join(ch for ch in r[1:] if ch.isdigit()) or 0))):
+        sym, v = PARTS[ref]
+        if sym == "BAT54S" and v and v.startswith("BAV199"):
+            fp, mpn, note = SOT23, "BAV199,215 (Nexperia)", "low leakage"
+        else:
+            fp, mpn, note = footprint_for(ref, sym, v)
+        rows.append((ref, sym, v, fp, mpn, note))
+    with open(os.path.join(RB, "lib", "footprint_map.csv"), "w", newline="") as f:
+        f.write("# generated by tools/sheets/draw_all.py (second pass); PLACEHOLDER in the name = not final\n")
+        w = csv.writer(f)
+        w.writerow(["refdes", "footprint", "value"])
+        for r in rows:
+            w.writerow([r[0], r[3], r[2]])
+    groups = {}
+    for ref, sym, v, fp, mpn, note in rows:
+        groups.setdefault((v, fp, mpn, note), []).append(ref)
+    os.makedirs(os.path.join(RB, "bom"), exist_ok=True)
+    with open(os.path.join(RB, "bom", "tube_power_amp_revb_bom.csv"), "w", newline="") as f:
+        w = csv.writer(f)
+        w.writerow(["refs", "qty", "value", "footprint", "candidate part", "note"])
+        for (v, fp, mpn, note), refs in sorted(groups.items(), key=lambda kv: kv[1][0]):
+            w.writerow([" ".join(refs), len(refs), v, fp, mpn, note])
+    return len(rows), len(groups)
+
+
 SHEETS = [("01_output_stage.kicad_sch", sheet01), ("02_bias_reference.kicad_sch", sheet02),
           ("03_bias_channels.kicad_sch", sheet03), ("04_current_sense.kicad_sch", sheet04),
           ("05_control_safety.kicad_sch", sheet05)]
@@ -499,6 +668,8 @@ def main():
         for n in d.nets:
             seen.setdefault(n, set()).add(f)
     glob = frozenset(n for n, fs in seen.items() if len(fs) > 1 and n not in POWER)
+    nparts, nlines = write_parts()
+    print(f"parts: {nparts}, BOM lines: {nlines}")
     total = 0
     for f, fn in SHEETS:
         d = Drawer(f, "draw", glob)

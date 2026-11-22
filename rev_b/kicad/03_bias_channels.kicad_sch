@@ -2592,7 +2592,7 @@
 			(embedded_fonts no)
 		)
 	)
-	(text "03 Bias DAC (I2C, power-on reset to zero) and four cold-by-default bias channels: Vg1 = VNC + Ic x 30k, Ic = Vdac / 1k. DAC 0 V = -74 V (cold), 2.5 V = -2.6 V. docs/bias_supply.md, sim/bias_supply."
+	(text "03 Bias DAC (I2C, power-on reset to zero) and four cold-by-default bias channels: Vg1 = VNC + Ic x 30k, Ic = Vdac / 1k. DAC 0 V = -71 V (cold), 2.5 V = -0.3 V (typical board). docs/bias_supply.md, sim/bias_supply."
 		(exclude_from_sim no)
 		(at 30.48 10.16 0)
 		(effects
@@ -3249,7 +3249,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
 			(at 31.4452 57.15 0)
 			(effects
 				(font
@@ -3753,7 +3753,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
 			(at 31.4452 181.61 0)
 			(effects
 				(font
@@ -3970,7 +3970,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
 			(at 92.4052 181.61 0)
 			(effects
 				(font
@@ -4144,7 +4144,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
 			(at 91.44 55.118 0)
 			(effects
 				(font
@@ -4735,7 +4735,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
 			(at 153.3652 199.39 0)
 			(effects
 				(font
@@ -4952,7 +4952,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
 			(at 169.8752 199.39 0)
 			(effects
 				(font
@@ -5180,7 +5180,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
 			(at 132.08 58.928 0)
 			(effects
 				(font
@@ -5287,7 +5287,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
 			(at 133.0452 82.55 0)
 			(effects
 				(font
@@ -5449,7 +5449,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_1206_3216Metric"
 			(at 146.812 78.74 0)
 			(effects
 				(font
@@ -5871,7 +5871,7 @@
 		)
 		(uuid "585b456a-fa76-5ae2-b59a-5339b87a4c8c")
 	)
-	(global_label "VNC_FAULT"
+	(global_label "MON_FAULT"
 		(shape passive)
 		(at 148.59 102.87 180)
 		(fields_autoplaced yes)
@@ -6145,7 +6145,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
 			(at 196.85 58.928 0)
 			(effects
 				(font
@@ -6254,7 +6254,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Package_TO_SOT_SMD:SOT-23"
 			(at 201.93 78.74 0)
 			(effects
 				(font
@@ -6384,7 +6384,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
 			(at 195.072 110.49 0)
 			(effects
 				(font
@@ -6548,7 +6548,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Package_TO_SOT_SMD:SOT-23"
 			(at 157.48 132.08 0)
 			(effects
 				(font
@@ -6678,7 +6678,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
 			(at 150.622 160.02 0)
 			(effects
 				(font
@@ -6842,7 +6842,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Package_TO_SOT_SMD:SOT-23"
 			(at 198.12 132.08 0)
 			(effects
 				(font
@@ -6972,7 +6972,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
 			(at 191.262 160.02 0)
 			(effects
 				(font
@@ -7134,7 +7134,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
 			(at 143.002 187.96 0)
 			(effects
 				(font
@@ -7253,7 +7253,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_1210_3225Metric"
 			(at 148.59 204.7748 0)
 			(effects
 				(font
@@ -7374,7 +7374,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Package_TO_SOT_SMD:SOT-23"
 			(at 190.5 193.04 0)
 			(effects
 				(font
@@ -7504,7 +7504,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
 			(at 207.772 185.42 0)
 			(effects
 				(font
@@ -7666,7 +7666,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
 			(at 163.322 227.33 0)
 			(effects
 				(font
@@ -7773,7 +7773,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
 			(at 163.322 245.11 0)
 			(effects
 				(font
@@ -7892,7 +7892,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_1210_3225Metric"
 			(at 190.1952 248.92 0)
 			(effects
 				(font
@@ -8054,7 +8054,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
 			(at 203.962 227.33 0)
 			(effects
 				(font
@@ -8173,7 +8173,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_1210_3225Metric"
 			(at 221.9452 248.92 0)
 			(effects
 				(font
@@ -8358,7 +8358,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
 			(at 241.3 58.928 0)
 			(effects
 				(font
@@ -8465,7 +8465,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
 			(at 242.2652 82.55 0)
 			(effects
 				(font
@@ -8627,7 +8627,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_1206_3216Metric"
 			(at 256.032 78.74 0)
 			(effects
 				(font
@@ -9049,7 +9049,7 @@
 		)
 		(uuid "b591f9f2-29a8-53cc-a07e-413fa7d67fab")
 	)
-	(global_label "VNC_FAULT"
+	(global_label "MON_FAULT"
 		(shape passive)
 		(at 259.08 102.87 180)
 		(fields_autoplaced yes)
@@ -9323,7 +9323,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
 			(at 307.34 58.928 0)
 			(effects
 				(font
@@ -9432,7 +9432,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Package_TO_SOT_SMD:SOT-23"
 			(at 312.42 78.74 0)
 			(effects
 				(font
@@ -9562,7 +9562,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
 			(at 305.562 110.49 0)
 			(effects
 				(font
@@ -9726,7 +9726,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Package_TO_SOT_SMD:SOT-23"
 			(at 266.7 132.08 0)
 			(effects
 				(font
@@ -9856,7 +9856,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
 			(at 259.842 160.02 0)
 			(effects
 				(font
@@ -10020,7 +10020,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Package_TO_SOT_SMD:SOT-23"
 			(at 307.34 132.08 0)
 			(effects
 				(font
@@ -10150,7 +10150,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
 			(at 300.482 160.02 0)
 			(effects
 				(font
@@ -10312,7 +10312,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
 			(at 252.222 187.96 0)
 			(effects
 				(font
@@ -10431,7 +10431,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_1210_3225Metric"
 			(at 257.81 204.7748 0)
 			(effects
 				(font
@@ -10552,7 +10552,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Package_TO_SOT_SMD:SOT-23"
 			(at 299.72 193.04 0)
 			(effects
 				(font
@@ -10682,7 +10682,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
 			(at 316.992 185.42 0)
 			(effects
 				(font
@@ -10844,7 +10844,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
 			(at 272.542 227.33 0)
 			(effects
 				(font
@@ -10951,7 +10951,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
 			(at 272.542 245.11 0)
 			(effects
 				(font
@@ -11070,7 +11070,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_1210_3225Metric"
 			(at 299.4152 248.92 0)
 			(effects
 				(font
@@ -11232,7 +11232,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
 			(at 313.182 227.33 0)
 			(effects
 				(font
@@ -11351,7 +11351,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_1210_3225Metric"
 			(at 332.4352 248.92 0)
 			(effects
 				(font
@@ -11536,7 +11536,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
 			(at 351.79 58.928 0)
 			(effects
 				(font
@@ -11643,7 +11643,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
 			(at 352.7552 82.55 0)
 			(effects
 				(font
@@ -11805,7 +11805,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_1206_3216Metric"
 			(at 366.522 78.74 0)
 			(effects
 				(font
@@ -12227,7 +12227,7 @@
 		)
 		(uuid "620f37c0-21a2-5677-9f89-9e0dae018784")
 	)
-	(global_label "VNC_FAULT"
+	(global_label "MON_FAULT"
 		(shape passive)
 		(at 368.3 102.87 180)
 		(fields_autoplaced yes)
@@ -12501,7 +12501,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
 			(at 416.56 58.928 0)
 			(effects
 				(font
@@ -12610,7 +12610,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Package_TO_SOT_SMD:SOT-23"
 			(at 421.64 78.74 0)
 			(effects
 				(font
@@ -12740,7 +12740,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
 			(at 414.782 110.49 0)
 			(effects
 				(font
@@ -12904,7 +12904,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Package_TO_SOT_SMD:SOT-23"
 			(at 377.19 132.08 0)
 			(effects
 				(font
@@ -13034,7 +13034,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
 			(at 370.332 160.02 0)
 			(effects
 				(font
@@ -13198,7 +13198,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Package_TO_SOT_SMD:SOT-23"
 			(at 417.83 132.08 0)
 			(effects
 				(font
@@ -13328,7 +13328,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
 			(at 410.972 160.02 0)
 			(effects
 				(font
@@ -13490,7 +13490,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
 			(at 361.442 187.96 0)
 			(effects
 				(font
@@ -13609,7 +13609,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_1210_3225Metric"
 			(at 367.03 204.7748 0)
 			(effects
 				(font
@@ -13730,7 +13730,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Package_TO_SOT_SMD:SOT-23"
 			(at 408.94 193.04 0)
 			(effects
 				(font
@@ -13860,7 +13860,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
 			(at 427.482 185.42 0)
 			(effects
 				(font
@@ -14022,7 +14022,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
 			(at 381.762 227.33 0)
 			(effects
 				(font
@@ -14129,7 +14129,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
 			(at 381.762 245.11 0)
 			(effects
 				(font
@@ -14248,7 +14248,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_1210_3225Metric"
 			(at 409.9052 248.92 0)
 			(effects
 				(font
@@ -14410,7 +14410,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
 			(at 422.402 227.33 0)
 			(effects
 				(font
@@ -14529,7 +14529,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_1210_3225Metric"
 			(at 441.6552 248.92 0)
 			(effects
 				(font
@@ -14714,7 +14714,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
 			(at 461.01 58.928 0)
 			(effects
 				(font
@@ -14821,7 +14821,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
 			(at 461.9752 82.55 0)
 			(effects
 				(font
@@ -14983,7 +14983,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_1206_3216Metric"
 			(at 475.742 78.74 0)
 			(effects
 				(font
@@ -15405,7 +15405,7 @@
 		)
 		(uuid "b49516aa-4d96-58e6-8b5a-1a298e7e7809")
 	)
-	(global_label "VNC_FAULT"
+	(global_label "MON_FAULT"
 		(shape passive)
 		(at 477.52 102.87 180)
 		(fields_autoplaced yes)
@@ -15679,7 +15679,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
 			(at 525.78 58.928 0)
 			(effects
 				(font
@@ -15788,7 +15788,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Package_TO_SOT_SMD:SOT-23"
 			(at 530.86 78.74 0)
 			(effects
 				(font
@@ -15918,7 +15918,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
 			(at 524.002 110.49 0)
 			(effects
 				(font
@@ -16082,7 +16082,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Package_TO_SOT_SMD:SOT-23"
 			(at 486.41 132.08 0)
 			(effects
 				(font
@@ -16212,7 +16212,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
 			(at 479.552 160.02 0)
 			(effects
 				(font
@@ -16376,7 +16376,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Package_TO_SOT_SMD:SOT-23"
 			(at 527.05 132.08 0)
 			(effects
 				(font
@@ -16506,7 +16506,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
 			(at 520.192 160.02 0)
 			(effects
 				(font
@@ -16668,7 +16668,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
 			(at 471.932 187.96 0)
 			(effects
 				(font
@@ -16787,7 +16787,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_1210_3225Metric"
 			(at 477.52 204.7748 0)
 			(effects
 				(font
@@ -16908,7 +16908,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Package_TO_SOT_SMD:SOT-23"
 			(at 519.43 193.04 0)
 			(effects
 				(font
@@ -17038,7 +17038,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
 			(at 536.702 185.42 0)
 			(effects
 				(font
@@ -17200,7 +17200,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
 			(at 492.252 227.33 0)
 			(effects
 				(font
@@ -17307,7 +17307,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
 			(at 492.252 245.11 0)
 			(effects
 				(font
@@ -17426,7 +17426,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_1210_3225Metric"
 			(at 519.1252 248.92 0)
 			(effects
 				(font
@@ -17588,7 +17588,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
 			(at 532.892 227.33 0)
 			(effects
 				(font
@@ -17707,7 +17707,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_1210_3225Metric"
 			(at 552.1452 248.92 0)
 			(effects
 				(font
@@ -17856,7 +17856,7 @@
 			)
 		)
 	)
-	(text "Per channel: DAC -> 10k / 330n (48 Hz), 1M pull-down (DAC high-Z = cold), two clamps (watchdog, VNC monitor); op amp + NPN: Ic = Vdac / 1k; PNP mirror at +15 V (300 V parts) sources Ic into OUT; 30k || 100n to VNC; 300 V NPN follower, 2x 22k (midpoint filtered) to -80 V, 1k / 1u to BIASn."
+	(text "Per channel: DAC -> 10k / 330n (48 Hz), 1M pull-down (DAC high-Z = cold), two clamps (watchdog, VNC monitors: MON_FAULT); op amp + NPN: Ic = Vdac / 1k; PNP mirror at +15 V (300 V parts) sources Ic into OUT; 30k || 100n to VNC; 300 V NPN follower, 2x 22k (midpoint filtered) to -80 V, 1k / 1u to BIASn."
 		(exclude_from_sim no)
 		(at 132.08 274.32 0)
 		(effects

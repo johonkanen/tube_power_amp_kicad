@@ -1557,7 +1557,7 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "tube_power_amp_revb:LM339"
+		(symbol "tube_power_amp_revb:LM2901"
 			(pin_names
 				(offset 0.127)
 			)
@@ -1577,7 +1577,7 @@
 					(justify left)
 				)
 			)
-			(property "Value" "LM339"
+			(property "Value" "LM2901"
 				(at 0 -5.08 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -1599,7 +1599,7 @@
 					)
 				)
 			)
-			(property "Datasheet" "https://www.st.com/resource/en/datasheet/lm139.pdf"
+			(property "Datasheet" "https://www.st.com/resource/en/datasheet/lm2901.pdf"
 				(at 1.27 5.08 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -1610,7 +1610,7 @@
 					)
 				)
 			)
-			(property "Description" "Quad Differential Comparators, SOIC-14/TSSOP-14"
+			(property "Description" "Quad Differential Comparators, DIP-14/SOIC-14/TSSOP-14"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -1642,7 +1642,7 @@
 					)
 				)
 			)
-			(property "ki_fp_filters" "SOIC*3.9x8.7mm*P1.27mm* TSSOP*4.4x5mm*P0.65mm*"
+			(property "ki_fp_filters" "SOIC*3.9x8.7mm*P1.27mm* DIP*W7.62mm* TSSOP*4.4x5mm*P0.65mm*"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -1653,7 +1653,7 @@
 					)
 				)
 			)
-			(symbol "LM339_1_1"
+			(symbol "LM2901_1_1"
 				(polyline
 					(pts
 						(xy -5.08 5.08) (xy 5.08 0) (xy -5.08 -5.08) (xy -5.08 5.08)
@@ -1733,7 +1733,7 @@
 					)
 				)
 			)
-			(symbol "LM339_2_1"
+			(symbol "LM2901_2_1"
 				(polyline
 					(pts
 						(xy -5.08 5.08) (xy 5.08 0) (xy -5.08 -5.08) (xy -5.08 5.08)
@@ -1813,7 +1813,7 @@
 					)
 				)
 			)
-			(symbol "LM339_3_1"
+			(symbol "LM2901_3_1"
 				(polyline
 					(pts
 						(xy -5.08 5.08) (xy 5.08 0) (xy -5.08 -5.08) (xy -5.08 5.08)
@@ -1893,7 +1893,7 @@
 					)
 				)
 			)
-			(symbol "LM339_4_1"
+			(symbol "LM2901_4_1"
 				(polyline
 					(pts
 						(xy -5.08 5.08) (xy 5.08 0) (xy -5.08 -5.08) (xy -5.08 5.08)
@@ -1973,7 +1973,7 @@
 					)
 				)
 			)
-			(symbol "LM339_5_1"
+			(symbol "LM2901_5_1"
 				(pin power_in line
 					(at -2.54 7.62 270)
 					(length 3.81)
@@ -2003,6 +2003,288 @@
 						)
 					)
 					(number "12"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "tube_power_amp_revb:74LVC2G17"
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "U"
+				(at -1.27 7.62 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "74LVC2G17"
+				(at 2.54 -7.62 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Datasheet" "http://www.ti.com/lit/sg/scyt129e/scyt129e.pdf"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" "Dual Buffer, Schmitt Triggered, Low-Voltage CMOS"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_keywords" "Dual Buffer Schmitt LVC CMOS"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_fp_filters" "SG-* SOT*"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "74LVC2G17_1_1"
+				(polyline
+					(pts
+						(xy -7.62 6.35) (xy -7.62 -6.35) (xy 5.08 0) (xy -7.62 6.35)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type background)
+					)
+				)
+				(polyline
+					(pts
+						(xy -3.81 1.27) (xy -2.54 1.27) (xy -2.54 -1.27) (xy 0 -1.27)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type background)
+					)
+				)
+				(polyline
+					(pts
+						(xy -2.54 1.27) (xy -1.27 1.27) (xy -1.27 -1.27)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type background)
+					)
+				)
+				(pin input line
+					(at -15.24 0 0)
+					(length 7.62)
+					(name ""
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin output line
+					(at 12.7 0 180)
+					(length 7.62)
+					(name ""
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "6"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(symbol "74LVC2G17_2_1"
+				(polyline
+					(pts
+						(xy -7.62 6.35) (xy -7.62 -6.35) (xy 5.08 0) (xy -7.62 6.35)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type background)
+					)
+				)
+				(polyline
+					(pts
+						(xy -3.81 1.27) (xy -2.54 1.27) (xy -2.54 -1.27) (xy 0 -1.27)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type background)
+					)
+				)
+				(polyline
+					(pts
+						(xy -2.54 1.27) (xy -1.27 1.27) (xy -1.27 -1.27)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type background)
+					)
+				)
+				(pin input line
+					(at -15.24 0 0)
+					(length 7.62)
+					(name ""
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin output line
+					(at 12.7 0 180)
+					(length 7.62)
+					(name ""
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(symbol "74LVC2G17_3_0"
+				(rectangle
+					(start -5.08 -5.08)
+					(end 5.08 5.08)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type background)
+					)
+				)
+			)
+			(symbol "74LVC2G17_3_1"
+				(pin power_in line
+					(at 0 -10.16 90)
+					(length 5.08)
+					(name "GND"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin power_in line
+					(at 0 10.16 270)
+					(length 5.08)
+					(name "VCC"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "5"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -3060,7 +3342,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
 			(at 72.0852 199.39 0)
 			(effects
 				(font
@@ -3277,7 +3559,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
 			(at 88.5952 199.39 0)
 			(effects
 				(font
@@ -3505,7 +3787,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
 			(at 40.64 55.118 0)
 			(effects
 				(font
@@ -3624,7 +3906,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
 			(at 61.9252 67.31 0)
 			(effects
 				(font
@@ -3743,7 +4025,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
 			(at 81.28 55.118 0)
 			(effects
 				(font
@@ -3850,7 +4132,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
 			(at 105.41 55.118 0)
 			(effects
 				(font
@@ -3934,7 +4216,7 @@
 	)
 	(symbol
 		(lib_id "tube_power_amp_revb:C")
-		(at 124.46 63.5 0)
+		(at 93.98 63.5 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -3942,6 +4224,125 @@
 		(dnp no)
 		(uuid "f431efc4-bfa5-572e-99c3-94dc6ad4b30d")
 		(property "Reference" "C404"
+			(at 98.72 62.23 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "220n"
+			(at 98.72 64.77 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
+			(at 94.9452 67.31 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 93.98 63.5 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Unpolarized capacitor"
+			(at 93.98 63.5 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "5bffad21-314c-58d8-ac8f-669308b4bec6")
+		)
+		(pin "2"
+			(uuid "2be4449c-a8aa-5fbd-bc51-ef6c76c91dc0")
+		)
+		(instances
+			(project "tube_power_amp_revb"
+				(path "/451c49f3-c14c-5f4e-b828-2be954cd9e52/6096403a-7634-5ffe-bd5b-e0ad7a51a3db"
+					(reference "C404")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 93.98 59.69) (xy 93.98 57.15)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7bf65ce4-1e36-5690-9339-e40ef993fde8")
+	)
+	(label "A2_1"
+		(at 93.98 57.15 90)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "1d42bfd2-83e4-5408-aacc-39d541d93964")
+	)
+	(wire
+		(pts
+			(xy 93.98 67.31) (xy 93.98 69.85)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c0b0d690-f2aa-5ab1-b224-c84a5814afb2")
+	)
+	(global_label "KELV1"
+		(shape passive)
+		(at 93.98 69.85 270)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "c893845d-4bcf-5d94-9a52-13ea9c228f23")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 93.98 69.85 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
+	(symbol
+		(lib_id "tube_power_amp_revb:C")
+		(at 124.46 63.5 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "899e30f1-38c0-5a01-a059-349a46b9007f")
+		(property "Reference" "C405"
 			(at 129.2 62.23 0)
 			(effects
 				(font
@@ -3949,7 +4350,7 @@
 				)
 			)
 		)
-		(property "Value" "330n"
+		(property "Value" "220n"
 			(at 129.2 64.77 0)
 			(effects
 				(font
@@ -3957,7 +4358,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
 			(at 125.4252 67.31 0)
 			(effects
 				(font
@@ -3985,15 +4386,15 @@
 			)
 		)
 		(pin "1"
-			(uuid "5bffad21-314c-58d8-ac8f-669308b4bec6")
+			(uuid "00a3d278-3568-58b1-ac26-abd33027e701")
 		)
 		(pin "2"
-			(uuid "2be4449c-a8aa-5fbd-bc51-ef6c76c91dc0")
+			(uuid "4feff5bc-4e01-5c54-8f2e-439614b165d7")
 		)
 		(instances
 			(project "tube_power_amp_revb"
 				(path "/451c49f3-c14c-5f4e-b828-2be954cd9e52/6096403a-7634-5ffe-bd5b-e0ad7a51a3db"
-					(reference "C404")
+					(reference "C405")
 					(unit 1)
 				)
 			)
@@ -4007,7 +4408,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "7bf65ce4-1e36-5690-9339-e40ef993fde8")
+		(uuid "4300577c-f56e-596a-b7ff-8aaaf54a28b1")
 	)
 	(label "A3_1"
 		(at 124.46 57.15 90)
@@ -4017,7 +4418,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "1d42bfd2-83e4-5408-aacc-39d541d93964")
+		(uuid "12e64f94-8720-50e2-8528-1a85943b9c31")
 	)
 	(wire
 		(pts
@@ -4027,7 +4428,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "c0b0d690-f2aa-5ab1-b224-c84a5814afb2")
+		(uuid "adc096b0-dd8b-559e-9635-8f976552cd2f")
 	)
 	(global_label "KELV1"
 		(shape passive)
@@ -4039,7 +4440,7 @@
 			)
 			(justify right)
 		)
-		(uuid "c893845d-4bcf-5d94-9a52-13ea9c228f23")
+		(uuid "4f1f1cc9-68f1-5a68-a5b8-290830311198")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 124.46 69.85 0)
 			(effects
@@ -4131,7 +4532,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "4300577c-f56e-596a-b7ff-8aaaf54a28b1")
+		(uuid "8ab612f0-afe8-5aba-b235-6d2633a89117")
 	)
 	(label "A3_1"
 		(at 142.24 54.61 180)
@@ -4141,7 +4542,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "12e64f94-8720-50e2-8528-1a85943b9c31")
+		(uuid "8ad44c28-00cc-5786-8c32-3d60bc8a6cf8")
 	)
 	(wire
 		(pts
@@ -4151,7 +4552,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "adc096b0-dd8b-559e-9635-8f976552cd2f")
+		(uuid "dff9b071-524c-5e46-911e-8834abddfe06")
 	)
 	(label "FB1"
 		(at 142.24 59.69 180)
@@ -4161,7 +4562,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "4f1f1cc9-68f1-5a68-a5b8-290830311198")
+		(uuid "96003451-36b5-50aa-b3cf-6065ea117413")
 	)
 	(wire
 		(pts
@@ -4171,7 +4572,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "8ab612f0-afe8-5aba-b235-6d2633a89117")
+		(uuid "fc4537a0-1ef8-5aca-b237-2ba7dcdd8930")
 	)
 	(label "Y1"
 		(at 162.56 57.15 0)
@@ -4181,7 +4582,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "8ad44c28-00cc-5786-8c32-3d60bc8a6cf8")
+		(uuid "722fdc5c-1d13-555f-ace7-06245026703f")
 	)
 	(symbol
 		(lib_id "tube_power_amp_revb:R")
@@ -4200,7 +4601,7 @@
 				)
 			)
 		)
-		(property "Value" "9.09k"
+		(property "Value" "9.09k 0.1%"
 			(at 180.34 48.26 270)
 			(effects
 				(font
@@ -4208,7 +4609,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_1206_3216Metric"
 			(at 180.34 47.498 0)
 			(effects
 				(font
@@ -4258,7 +4659,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "dff9b071-524c-5e46-911e-8834abddfe06")
+		(uuid "52f44785-1035-55ed-9c05-e1613e79cf98")
 	)
 	(label "Y1"
 		(at 173.99 45.72 180)
@@ -4268,7 +4669,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "96003451-36b5-50aa-b3cf-6065ea117413")
+		(uuid "e79a63ae-a9ab-57ec-bab8-0b7b1b4f0956")
 	)
 	(wire
 		(pts
@@ -4278,7 +4679,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "fc4537a0-1ef8-5aca-b237-2ba7dcdd8930")
+		(uuid "a331c402-23cd-54d4-98b2-d21a961e16c5")
 	)
 	(label "FB1"
 		(at 186.69 45.72 0)
@@ -4288,7 +4689,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "722fdc5c-1d13-555f-ace7-06245026703f")
+		(uuid "045a51f3-46a0-5083-9724-d623473a7b98")
 	)
 	(symbol
 		(lib_id "tube_power_amp_revb:R")
@@ -4307,7 +4708,7 @@
 				)
 			)
 		)
-		(property "Value" "1k"
+		(property "Value" "1.01k 0.1%"
 			(at 180.34 69.85 270)
 			(effects
 				(font
@@ -4315,7 +4716,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_1206_3216Metric"
 			(at 180.34 69.088 0)
 			(effects
 				(font
@@ -4365,7 +4766,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "52f44785-1035-55ed-9c05-e1613e79cf98")
+		(uuid "16c66ce8-5d4b-55f5-8248-f56fccb53783")
 	)
 	(label "FB1"
 		(at 173.99 67.31 180)
@@ -4375,7 +4776,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "e79a63ae-a9ab-57ec-bab8-0b7b1b4f0956")
+		(uuid "7cec7cda-53c1-54f4-981b-b7a6244e797d")
 	)
 	(wire
 		(pts
@@ -4385,7 +4786,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "a331c402-23cd-54d4-98b2-d21a961e16c5")
+		(uuid "f5bd63b2-4c55-5bae-b040-a8d36aa59e21")
 	)
 	(global_label "KELV1"
 		(shape passive)
@@ -4397,7 +4798,7 @@
 			)
 			(justify left)
 		)
-		(uuid "045a51f3-46a0-5083-9724-d623473a7b98")
+		(uuid "d987529a-d4d4-5f1a-9015-62e8b4457fc3")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 186.69 67.31 0)
 			(effects
@@ -4434,7 +4835,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
 			(at 209.55 55.118 0)
 			(effects
 				(font
@@ -4484,7 +4885,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "16c66ce8-5d4b-55f5-8248-f56fccb53783")
+		(uuid "79af97a6-0b83-570c-bd7a-bd7eb5e12af1")
 	)
 	(label "Y1"
 		(at 203.2 53.34 180)
@@ -4494,7 +4895,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "7cec7cda-53c1-54f4-981b-b7a6244e797d")
+		(uuid "650d2ca6-e5f3-59a4-b1dc-df36bdb56dda")
 	)
 	(wire
 		(pts
@@ -4504,7 +4905,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "f5bd63b2-4c55-5bae-b040-a8d36aa59e21")
+		(uuid "dce1ca36-25e6-59ba-93fa-e11285ebc76e")
 	)
 	(label "ISNS1"
 		(at 215.9 53.34 0)
@@ -4514,7 +4915,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "d987529a-d4d4-5f1a-9015-62e8b4457fc3")
+		(uuid "c43bd13b-c7de-5ab0-8cf8-17a829d6ceb2")
 	)
 	(symbol
 		(lib_id "tube_power_amp_revb:C")
@@ -4524,8 +4925,8 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "899e30f1-38c0-5a01-a059-349a46b9007f")
-		(property "Reference" "C405"
+		(uuid "3dcf927d-0ddb-57a2-8e18-0ed26430dc98")
+		(property "Reference" "C406"
 			(at 234.61 62.23 0)
 			(effects
 				(font
@@ -4541,7 +4942,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
 			(at 230.8352 67.31 0)
 			(effects
 				(font
@@ -4569,15 +4970,15 @@
 			)
 		)
 		(pin "1"
-			(uuid "00a3d278-3568-58b1-ac26-abd33027e701")
+			(uuid "3a07dcec-ca1d-5ec4-9ae4-52845e461295")
 		)
 		(pin "2"
-			(uuid "4feff5bc-4e01-5c54-8f2e-439614b165d7")
+			(uuid "99bf9cab-9bab-54d1-b38f-266a12d8a2f5")
 		)
 		(instances
 			(project "tube_power_amp_revb"
 				(path "/451c49f3-c14c-5f4e-b828-2be954cd9e52/6096403a-7634-5ffe-bd5b-e0ad7a51a3db"
-					(reference "C405")
+					(reference "C406")
 					(unit 1)
 				)
 			)
@@ -4591,7 +4992,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "79af97a6-0b83-570c-bd7a-bd7eb5e12af1")
+		(uuid "89c3904f-614d-57ae-bbc0-0f5c295c562c")
 	)
 	(label "ISNS1"
 		(at 229.87 57.15 90)
@@ -4601,7 +5002,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "650d2ca6-e5f3-59a4-b1dc-df36bdb56dda")
+		(uuid "f653ad39-db04-56c5-a1f9-e191501a8ca5")
 	)
 	(wire
 		(pts
@@ -4611,7 +5012,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "dce1ca36-25e6-59ba-93fa-e11285ebc76e")
+		(uuid "4522e48b-96de-5a6a-bfac-5bcb8bcd44ce")
 	)
 	(symbol
 		(lib_id "tube_power_amp_revb:GND")
@@ -4696,7 +5097,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "BAT54S (ADC clamp)"
+		(property "Value" "BAV199 (ADC clamp, low leakage)"
 			(at 243.84 57.785 0)
 			(effects
 				(font
@@ -4759,7 +5160,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "c43bd13b-c7de-5ab0-8cf8-17a829d6ceb2")
+		(uuid "3221b6b3-6b45-5b60-af59-82be1b306163")
 	)
 	(symbol
 		(lib_id "tube_power_amp_revb:GND")
@@ -4834,7 +5235,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "89c3904f-614d-57ae-bbc0-0f5c295c562c")
+		(uuid "1c349a0f-74d3-5cec-ab8c-a62f6ee9d262")
 	)
 	(symbol
 		(lib_id "tube_power_amp_revb:+5V")
@@ -4909,7 +5310,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "f653ad39-db04-56c5-a1f9-e191501a8ca5")
+		(uuid "972ace74-06e2-528b-8a3b-2aaffd45dc3e")
 	)
 	(label "ISNS1"
 		(at 250.19 68.58 270)
@@ -4919,10 +5320,10 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "4522e48b-96de-5a6a-bfac-5bcb8bcd44ce")
+		(uuid "db33c64c-2435-5bfb-acbd-c57fefd8319a")
 	)
 	(symbol
-		(lib_id "tube_power_amp_revb:LM339")
+		(lib_id "tube_power_amp_revb:LM2901")
 		(at 294.64 57.15 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -4939,7 +5340,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "LM339"
+		(property "Value" "LM2901B"
 			(at 294.64 62.23 0)
 			(effects
 				(font
@@ -4948,7 +5349,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Package_SO:SOIC-14_3.9x8.7mm_P1.27mm"
 			(at 293.37 54.61 0)
 			(effects
 				(font
@@ -4957,7 +5358,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://www.st.com/resource/en/datasheet/lm139.pdf"
+		(property "Datasheet" "https://www.st.com/resource/en/datasheet/lm2901.pdf"
 			(at 295.91 52.07 0)
 			(effects
 				(font
@@ -4966,7 +5367,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Quad Differential Comparators, SOIC-14/TSSOP-14"
+		(property "Description" "Quad Differential Comparators, DIP-14/SOIC-14/TSSOP-14"
 			(at 294.64 57.15 0)
 			(effects
 				(font
@@ -5001,7 +5402,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "3221b6b3-6b45-5b60-af59-82be1b306163")
+		(uuid "379775cd-cb86-5ec6-aa77-636b567783dc")
 	)
 	(label "VOC"
 		(at 284.48 54.61 180)
@@ -5011,7 +5412,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "1c349a0f-74d3-5cec-ab8c-a62f6ee9d262")
+		(uuid "0f22c8fe-8de6-5da9-a4bc-0db66cb8781e")
 	)
 	(wire
 		(pts
@@ -5021,7 +5422,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "972ace74-06e2-528b-8a3b-2aaffd45dc3e")
+		(uuid "c8e6a828-5a2c-50b9-98f3-bb1c5b14f252")
 	)
 	(label "ISNS1"
 		(at 284.48 59.69 180)
@@ -5031,7 +5432,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "db33c64c-2435-5bfb-acbd-c57fefd8319a")
+		(uuid "38357795-e4dc-5497-8bad-131728aee6ae")
 	)
 	(wire
 		(pts
@@ -5041,7 +5442,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "379775cd-cb86-5ec6-aa77-636b567783dc")
+		(uuid "5b90784d-141b-50ec-a167-b1c31d1ce1fd")
 	)
 	(label "OC_ANY_N"
 		(at 304.8 57.15 0)
@@ -5051,7 +5452,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "0f22c8fe-8de6-5da9-a4bc-0db66cb8781e")
+		(uuid "75f164f9-b25a-5035-9cd0-b9b499309ce9")
 	)
 	(text "Tube 2"
 		(exclude_from_sim no)
@@ -5062,7 +5463,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "c8e6a828-5a2c-50b9-98f3-bb1c5b14f252")
+		(uuid "ed08189b-cadc-58d4-9788-8de28d3d2967")
 	)
 	(symbol
 		(lib_id "tube_power_amp_revb:R")
@@ -5089,7 +5490,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
 			(at 40.64 91.948 0)
 			(effects
 				(font
@@ -5139,7 +5540,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "38357795-e4dc-5497-8bad-131728aee6ae")
+		(uuid "0894bc1d-d3fc-51fc-8ddf-dc9dbe0cab62")
 	)
 	(global_label "K2"
 		(shape passive)
@@ -5151,7 +5552,7 @@
 			)
 			(justify right)
 		)
-		(uuid "5b90784d-141b-50ec-a167-b1c31d1ce1fd")
+		(uuid "2b50d777-574e-59ee-ae50-5c3ba86cff8d")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 34.29 90.17 0)
 			(effects
@@ -5171,7 +5572,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "75f164f9-b25a-5035-9cd0-b9b499309ce9")
+		(uuid "623670b3-504e-5f70-b78a-10ad29bbbb06")
 	)
 	(label "A1_2"
 		(at 46.99 90.17 0)
@@ -5181,7 +5582,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "ed08189b-cadc-58d4-9788-8de28d3d2967")
+		(uuid "e0637d91-872d-5856-9723-5c0eaa46082b")
 	)
 	(symbol
 		(lib_id "tube_power_amp_revb:C")
@@ -5191,8 +5592,8 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "3dcf927d-0ddb-57a2-8e18-0ed26430dc98")
-		(property "Reference" "C406"
+		(uuid "457f9035-f30f-51e1-89e9-dd699c1c1eea")
+		(property "Reference" "C407"
 			(at 65.7 100.33 0)
 			(effects
 				(font
@@ -5208,7 +5609,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
 			(at 61.9252 105.41 0)
 			(effects
 				(font
@@ -5236,15 +5637,15 @@
 			)
 		)
 		(pin "1"
-			(uuid "3a07dcec-ca1d-5ec4-9ae4-52845e461295")
+			(uuid "7b107e74-4d5b-5bfe-846e-479b2d94a88c")
 		)
 		(pin "2"
-			(uuid "99bf9cab-9bab-54d1-b38f-266a12d8a2f5")
+			(uuid "bd6cd9f3-6d35-533d-8b9f-ba63f1aeb0cd")
 		)
 		(instances
 			(project "tube_power_amp_revb"
 				(path "/451c49f3-c14c-5f4e-b828-2be954cd9e52/6096403a-7634-5ffe-bd5b-e0ad7a51a3db"
-					(reference "C406")
+					(reference "C407")
 					(unit 1)
 				)
 			)
@@ -5258,7 +5659,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "0894bc1d-d3fc-51fc-8ddf-dc9dbe0cab62")
+		(uuid "650f3c34-551d-54b7-bbca-71473715e140")
 	)
 	(label "A1_2"
 		(at 60.96 95.25 90)
@@ -5268,7 +5669,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "2b50d777-574e-59ee-ae50-5c3ba86cff8d")
+		(uuid "47808de4-7464-5679-9cb6-32f619006166")
 	)
 	(wire
 		(pts
@@ -5278,7 +5679,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "623670b3-504e-5f70-b78a-10ad29bbbb06")
+		(uuid "5525dfef-4b51-5f5e-b2a7-72b1ee706d37")
 	)
 	(global_label "KELV2"
 		(shape passive)
@@ -5290,7 +5691,7 @@
 			)
 			(justify right)
 		)
-		(uuid "e0637d91-872d-5856-9723-5c0eaa46082b")
+		(uuid "59c772e9-8e1e-5341-a08f-c1c29921f8f3")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 60.96 107.95 0)
 			(effects
@@ -5327,7 +5728,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
 			(at 81.28 91.948 0)
 			(effects
 				(font
@@ -5377,7 +5778,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "650f3c34-551d-54b7-bbca-71473715e140")
+		(uuid "21b04d5c-cc21-5862-abfe-6cda3badaa49")
 	)
 	(label "A1_2"
 		(at 74.93 90.17 180)
@@ -5387,7 +5788,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "47808de4-7464-5679-9cb6-32f619006166")
+		(uuid "1c416347-08f1-54ac-8e52-80cf7d6ef066")
 	)
 	(wire
 		(pts
@@ -5397,7 +5798,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "5525dfef-4b51-5f5e-b2a7-72b1ee706d37")
+		(uuid "27c6e010-7328-5799-8cb8-47d6a16b34fe")
 	)
 	(label "A2_2"
 		(at 87.63 90.17 0)
@@ -5407,7 +5808,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "59c772e9-8e1e-5341-a08f-c1c29921f8f3")
+		(uuid "ed0f80ce-7ebe-539b-bed9-5fbeda5e121f")
 	)
 	(symbol
 		(lib_id "tube_power_amp_revb:R")
@@ -5434,7 +5835,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
 			(at 105.41 91.948 0)
 			(effects
 				(font
@@ -5484,7 +5885,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "21b04d5c-cc21-5862-abfe-6cda3badaa49")
+		(uuid "f2007714-f807-5ddd-b6d0-2fe339672edd")
 	)
 	(label "A2_2"
 		(at 99.06 90.17 180)
@@ -5494,7 +5895,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "1c416347-08f1-54ac-8e52-80cf7d6ef066")
+		(uuid "4110e21f-7cf0-5854-88b1-880f40793e17")
 	)
 	(wire
 		(pts
@@ -5504,7 +5905,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "27c6e010-7328-5799-8cb8-47d6a16b34fe")
+		(uuid "d413af27-2538-5374-b750-b5b1a6a462ed")
 	)
 	(label "A3_2"
 		(at 111.76 90.17 0)
@@ -5514,7 +5915,126 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "ed0f80ce-7ebe-539b-bed9-5fbeda5e121f")
+		(uuid "a7d7befe-d534-5ecd-b5f9-243d1a942125")
+	)
+	(symbol
+		(lib_id "tube_power_amp_revb:C")
+		(at 93.98 101.6 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "73b22088-4c76-57cd-adf5-475c98591f49")
+		(property "Reference" "C408"
+			(at 98.72 100.33 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "220n"
+			(at 98.72 102.87 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
+			(at 94.9452 105.41 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 93.98 101.6 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Unpolarized capacitor"
+			(at 93.98 101.6 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "5542d652-8aae-534d-8c79-f4ea1027c3ba")
+		)
+		(pin "2"
+			(uuid "8bf7ba47-97ba-599f-be80-084c12874bda")
+		)
+		(instances
+			(project "tube_power_amp_revb"
+				(path "/451c49f3-c14c-5f4e-b828-2be954cd9e52/6096403a-7634-5ffe-bd5b-e0ad7a51a3db"
+					(reference "C408")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 93.98 97.79) (xy 93.98 95.25)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b7ca5915-2634-54e7-8732-761c370315a0")
+	)
+	(label "A2_2"
+		(at 93.98 95.25 90)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "df382b4c-a35b-5d02-873c-d8dee0762332")
+	)
+	(wire
+		(pts
+			(xy 93.98 105.41) (xy 93.98 107.95)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "78dc0e44-ef73-5c60-91a5-922f9b47dee7")
+	)
+	(global_label "KELV2"
+		(shape passive)
+		(at 93.98 107.95 270)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "33bc6529-e226-5c76-b360-7035d91def3e")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 93.98 107.95 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
 	)
 	(symbol
 		(lib_id "tube_power_amp_revb:C")
@@ -5524,8 +6044,8 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "457f9035-f30f-51e1-89e9-dd699c1c1eea")
-		(property "Reference" "C407"
+		(uuid "8004e604-7748-58b7-8b7d-bedb0ad5837f")
+		(property "Reference" "C409"
 			(at 129.2 100.33 0)
 			(effects
 				(font
@@ -5533,7 +6053,7 @@
 				)
 			)
 		)
-		(property "Value" "330n"
+		(property "Value" "220n"
 			(at 129.2 102.87 0)
 			(effects
 				(font
@@ -5541,7 +6061,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
 			(at 125.4252 105.41 0)
 			(effects
 				(font
@@ -5569,15 +6089,15 @@
 			)
 		)
 		(pin "1"
-			(uuid "7b107e74-4d5b-5bfe-846e-479b2d94a88c")
+			(uuid "77929baf-a50b-513b-9b40-9508dc09e8e7")
 		)
 		(pin "2"
-			(uuid "bd6cd9f3-6d35-533d-8b9f-ba63f1aeb0cd")
+			(uuid "395621b7-3809-522c-9064-6eb15f2ac7bd")
 		)
 		(instances
 			(project "tube_power_amp_revb"
 				(path "/451c49f3-c14c-5f4e-b828-2be954cd9e52/6096403a-7634-5ffe-bd5b-e0ad7a51a3db"
-					(reference "C407")
+					(reference "C409")
 					(unit 1)
 				)
 			)
@@ -5591,7 +6111,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "f2007714-f807-5ddd-b6d0-2fe339672edd")
+		(uuid "91c821d3-4c56-5c96-b04b-ff398c3ed975")
 	)
 	(label "A3_2"
 		(at 124.46 95.25 90)
@@ -5601,7 +6121,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "4110e21f-7cf0-5854-88b1-880f40793e17")
+		(uuid "8f9aaec6-c9cd-56b1-880e-fe5ebf4ac729")
 	)
 	(wire
 		(pts
@@ -5611,7 +6131,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "d413af27-2538-5374-b750-b5b1a6a462ed")
+		(uuid "f046dca5-a79c-55d0-af12-0499bee9fcf2")
 	)
 	(global_label "KELV2"
 		(shape passive)
@@ -5623,7 +6143,7 @@
 			)
 			(justify right)
 		)
-		(uuid "a7d7befe-d534-5ecd-b5f9-243d1a942125")
+		(uuid "23f887da-3b7c-5ce2-9ce9-9a51f080f7a7")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 124.46 107.95 0)
 			(effects
@@ -5715,7 +6235,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "b7ca5915-2634-54e7-8732-761c370315a0")
+		(uuid "e5d48aa4-feef-5852-9807-74864ee91198")
 	)
 	(label "A3_2"
 		(at 142.24 91.44 180)
@@ -5725,7 +6245,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "df382b4c-a35b-5d02-873c-d8dee0762332")
+		(uuid "a4bb7d77-e9c3-57ff-a8c8-1a61773fa6e3")
 	)
 	(wire
 		(pts
@@ -5735,7 +6255,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "78dc0e44-ef73-5c60-91a5-922f9b47dee7")
+		(uuid "ac5ee0e1-02fd-5686-aa23-9738c2b9abdb")
 	)
 	(label "FB2"
 		(at 142.24 96.52 180)
@@ -5745,7 +6265,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "33bc6529-e226-5c76-b360-7035d91def3e")
+		(uuid "c864a8e3-ce29-53e4-a23d-69c7fc91affb")
 	)
 	(wire
 		(pts
@@ -5755,7 +6275,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "91c821d3-4c56-5c96-b04b-ff398c3ed975")
+		(uuid "1943272a-d3db-516f-a999-69ef17c8ce3f")
 	)
 	(label "Y2"
 		(at 162.56 93.98 0)
@@ -5765,7 +6285,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "8f9aaec6-c9cd-56b1-880e-fe5ebf4ac729")
+		(uuid "5cc8d138-2d97-5a75-b2a7-c059cbb9b78a")
 	)
 	(symbol
 		(lib_id "tube_power_amp_revb:R")
@@ -5784,7 +6304,7 @@
 				)
 			)
 		)
-		(property "Value" "9.09k"
+		(property "Value" "9.09k 0.1%"
 			(at 180.34 86.36 270)
 			(effects
 				(font
@@ -5792,7 +6312,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_1206_3216Metric"
 			(at 180.34 85.598 0)
 			(effects
 				(font
@@ -5842,7 +6362,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "f046dca5-a79c-55d0-af12-0499bee9fcf2")
+		(uuid "6d589f83-cd58-5d42-a6ed-464e05e3a057")
 	)
 	(label "Y2"
 		(at 173.99 83.82 180)
@@ -5852,7 +6372,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "23f887da-3b7c-5ce2-9ce9-9a51f080f7a7")
+		(uuid "68da91d1-2608-57fd-be40-b30766a9fa90")
 	)
 	(wire
 		(pts
@@ -5862,7 +6382,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "e5d48aa4-feef-5852-9807-74864ee91198")
+		(uuid "779ca4d3-9819-5592-bdc8-a14eace43df8")
 	)
 	(label "FB2"
 		(at 186.69 83.82 0)
@@ -5872,7 +6392,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "a4bb7d77-e9c3-57ff-a8c8-1a61773fa6e3")
+		(uuid "cbd68742-8332-51ef-8c25-fd5da2b1a757")
 	)
 	(symbol
 		(lib_id "tube_power_amp_revb:R")
@@ -5891,7 +6411,7 @@
 				)
 			)
 		)
-		(property "Value" "1k"
+		(property "Value" "1.01k 0.1%"
 			(at 180.34 107.95 270)
 			(effects
 				(font
@@ -5899,7 +6419,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_1206_3216Metric"
 			(at 180.34 107.188 0)
 			(effects
 				(font
@@ -5949,7 +6469,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "ac5ee0e1-02fd-5686-aa23-9738c2b9abdb")
+		(uuid "ade9d05e-11e3-572e-a1c7-d93647c69faf")
 	)
 	(label "FB2"
 		(at 173.99 105.41 180)
@@ -5959,7 +6479,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "c864a8e3-ce29-53e4-a23d-69c7fc91affb")
+		(uuid "d98d38c9-bcc1-50f7-bf81-24e3c7f0a47a")
 	)
 	(wire
 		(pts
@@ -5969,7 +6489,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "1943272a-d3db-516f-a999-69ef17c8ce3f")
+		(uuid "355f05f7-555f-5e37-a1c0-392ba42e581f")
 	)
 	(global_label "KELV2"
 		(shape passive)
@@ -5981,7 +6501,7 @@
 			)
 			(justify left)
 		)
-		(uuid "5cc8d138-2d97-5a75-b2a7-c059cbb9b78a")
+		(uuid "8eb76143-a332-55d9-9dea-b82f9ab4c5d5")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 186.69 105.41 0)
 			(effects
@@ -6018,7 +6538,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
 			(at 209.55 91.948 0)
 			(effects
 				(font
@@ -6068,7 +6588,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "6d589f83-cd58-5d42-a6ed-464e05e3a057")
+		(uuid "9eeb2a77-16e4-5702-b345-9648b78b6e7f")
 	)
 	(label "Y2"
 		(at 203.2 90.17 180)
@@ -6078,7 +6598,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "68da91d1-2608-57fd-be40-b30766a9fa90")
+		(uuid "88f3a853-5217-517d-b492-d65483cb82e0")
 	)
 	(wire
 		(pts
@@ -6088,7 +6608,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "779ca4d3-9819-5592-bdc8-a14eace43df8")
+		(uuid "e0b018ac-5389-5e02-a764-f82e3187d484")
 	)
 	(label "ISNS2"
 		(at 215.9 90.17 0)
@@ -6098,7 +6618,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "cbd68742-8332-51ef-8c25-fd5da2b1a757")
+		(uuid "3c8a7a42-e148-5e7f-805c-3cdcc3d534fa")
 	)
 	(symbol
 		(lib_id "tube_power_amp_revb:C")
@@ -6108,8 +6628,8 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "73b22088-4c76-57cd-adf5-475c98591f49")
-		(property "Reference" "C408"
+		(uuid "1160a869-886d-5100-a77a-3f3c05290601")
+		(property "Reference" "C410"
 			(at 234.61 100.33 0)
 			(effects
 				(font
@@ -6125,7 +6645,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
 			(at 230.8352 105.41 0)
 			(effects
 				(font
@@ -6153,15 +6673,15 @@
 			)
 		)
 		(pin "1"
-			(uuid "5542d652-8aae-534d-8c79-f4ea1027c3ba")
+			(uuid "ffa6ccd0-ca30-56df-9f3b-79858c6aa646")
 		)
 		(pin "2"
-			(uuid "8bf7ba47-97ba-599f-be80-084c12874bda")
+			(uuid "a73d9b58-7abc-541d-907b-d9f0f54a3caa")
 		)
 		(instances
 			(project "tube_power_amp_revb"
 				(path "/451c49f3-c14c-5f4e-b828-2be954cd9e52/6096403a-7634-5ffe-bd5b-e0ad7a51a3db"
-					(reference "C408")
+					(reference "C410")
 					(unit 1)
 				)
 			)
@@ -6175,7 +6695,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "ade9d05e-11e3-572e-a1c7-d93647c69faf")
+		(uuid "cf8f1209-3a9b-5e9a-b965-ca250856806f")
 	)
 	(label "ISNS2"
 		(at 229.87 95.25 90)
@@ -6185,7 +6705,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "d98d38c9-bcc1-50f7-bf81-24e3c7f0a47a")
+		(uuid "9de7ad58-cd12-516a-b509-24d8e5930c93")
 	)
 	(wire
 		(pts
@@ -6195,7 +6715,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "355f05f7-555f-5e37-a1c0-392ba42e581f")
+		(uuid "c30bd0be-c8c7-51b5-b7b8-53f607206038")
 	)
 	(symbol
 		(lib_id "tube_power_amp_revb:GND")
@@ -6280,7 +6800,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "BAT54S (ADC clamp)"
+		(property "Value" "BAV199 (ADC clamp, low leakage)"
 			(at 243.84 94.615 0)
 			(effects
 				(font
@@ -6343,7 +6863,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "8eb76143-a332-55d9-9dea-b82f9ab4c5d5")
+		(uuid "29aa4964-9b42-567e-a61b-7e5468f00d62")
 	)
 	(symbol
 		(lib_id "tube_power_amp_revb:GND")
@@ -6418,7 +6938,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "9eeb2a77-16e4-5702-b345-9648b78b6e7f")
+		(uuid "1d604ae1-8958-5111-8115-3c83ed36e722")
 	)
 	(symbol
 		(lib_id "tube_power_amp_revb:+5V")
@@ -6493,7 +7013,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "88f3a853-5217-517d-b492-d65483cb82e0")
+		(uuid "9b1d7174-100a-58da-b58e-9ffe5512aa12")
 	)
 	(label "ISNS2"
 		(at 250.19 105.41 270)
@@ -6503,10 +7023,10 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "e0b018ac-5389-5e02-a764-f82e3187d484")
+		(uuid "860fb88f-781d-521e-8007-ca164efbbfb4")
 	)
 	(symbol
-		(lib_id "tube_power_amp_revb:LM339")
+		(lib_id "tube_power_amp_revb:LM2901")
 		(at 294.64 93.98 0)
 		(unit 2)
 		(exclude_from_sim no)
@@ -6523,7 +7043,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "LM339"
+		(property "Value" "LM2901B"
 			(at 294.64 99.06 0)
 			(effects
 				(font
@@ -6532,7 +7052,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Package_SO:SOIC-14_3.9x8.7mm_P1.27mm"
 			(at 293.37 91.44 0)
 			(effects
 				(font
@@ -6541,7 +7061,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://www.st.com/resource/en/datasheet/lm139.pdf"
+		(property "Datasheet" "https://www.st.com/resource/en/datasheet/lm2901.pdf"
 			(at 295.91 88.9 0)
 			(effects
 				(font
@@ -6550,7 +7070,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Quad Differential Comparators, SOIC-14/TSSOP-14"
+		(property "Description" "Quad Differential Comparators, DIP-14/SOIC-14/TSSOP-14"
 			(at 294.64 93.98 0)
 			(effects
 				(font
@@ -6585,7 +7105,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "3c8a7a42-e148-5e7f-805c-3cdcc3d534fa")
+		(uuid "fa46555c-ebc7-543a-9e5f-f9d45922d8e9")
 	)
 	(label "VOC"
 		(at 284.48 91.44 180)
@@ -6595,7 +7115,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "cf8f1209-3a9b-5e9a-b965-ca250856806f")
+		(uuid "fe9ec2c4-b7ce-5036-80c1-89da27f12d9f")
 	)
 	(wire
 		(pts
@@ -6605,7 +7125,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "9de7ad58-cd12-516a-b509-24d8e5930c93")
+		(uuid "6901b4d9-b8c2-57ca-b979-fe67df17e186")
 	)
 	(label "ISNS2"
 		(at 284.48 96.52 180)
@@ -6615,7 +7135,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "c30bd0be-c8c7-51b5-b7b8-53f607206038")
+		(uuid "fc95a152-8da8-5b12-bd7e-09d2edba7199")
 	)
 	(wire
 		(pts
@@ -6625,7 +7145,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "29aa4964-9b42-567e-a61b-7e5468f00d62")
+		(uuid "462bd589-bf2e-57b1-babe-20e2aa9fb565")
 	)
 	(label "OC_ANY_N"
 		(at 304.8 93.98 0)
@@ -6635,7 +7155,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "1d604ae1-8958-5111-8115-3c83ed36e722")
+		(uuid "4c1346ea-4044-5b21-8f43-035ac0f8692a")
 	)
 	(text "Tube 3"
 		(exclude_from_sim no)
@@ -6646,7 +7166,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "9b1d7174-100a-58da-b58e-9ffe5512aa12")
+		(uuid "a1320d61-7f6e-59d4-bfb6-c2e731a1f329")
 	)
 	(symbol
 		(lib_id "tube_power_amp_revb:R")
@@ -6673,7 +7193,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
 			(at 40.64 130.048 0)
 			(effects
 				(font
@@ -6723,7 +7243,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "860fb88f-781d-521e-8007-ca164efbbfb4")
+		(uuid "09a77a7f-9cdf-530e-abfb-c493e9c87e44")
 	)
 	(global_label "K3"
 		(shape passive)
@@ -6735,7 +7255,7 @@
 			)
 			(justify right)
 		)
-		(uuid "fa46555c-ebc7-543a-9e5f-f9d45922d8e9")
+		(uuid "7d36c26e-cbb4-597b-beff-fae51a3014b2")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 34.29 128.27 0)
 			(effects
@@ -6755,7 +7275,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "fe9ec2c4-b7ce-5036-80c1-89da27f12d9f")
+		(uuid "1097a673-7d38-5cb4-ad41-209850c91cd3")
 	)
 	(label "A1_3"
 		(at 46.99 128.27 0)
@@ -6765,7 +7285,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "6901b4d9-b8c2-57ca-b979-fe67df17e186")
+		(uuid "1d830eae-90dd-5fc9-8f3a-c493730b03b1")
 	)
 	(symbol
 		(lib_id "tube_power_amp_revb:C")
@@ -6775,8 +7295,8 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "8004e604-7748-58b7-8b7d-bedb0ad5837f")
-		(property "Reference" "C409"
+		(uuid "3b7cde10-922e-5c62-b0f3-7c503a5675bd")
+		(property "Reference" "C411"
 			(at 65.7 137.16 0)
 			(effects
 				(font
@@ -6792,7 +7312,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
 			(at 61.9252 142.24 0)
 			(effects
 				(font
@@ -6820,15 +7340,15 @@
 			)
 		)
 		(pin "1"
-			(uuid "77929baf-a50b-513b-9b40-9508dc09e8e7")
+			(uuid "1a2f4d35-d3b9-5253-9fd7-df43311ba879")
 		)
 		(pin "2"
-			(uuid "395621b7-3809-522c-9064-6eb15f2ac7bd")
+			(uuid "1cb9263c-1351-5fb4-b412-c2b27ec35edb")
 		)
 		(instances
 			(project "tube_power_amp_revb"
 				(path "/451c49f3-c14c-5f4e-b828-2be954cd9e52/6096403a-7634-5ffe-bd5b-e0ad7a51a3db"
-					(reference "C409")
+					(reference "C411")
 					(unit 1)
 				)
 			)
@@ -6842,7 +7362,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "fc95a152-8da8-5b12-bd7e-09d2edba7199")
+		(uuid "cb49b563-3798-55d5-9ddb-e7bd93c6895e")
 	)
 	(label "A1_3"
 		(at 60.96 132.08 90)
@@ -6852,7 +7372,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "462bd589-bf2e-57b1-babe-20e2aa9fb565")
+		(uuid "1b7a3757-7028-5ee5-90eb-fc7cd2322c23")
 	)
 	(wire
 		(pts
@@ -6862,7 +7382,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "4c1346ea-4044-5b21-8f43-035ac0f8692a")
+		(uuid "09ff15f8-c093-559b-b69a-2385cc52ad3b")
 	)
 	(global_label "KELV3"
 		(shape passive)
@@ -6874,7 +7394,7 @@
 			)
 			(justify right)
 		)
-		(uuid "a1320d61-7f6e-59d4-bfb6-c2e731a1f329")
+		(uuid "e988346f-7d18-5fd2-b88d-7b5752c6d3dc")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 60.96 144.78 0)
 			(effects
@@ -6911,7 +7431,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
 			(at 81.28 130.048 0)
 			(effects
 				(font
@@ -6961,7 +7481,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "09a77a7f-9cdf-530e-abfb-c493e9c87e44")
+		(uuid "c99237d7-6086-5e50-9af4-1a28f87558f5")
 	)
 	(label "A1_3"
 		(at 74.93 128.27 180)
@@ -6971,7 +7491,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "7d36c26e-cbb4-597b-beff-fae51a3014b2")
+		(uuid "e8fe3c33-09c4-524f-afd9-3fdb7b857bf8")
 	)
 	(wire
 		(pts
@@ -6981,7 +7501,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "1097a673-7d38-5cb4-ad41-209850c91cd3")
+		(uuid "d84f47c9-fee5-5954-a4a3-07f983c9f2c7")
 	)
 	(label "A2_3"
 		(at 87.63 128.27 0)
@@ -6991,7 +7511,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "1d830eae-90dd-5fc9-8f3a-c493730b03b1")
+		(uuid "d79f8b1b-3f9d-5e1d-9b6d-f8b05d794d64")
 	)
 	(symbol
 		(lib_id "tube_power_amp_revb:R")
@@ -7018,7 +7538,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
 			(at 105.41 130.048 0)
 			(effects
 				(font
@@ -7068,7 +7588,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "cb49b563-3798-55d5-9ddb-e7bd93c6895e")
+		(uuid "ec7e1f46-fe74-5070-8ee5-358d3dd6d1eb")
 	)
 	(label "A2_3"
 		(at 99.06 128.27 180)
@@ -7078,7 +7598,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "1b7a3757-7028-5ee5-90eb-fc7cd2322c23")
+		(uuid "2bbe9b18-a106-58c7-9a23-0f35ca8b3b52")
 	)
 	(wire
 		(pts
@@ -7088,7 +7608,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "09ff15f8-c093-559b-b69a-2385cc52ad3b")
+		(uuid "4e3092d9-33e9-5973-85bf-6f346fdaca40")
 	)
 	(label "A3_3"
 		(at 111.76 128.27 0)
@@ -7098,7 +7618,126 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "e988346f-7d18-5fd2-b88d-7b5752c6d3dc")
+		(uuid "e79b842c-6e40-5af5-8fc9-bed2df900bf7")
+	)
+	(symbol
+		(lib_id "tube_power_amp_revb:C")
+		(at 93.98 138.43 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "ff5c7a1c-5855-5767-b91a-b4f2eadeb21f")
+		(property "Reference" "C412"
+			(at 98.72 137.16 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "220n"
+			(at 98.72 139.7 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
+			(at 94.9452 142.24 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 93.98 138.43 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Unpolarized capacitor"
+			(at 93.98 138.43 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "cc49b3e2-7946-5b3b-847f-b48587462f10")
+		)
+		(pin "2"
+			(uuid "57978a8c-4a8d-502f-aec5-c562b96462e7")
+		)
+		(instances
+			(project "tube_power_amp_revb"
+				(path "/451c49f3-c14c-5f4e-b828-2be954cd9e52/6096403a-7634-5ffe-bd5b-e0ad7a51a3db"
+					(reference "C412")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 93.98 134.62) (xy 93.98 132.08)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "6b49727f-a79e-50b3-85fa-e46959076f79")
+	)
+	(label "A2_3"
+		(at 93.98 132.08 90)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "576945f3-467f-5313-be74-a42e389ca3b1")
+	)
+	(wire
+		(pts
+			(xy 93.98 142.24) (xy 93.98 144.78)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "9ad244dc-01bb-5e98-8d97-fc472ad662eb")
+	)
+	(global_label "KELV3"
+		(shape passive)
+		(at 93.98 144.78 270)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "d2f015a5-1a7f-528a-bb59-6c4c15546566")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 93.98 144.78 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
 	)
 	(symbol
 		(lib_id "tube_power_amp_revb:C")
@@ -7108,8 +7747,8 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "1160a869-886d-5100-a77a-3f3c05290601")
-		(property "Reference" "C410"
+		(uuid "411e90f1-95e3-5757-a14f-9e82698739f3")
+		(property "Reference" "C413"
 			(at 129.2 137.16 0)
 			(effects
 				(font
@@ -7117,7 +7756,7 @@
 				)
 			)
 		)
-		(property "Value" "330n"
+		(property "Value" "220n"
 			(at 129.2 139.7 0)
 			(effects
 				(font
@@ -7125,7 +7764,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
 			(at 125.4252 142.24 0)
 			(effects
 				(font
@@ -7153,15 +7792,15 @@
 			)
 		)
 		(pin "1"
-			(uuid "ffa6ccd0-ca30-56df-9f3b-79858c6aa646")
+			(uuid "aea4a339-a156-5539-988c-effc6fc9ed19")
 		)
 		(pin "2"
-			(uuid "a73d9b58-7abc-541d-907b-d9f0f54a3caa")
+			(uuid "e15de10e-7842-55c5-8c3d-5ff036554f8d")
 		)
 		(instances
 			(project "tube_power_amp_revb"
 				(path "/451c49f3-c14c-5f4e-b828-2be954cd9e52/6096403a-7634-5ffe-bd5b-e0ad7a51a3db"
-					(reference "C410")
+					(reference "C413")
 					(unit 1)
 				)
 			)
@@ -7175,7 +7814,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "c99237d7-6086-5e50-9af4-1a28f87558f5")
+		(uuid "36e1e629-47f9-5a4c-ba04-ca501ab2a3a7")
 	)
 	(label "A3_3"
 		(at 124.46 132.08 90)
@@ -7185,7 +7824,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "e8fe3c33-09c4-524f-afd9-3fdb7b857bf8")
+		(uuid "00b4faf6-8a3e-5b11-8b59-acb4b50d334a")
 	)
 	(wire
 		(pts
@@ -7195,7 +7834,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "d84f47c9-fee5-5954-a4a3-07f983c9f2c7")
+		(uuid "4fc162a2-8555-5fd3-b0fb-f2ff1c6fe0c6")
 	)
 	(global_label "KELV3"
 		(shape passive)
@@ -7207,7 +7846,7 @@
 			)
 			(justify right)
 		)
-		(uuid "d79f8b1b-3f9d-5e1d-9b6d-f8b05d794d64")
+		(uuid "2caabd99-b35f-57c3-b568-e8e1321906a4")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 124.46 144.78 0)
 			(effects
@@ -7299,7 +7938,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "ec7e1f46-fe74-5070-8ee5-358d3dd6d1eb")
+		(uuid "9cc3f0bd-affa-526d-b003-32d61593c4b3")
 	)
 	(label "A3_3"
 		(at 142.24 129.54 180)
@@ -7309,7 +7948,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "2bbe9b18-a106-58c7-9a23-0f35ca8b3b52")
+		(uuid "8d89e91b-c98d-5149-a7cf-507dab0d8ffc")
 	)
 	(wire
 		(pts
@@ -7319,7 +7958,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "4e3092d9-33e9-5973-85bf-6f346fdaca40")
+		(uuid "f6429212-731d-54cc-82aa-64d0ae6fc2fd")
 	)
 	(label "FB3"
 		(at 142.24 134.62 180)
@@ -7329,7 +7968,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "e79b842c-6e40-5af5-8fc9-bed2df900bf7")
+		(uuid "e4ad4551-cadb-5dd6-9168-bc6684e521a0")
 	)
 	(wire
 		(pts
@@ -7339,7 +7978,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "6b49727f-a79e-50b3-85fa-e46959076f79")
+		(uuid "e7b7c3c4-b9c8-5806-a21e-5b8e5cdddb65")
 	)
 	(label "Y3"
 		(at 162.56 132.08 0)
@@ -7349,7 +7988,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "576945f3-467f-5313-be74-a42e389ca3b1")
+		(uuid "a2ef7be5-adc0-5054-8743-c55163a22885")
 	)
 	(symbol
 		(lib_id "tube_power_amp_revb:R")
@@ -7368,7 +8007,7 @@
 				)
 			)
 		)
-		(property "Value" "9.09k"
+		(property "Value" "9.09k 0.1%"
 			(at 180.34 123.19 270)
 			(effects
 				(font
@@ -7376,7 +8015,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_1206_3216Metric"
 			(at 180.34 122.428 0)
 			(effects
 				(font
@@ -7426,7 +8065,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "9ad244dc-01bb-5e98-8d97-fc472ad662eb")
+		(uuid "855e2f84-243a-5431-abda-e738d106b1c9")
 	)
 	(label "Y3"
 		(at 173.99 120.65 180)
@@ -7436,7 +8075,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "d2f015a5-1a7f-528a-bb59-6c4c15546566")
+		(uuid "35d611ae-bc64-5347-a01d-237ad42b3e63")
 	)
 	(wire
 		(pts
@@ -7446,7 +8085,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "36e1e629-47f9-5a4c-ba04-ca501ab2a3a7")
+		(uuid "3ddb3c60-fe6d-5807-b096-4fdf4dd6c1f2")
 	)
 	(label "FB3"
 		(at 186.69 120.65 0)
@@ -7456,7 +8095,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "00b4faf6-8a3e-5b11-8b59-acb4b50d334a")
+		(uuid "624adfdc-da7c-5ab6-810e-124370931c2e")
 	)
 	(symbol
 		(lib_id "tube_power_amp_revb:R")
@@ -7475,7 +8114,7 @@
 				)
 			)
 		)
-		(property "Value" "1k"
+		(property "Value" "1.01k 0.1%"
 			(at 180.34 144.78 270)
 			(effects
 				(font
@@ -7483,7 +8122,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_1206_3216Metric"
 			(at 180.34 144.018 0)
 			(effects
 				(font
@@ -7533,7 +8172,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "4fc162a2-8555-5fd3-b0fb-f2ff1c6fe0c6")
+		(uuid "ee3eda60-dac5-5680-9c44-ffb787464534")
 	)
 	(label "FB3"
 		(at 173.99 142.24 180)
@@ -7543,7 +8182,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "2caabd99-b35f-57c3-b568-e8e1321906a4")
+		(uuid "6c938f32-edcb-5653-a7bf-267a4cf80f57")
 	)
 	(wire
 		(pts
@@ -7553,7 +8192,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "9cc3f0bd-affa-526d-b003-32d61593c4b3")
+		(uuid "64f02b92-b66d-594d-a580-6aa98ac5cfc9")
 	)
 	(global_label "KELV3"
 		(shape passive)
@@ -7565,7 +8204,7 @@
 			)
 			(justify left)
 		)
-		(uuid "8d89e91b-c98d-5149-a7cf-507dab0d8ffc")
+		(uuid "8a6bf15e-0480-5cd5-a0e4-8e9c7474a2f3")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 186.69 142.24 0)
 			(effects
@@ -7602,7 +8241,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
 			(at 209.55 130.048 0)
 			(effects
 				(font
@@ -7652,7 +8291,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "f6429212-731d-54cc-82aa-64d0ae6fc2fd")
+		(uuid "74d2b6ad-e07e-51c7-8700-0ef2d0757492")
 	)
 	(label "Y3"
 		(at 203.2 128.27 180)
@@ -7662,7 +8301,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "e4ad4551-cadb-5dd6-9168-bc6684e521a0")
+		(uuid "8a513dde-2bc1-5d39-98bb-1e635e6faae5")
 	)
 	(wire
 		(pts
@@ -7672,7 +8311,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "e7b7c3c4-b9c8-5806-a21e-5b8e5cdddb65")
+		(uuid "8298bba2-b4ec-54c7-b52a-cf3445fa6490")
 	)
 	(label "ISNS3"
 		(at 215.9 128.27 0)
@@ -7682,7 +8321,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "a2ef7be5-adc0-5054-8743-c55163a22885")
+		(uuid "a56388ba-7b02-5ddc-8f46-c50e8d4921b5")
 	)
 	(symbol
 		(lib_id "tube_power_amp_revb:C")
@@ -7692,8 +8331,8 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "3b7cde10-922e-5c62-b0f3-7c503a5675bd")
-		(property "Reference" "C411"
+		(uuid "ae5c2eb2-13a0-5167-92b5-5175ce750c56")
+		(property "Reference" "C414"
 			(at 234.61 137.16 0)
 			(effects
 				(font
@@ -7709,7 +8348,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
 			(at 230.8352 142.24 0)
 			(effects
 				(font
@@ -7737,15 +8376,15 @@
 			)
 		)
 		(pin "1"
-			(uuid "1a2f4d35-d3b9-5253-9fd7-df43311ba879")
+			(uuid "e33be967-8b70-5b91-9a0a-736193add779")
 		)
 		(pin "2"
-			(uuid "1cb9263c-1351-5fb4-b412-c2b27ec35edb")
+			(uuid "8f417757-2cb5-5439-8639-ef292ebb00e5")
 		)
 		(instances
 			(project "tube_power_amp_revb"
 				(path "/451c49f3-c14c-5f4e-b828-2be954cd9e52/6096403a-7634-5ffe-bd5b-e0ad7a51a3db"
-					(reference "C411")
+					(reference "C414")
 					(unit 1)
 				)
 			)
@@ -7759,7 +8398,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "855e2f84-243a-5431-abda-e738d106b1c9")
+		(uuid "e2270a60-4b46-549a-8549-66a181762ce9")
 	)
 	(label "ISNS3"
 		(at 229.87 132.08 90)
@@ -7769,7 +8408,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "35d611ae-bc64-5347-a01d-237ad42b3e63")
+		(uuid "81a72fcd-d861-5210-a60d-54ca6ab246bf")
 	)
 	(wire
 		(pts
@@ -7779,7 +8418,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "3ddb3c60-fe6d-5807-b096-4fdf4dd6c1f2")
+		(uuid "079feb60-17a1-5e6a-96a5-6182e7c462b3")
 	)
 	(symbol
 		(lib_id "tube_power_amp_revb:GND")
@@ -7864,7 +8503,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "BAT54S (ADC clamp)"
+		(property "Value" "BAV199 (ADC clamp, low leakage)"
 			(at 243.84 131.445 0)
 			(effects
 				(font
@@ -7927,7 +8566,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "624adfdc-da7c-5ab6-810e-124370931c2e")
+		(uuid "ad039622-da7d-54a8-81d0-70dd92c1704f")
 	)
 	(symbol
 		(lib_id "tube_power_amp_revb:GND")
@@ -8002,7 +8641,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "ee3eda60-dac5-5680-9c44-ffb787464534")
+		(uuid "02fbbfd3-98b2-5744-aaec-be03a03f2d5d")
 	)
 	(symbol
 		(lib_id "tube_power_amp_revb:+5V")
@@ -8077,7 +8716,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "6c938f32-edcb-5653-a7bf-267a4cf80f57")
+		(uuid "6670a391-b117-5a95-aa69-60042c0ff99d")
 	)
 	(label "ISNS3"
 		(at 250.19 142.24 270)
@@ -8087,10 +8726,10 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "64f02b92-b66d-594d-a580-6aa98ac5cfc9")
+		(uuid "fc88ec68-eab8-5f51-a121-3906241de684")
 	)
 	(symbol
-		(lib_id "tube_power_amp_revb:LM339")
+		(lib_id "tube_power_amp_revb:LM2901")
 		(at 294.64 132.08 0)
 		(unit 3)
 		(exclude_from_sim no)
@@ -8107,7 +8746,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "LM339"
+		(property "Value" "LM2901B"
 			(at 294.64 137.16 0)
 			(effects
 				(font
@@ -8116,7 +8755,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Package_SO:SOIC-14_3.9x8.7mm_P1.27mm"
 			(at 293.37 129.54 0)
 			(effects
 				(font
@@ -8125,7 +8764,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://www.st.com/resource/en/datasheet/lm139.pdf"
+		(property "Datasheet" "https://www.st.com/resource/en/datasheet/lm2901.pdf"
 			(at 295.91 127 0)
 			(effects
 				(font
@@ -8134,7 +8773,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Quad Differential Comparators, SOIC-14/TSSOP-14"
+		(property "Description" "Quad Differential Comparators, DIP-14/SOIC-14/TSSOP-14"
 			(at 294.64 132.08 0)
 			(effects
 				(font
@@ -8169,7 +8808,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "8a6bf15e-0480-5cd5-a0e4-8e9c7474a2f3")
+		(uuid "d8a6cd17-1559-5bee-94eb-612fc8c80134")
 	)
 	(label "VOC"
 		(at 284.48 129.54 180)
@@ -8179,7 +8818,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "74d2b6ad-e07e-51c7-8700-0ef2d0757492")
+		(uuid "252ce496-3faf-584e-8f3c-e3c6e46af9ce")
 	)
 	(wire
 		(pts
@@ -8189,7 +8828,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "8a513dde-2bc1-5d39-98bb-1e635e6faae5")
+		(uuid "6ba68ff4-6c6a-5fa4-b811-af30854dc888")
 	)
 	(label "ISNS3"
 		(at 284.48 134.62 180)
@@ -8199,7 +8838,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "8298bba2-b4ec-54c7-b52a-cf3445fa6490")
+		(uuid "e8015736-1600-5099-ae47-14ca551ac3ae")
 	)
 	(wire
 		(pts
@@ -8209,7 +8848,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "a56388ba-7b02-5ddc-8f46-c50e8d4921b5")
+		(uuid "e722b4ed-cc14-5cfb-b240-1bbd5806072f")
 	)
 	(label "OC_ANY_N"
 		(at 304.8 132.08 0)
@@ -8219,7 +8858,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "e2270a60-4b46-549a-8549-66a181762ce9")
+		(uuid "80ebc0c4-4c4f-5375-9b27-0bebef8ac828")
 	)
 	(text "Tube 4"
 		(exclude_from_sim no)
@@ -8230,7 +8869,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "81a72fcd-d861-5210-a60d-54ca6ab246bf")
+		(uuid "21a591d7-1093-52fd-a988-03c8e1ce62ce")
 	)
 	(symbol
 		(lib_id "tube_power_amp_revb:R")
@@ -8257,7 +8896,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
 			(at 40.64 166.878 0)
 			(effects
 				(font
@@ -8307,7 +8946,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "079feb60-17a1-5e6a-96a5-6182e7c462b3")
+		(uuid "fd44a976-71ac-54cd-9d40-2ca255e1ceb2")
 	)
 	(global_label "K4"
 		(shape passive)
@@ -8319,7 +8958,7 @@
 			)
 			(justify right)
 		)
-		(uuid "ad039622-da7d-54a8-81d0-70dd92c1704f")
+		(uuid "fefcbf65-a03d-523c-9eb8-742e0439761c")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 34.29 165.1 0)
 			(effects
@@ -8339,7 +8978,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "02fbbfd3-98b2-5744-aaec-be03a03f2d5d")
+		(uuid "0d434042-6c6f-5c14-8269-57e30686988a")
 	)
 	(label "A1_4"
 		(at 46.99 165.1 0)
@@ -8349,7 +8988,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "6670a391-b117-5a95-aa69-60042c0ff99d")
+		(uuid "da5b8efd-393a-57c9-b42b-2e38b42bb8cc")
 	)
 	(symbol
 		(lib_id "tube_power_amp_revb:C")
@@ -8359,8 +8998,8 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "ff5c7a1c-5855-5767-b91a-b4f2eadeb21f")
-		(property "Reference" "C412"
+		(uuid "4bdd758f-e2fa-5d00-9ca7-e5d705ae0e46")
+		(property "Reference" "C415"
 			(at 65.7 175.26 0)
 			(effects
 				(font
@@ -8376,7 +9015,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
 			(at 61.9252 180.34 0)
 			(effects
 				(font
@@ -8404,15 +9043,15 @@
 			)
 		)
 		(pin "1"
-			(uuid "cc49b3e2-7946-5b3b-847f-b48587462f10")
+			(uuid "b43fbe35-6853-567d-995c-551e6b69974d")
 		)
 		(pin "2"
-			(uuid "57978a8c-4a8d-502f-aec5-c562b96462e7")
+			(uuid "9ee502cd-63ca-5289-837f-865931bebf0d")
 		)
 		(instances
 			(project "tube_power_amp_revb"
 				(path "/451c49f3-c14c-5f4e-b828-2be954cd9e52/6096403a-7634-5ffe-bd5b-e0ad7a51a3db"
-					(reference "C412")
+					(reference "C415")
 					(unit 1)
 				)
 			)
@@ -8426,7 +9065,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "fc88ec68-eab8-5f51-a121-3906241de684")
+		(uuid "f6ed3260-d6bf-52dd-a339-8d4b6f1b523b")
 	)
 	(label "A1_4"
 		(at 60.96 170.18 90)
@@ -8436,7 +9075,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "d8a6cd17-1559-5bee-94eb-612fc8c80134")
+		(uuid "c59d4ccf-21a4-535b-a11c-8726b7f6a23c")
 	)
 	(wire
 		(pts
@@ -8446,7 +9085,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "252ce496-3faf-584e-8f3c-e3c6e46af9ce")
+		(uuid "1dc50667-18ba-5bfa-b9fc-83ced774a4eb")
 	)
 	(global_label "KELV4"
 		(shape passive)
@@ -8458,7 +9097,7 @@
 			)
 			(justify right)
 		)
-		(uuid "6ba68ff4-6c6a-5fa4-b811-af30854dc888")
+		(uuid "b464f453-e209-5061-9663-b04e37d47987")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 60.96 182.88 0)
 			(effects
@@ -8495,7 +9134,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
 			(at 81.28 166.878 0)
 			(effects
 				(font
@@ -8545,7 +9184,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "e8015736-1600-5099-ae47-14ca551ac3ae")
+		(uuid "a169840e-201e-5ebf-9144-c30cd20ea774")
 	)
 	(label "A1_4"
 		(at 74.93 165.1 180)
@@ -8555,7 +9194,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "e722b4ed-cc14-5cfb-b240-1bbd5806072f")
+		(uuid "d5be1668-6c5c-55f1-8d9a-a1b5793c4ae0")
 	)
 	(wire
 		(pts
@@ -8565,7 +9204,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "80ebc0c4-4c4f-5375-9b27-0bebef8ac828")
+		(uuid "4c85817c-f2ea-5cf0-8d2f-1064d163a5a9")
 	)
 	(label "A2_4"
 		(at 87.63 165.1 0)
@@ -8575,7 +9214,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "21a591d7-1093-52fd-a988-03c8e1ce62ce")
+		(uuid "cf595310-428d-5923-897b-2f56ae40804e")
 	)
 	(symbol
 		(lib_id "tube_power_amp_revb:R")
@@ -8602,7 +9241,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
 			(at 105.41 166.878 0)
 			(effects
 				(font
@@ -8652,7 +9291,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "fd44a976-71ac-54cd-9d40-2ca255e1ceb2")
+		(uuid "bd167146-8def-537e-8bbe-3ebfbde1a004")
 	)
 	(label "A2_4"
 		(at 99.06 165.1 180)
@@ -8662,7 +9301,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "fefcbf65-a03d-523c-9eb8-742e0439761c")
+		(uuid "ee8f840c-1bac-56c6-a95d-5c025d25134a")
 	)
 	(wire
 		(pts
@@ -8672,7 +9311,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "0d434042-6c6f-5c14-8269-57e30686988a")
+		(uuid "7fd283c5-c33f-5db4-85e1-009bd48751db")
 	)
 	(label "A3_4"
 		(at 111.76 165.1 0)
@@ -8682,7 +9321,126 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "da5b8efd-393a-57c9-b42b-2e38b42bb8cc")
+		(uuid "75b30242-fd14-584e-994d-63acecf3d289")
+	)
+	(symbol
+		(lib_id "tube_power_amp_revb:C")
+		(at 93.98 176.53 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "5c2fe9f6-5de0-549f-b5a3-db833035a2c7")
+		(property "Reference" "C416"
+			(at 98.72 175.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "220n"
+			(at 98.72 177.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
+			(at 94.9452 180.34 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 93.98 176.53 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Unpolarized capacitor"
+			(at 93.98 176.53 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "8e23802a-39be-549a-8f28-1590dc069b3a")
+		)
+		(pin "2"
+			(uuid "f7412506-6dee-54e7-93e1-7960a1a2b751")
+		)
+		(instances
+			(project "tube_power_amp_revb"
+				(path "/451c49f3-c14c-5f4e-b828-2be954cd9e52/6096403a-7634-5ffe-bd5b-e0ad7a51a3db"
+					(reference "C416")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 93.98 172.72) (xy 93.98 170.18)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "6ea289eb-6e1d-50f8-95da-342a2df62e93")
+	)
+	(label "A2_4"
+		(at 93.98 170.18 90)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "864a19de-8cd3-584e-9d23-7e5090116fca")
+	)
+	(wire
+		(pts
+			(xy 93.98 180.34) (xy 93.98 182.88)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b0edb316-2dcd-56bd-8082-0505c2b7e92b")
+	)
+	(global_label "KELV4"
+		(shape passive)
+		(at 93.98 182.88 270)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "be1e489f-5136-5794-bbcd-187599d0d077")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 93.98 182.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
 	)
 	(symbol
 		(lib_id "tube_power_amp_revb:C")
@@ -8692,8 +9450,8 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "411e90f1-95e3-5757-a14f-9e82698739f3")
-		(property "Reference" "C413"
+		(uuid "a53e2262-0e03-5993-8156-5f66f5b1029e")
+		(property "Reference" "C417"
 			(at 129.2 175.26 0)
 			(effects
 				(font
@@ -8701,7 +9459,7 @@
 				)
 			)
 		)
-		(property "Value" "330n"
+		(property "Value" "220n"
 			(at 129.2 177.8 0)
 			(effects
 				(font
@@ -8709,7 +9467,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
 			(at 125.4252 180.34 0)
 			(effects
 				(font
@@ -8737,15 +9495,15 @@
 			)
 		)
 		(pin "1"
-			(uuid "aea4a339-a156-5539-988c-effc6fc9ed19")
+			(uuid "b6f76b89-6c15-5521-94bc-b9e6b7687dad")
 		)
 		(pin "2"
-			(uuid "e15de10e-7842-55c5-8c3d-5ff036554f8d")
+			(uuid "1383a99b-5e88-50de-8bca-d4fd207f2ac1")
 		)
 		(instances
 			(project "tube_power_amp_revb"
 				(path "/451c49f3-c14c-5f4e-b828-2be954cd9e52/6096403a-7634-5ffe-bd5b-e0ad7a51a3db"
-					(reference "C413")
+					(reference "C417")
 					(unit 1)
 				)
 			)
@@ -8759,7 +9517,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "f6ed3260-d6bf-52dd-a339-8d4b6f1b523b")
+		(uuid "e9487b0c-ced1-5b2d-8f9b-cb117a369b7b")
 	)
 	(label "A3_4"
 		(at 124.46 170.18 90)
@@ -8769,7 +9527,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "c59d4ccf-21a4-535b-a11c-8726b7f6a23c")
+		(uuid "94948d69-749d-55fc-904a-4079acdc8dad")
 	)
 	(wire
 		(pts
@@ -8779,7 +9537,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "1dc50667-18ba-5bfa-b9fc-83ced774a4eb")
+		(uuid "435aac45-1b7a-50ff-be8f-4dcfe66be5da")
 	)
 	(global_label "KELV4"
 		(shape passive)
@@ -8791,7 +9549,7 @@
 			)
 			(justify right)
 		)
-		(uuid "b464f453-e209-5061-9663-b04e37d47987")
+		(uuid "da479a3e-036c-58e7-b6d0-3e3b471e3ed0")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 124.46 182.88 0)
 			(effects
@@ -8883,7 +9641,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "a169840e-201e-5ebf-9144-c30cd20ea774")
+		(uuid "4d3c0c49-f182-5f19-9a9b-19e626dccf6f")
 	)
 	(label "A3_4"
 		(at 142.24 166.37 180)
@@ -8893,7 +9651,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "d5be1668-6c5c-55f1-8d9a-a1b5793c4ae0")
+		(uuid "e09c7426-c5bb-5f1d-a4e5-a4feb435dfa4")
 	)
 	(wire
 		(pts
@@ -8903,7 +9661,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "4c85817c-f2ea-5cf0-8d2f-1064d163a5a9")
+		(uuid "447e3213-5058-54ba-9c71-f0f9ec3293ce")
 	)
 	(label "FB4"
 		(at 142.24 171.45 180)
@@ -8913,7 +9671,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "cf595310-428d-5923-897b-2f56ae40804e")
+		(uuid "9e055037-c057-57b2-8c00-718f0330ea6e")
 	)
 	(wire
 		(pts
@@ -8923,7 +9681,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "bd167146-8def-537e-8bbe-3ebfbde1a004")
+		(uuid "80a235c7-a457-5e6b-bbf2-12b7fd628b51")
 	)
 	(label "Y4"
 		(at 162.56 168.91 0)
@@ -8933,7 +9691,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "ee8f840c-1bac-56c6-a95d-5c025d25134a")
+		(uuid "d7b1af53-83d2-5def-b1b6-2729649e6eca")
 	)
 	(symbol
 		(lib_id "tube_power_amp_revb:R")
@@ -8952,7 +9710,7 @@
 				)
 			)
 		)
-		(property "Value" "9.09k"
+		(property "Value" "9.09k 0.1%"
 			(at 180.34 161.29 270)
 			(effects
 				(font
@@ -8960,7 +9718,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_1206_3216Metric"
 			(at 180.34 160.528 0)
 			(effects
 				(font
@@ -9010,7 +9768,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "7fd283c5-c33f-5db4-85e1-009bd48751db")
+		(uuid "3cb06875-1373-5b1d-9845-56a87e79ed18")
 	)
 	(label "Y4"
 		(at 173.99 158.75 180)
@@ -9020,7 +9778,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "75b30242-fd14-584e-994d-63acecf3d289")
+		(uuid "4277de6f-2a02-594b-88f0-6af419109416")
 	)
 	(wire
 		(pts
@@ -9030,7 +9788,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "6ea289eb-6e1d-50f8-95da-342a2df62e93")
+		(uuid "438a41e1-5d71-5277-b425-ba98f5a27e5f")
 	)
 	(label "FB4"
 		(at 186.69 158.75 0)
@@ -9040,7 +9798,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "864a19de-8cd3-584e-9d23-7e5090116fca")
+		(uuid "e72193fd-4e0f-5364-b6ff-3efb091e8f83")
 	)
 	(symbol
 		(lib_id "tube_power_amp_revb:R")
@@ -9059,7 +9817,7 @@
 				)
 			)
 		)
-		(property "Value" "1k"
+		(property "Value" "1.01k 0.1%"
 			(at 180.34 181.61 270)
 			(effects
 				(font
@@ -9067,7 +9825,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_1206_3216Metric"
 			(at 180.34 180.848 0)
 			(effects
 				(font
@@ -9117,7 +9875,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "b0edb316-2dcd-56bd-8082-0505c2b7e92b")
+		(uuid "b5c86f8e-0509-504c-95e2-71396e78385e")
 	)
 	(label "FB4"
 		(at 173.99 179.07 180)
@@ -9127,7 +9885,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "be1e489f-5136-5794-bbcd-187599d0d077")
+		(uuid "c588912c-80e5-5f00-a794-ac9310a5a7dd")
 	)
 	(wire
 		(pts
@@ -9137,7 +9895,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "e9487b0c-ced1-5b2d-8f9b-cb117a369b7b")
+		(uuid "4460fdab-b667-5c9a-8194-781cee18be8b")
 	)
 	(global_label "KELV4"
 		(shape passive)
@@ -9149,7 +9907,7 @@
 			)
 			(justify left)
 		)
-		(uuid "94948d69-749d-55fc-904a-4079acdc8dad")
+		(uuid "897b0037-81f3-5171-9cd0-5afbb6e888fb")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 186.69 179.07 0)
 			(effects
@@ -9186,7 +9944,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
 			(at 209.55 166.878 0)
 			(effects
 				(font
@@ -9236,7 +9994,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "435aac45-1b7a-50ff-be8f-4dcfe66be5da")
+		(uuid "18927f61-ec03-5112-80eb-60c8c82340c2")
 	)
 	(label "Y4"
 		(at 203.2 165.1 180)
@@ -9246,7 +10004,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "da479a3e-036c-58e7-b6d0-3e3b471e3ed0")
+		(uuid "40fd2781-202b-59bc-b4ae-46a0e51b9025")
 	)
 	(wire
 		(pts
@@ -9256,7 +10014,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "4d3c0c49-f182-5f19-9a9b-19e626dccf6f")
+		(uuid "4bbe47f6-d64d-5971-b24f-4f8004ee232e")
 	)
 	(label "ISNS4"
 		(at 215.9 165.1 0)
@@ -9266,7 +10024,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "e09c7426-c5bb-5f1d-a4e5-a4feb435dfa4")
+		(uuid "d7fbb280-44e1-533b-a106-8814fe75ba7a")
 	)
 	(symbol
 		(lib_id "tube_power_amp_revb:C")
@@ -9276,8 +10034,8 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "ae5c2eb2-13a0-5167-92b5-5175ce750c56")
-		(property "Reference" "C414"
+		(uuid "53ab28ba-6dba-57dc-875b-d497bb7e6b0b")
+		(property "Reference" "C418"
 			(at 234.61 175.26 0)
 			(effects
 				(font
@@ -9293,7 +10051,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
 			(at 230.8352 180.34 0)
 			(effects
 				(font
@@ -9321,15 +10079,15 @@
 			)
 		)
 		(pin "1"
-			(uuid "e33be967-8b70-5b91-9a0a-736193add779")
+			(uuid "dcee00d1-0258-5835-87eb-04ae0d2b0da6")
 		)
 		(pin "2"
-			(uuid "8f417757-2cb5-5439-8639-ef292ebb00e5")
+			(uuid "6e43f182-36e1-5f09-9813-9d43ff3cdb53")
 		)
 		(instances
 			(project "tube_power_amp_revb"
 				(path "/451c49f3-c14c-5f4e-b828-2be954cd9e52/6096403a-7634-5ffe-bd5b-e0ad7a51a3db"
-					(reference "C414")
+					(reference "C418")
 					(unit 1)
 				)
 			)
@@ -9343,7 +10101,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "447e3213-5058-54ba-9c71-f0f9ec3293ce")
+		(uuid "3306d680-a711-5931-b814-156111ddf7ca")
 	)
 	(label "ISNS4"
 		(at 229.87 170.18 90)
@@ -9353,7 +10111,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "9e055037-c057-57b2-8c00-718f0330ea6e")
+		(uuid "b2940e8b-73dd-55d7-9d5c-0945aaec2156")
 	)
 	(wire
 		(pts
@@ -9363,7 +10121,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "80a235c7-a457-5e6b-bbf2-12b7fd628b51")
+		(uuid "e1ea54ea-79d2-5ea6-8946-86e56966f324")
 	)
 	(symbol
 		(lib_id "tube_power_amp_revb:GND")
@@ -9448,7 +10206,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "BAT54S (ADC clamp)"
+		(property "Value" "BAV199 (ADC clamp, low leakage)"
 			(at 243.84 169.545 0)
 			(effects
 				(font
@@ -9511,7 +10269,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "d7b1af53-83d2-5def-b1b6-2729649e6eca")
+		(uuid "8b8be077-1002-5c16-b39a-598f122d38ef")
 	)
 	(symbol
 		(lib_id "tube_power_amp_revb:GND")
@@ -9586,7 +10344,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "3cb06875-1373-5b1d-9845-56a87e79ed18")
+		(uuid "fbb0cb40-32f5-5e16-a8d6-fa9a2001773e")
 	)
 	(symbol
 		(lib_id "tube_power_amp_revb:+5V")
@@ -9661,7 +10419,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "4277de6f-2a02-594b-88f0-6af419109416")
+		(uuid "92b1ed93-12a4-5420-a780-fe1ccd772cd0")
 	)
 	(label "ISNS4"
 		(at 250.19 180.34 270)
@@ -9671,10 +10429,10 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "438a41e1-5d71-5277-b425-ba98f5a27e5f")
+		(uuid "e15c8e87-3278-5a70-98ad-26eae86cdf14")
 	)
 	(symbol
-		(lib_id "tube_power_amp_revb:LM339")
+		(lib_id "tube_power_amp_revb:LM2901")
 		(at 294.64 168.91 0)
 		(unit 4)
 		(exclude_from_sim no)
@@ -9691,7 +10449,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "LM339"
+		(property "Value" "LM2901B"
 			(at 294.64 173.99 0)
 			(effects
 				(font
@@ -9700,7 +10458,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Package_SO:SOIC-14_3.9x8.7mm_P1.27mm"
 			(at 293.37 166.37 0)
 			(effects
 				(font
@@ -9709,7 +10467,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://www.st.com/resource/en/datasheet/lm139.pdf"
+		(property "Datasheet" "https://www.st.com/resource/en/datasheet/lm2901.pdf"
 			(at 295.91 163.83 0)
 			(effects
 				(font
@@ -9718,7 +10476,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Quad Differential Comparators, SOIC-14/TSSOP-14"
+		(property "Description" "Quad Differential Comparators, DIP-14/SOIC-14/TSSOP-14"
 			(at 294.64 168.91 0)
 			(effects
 				(font
@@ -9753,7 +10511,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "e72193fd-4e0f-5364-b6ff-3efb091e8f83")
+		(uuid "f918db37-d27a-5b52-95cb-21a23c3b30d8")
 	)
 	(label "VOC"
 		(at 284.48 166.37 180)
@@ -9763,7 +10521,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "b5c86f8e-0509-504c-95e2-71396e78385e")
+		(uuid "8c0fbcff-4574-5bff-bf50-d6f7aa8ad036")
 	)
 	(wire
 		(pts
@@ -9773,7 +10531,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "c588912c-80e5-5f00-a794-ac9310a5a7dd")
+		(uuid "74bc59c9-3808-5a82-bf64-6105ff1bce8e")
 	)
 	(label "ISNS4"
 		(at 284.48 171.45 180)
@@ -9783,7 +10541,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "4460fdab-b667-5c9a-8194-781cee18be8b")
+		(uuid "777fe516-2ef0-5a4a-924d-d3eedfdf2f24")
 	)
 	(wire
 		(pts
@@ -9793,7 +10551,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "897b0037-81f3-5171-9cd0-5afbb6e888fb")
+		(uuid "039a4394-6123-5b89-b07b-d5920ab4ebcb")
 	)
 	(label "OC_ANY_N"
 		(at 304.8 168.91 0)
@@ -9803,9 +10561,9 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "18927f61-ec03-5112-80eb-60c8c82340c2")
+		(uuid "70909bca-3fe1-5b2e-8451-14093e36768a")
 	)
-	(text "The filter is drawn as simulated: 10k / 10n, then 47k + 47k into 330n (two real poles, about 4.6 Hz), gain 10. The master netlist's 'Cb1 a2 b1 330n' has b1 unconnected (floating): the documented '2nd-order Sallen-Key' was never simulated; returned to FB it trips in 28 ms with 3x the ripple (rev_b/sim/checks.py). Values stay as simulated: 23 ms trip at 400 mA, 1.2 mA pp ripple."
+	(text "Filter (decided 2026-11-22, PA-4): 10k / 10n, then two real poles 47k / 220n twice (5.3 and 40 Hz, -3 dB 5.0 Hz), gain 10.0 (9.09k / 1.01k 0.1 %): 10 V/A. Trip 25 ms after a step to 400 mA, 45-50 ms after a mirror short; 13 mA pp ripple at 82 Hz full overdrive (bias_supply.md). 1R shunt 1 %, 50 ppm/K."
 		(exclude_from_sim no)
 		(at 30.48 229.87 0)
 		(effects
@@ -9814,10 +10572,10 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "40fd2781-202b-59bc-b4ae-46a0e51b9025")
+		(uuid "70e6e646-ceee-57aa-b5d0-824844cfa7d1")
 	)
 	(symbol
-		(lib_id "tube_power_amp_revb:LM339")
+		(lib_id "tube_power_amp_revb:LM2901")
 		(at 294.64 204.47 0)
 		(unit 5)
 		(exclude_from_sim no)
@@ -9833,15 +10591,15 @@
 				)
 			)
 		)
-		(property "Value" "LM339"
-			(at 299.93 205.74 0)
+		(property "Value" "LM2901B"
+			(at 301.03 205.74 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Package_SO:SOIC-14_3.9x8.7mm_P1.27mm"
 			(at 293.37 201.93 0)
 			(effects
 				(font
@@ -9850,7 +10608,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://www.st.com/resource/en/datasheet/lm139.pdf"
+		(property "Datasheet" "https://www.st.com/resource/en/datasheet/lm2901.pdf"
 			(at 295.91 199.39 0)
 			(effects
 				(font
@@ -9859,7 +10617,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Quad Differential Comparators, SOIC-14/TSSOP-14"
+		(property "Description" "Quad Differential Comparators, DIP-14/SOIC-14/TSSOP-14"
 			(at 294.64 204.47 0)
 			(effects
 				(font
@@ -9891,7 +10649,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "4bbe47f6-d64d-5971-b24f-4f8004ee232e")
+		(uuid "114d22dc-c5c2-5214-86eb-94c1b06c5fa4")
 	)
 	(symbol
 		(lib_id "tube_power_amp_revb:+15V")
@@ -9966,7 +10724,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "d7fbb280-44e1-533b-a106-8814fe75ba7a")
+		(uuid "be94b906-1d3d-58a5-a463-2bcc2cde2485")
 	)
 	(symbol
 		(lib_id "tube_power_amp_revb:GND")
@@ -10041,8 +10799,8 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "4bdd758f-e2fa-5d00-9ca7-e5d705ae0e46")
-		(property "Reference" "C415"
+		(uuid "f58a7fb3-6f05-5253-9d37-48fbf49f83be")
+		(property "Reference" "C419"
 			(at 319.7 203.2 0)
 			(effects
 				(font
@@ -10058,7 +10816,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
 			(at 315.9252 208.28 0)
 			(effects
 				(font
@@ -10086,15 +10844,15 @@
 			)
 		)
 		(pin "1"
-			(uuid "b43fbe35-6853-567d-995c-551e6b69974d")
+			(uuid "cf3ebeb1-5c48-5da0-80ef-36a698bb1a8d")
 		)
 		(pin "2"
-			(uuid "9ee502cd-63ca-5289-837f-865931bebf0d")
+			(uuid "8e251ec5-251b-5192-9cf4-9f9d3434db42")
 		)
 		(instances
 			(project "tube_power_amp_revb"
 				(path "/451c49f3-c14c-5f4e-b828-2be954cd9e52/6096403a-7634-5ffe-bd5b-e0ad7a51a3db"
-					(reference "C415")
+					(reference "C419")
 					(unit 1)
 				)
 			)
@@ -10108,7 +10866,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "3306d680-a711-5931-b814-156111ddf7ca")
+		(uuid "3e14b1b9-4eda-5d75-a297-bdbe373517a9")
 	)
 	(symbol
 		(lib_id "tube_power_amp_revb:+15V")
@@ -10183,7 +10941,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "b2940e8b-73dd-55d7-9d5c-0945aaec2156")
+		(uuid "3d1aef3c-80e4-568f-a41c-55ef08a8bf11")
 	)
 	(symbol
 		(lib_id "tube_power_amp_revb:GND")
@@ -10267,7 +11025,7 @@
 				)
 			)
 		)
-		(property "Value" "39k"
+		(property "Value" "39k 0.1%"
 			(at 335.28 171.45 270)
 			(effects
 				(font
@@ -10275,7 +11033,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_1206_3216Metric"
 			(at 335.28 170.688 0)
 			(effects
 				(font
@@ -10325,7 +11083,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "e1ea54ea-79d2-5ea6-8946-86e56966f324")
+		(uuid "fde525c2-04e6-5e8f-9efa-70f0cbbd922a")
 	)
 	(global_label "VREF10"
 		(shape passive)
@@ -10337,7 +11095,7 @@
 			)
 			(justify right)
 		)
-		(uuid "8b8be077-1002-5c16-b39a-598f122d38ef")
+		(uuid "33e1d231-0b2a-517a-8d93-f5df5895feac")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 328.93 168.91 0)
 			(effects
@@ -10357,7 +11115,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "fbb0cb40-32f5-5e16-a8d6-fa9a2001773e")
+		(uuid "8b7b867a-be9f-5462-9718-54b769ff6951")
 	)
 	(label "VOC"
 		(at 341.63 168.91 0)
@@ -10367,7 +11125,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "92b1ed93-12a4-5420-a780-fe1ccd772cd0")
+		(uuid "d6a17e80-d602-50fe-ac39-d80581fd3388")
 	)
 	(symbol
 		(lib_id "tube_power_amp_revb:R")
@@ -10386,15 +11144,15 @@
 				)
 			)
 		)
-		(property "Value" "11k"
-			(at 359.79 187.96 0)
+		(property "Value" "11k 0.1%"
+			(at 362.54 187.96 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_1206_3216Metric"
 			(at 353.822 186.69 0)
 			(effects
 				(font
@@ -10444,7 +11202,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "e15c8e87-3278-5a70-98ad-26eae86cdf14")
+		(uuid "4487cca3-c8ce-5524-ae7f-7b551d4ac379")
 	)
 	(label "VOC"
 		(at 355.6 180.34 90)
@@ -10454,7 +11212,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "f918db37-d27a-5b52-95cb-21a23c3b30d8")
+		(uuid "4191517c-76fc-52a8-9cb1-2a55ea4ee01e")
 	)
 	(wire
 		(pts
@@ -10464,7 +11222,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "8c0fbcff-4574-5bff-bf50-d6f7aa8ad036")
+		(uuid "5548162b-d8f8-53ba-9480-ad8719f5b4df")
 	)
 	(symbol
 		(lib_id "tube_power_amp_revb:GND")
@@ -10539,8 +11297,8 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "5c2fe9f6-5de0-549f-b5a3-db833035a2c7")
-		(property "Reference" "C416"
+		(uuid "734e8ba9-02b4-5307-89fe-48f9247a840a")
+		(property "Reference" "C420"
 			(at 380.66 185.42 0)
 			(effects
 				(font
@@ -10556,7 +11314,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
 			(at 376.8852 190.5 0)
 			(effects
 				(font
@@ -10584,15 +11342,15 @@
 			)
 		)
 		(pin "1"
-			(uuid "8e23802a-39be-549a-8f28-1590dc069b3a")
+			(uuid "60cac820-62b5-571d-bf3f-a7373088f45b")
 		)
 		(pin "2"
-			(uuid "f7412506-6dee-54e7-93e1-7960a1a2b751")
+			(uuid "79b209f0-6772-5ba1-ab5f-77321f779c52")
 		)
 		(instances
 			(project "tube_power_amp_revb"
 				(path "/451c49f3-c14c-5f4e-b828-2be954cd9e52/6096403a-7634-5ffe-bd5b-e0ad7a51a3db"
-					(reference "C416")
+					(reference "C420")
 					(unit 1)
 				)
 			)
@@ -10606,7 +11364,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "74bc59c9-3808-5a82-bf64-6105ff1bce8e")
+		(uuid "da6e25f2-2251-5246-b7b2-eb5bcb9a532a")
 	)
 	(label "VOC"
 		(at 375.92 180.34 90)
@@ -10616,7 +11374,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "777fe516-2ef0-5a4a-924d-d3eedfdf2f24")
+		(uuid "8dd26585-3e4e-543d-8e2a-67af6981106e")
 	)
 	(wire
 		(pts
@@ -10626,7 +11384,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "039a4394-6123-5b89-b07b-d5920ab4ebcb")
+		(uuid "0382c4b5-92f5-5c70-9fa1-e5d5925f5ca6")
 	)
 	(symbol
 		(lib_id "tube_power_amp_revb:GND")
@@ -10693,7 +11451,7 @@
 			)
 		)
 	)
-	(text "VOC = 10 V x 11 / 50 = 2.20 V = 220 mA average (SAFE-2)"
+	(text "VOC = 10 V x 11 / 50 = 2.20 V = 220 mA average (SAFE-2), +-2.4 % worst case (README)"
 		(exclude_from_sim no)
 		(at 335.28 205.74 0)
 		(effects
@@ -10702,7 +11460,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "70909bca-3fe1-5b2e-8451-14093e36768a")
+		(uuid "156bb93d-ffa4-53a3-ae50-6844fdd4b5a3")
 	)
 	(symbol
 		(lib_id "tube_power_amp_revb:R")
@@ -10729,7 +11487,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
 			(at 355.6 55.118 0)
 			(effects
 				(font
@@ -10779,7 +11537,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "70e6e646-ceee-57aa-b5d0-824844cfa7d1")
+		(uuid "6ad1151a-0b72-560a-b672-9ea1af0ebc3c")
 	)
 	(symbol
 		(lib_id "tube_power_amp_revb:+5V")
@@ -10854,7 +11612,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "114d22dc-c5c2-5214-86eb-94c1b06c5fa4")
+		(uuid "2869f569-e752-5924-83a1-63281127374a")
 	)
 	(label "OC_ANY_N"
 		(at 361.95 53.34 0)
@@ -10864,7 +11622,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "be94b906-1d3d-58a5-a463-2bcc2cde2485")
+		(uuid "8936573a-f764-5f5a-a2d8-cdd03613ba72")
 	)
 	(symbol
 		(lib_id "tube_power_amp_revb:C")
@@ -10874,8 +11632,8 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "a53e2262-0e03-5993-8156-5f66f5b1029e")
-		(property "Reference" "C417"
+		(uuid "9ff85d18-448d-5a76-b088-61a7d278d0fd")
+		(property "Reference" "C421"
 			(at 380.66 69.85 0)
 			(effects
 				(font
@@ -10891,7 +11649,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
 			(at 376.8852 74.93 0)
 			(effects
 				(font
@@ -10919,15 +11677,15 @@
 			)
 		)
 		(pin "1"
-			(uuid "b6f76b89-6c15-5521-94bc-b9e6b7687dad")
+			(uuid "38e5c792-202c-5983-8cba-2ba8f1e2ba11")
 		)
 		(pin "2"
-			(uuid "1383a99b-5e88-50de-8bca-d4fd207f2ac1")
+			(uuid "f7401f04-2951-5a89-94f3-87eb97ae7654")
 		)
 		(instances
 			(project "tube_power_amp_revb"
 				(path "/451c49f3-c14c-5f4e-b828-2be954cd9e52/6096403a-7634-5ffe-bd5b-e0ad7a51a3db"
-					(reference "C417")
+					(reference "C421")
 					(unit 1)
 				)
 			)
@@ -10941,7 +11699,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "3e14b1b9-4eda-5d75-a297-bdbe373517a9")
+		(uuid "9d8da5ca-11c3-5c09-bc74-46cbd6e529cc")
 	)
 	(label "OC_ANY_N"
 		(at 375.92 64.77 90)
@@ -10951,7 +11709,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "3d1aef3c-80e4-568f-a41c-55ef08a8bf11")
+		(uuid "fb6d8300-6e20-5a92-8945-fe8237175c15")
 	)
 	(wire
 		(pts
@@ -10961,7 +11719,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "fde525c2-04e6-5e8f-9efa-70f0cbbd922a")
+		(uuid "77fa0723-3fc2-5834-a2b2-11bfd7db0290")
 	)
 	(symbol
 		(lib_id "tube_power_amp_revb:GND")
@@ -11029,8 +11787,8 @@
 		)
 	)
 	(symbol
-		(lib_id "tube_power_amp_revb:74HC74")
-		(at 416.56 71.12 0)
+		(lib_id "tube_power_amp_revb:74LVC2G17")
+		(at 386.08 96.52 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -11038,6 +11796,678 @@
 		(dnp no)
 		(uuid "71726393-1c6d-5dfa-83b4-6729789fceed")
 		(property "Reference" "U403"
+			(at 386.08 93.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "74LVC2G17 (Schmitt)"
+			(at 386.08 99.06 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Package_TO_SOT_SMD:SOT-363_SC-70-6"
+			(at 386.08 96.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "http://www.ti.com/lit/sg/scyt129e/scyt129e.pdf"
+			(at 386.08 96.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Dual Buffer, Schmitt Triggered, Low-Voltage CMOS"
+			(at 386.08 96.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "7a58411d-30bf-5f5f-9b93-ac026e4f895e")
+		)
+		(pin "6"
+			(uuid "b4871408-64d6-5064-b7a7-7d6a61de0052")
+		)
+		(instances
+			(project "tube_power_amp_revb"
+				(path "/451c49f3-c14c-5f4e-b828-2be954cd9e52/6096403a-7634-5ffe-bd5b-e0ad7a51a3db"
+					(reference "U403")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 370.84 96.52) (xy 368.3 96.52)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "316718ad-c6f1-5aaf-a681-93d3d91b163a")
+	)
+	(label "OC_ANY_N"
+		(at 368.3 96.52 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "e2116c71-a932-514b-a027-e81d79d3b557")
+	)
+	(wire
+		(pts
+			(xy 398.78 96.52) (xy 401.32 96.52)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "bc59a27d-6c1d-57f8-a0e8-c50d51db00c2")
+	)
+	(label "OC_ANY_S"
+		(at 401.32 96.52 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "a858efe6-b08e-567e-bd34-cfb7d74bedfc")
+	)
+	(symbol
+		(lib_id "tube_power_amp_revb:74LVC2G17")
+		(at 386.08 116.84 0)
+		(unit 2)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "63908440-3bda-5f1f-9a9c-36e4b7fd864c")
+		(property "Reference" "U403"
+			(at 386.08 114.3 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "74LVC2G17 (Schmitt)"
+			(at 386.08 119.38 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Package_TO_SOT_SMD:SOT-363_SC-70-6"
+			(at 386.08 116.84 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "http://www.ti.com/lit/sg/scyt129e/scyt129e.pdf"
+			(at 386.08 116.84 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Dual Buffer, Schmitt Triggered, Low-Voltage CMOS"
+			(at 386.08 116.84 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "3"
+			(uuid "674e048b-9691-57f4-bb85-e38955c70684")
+		)
+		(pin "4"
+			(uuid "8b604d7d-c41a-5120-a3e6-ae80a8ccc3ed")
+		)
+		(instances
+			(project "tube_power_amp_revb"
+				(path "/451c49f3-c14c-5f4e-b828-2be954cd9e52/6096403a-7634-5ffe-bd5b-e0ad7a51a3db"
+					(reference "U403")
+					(unit 2)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 370.84 116.84) (xy 368.3 116.84)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "dd92b4d0-9678-5a10-abc4-135fc3b42478")
+	)
+	(global_label "BIAS_OK_PRE"
+		(shape passive)
+		(at 368.3 116.84 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "e8f27dc6-4b86-56dd-92ae-b808569f8020")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 368.3 116.84 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 398.78 116.84) (xy 401.32 116.84)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d02ec05b-8632-58ad-b8d9-b7fcdb177fa9")
+	)
+	(global_label "BIAS_OK_A"
+		(shape passive)
+		(at 401.32 116.84 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "af26bdb3-a4d8-59a7-9e6c-08455e8a0f3c")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 401.32 116.84 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+	)
+	(symbol
+		(lib_id "tube_power_amp_revb:74LVC2G17")
+		(at 365.76 134.62 0)
+		(unit 3)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "f515cb44-fc52-5cd7-bbc4-1d8c75480e14")
+		(property "Reference" "U403"
+			(at 370.5 133.35 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "74LVC2G17 (Schmitt)"
+			(at 378.75 135.89 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Package_TO_SOT_SMD:SOT-363_SC-70-6"
+			(at 365.76 134.62 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "http://www.ti.com/lit/sg/scyt129e/scyt129e.pdf"
+			(at 365.76 134.62 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Dual Buffer, Schmitt Triggered, Low-Voltage CMOS"
+			(at 365.76 134.62 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "b5a5b55a-59b6-5517-a847-9ce72fa00382")
+		)
+		(pin "5"
+			(uuid "56336840-a80d-5f0b-a5f2-e6b76003f1dd")
+		)
+		(instances
+			(project "tube_power_amp_revb"
+				(path "/451c49f3-c14c-5f4e-b828-2be954cd9e52/6096403a-7634-5ffe-bd5b-e0ad7a51a3db"
+					(reference "U403")
+					(unit 3)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 365.76 124.46) (xy 365.76 121.92)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "50f89dcb-3616-5333-b8b3-71886abeb3ea")
+	)
+	(symbol
+		(lib_id "tube_power_amp_revb:+5V")
+		(at 365.76 121.92 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "8fd40beb-ab62-5104-83c5-63ec579bcd86")
+		(property "Reference" "#PWR427"
+			(at 365.76 125.73 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "+5V"
+			(at 365.76 118.364 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 365.76 121.92 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 365.76 121.92 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"+5V\""
+			(at 365.76 121.92 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "4a18a4bf-ceb8-52ef-931a-e4177fb3d27d")
+		)
+		(instances
+			(project "tube_power_amp_revb"
+				(path "/451c49f3-c14c-5f4e-b828-2be954cd9e52/6096403a-7634-5ffe-bd5b-e0ad7a51a3db"
+					(reference "#PWR427")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 365.76 144.78) (xy 365.76 147.32)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5f944794-50ac-5a94-9853-39f04f19ed53")
+	)
+	(symbol
+		(lib_id "tube_power_amp_revb:GND")
+		(at 365.76 147.32 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "a30c8c8e-309e-5777-b459-eb0739c2504e")
+		(property "Reference" "#PWR428"
+			(at 365.76 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 365.76 151.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 365.76 147.32 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 365.76 147.32 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 365.76 147.32 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "e6e9f25d-8950-5831-93eb-80508dad8e84")
+		)
+		(instances
+			(project "tube_power_amp_revb"
+				(path "/451c49f3-c14c-5f4e-b828-2be954cd9e52/6096403a-7634-5ffe-bd5b-e0ad7a51a3db"
+					(reference "#PWR428")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "tube_power_amp_revb:C")
+		(at 386.08 132.08 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "840c61f7-2761-5240-88cf-9e2dbbcd31c6")
+		(property "Reference" "C422"
+			(at 390.82 130.81 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "100n"
+			(at 390.82 133.35 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
+			(at 387.0452 135.89 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 386.08 132.08 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Unpolarized capacitor"
+			(at 386.08 132.08 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "18329b65-5afe-5a07-bf9e-b0ee8c2ce2a8")
+		)
+		(pin "2"
+			(uuid "80b56fb2-f701-55c8-90c5-2c5bcabbbb74")
+		)
+		(instances
+			(project "tube_power_amp_revb"
+				(path "/451c49f3-c14c-5f4e-b828-2be954cd9e52/6096403a-7634-5ffe-bd5b-e0ad7a51a3db"
+					(reference "C422")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 386.08 128.27) (xy 386.08 125.73)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "99c057bf-fbba-5c88-b0ed-c774bf1e94f9")
+	)
+	(symbol
+		(lib_id "tube_power_amp_revb:+5V")
+		(at 386.08 125.73 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "529f680d-5386-5cee-93ff-a84db16cc7db")
+		(property "Reference" "#PWR429"
+			(at 386.08 129.54 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "+5V"
+			(at 386.08 122.174 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 386.08 125.73 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 386.08 125.73 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"+5V\""
+			(at 386.08 125.73 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "3c6ac0b4-d42c-58ae-9123-6d28d8506763")
+		)
+		(instances
+			(project "tube_power_amp_revb"
+				(path "/451c49f3-c14c-5f4e-b828-2be954cd9e52/6096403a-7634-5ffe-bd5b-e0ad7a51a3db"
+					(reference "#PWR429")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 386.08 135.89) (xy 386.08 138.43)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e3f18f41-89a0-5ffa-91d6-c4555ebb5694")
+	)
+	(symbol
+		(lib_id "tube_power_amp_revb:GND")
+		(at 386.08 138.43 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "8c00866f-0185-5c33-8142-25aaad14591f")
+		(property "Reference" "#PWR430"
+			(at 386.08 144.78 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 386.08 142.24 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 386.08 138.43 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 386.08 138.43 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 386.08 138.43 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "2fb3f9b9-55e8-5cef-944a-1a7e3fcadf8c")
+		)
+		(instances
+			(project "tube_power_amp_revb"
+				(path "/451c49f3-c14c-5f4e-b828-2be954cd9e52/6096403a-7634-5ffe-bd5b-e0ad7a51a3db"
+					(reference "#PWR430")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "tube_power_amp_revb:74HC74")
+		(at 416.56 71.12 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "d71c6799-53b6-559e-982c-a6dcae56fbcc")
+		(property "Reference" "U404"
 			(at 408.94 62.23 0)
 			(effects
 				(font
@@ -11053,7 +12483,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Package_SO:SOIC-14_3.9x8.7mm_P1.27mm"
 			(at 416.56 71.12 0)
 			(effects
 				(font
@@ -11081,27 +12511,27 @@
 			)
 		)
 		(pin "1"
-			(uuid "7a58411d-30bf-5f5f-9b93-ac026e4f895e")
+			(uuid "354d1acb-5d31-5850-a1d4-bf2f06149043")
 		)
 		(pin "2"
-			(uuid "e90be0d9-f962-543b-abab-e7893387b076")
+			(uuid "65a37979-720c-5f8d-a229-b750719a0660")
 		)
 		(pin "3"
-			(uuid "667a138c-53fa-5f21-b303-f831228b92cd")
+			(uuid "97d7e1e7-19a2-54e7-a218-1604051dfae2")
 		)
 		(pin "4"
-			(uuid "9fbf7cde-f685-5914-bfec-e0f230d9a19e")
+			(uuid "8324176a-cd25-58af-97ae-ddff16e151d3")
 		)
 		(pin "5"
-			(uuid "e29d9ed8-11dd-5872-ba26-f3d185a3db4a")
+			(uuid "3b45996b-25da-532d-9b17-1671b40e1fd1")
 		)
 		(pin "6"
-			(uuid "b4871408-64d6-5064-b7a7-7d6a61de0052")
+			(uuid "f8be2892-4bcc-5bd3-8d3f-a0455517411f")
 		)
 		(instances
 			(project "tube_power_amp_revb"
 				(path "/451c49f3-c14c-5f4e-b828-2be954cd9e52/6096403a-7634-5ffe-bd5b-e0ad7a51a3db"
-					(reference "U403")
+					(reference "U404")
 					(unit 1)
 				)
 			)
@@ -11115,9 +12545,9 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "33e1d231-0b2a-517a-8d93-f5df5895feac")
+		(uuid "3f68abf3-3337-5ce8-bdb9-5723e42ca856")
 	)
-	(label "OC_ANY_N"
+	(label "OC_ANY_S"
 		(at 416.56 81.28 270)
 		(effects
 			(font
@@ -11125,7 +12555,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "8b7b867a-be9f-5462-9718-54b769ff6951")
+		(uuid "f5203f8f-79fd-55c2-bde3-554e56c1cd60")
 	)
 	(wire
 		(pts
@@ -11135,9 +12565,9 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "d6a17e80-d602-50fe-ac39-d80581fd3388")
+		(uuid "2e60e4c9-a42a-5e87-bac7-92ba23dabff2")
 	)
-	(label "OC_ANY_N"
+	(label "OC_ANY_S"
 		(at 406.4 68.58 180)
 		(effects
 			(font
@@ -11145,7 +12575,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "4487cca3-c8ce-5524-ae7f-7b551d4ac379")
+		(uuid "a5c0163b-06c9-5f8c-ad98-35246553bc8c")
 	)
 	(wire
 		(pts
@@ -11155,7 +12585,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "4191517c-76fc-52a8-9cb1-2a55ea4ee01e")
+		(uuid "cce39812-3231-5aa1-ad20-7aaa610eeaec")
 	)
 	(global_label "OC_CLR_A"
 		(shape passive)
@@ -11167,7 +12597,7 @@
 			)
 			(justify right)
 		)
-		(uuid "5548162b-d8f8-53ba-9480-ad8719f5b4df")
+		(uuid "09b5d0e8-902c-551d-b9b6-f5b91d750eb5")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 406.4 71.12 0)
 			(effects
@@ -11187,7 +12617,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "da6e25f2-2251-5246-b7b2-eb5bcb9a532a")
+		(uuid "fd2afa33-c95b-5156-a9a4-63a52ffcf38a")
 	)
 	(symbol
 		(lib_id "tube_power_amp_revb:+5V")
@@ -11197,8 +12627,8 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "8fd40beb-ab62-5104-83c5-63ec579bcd86")
-		(property "Reference" "#PWR427"
+		(uuid "b509f9c9-16ad-58d4-8b92-9a7164b8b372")
+		(property "Reference" "#PWR431"
 			(at 416.56 64.77 0)
 			(effects
 				(font
@@ -11243,12 +12673,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "4a18a4bf-ceb8-52ef-931a-e4177fb3d27d")
+			(uuid "6956b0a6-8fbb-5522-8135-bce33be6ac98")
 		)
 		(instances
 			(project "tube_power_amp_revb"
 				(path "/451c49f3-c14c-5f4e-b828-2be954cd9e52/6096403a-7634-5ffe-bd5b-e0ad7a51a3db"
-					(reference "#PWR427")
+					(reference "#PWR431")
 					(unit 1)
 				)
 			)
@@ -11262,7 +12692,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "8dd26585-3e4e-543d-8e2a-67af6981106e")
+		(uuid "44f50373-74fd-56e3-928a-3261eb19df11")
 	)
 	(global_label "OC_OK"
 		(shape passive)
@@ -11274,7 +12704,7 @@
 			)
 			(justify left)
 		)
-		(uuid "0382c4b5-92f5-5c70-9fa1-e5d5925f5ca6")
+		(uuid "1c0d6931-fa0d-5ebb-a04a-2f930b48522a")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 426.72 68.58 0)
 			(effects
@@ -11288,7 +12718,7 @@
 	)
 	(no_connect
 		(at 424.18 73.66)
-		(uuid "156bb93d-ffa4-53a3-ae50-6844fdd4b5a3")
+		(uuid "c0983d47-0f7a-54d5-adf0-63c34c25d35b")
 	)
 	(symbol
 		(lib_id "tube_power_amp_revb:74HC74")
@@ -11298,8 +12728,8 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "63908440-3bda-5f1f-9a9c-36e4b7fd864c")
-		(property "Reference" "U403"
+		(uuid "b8777015-0b2e-5393-9b65-089908918ad2")
+		(property "Reference" "U404"
 			(at 408.94 115.57 0)
 			(effects
 				(font
@@ -11315,7 +12745,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Package_SO:SOIC-14_3.9x8.7mm_P1.27mm"
 			(at 416.56 124.46 0)
 			(effects
 				(font
@@ -11343,27 +12773,27 @@
 			)
 		)
 		(pin "8"
-			(uuid "ce384349-2ce0-5de8-8f53-189ead141162")
+			(uuid "f93cdd2f-f7d1-506f-98db-9a92a8d1bd77")
 		)
 		(pin "9"
-			(uuid "c9a7de10-a4fd-5ef9-bccc-08d91ee8f551")
+			(uuid "aa0d3821-a6f4-5639-ac52-bc1291b5fde6")
 		)
 		(pin "10"
-			(uuid "f442f7dc-8a3e-5d70-a74a-4e5494b1bbaf")
+			(uuid "1c931c0d-659f-582f-a4cc-d5bb1339d238")
 		)
 		(pin "11"
-			(uuid "0485ad22-fc8c-5471-b9a3-e70a481b36b4")
+			(uuid "54fc5caf-9b55-5fa5-a446-71c7fd81f5e8")
 		)
 		(pin "12"
-			(uuid "7e158122-a7cc-502d-8869-9f906df4b24a")
+			(uuid "40b7f012-f1b5-5684-ade5-e7f15d247db3")
 		)
 		(pin "13"
-			(uuid "8f955efe-5170-5fca-8935-38328dd73e68")
+			(uuid "dd5d4f57-33c7-516f-8579-3e45069016eb")
 		)
 		(instances
 			(project "tube_power_amp_revb"
 				(path "/451c49f3-c14c-5f4e-b828-2be954cd9e52/6096403a-7634-5ffe-bd5b-e0ad7a51a3db"
-					(reference "U403")
+					(reference "U404")
 					(unit 2)
 				)
 			)
@@ -11377,7 +12807,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "6ad1151a-0b72-560a-b672-9ea1af0ebc3c")
+		(uuid "dc88730e-8e38-57b5-9a67-a135da83210c")
 	)
 	(symbol
 		(lib_id "tube_power_amp_revb:+5V")
@@ -11387,8 +12817,8 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "a30c8c8e-309e-5777-b459-eb0739c2504e")
-		(property "Reference" "#PWR428"
+		(uuid "b690848a-2566-5bc3-aecc-9997e6fb9cd1")
+		(property "Reference" "#PWR432"
 			(at 416.56 138.43 0)
 			(effects
 				(font
@@ -11433,12 +12863,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "e6e9f25d-8950-5831-93eb-80508dad8e84")
+			(uuid "8398e42a-4166-5982-829a-a143c28b5f04")
 		)
 		(instances
 			(project "tube_power_amp_revb"
 				(path "/451c49f3-c14c-5f4e-b828-2be954cd9e52/6096403a-7634-5ffe-bd5b-e0ad7a51a3db"
-					(reference "#PWR428")
+					(reference "#PWR432")
 					(unit 1)
 				)
 			)
@@ -11452,7 +12882,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "2869f569-e752-5924-83a1-63281127374a")
+		(uuid "0d1b7883-4609-5bba-bd03-d2393b4fa940")
 	)
 	(symbol
 		(lib_id "tube_power_amp_revb:GND")
@@ -11462,8 +12892,8 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "529f680d-5386-5cee-93ff-a84db16cc7db")
-		(property "Reference" "#PWR429"
+		(uuid "0ff2650f-54f3-52c5-a514-81700026171a")
+		(property "Reference" "#PWR433"
 			(at 406.4 128.27 0)
 			(effects
 				(font
@@ -11508,12 +12938,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "3c6ac0b4-d42c-58ae-9123-6d28d8506763")
+			(uuid "2e6ee387-d4d2-5434-a208-19c9ed4add5a")
 		)
 		(instances
 			(project "tube_power_amp_revb"
 				(path "/451c49f3-c14c-5f4e-b828-2be954cd9e52/6096403a-7634-5ffe-bd5b-e0ad7a51a3db"
-					(reference "#PWR429")
+					(reference "#PWR433")
 					(unit 1)
 				)
 			)
@@ -11527,7 +12957,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "8936573a-f764-5f5a-a2d8-cdd03613ba72")
+		(uuid "831d08df-079c-5752-8d95-e8e991490457")
 	)
 	(symbol
 		(lib_id "tube_power_amp_revb:GND")
@@ -11537,8 +12967,8 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "8c00866f-0185-5c33-8142-25aaad14591f")
-		(property "Reference" "#PWR430"
+		(uuid "54f062c6-4e0a-57b0-bfd3-774d2e9d4ffd")
+		(property "Reference" "#PWR434"
 			(at 406.4 130.81 0)
 			(effects
 				(font
@@ -11583,12 +13013,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "2fb3f9b9-55e8-5cef-944a-1a7e3fcadf8c")
+			(uuid "5ff09720-5c45-5e9c-b210-c4834527f15d")
 		)
 		(instances
 			(project "tube_power_amp_revb"
 				(path "/451c49f3-c14c-5f4e-b828-2be954cd9e52/6096403a-7634-5ffe-bd5b-e0ad7a51a3db"
-					(reference "#PWR430")
+					(reference "#PWR434")
 					(unit 1)
 				)
 			)
@@ -11602,7 +13032,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "9d8da5ca-11c3-5c09-bc74-46cbd6e529cc")
+		(uuid "78e95795-70bd-513f-8cde-1b5f5f1c5762")
 	)
 	(symbol
 		(lib_id "tube_power_amp_revb:+5V")
@@ -11612,8 +13042,8 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "b509f9c9-16ad-58d4-8b92-9a7164b8b372")
-		(property "Reference" "#PWR431"
+		(uuid "91b24b71-2a8a-509b-8575-e25cef6fa7e2")
+		(property "Reference" "#PWR435"
 			(at 416.56 118.11 0)
 			(effects
 				(font
@@ -11658,12 +13088,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "6956b0a6-8fbb-5522-8135-bce33be6ac98")
+			(uuid "a6854bf3-2c9b-5a4d-abc6-c4408c706c5a")
 		)
 		(instances
 			(project "tube_power_amp_revb"
 				(path "/451c49f3-c14c-5f4e-b828-2be954cd9e52/6096403a-7634-5ffe-bd5b-e0ad7a51a3db"
-					(reference "#PWR431")
+					(reference "#PWR435")
 					(unit 1)
 				)
 			)
@@ -11671,11 +13101,11 @@
 	)
 	(no_connect
 		(at 424.18 121.92)
-		(uuid "fb6d8300-6e20-5a92-8945-fe8237175c15")
+		(uuid "e0a2f5d3-7012-52a1-a070-a77559d3c3ad")
 	)
 	(no_connect
 		(at 424.18 127)
-		(uuid "77fa0723-3fc2-5834-a2b2-11bfd7db0290")
+		(uuid "fe609d17-4f72-5a4b-938f-6476ec1f5ec3")
 	)
 	(symbol
 		(lib_id "tube_power_amp_revb:74HC74")
@@ -11685,8 +13115,8 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "f515cb44-fc52-5cd7-bbc4-1d8c75480e14")
-		(property "Reference" "U403"
+		(uuid "52ad4054-1945-513b-a7fa-002a57d1201f")
+		(property "Reference" "U404"
 			(at 482.26 69.85 0)
 			(effects
 				(font
@@ -11702,7 +13132,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Package_SO:SOIC-14_3.9x8.7mm_P1.27mm"
 			(at 477.52 71.12 0)
 			(effects
 				(font
@@ -11730,15 +13160,15 @@
 			)
 		)
 		(pin "7"
-			(uuid "6e2cd4c6-74dd-5ebb-a0c4-77c645d83fb6")
+			(uuid "83617356-dd13-5115-8660-df68058a65f5")
 		)
 		(pin "14"
-			(uuid "c7ae59b4-89b2-54b1-88f1-73b691901c83")
+			(uuid "b864a62c-b681-5085-8280-f53cc74a9af4")
 		)
 		(instances
 			(project "tube_power_amp_revb"
 				(path "/451c49f3-c14c-5f4e-b828-2be954cd9e52/6096403a-7634-5ffe-bd5b-e0ad7a51a3db"
-					(reference "U403")
+					(reference "U404")
 					(unit 3)
 				)
 			)
@@ -11752,7 +13182,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "316718ad-c6f1-5aaf-a681-93d3d91b163a")
+		(uuid "8a870425-e99f-5fa8-98c8-7dd18508b562")
 	)
 	(symbol
 		(lib_id "tube_power_amp_revb:+5V")
@@ -11762,8 +13192,8 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "b690848a-2566-5bc3-aecc-9997e6fb9cd1")
-		(property "Reference" "#PWR432"
+		(uuid "35a0c54c-b086-5ce6-a93a-0b360fe6d956")
+		(property "Reference" "#PWR436"
 			(at 477.52 62.23 0)
 			(effects
 				(font
@@ -11808,12 +13238,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "8398e42a-4166-5982-829a-a143c28b5f04")
+			(uuid "d62a5fa4-f0a0-5fa8-b89e-ed329585ee16")
 		)
 		(instances
 			(project "tube_power_amp_revb"
 				(path "/451c49f3-c14c-5f4e-b828-2be954cd9e52/6096403a-7634-5ffe-bd5b-e0ad7a51a3db"
-					(reference "#PWR432")
+					(reference "#PWR436")
 					(unit 1)
 				)
 			)
@@ -11827,7 +13257,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "e2116c71-a932-514b-a027-e81d79d3b557")
+		(uuid "cad8b692-1e34-5adf-a140-8676eee10130")
 	)
 	(symbol
 		(lib_id "tube_power_amp_revb:GND")
@@ -11837,8 +13267,8 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "0ff2650f-54f3-52c5-a514-81700026171a")
-		(property "Reference" "#PWR433"
+		(uuid "0d3c073e-f109-589c-8a8c-ec48cc43be19")
+		(property "Reference" "#PWR437"
 			(at 477.52 90.17 0)
 			(effects
 				(font
@@ -11883,12 +13313,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "2e6ee387-d4d2-5434-a208-19c9ed4add5a")
+			(uuid "3ebea0ee-130c-53a8-822d-221eb6eebb38")
 		)
 		(instances
 			(project "tube_power_amp_revb"
 				(path "/451c49f3-c14c-5f4e-b828-2be954cd9e52/6096403a-7634-5ffe-bd5b-e0ad7a51a3db"
-					(reference "#PWR433")
+					(reference "#PWR437")
 					(unit 1)
 				)
 			)
@@ -11902,8 +13332,8 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "53ab28ba-6dba-57dc-875b-d497bb7e6b0b")
-		(property "Reference" "C418"
+		(uuid "f5b0b036-73b6-5de7-b100-446bd1633924")
+		(property "Reference" "C423"
 			(at 502.58 69.85 0)
 			(effects
 				(font
@@ -11919,7 +13349,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
 			(at 498.8052 74.93 0)
 			(effects
 				(font
@@ -11947,15 +13377,15 @@
 			)
 		)
 		(pin "1"
-			(uuid "dcee00d1-0258-5835-87eb-04ae0d2b0da6")
+			(uuid "9dea9928-aac6-5402-b89c-18d6fb35972b")
 		)
 		(pin "2"
-			(uuid "6e43f182-36e1-5f09-9813-9d43ff3cdb53")
+			(uuid "c1ba31e3-3e2f-555b-9d3b-70fe58541ceb")
 		)
 		(instances
 			(project "tube_power_amp_revb"
 				(path "/451c49f3-c14c-5f4e-b828-2be954cd9e52/6096403a-7634-5ffe-bd5b-e0ad7a51a3db"
-					(reference "C418")
+					(reference "C423")
 					(unit 1)
 				)
 			)
@@ -11969,7 +13399,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "bc59a27d-6c1d-57f8-a0e8-c50d51db00c2")
+		(uuid "0d175367-8b81-5809-8dda-1f8812c2cba4")
 	)
 	(symbol
 		(lib_id "tube_power_amp_revb:+5V")
@@ -11979,8 +13409,8 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "54f062c6-4e0a-57b0-bfd3-774d2e9d4ffd")
-		(property "Reference" "#PWR434"
+		(uuid "96cac224-f231-58d5-8451-10da8149023b")
+		(property "Reference" "#PWR438"
 			(at 497.84 68.58 0)
 			(effects
 				(font
@@ -12025,12 +13455,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "5ff09720-5c45-5e9c-b210-c4834527f15d")
+			(uuid "966c93e2-1f0a-5a68-aef5-22a309e17ab8")
 		)
 		(instances
 			(project "tube_power_amp_revb"
 				(path "/451c49f3-c14c-5f4e-b828-2be954cd9e52/6096403a-7634-5ffe-bd5b-e0ad7a51a3db"
-					(reference "#PWR434")
+					(reference "#PWR438")
 					(unit 1)
 				)
 			)
@@ -12044,7 +13474,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "a858efe6-b08e-567e-bd34-cfb7d74bedfc")
+		(uuid "cf91d3ab-86ec-529e-88a6-c97ea58c98e1")
 	)
 	(symbol
 		(lib_id "tube_power_amp_revb:GND")
@@ -12054,8 +13484,8 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "91b24b71-2a8a-509b-8575-e25cef6fa7e2")
-		(property "Reference" "#PWR435"
+		(uuid "4f8bbbdd-9590-5024-8c8a-bdfc1b30a392")
+		(property "Reference" "#PWR439"
 			(at 497.84 83.82 0)
 			(effects
 				(font
@@ -12100,12 +13530,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "a6854bf3-2c9b-5a4d-abc6-c4408c706c5a")
+			(uuid "015a19ab-4187-53e6-afd1-ba956cbe81c7")
 		)
 		(instances
 			(project "tube_power_amp_revb"
 				(path "/451c49f3-c14c-5f4e-b828-2be954cd9e52/6096403a-7634-5ffe-bd5b-e0ad7a51a3db"
-					(reference "#PWR435")
+					(reference "#PWR439")
 					(unit 1)
 				)
 			)
@@ -12136,7 +13566,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
 			(at 455.422 115.57 0)
 			(effects
 				(font
@@ -12186,7 +13616,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "dd92b4d0-9678-5a10-abc4-135fc3b42478")
+		(uuid "a6378b47-7f51-5f18-ada1-64e0caebef04")
 	)
 	(global_label "OC_CLR_A"
 		(shape passive)
@@ -12198,7 +13628,7 @@
 			)
 			(justify left)
 		)
-		(uuid "e8f27dc6-4b86-56dd-92ae-b808569f8020")
+		(uuid "0c929497-6b51-5bc6-9df8-0ec3dbf4149a")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 457.2 109.22 0)
 			(effects
@@ -12218,7 +13648,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "d02ec05b-8632-58ad-b8d9-b7fcdb177fa9")
+		(uuid "16890b5d-a266-5038-85c6-9296de6575ef")
 	)
 	(symbol
 		(lib_id "tube_power_amp_revb:GND")
@@ -12228,8 +13658,8 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "35a0c54c-b086-5ce6-a93a-0b360fe6d956")
-		(property "Reference" "#PWR436"
+		(uuid "ad08b8b7-e391-5181-ac16-399bc7d112f2")
+		(property "Reference" "#PWR440"
 			(at 457.2 128.27 0)
 			(effects
 				(font
@@ -12274,18 +13704,18 @@
 			)
 		)
 		(pin "1"
-			(uuid "d62a5fa4-f0a0-5fa8-b89e-ed329585ee16")
+			(uuid "5aa93538-0dfc-53c6-8059-f85edac68da6")
 		)
 		(instances
 			(project "tube_power_amp_revb"
 				(path "/451c49f3-c14c-5f4e-b828-2be954cd9e52/6096403a-7634-5ffe-bd5b-e0ad7a51a3db"
-					(reference "#PWR436")
+					(reference "#PWR440")
 					(unit 1)
 				)
 			)
 		)
 	)
-	(text "Latch: any comparator low -> ~R low -> OC_OK = 0 (tripped). Power-on: 100k / 1u holds ~R low about 70 ms -> starts tripped. OC_CLR rising edge clocks D = OC_ANY_N: clears only if no comparator is tripped. OC_OK -> HV_PERMIT (both switches) and OC_TRIP_N (sheet 05)."
+	(text "Schmitt buffer U405: the slow RC edge of OC_ANY_N and the comparator-driven BIAS_OK_PRE into CMOS inputs. Latch: any comparator low -> ~R low -> OC_OK = 0 (tripped). Power-on: 100k / 1u holds ~R low about 70 ms -> starts tripped. OC_CLR rising edge clocks D = OC_ANY_N: clears only if no comparator is tripped. OC_OK -> HV_PERMIT (both switches) and OC_TRIP_N (sheet 05)."
 		(exclude_from_sim no)
 		(at 335.28 149.86 0)
 		(effects
@@ -12294,7 +13724,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "af26bdb3-a4d8-59a7-9e6c-08455e8a0f3c")
+		(uuid "500b816a-ff4c-5814-80d2-919ae0aba333")
 	)
 	(symbol
 		(lib_id "tube_power_amp_revb:ADS7828")
@@ -12304,8 +13734,8 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "d71c6799-53b6-559e-982c-a6dcae56fbcc")
-		(property "Reference" "U404"
+		(uuid "212a6a75-0c03-56bd-8608-7f60d170cf2d")
+		(property "Reference" "U405"
 			(at 411.48 198.12 0)
 			(effects
 				(font
@@ -12313,7 +13743,7 @@
 				)
 			)
 		)
-		(property "Value" "ADS7828 (12-bit x8, I2C 0x4B)"
+		(property "Value" "ADS7828E (12-bit x8, I2C 0x4B)"
 			(at 421.64 198.12 0)
 			(effects
 				(font
@@ -12349,57 +13779,57 @@
 			)
 		)
 		(pin "1"
-			(uuid "354d1acb-5d31-5850-a1d4-bf2f06149043")
+			(uuid "e3a2f85c-9564-509c-a5d0-afa0d37d4bf3")
 		)
 		(pin "2"
-			(uuid "65a37979-720c-5f8d-a229-b750719a0660")
+			(uuid "bec042f3-9a0e-538a-a200-c7f9a6455abe")
 		)
 		(pin "3"
-			(uuid "97d7e1e7-19a2-54e7-a218-1604051dfae2")
+			(uuid "3132cea2-946f-5770-85f0-02c035522587")
 		)
 		(pin "4"
-			(uuid "8324176a-cd25-58af-97ae-ddff16e151d3")
+			(uuid "bed081bb-3b8b-5597-888a-91cf9c4aa04d")
 		)
 		(pin "5"
-			(uuid "3b45996b-25da-532d-9b17-1671b40e1fd1")
+			(uuid "4d730a0d-1a1b-5f84-be8e-0c23d11e2343")
 		)
 		(pin "6"
-			(uuid "f8be2892-4bcc-5bd3-8d3f-a0455517411f")
+			(uuid "69014818-b45d-5e9c-bfa8-55306a74ce9e")
 		)
 		(pin "7"
-			(uuid "2a10b998-5cd8-5a38-ad8b-b8bad22a07dd")
+			(uuid "b16b0443-66ba-51d9-b91d-a3ef1679f756")
 		)
 		(pin "8"
-			(uuid "fcde3695-d7a1-5e42-a29f-b087f936a509")
+			(uuid "61195e12-e0f8-5ea6-9e04-09f3fa8e03bc")
 		)
 		(pin "9"
-			(uuid "0c56a0ff-f7c4-5dc2-ac6d-c292df7ec2ca")
+			(uuid "e0904dac-6269-521a-9a0d-51222e3094b5")
 		)
 		(pin "10"
-			(uuid "1f610b95-7418-52d3-98fe-7e4ed08abce7")
+			(uuid "0c5a649b-9a59-535c-88f6-da373a19335f")
 		)
 		(pin "11"
-			(uuid "5b838212-1df9-58c5-bc73-e70768df5881")
+			(uuid "9ad577bf-be59-543e-872f-c713310450ba")
 		)
 		(pin "12"
-			(uuid "0eef33e3-4442-5c40-aca9-b5f17e4c8be3")
+			(uuid "4e3602fb-25b7-57e2-bfba-2145cca81938")
 		)
 		(pin "13"
-			(uuid "bd5d3aff-5d37-5597-8779-be77d49e945d")
+			(uuid "5852ee43-72b0-50c8-93d8-e8a99f6d309e")
 		)
 		(pin "14"
-			(uuid "d8a03b6c-952d-5a5a-b3c5-20d1cc2111dd")
+			(uuid "f599c832-4957-5aca-9ddf-ccf870e788ac")
 		)
 		(pin "15"
-			(uuid "5d4f8b17-72e5-5b40-b544-d95afcf04057")
+			(uuid "f2f9c5a1-95b5-5bda-a59f-a9f88346b91a")
 		)
 		(pin "16"
-			(uuid "c8c1b079-6fb7-5507-a0f8-1440cb88f069")
+			(uuid "ea0e4979-b95e-55ae-88d5-b193bea775e3")
 		)
 		(instances
 			(project "tube_power_amp_revb"
 				(path "/451c49f3-c14c-5f4e-b828-2be954cd9e52/6096403a-7634-5ffe-bd5b-e0ad7a51a3db"
-					(reference "U404")
+					(reference "U405")
 					(unit 1)
 				)
 			)
@@ -12413,7 +13843,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "50f89dcb-3616-5333-b8b3-71886abeb3ea")
+		(uuid "546a8cf6-3150-5be1-83dd-4d4ae97e6e82")
 	)
 	(label "ISNS1"
 		(at 403.86 203.2 180)
@@ -12423,7 +13853,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "5f944794-50ac-5a94-9853-39f04f19ed53")
+		(uuid "bdf39aa6-7ea2-5082-932f-b4a39c405ac2")
 	)
 	(wire
 		(pts
@@ -12433,7 +13863,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "99c057bf-fbba-5c88-b0ed-c774bf1e94f9")
+		(uuid "5b2e39d4-dd02-5edf-bf54-7ebe7bf03fd1")
 	)
 	(label "ISNS2"
 		(at 403.86 205.74 180)
@@ -12443,7 +13873,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "e3f18f41-89a0-5ffa-91d6-c4555ebb5694")
+		(uuid "c7b6692e-00f7-5de9-b8b1-6f55fcaf054c")
 	)
 	(wire
 		(pts
@@ -12453,7 +13883,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "3f68abf3-3337-5ce8-bdb9-5723e42ca856")
+		(uuid "1248a7d2-fc73-590f-b534-46f4ba570910")
 	)
 	(label "ISNS3"
 		(at 403.86 208.28 180)
@@ -12463,7 +13893,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "f5203f8f-79fd-55c2-bde3-554e56c1cd60")
+		(uuid "5a7a9720-f644-508f-ab02-1ddd5ff126a6")
 	)
 	(wire
 		(pts
@@ -12473,7 +13903,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "2e60e4c9-a42a-5e87-bac7-92ba23dabff2")
+		(uuid "bf813727-6400-57cb-a698-a4f01c1ff52f")
 	)
 	(label "ISNS4"
 		(at 403.86 210.82 180)
@@ -12483,7 +13913,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "a5c0163b-06c9-5f8c-ad98-35246553bc8c")
+		(uuid "4296d0dd-7cbd-52f1-897f-601ccdd26f87")
 	)
 	(wire
 		(pts
@@ -12493,7 +13923,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "cce39812-3231-5aa1-ad20-7aaa610eeaec")
+		(uuid "cd6eba65-c715-5938-bb8f-db26f3dcd0b0")
 	)
 	(label "VNC_ADC"
 		(at 403.86 213.36 180)
@@ -12503,7 +13933,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "09b5d0e8-902c-551d-b9b6-f5b91d750eb5")
+		(uuid "fc6f763d-3c5b-5c2e-a070-7c84a7b93b59")
 	)
 	(wire
 		(pts
@@ -12513,7 +13943,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "fd2afa33-c95b-5156-a9a4-63a52ffcf38a")
+		(uuid "c638fbf3-7532-50af-a2a2-14e289715023")
 	)
 	(label "M80_ADC"
 		(at 403.86 215.9 180)
@@ -12523,7 +13953,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "44f50373-74fd-56e3-928a-3261eb19df11")
+		(uuid "cb7b9907-dbaf-5cb6-b5a1-ccda728971b6")
 	)
 	(wire
 		(pts
@@ -12533,7 +13963,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "1c0d6931-fa0d-5ebb-a04a-2f930b48522a")
+		(uuid "b6234c8d-79e7-5d0b-a009-128a47de5c61")
 	)
 	(label "P15_ADC"
 		(at 403.86 218.44 180)
@@ -12543,7 +13973,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "c0983d47-0f7a-54d5-adf0-63c34c25d35b")
+		(uuid "25d636e5-9475-50e3-919f-693f6f94199f")
 	)
 	(wire
 		(pts
@@ -12553,7 +13983,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "dc88730e-8e38-57b5-9a67-a135da83210c")
+		(uuid "c90423db-cb4a-510f-afbc-38b78d42e962")
 	)
 	(symbol
 		(lib_id "tube_power_amp_revb:GND")
@@ -12563,8 +13993,8 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "0d3c073e-f109-589c-8a8c-ec48cc43be19")
-		(property "Reference" "#PWR437"
+		(uuid "827dba1f-17b6-53f9-b66d-7177fcf892cb")
+		(property "Reference" "#PWR441"
 			(at 403.86 227.33 0)
 			(effects
 				(font
@@ -12609,12 +14039,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "3ebea0ee-130c-53a8-822d-221eb6eebb38")
+			(uuid "a43988bb-9924-5121-bfa6-0b9b3fc9a596")
 		)
 		(instances
 			(project "tube_power_amp_revb"
 				(path "/451c49f3-c14c-5f4e-b828-2be954cd9e52/6096403a-7634-5ffe-bd5b-e0ad7a51a3db"
-					(reference "#PWR437")
+					(reference "#PWR441")
 					(unit 1)
 				)
 			)
@@ -12628,7 +14058,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "0d1b7883-4609-5bba-bd03-d2393b4fa940")
+		(uuid "65f8b9f0-b5fb-5209-858a-972eee406fc5")
 	)
 	(symbol
 		(lib_id "tube_power_amp_revb:GND")
@@ -12638,8 +14068,8 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "96cac224-f231-58d5-8451-10da8149023b")
-		(property "Reference" "#PWR438"
+		(uuid "b58f955f-8807-5203-abec-ddfb792b1b35")
+		(property "Reference" "#PWR442"
 			(at 416.56 242.57 0)
 			(effects
 				(font
@@ -12684,12 +14114,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "966c93e2-1f0a-5a68-aef5-22a309e17ab8")
+			(uuid "3987b6ce-9e06-5fc7-bb38-88c81ee1874c")
 		)
 		(instances
 			(project "tube_power_amp_revb"
 				(path "/451c49f3-c14c-5f4e-b828-2be954cd9e52/6096403a-7634-5ffe-bd5b-e0ad7a51a3db"
-					(reference "#PWR438")
+					(reference "#PWR442")
 					(unit 1)
 				)
 			)
@@ -12703,7 +14133,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "831d08df-079c-5752-8d95-e8e991490457")
+		(uuid "159fa35f-f81e-57c0-ae01-467a5b0d96b5")
 	)
 	(global_label "VREF2V5"
 		(shape passive)
@@ -12715,7 +14145,7 @@
 			)
 			(justify left)
 		)
-		(uuid "78e95795-70bd-513f-8cde-1b5f5f1c5762")
+		(uuid "a0e2e7dc-2541-5fbe-ae21-1de6521a76bc")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 429.26 213.36 0)
 			(effects
@@ -12735,7 +14165,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "e0a2f5d3-7012-52a1-a070-a77559d3c3ad")
+		(uuid "3b41ff6a-86f1-5e83-8713-04c745072b8c")
 	)
 	(symbol
 		(lib_id "tube_power_amp_revb:GND")
@@ -12745,8 +14175,8 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "4f8bbbdd-9590-5024-8c8a-bdfc1b30a392")
-		(property "Reference" "#PWR439"
+		(uuid "4f22ab2f-4712-576f-abd8-38f1c74eee8b")
+		(property "Reference" "#PWR443"
 			(at 403.86 232.41 0)
 			(effects
 				(font
@@ -12791,12 +14221,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "015a19ab-4187-53e6-afd1-ba956cbe81c7")
+			(uuid "688cc0ca-03c2-5fa3-bb23-32e427e4374d")
 		)
 		(instances
 			(project "tube_power_amp_revb"
 				(path "/451c49f3-c14c-5f4e-b828-2be954cd9e52/6096403a-7634-5ffe-bd5b-e0ad7a51a3db"
-					(reference "#PWR439")
+					(reference "#PWR443")
 					(unit 1)
 				)
 			)
@@ -12810,7 +14240,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "fe609d17-4f72-5a4b-938f-6476ec1f5ec3")
+		(uuid "6ee2ab7d-0936-51af-b517-15989c90312e")
 	)
 	(symbol
 		(lib_id "tube_power_amp_revb:+5V")
@@ -12820,8 +14250,8 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "ad08b8b7-e391-5181-ac16-399bc7d112f2")
-		(property "Reference" "#PWR440"
+		(uuid "c65e72b8-81da-53cf-8d3f-7ac77b63cc03")
+		(property "Reference" "#PWR444"
 			(at 429.26 227.33 0)
 			(effects
 				(font
@@ -12866,12 +14296,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "5aa93538-0dfc-53c6-8059-f85edac68da6")
+			(uuid "5fea630d-5389-5d9e-a6f5-2dc73321581f")
 		)
 		(instances
 			(project "tube_power_amp_revb"
 				(path "/451c49f3-c14c-5f4e-b828-2be954cd9e52/6096403a-7634-5ffe-bd5b-e0ad7a51a3db"
-					(reference "#PWR440")
+					(reference "#PWR444")
 					(unit 1)
 				)
 			)
@@ -12885,7 +14315,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "8a870425-e99f-5fa8-98c8-7dd18508b562")
+		(uuid "03bcc613-a3f1-52b3-8dda-12e271ef40c9")
 	)
 	(symbol
 		(lib_id "tube_power_amp_revb:+5V")
@@ -12895,8 +14325,8 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "827dba1f-17b6-53f9-b66d-7177fcf892cb")
-		(property "Reference" "#PWR441"
+		(uuid "400979bc-e2fe-5fba-8729-31b6613931bc")
+		(property "Reference" "#PWR445"
 			(at 429.26 229.87 0)
 			(effects
 				(font
@@ -12941,12 +14371,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "a43988bb-9924-5121-bfa6-0b9b3fc9a596")
+			(uuid "df9920c9-8561-528e-af01-0d81ce0d2abb")
 		)
 		(instances
 			(project "tube_power_amp_revb"
 				(path "/451c49f3-c14c-5f4e-b828-2be954cd9e52/6096403a-7634-5ffe-bd5b-e0ad7a51a3db"
-					(reference "#PWR441")
+					(reference "#PWR445")
 					(unit 1)
 				)
 			)
@@ -12960,7 +14390,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "cad8b692-1e34-5adf-a140-8676eee10130")
+		(uuid "30178663-3c9d-57ae-bf6d-4770c1ac1287")
 	)
 	(global_label "I2C_SCL_A"
 		(shape passive)
@@ -12972,7 +14402,7 @@
 			)
 			(justify left)
 		)
-		(uuid "0d175367-8b81-5809-8dda-1f8812c2cba4")
+		(uuid "493b3bc4-9254-5a99-8f17-e9f8800a311c")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 429.26 205.74 0)
 			(effects
@@ -12992,7 +14422,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "cf91d3ab-86ec-529e-88a6-c97ea58c98e1")
+		(uuid "24b75229-5d56-5278-949a-82b9c7309da0")
 	)
 	(global_label "I2C_SDA_A"
 		(shape passive)
@@ -13004,7 +14434,7 @@
 			)
 			(justify left)
 		)
-		(uuid "a6378b47-7f51-5f18-ada1-64e0caebef04")
+		(uuid "70b05c58-a245-5a87-86b4-5258e54b225d")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 429.26 203.2 0)
 			(effects
@@ -13024,7 +14454,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "0c929497-6b51-5bc6-9df8-0ec3dbf4149a")
+		(uuid "9caeedb4-8c6c-581b-91a0-a33fbc04a7e4")
 	)
 	(symbol
 		(lib_id "tube_power_amp_revb:+5V")
@@ -13034,8 +14464,8 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "b58f955f-8807-5203-abec-ddfb792b1b35")
-		(property "Reference" "#PWR442"
+		(uuid "fe5861ff-5048-542e-bf8d-4db8c4aa22b9")
+		(property "Reference" "#PWR446"
 			(at 416.56 196.85 0)
 			(effects
 				(font
@@ -13080,12 +14510,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "3987b6ce-9e06-5fc7-bb38-88c81ee1874c")
+			(uuid "97b7e04a-ffb4-5106-8f04-5b627853104e")
 		)
 		(instances
 			(project "tube_power_amp_revb"
 				(path "/451c49f3-c14c-5f4e-b828-2be954cd9e52/6096403a-7634-5ffe-bd5b-e0ad7a51a3db"
-					(reference "#PWR442")
+					(reference "#PWR446")
 					(unit 1)
 				)
 			)
@@ -13099,8 +14529,8 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "f58a7fb3-6f05-5253-9d37-48fbf49f83be")
-		(property "Reference" "C419"
+		(uuid "0c8fbcff-352a-5921-9141-eb0d4ef9739a")
+		(property "Reference" "C424"
 			(at 482.26 194.31 0)
 			(effects
 				(font
@@ -13116,7 +14546,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
 			(at 478.4852 199.39 0)
 			(effects
 				(font
@@ -13144,15 +14574,15 @@
 			)
 		)
 		(pin "1"
-			(uuid "cf3ebeb1-5c48-5da0-80ef-36a698bb1a8d")
+			(uuid "a8beaba5-1b76-5e7b-b4f7-0ce5069169d9")
 		)
 		(pin "2"
-			(uuid "8e251ec5-251b-5192-9cf4-9f9d3434db42")
+			(uuid "3a4f3072-f638-5ccf-83d9-57201455cd6f")
 		)
 		(instances
 			(project "tube_power_amp_revb"
 				(path "/451c49f3-c14c-5f4e-b828-2be954cd9e52/6096403a-7634-5ffe-bd5b-e0ad7a51a3db"
-					(reference "C419")
+					(reference "C424")
 					(unit 1)
 				)
 			)
@@ -13166,7 +14596,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "16890b5d-a266-5038-85c6-9296de6575ef")
+		(uuid "ff2891e9-8015-5a6d-8e3c-c50208b8e432")
 	)
 	(symbol
 		(lib_id "tube_power_amp_revb:+5V")
@@ -13176,8 +14606,8 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "4f22ab2f-4712-576f-abd8-38f1c74eee8b")
-		(property "Reference" "#PWR443"
+		(uuid "2c753016-72fb-5dfd-84f5-d23f2a7400ff")
+		(property "Reference" "#PWR447"
 			(at 477.52 193.04 0)
 			(effects
 				(font
@@ -13222,12 +14652,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "688cc0ca-03c2-5fa3-bb23-32e427e4374d")
+			(uuid "841aba07-7fdd-5ead-9c9e-b37b35af0882")
 		)
 		(instances
 			(project "tube_power_amp_revb"
 				(path "/451c49f3-c14c-5f4e-b828-2be954cd9e52/6096403a-7634-5ffe-bd5b-e0ad7a51a3db"
-					(reference "#PWR443")
+					(reference "#PWR447")
 					(unit 1)
 				)
 			)
@@ -13241,7 +14671,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "500b816a-ff4c-5814-80d2-919ae0aba333")
+		(uuid "3d409b32-420a-59f3-a67c-fef771792b47")
 	)
 	(symbol
 		(lib_id "tube_power_amp_revb:GND")
@@ -13251,8 +14681,8 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "c65e72b8-81da-53cf-8d3f-7ac77b63cc03")
-		(property "Reference" "#PWR444"
+		(uuid "22641d94-24c9-57dd-bba1-54c180571b13")
+		(property "Reference" "#PWR448"
 			(at 477.52 208.28 0)
 			(effects
 				(font
@@ -13297,12 +14727,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "5fea630d-5389-5d9e-a6f5-2dc73321581f")
+			(uuid "8e100918-eda1-519d-8553-90fac2299e24")
 		)
 		(instances
 			(project "tube_power_amp_revb"
 				(path "/451c49f3-c14c-5f4e-b828-2be954cd9e52/6096403a-7634-5ffe-bd5b-e0ad7a51a3db"
-					(reference "#PWR444")
+					(reference "#PWR448")
 					(unit 1)
 				)
 			)
@@ -13333,7 +14763,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
 			(at 335.28 250.698 0)
 			(effects
 				(font
@@ -13383,7 +14813,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "546a8cf6-3150-5be1-83dd-4d4ae97e6e82")
+		(uuid "a6d5ed48-e803-5771-b0e8-886200b32d9a")
 	)
 	(global_label "VNC"
 		(shape passive)
@@ -13395,7 +14825,7 @@
 			)
 			(justify right)
 		)
-		(uuid "bdf39aa6-7ea2-5082-932f-b4a39c405ac2")
+		(uuid "c3ddd4f2-e8c6-5a77-a74d-51cf53d78ea5")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 328.93 248.92 0)
 			(effects
@@ -13415,7 +14845,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "5b2e39d4-dd02-5edf-bf54-7ebe7bf03fd1")
+		(uuid "7ddb895d-436c-507c-8430-2e40328acadb")
 	)
 	(label "VNC_ADC"
 		(at 341.63 248.92 0)
@@ -13425,7 +14855,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "c7b6692e-00f7-5de9-b8b1-6f55fcaf054c")
+		(uuid "bdcd3bf6-e6ce-5115-ba55-86228ceeb41e")
 	)
 	(symbol
 		(lib_id "tube_power_amp_revb:R")
@@ -13452,7 +14882,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
 			(at 335.28 272.288 0)
 			(effects
 				(font
@@ -13502,7 +14932,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "1248a7d2-fc73-590f-b534-46f4ba570910")
+		(uuid "7fd7bab4-41fb-5655-951f-b77380f1cf31")
 	)
 	(label "VNC_ADC"
 		(at 328.93 270.51 180)
@@ -13512,7 +14942,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "5a7a9720-f644-508f-ab02-1ddd5ff126a6")
+		(uuid "b3ea45f1-8fbc-585e-b59a-7ac518d30d31")
 	)
 	(wire
 		(pts
@@ -13522,7 +14952,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "bf813727-6400-57cb-a698-a4f01c1ff52f")
+		(uuid "c1fec534-5c31-5eb9-a313-894c8ddc6018")
 	)
 	(global_label "VREF10"
 		(shape passive)
@@ -13534,7 +14964,7 @@
 			)
 			(justify left)
 		)
-		(uuid "4296d0dd-7cbd-52f1-897f-601ccdd26f87")
+		(uuid "994f0fdc-4b6a-59ef-bb71-124cd8c50e60")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 341.63 270.51 0)
 			(effects
@@ -13554,8 +14984,8 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "734e8ba9-02b4-5307-89fe-48f9247a840a")
-		(property "Reference" "C420"
+		(uuid "70faf5fc-ebcf-5743-9470-674a310ef80a")
+		(property "Reference" "C425"
 			(at 360.34 265.43 0)
 			(effects
 				(font
@@ -13571,7 +15001,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
 			(at 356.5652 270.51 0)
 			(effects
 				(font
@@ -13599,15 +15029,15 @@
 			)
 		)
 		(pin "1"
-			(uuid "60cac820-62b5-571d-bf3f-a7373088f45b")
+			(uuid "026bf4dc-47af-578a-83a0-1cf25ff9dad8")
 		)
 		(pin "2"
-			(uuid "79b209f0-6772-5ba1-ab5f-77321f779c52")
+			(uuid "650a83a9-45e7-56bd-88e9-33e90d94526d")
 		)
 		(instances
 			(project "tube_power_amp_revb"
 				(path "/451c49f3-c14c-5f4e-b828-2be954cd9e52/6096403a-7634-5ffe-bd5b-e0ad7a51a3db"
-					(reference "C420")
+					(reference "C425")
 					(unit 1)
 				)
 			)
@@ -13621,7 +15051,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "cd6eba65-c715-5938-bb8f-db26f3dcd0b0")
+		(uuid "301750bf-e55e-55d1-9387-6aea89965bb4")
 	)
 	(label "VNC_ADC"
 		(at 355.6 260.35 90)
@@ -13631,7 +15061,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "fc6f763d-3c5b-5c2e-a070-7c84a7b93b59")
+		(uuid "888675d7-8106-5f97-bd07-11f3ff26f754")
 	)
 	(wire
 		(pts
@@ -13641,7 +15071,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "c638fbf3-7532-50af-a2a2-14e289715023")
+		(uuid "9d890719-296a-5bc1-a288-277571321246")
 	)
 	(symbol
 		(lib_id "tube_power_amp_revb:GND")
@@ -13651,8 +15081,8 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "400979bc-e2fe-5fba-8729-31b6613931bc")
-		(property "Reference" "#PWR445"
+		(uuid "59dfcb54-6a2f-5311-9b18-9c87323c3483")
+		(property "Reference" "#PWR449"
 			(at 355.6 279.4 0)
 			(effects
 				(font
@@ -13697,12 +15127,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "df9920c9-8561-528e-af01-0d81ce0d2abb")
+			(uuid "542775f0-c310-51c1-bd31-e95aec5c7554")
 		)
 		(instances
 			(project "tube_power_amp_revb"
 				(path "/451c49f3-c14c-5f4e-b828-2be954cd9e52/6096403a-7634-5ffe-bd5b-e0ad7a51a3db"
-					(reference "#PWR445")
+					(reference "#PWR449")
 					(unit 1)
 				)
 			)
@@ -13733,7 +15163,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
 			(at 375.92 250.698 0)
 			(effects
 				(font
@@ -13783,7 +15213,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "cb7b9907-dbaf-5cb6-b5a1-ccda728971b6")
+		(uuid "1e4e910d-b322-5959-9668-73d4710fce55")
 	)
 	(global_label "M80"
 		(shape passive)
@@ -13795,7 +15225,7 @@
 			)
 			(justify right)
 		)
-		(uuid "b6234c8d-79e7-5d0b-a009-128a47de5c61")
+		(uuid "eccd55e8-ec3f-55da-b644-e95fa253dcdc")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 369.57 248.92 0)
 			(effects
@@ -13815,7 +15245,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "25d636e5-9475-50e3-919f-693f6f94199f")
+		(uuid "23a2cd94-75b7-52e2-8637-e0fa8abdaa6d")
 	)
 	(label "M80_ADC"
 		(at 382.27 248.92 0)
@@ -13825,7 +15255,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "c90423db-cb4a-510f-afbc-38b78d42e962")
+		(uuid "b5066125-fc34-5e37-9b9d-ed277c3715c9")
 	)
 	(symbol
 		(lib_id "tube_power_amp_revb:R")
@@ -13852,7 +15282,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
 			(at 375.92 272.288 0)
 			(effects
 				(font
@@ -13902,7 +15332,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "65f8b9f0-b5fb-5209-858a-972eee406fc5")
+		(uuid "d9bc75e7-e0ea-578c-a022-790df9031672")
 	)
 	(label "M80_ADC"
 		(at 369.57 270.51 180)
@@ -13912,7 +15342,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "159fa35f-f81e-57c0-ae01-467a5b0d96b5")
+		(uuid "33787ecd-e83f-5157-ac67-419ebac7682d")
 	)
 	(wire
 		(pts
@@ -13922,7 +15352,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "a0e2e7dc-2541-5fbe-ae21-1de6521a76bc")
+		(uuid "84d8c880-76c9-52b6-9e52-3ecdd380dd50")
 	)
 	(global_label "VREF10"
 		(shape passive)
@@ -13934,7 +15364,7 @@
 			)
 			(justify left)
 		)
-		(uuid "3b41ff6a-86f1-5e83-8713-04c745072b8c")
+		(uuid "43dfb3db-a57e-5ecc-960c-6b305a7d0041")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 382.27 270.51 0)
 			(effects
@@ -13954,8 +15384,8 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "9ff85d18-448d-5a76-b088-61a7d278d0fd")
-		(property "Reference" "C421"
+		(uuid "43dac4bf-864d-5c5c-a669-3bd9d90f21f5")
+		(property "Reference" "C426"
 			(at 400.98 265.43 0)
 			(effects
 				(font
@@ -13971,7 +15401,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
 			(at 397.2052 270.51 0)
 			(effects
 				(font
@@ -13999,15 +15429,15 @@
 			)
 		)
 		(pin "1"
-			(uuid "38e5c792-202c-5983-8cba-2ba8f1e2ba11")
+			(uuid "e870bf0c-b498-550a-966f-883eedf145d3")
 		)
 		(pin "2"
-			(uuid "f7401f04-2951-5a89-94f3-87eb97ae7654")
+			(uuid "35f51acd-81d4-54cf-8f61-e49b2ba396e6")
 		)
 		(instances
 			(project "tube_power_amp_revb"
 				(path "/451c49f3-c14c-5f4e-b828-2be954cd9e52/6096403a-7634-5ffe-bd5b-e0ad7a51a3db"
-					(reference "C421")
+					(reference "C426")
 					(unit 1)
 				)
 			)
@@ -14021,7 +15451,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "6ee2ab7d-0936-51af-b517-15989c90312e")
+		(uuid "20de8296-344d-55f0-bf36-059ae1f46c8e")
 	)
 	(label "M80_ADC"
 		(at 396.24 260.35 90)
@@ -14031,7 +15461,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "03bcc613-a3f1-52b3-8dda-12e271ef40c9")
+		(uuid "441cfc00-a63a-52f0-baa2-f2f25bfe6097")
 	)
 	(wire
 		(pts
@@ -14041,7 +15471,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "30178663-3c9d-57ae-bf6d-4770c1ac1287")
+		(uuid "a63c1f12-2620-5817-94d4-163df54b88f9")
 	)
 	(symbol
 		(lib_id "tube_power_amp_revb:GND")
@@ -14051,8 +15481,8 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "fe5861ff-5048-542e-bf8d-4db8c4aa22b9")
-		(property "Reference" "#PWR446"
+		(uuid "e6f3ae1d-a4ad-5e61-8dfb-bf1a2cd07ffa")
+		(property "Reference" "#PWR450"
 			(at 396.24 279.4 0)
 			(effects
 				(font
@@ -14097,12 +15527,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "97b7e04a-ffb4-5106-8f04-5b627853104e")
+			(uuid "fa3d8b52-5cc3-5698-89fb-734212838842")
 		)
 		(instances
 			(project "tube_power_amp_revb"
 				(path "/451c49f3-c14c-5f4e-b828-2be954cd9e52/6096403a-7634-5ffe-bd5b-e0ad7a51a3db"
-					(reference "#PWR446")
+					(reference "#PWR450")
 					(unit 1)
 				)
 			)
@@ -14133,7 +15563,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
 			(at 497.84 250.698 0)
 			(effects
 				(font
@@ -14183,7 +15613,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "493b3bc4-9254-5a99-8f17-e9f8800a311c")
+		(uuid "28e502ca-3428-57c6-aa8a-7c3edee809b1")
 	)
 	(symbol
 		(lib_id "tube_power_amp_revb:+15V")
@@ -14193,8 +15623,8 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "2c753016-72fb-5dfd-84f5-d23f2a7400ff")
-		(property "Reference" "#PWR447"
+		(uuid "35691235-479f-540c-9196-f441fbf9edb0")
+		(property "Reference" "#PWR451"
 			(at 491.49 252.73 0)
 			(effects
 				(font
@@ -14239,12 +15669,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "841aba07-7fdd-5ead-9c9e-b37b35af0882")
+			(uuid "547c072b-839a-55ce-b4b2-0d25573a5ee7")
 		)
 		(instances
 			(project "tube_power_amp_revb"
 				(path "/451c49f3-c14c-5f4e-b828-2be954cd9e52/6096403a-7634-5ffe-bd5b-e0ad7a51a3db"
-					(reference "#PWR447")
+					(reference "#PWR451")
 					(unit 1)
 				)
 			)
@@ -14258,7 +15688,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "24b75229-5d56-5278-949a-82b9c7309da0")
+		(uuid "57aafdae-c04e-5131-aa11-e3d1775bf36e")
 	)
 	(label "P15_ADC"
 		(at 504.19 248.92 0)
@@ -14268,7 +15698,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "70b05c58-a245-5a87-86b4-5258e54b225d")
+		(uuid "d16bc192-5672-563f-b606-c3bfe65cbc96")
 	)
 	(symbol
 		(lib_id "tube_power_amp_revb:R")
@@ -14295,7 +15725,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
 			(at 497.84 272.288 0)
 			(effects
 				(font
@@ -14345,7 +15775,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "9caeedb4-8c6c-581b-91a0-a33fbc04a7e4")
+		(uuid "af43b7cf-74f3-5602-8e13-1b79e0de1ffc")
 	)
 	(label "P15_ADC"
 		(at 491.49 270.51 180)
@@ -14355,7 +15785,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "ff2891e9-8015-5a6d-8e3c-c50208b8e432")
+		(uuid "dc2be422-61ca-553e-8e53-94ae9c68a09b")
 	)
 	(wire
 		(pts
@@ -14365,7 +15795,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "3d409b32-420a-59f3-a67c-fef771792b47")
+		(uuid "79dbdfd0-ea51-5eae-be62-2b053cef2bdf")
 	)
 	(symbol
 		(lib_id "tube_power_amp_revb:GND")
@@ -14375,8 +15805,8 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "22641d94-24c9-57dd-bba1-54c180571b13")
-		(property "Reference" "#PWR448"
+		(uuid "4d707efb-53ff-579b-9bff-9db34e805d4a")
+		(property "Reference" "#PWR452"
 			(at 504.19 276.86 0)
 			(effects
 				(font
@@ -14421,12 +15851,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "8e100918-eda1-519d-8553-90fac2299e24")
+			(uuid "404470f7-b988-5386-8b20-6e75a936e783")
 		)
 		(instances
 			(project "tube_power_amp_revb"
 				(path "/451c49f3-c14c-5f4e-b828-2be954cd9e52/6096403a-7634-5ffe-bd5b-e0ad7a51a3db"
-					(reference "#PWR448")
+					(reference "#PWR452")
 					(unit 1)
 				)
 			)
@@ -14440,8 +15870,8 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "840c61f7-2761-5240-88cf-9e2dbbcd31c6")
-		(property "Reference" "C422"
+		(uuid "e5652b31-c09c-570a-8543-33ee34e1bca7")
+		(property "Reference" "C427"
 			(at 522.9 265.43 0)
 			(effects
 				(font
@@ -14457,7 +15887,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
 			(at 519.1252 270.51 0)
 			(effects
 				(font
@@ -14485,15 +15915,15 @@
 			)
 		)
 		(pin "1"
-			(uuid "18329b65-5afe-5a07-bf9e-b0ee8c2ce2a8")
+			(uuid "5e396644-a430-564e-a756-1e4e98c95e7f")
 		)
 		(pin "2"
-			(uuid "80b56fb2-f701-55c8-90c5-2c5bcabbbb74")
+			(uuid "6f93db1e-39dd-5046-9413-fb9fb4d3e2a5")
 		)
 		(instances
 			(project "tube_power_amp_revb"
 				(path "/451c49f3-c14c-5f4e-b828-2be954cd9e52/6096403a-7634-5ffe-bd5b-e0ad7a51a3db"
-					(reference "C422")
+					(reference "C427")
 					(unit 1)
 				)
 			)
@@ -14507,7 +15937,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "a6d5ed48-e803-5771-b0e8-886200b32d9a")
+		(uuid "51a28f37-3a10-5850-9f46-81a1525c98f5")
 	)
 	(label "P15_ADC"
 		(at 518.16 260.35 90)
@@ -14517,7 +15947,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "c3ddd4f2-e8c6-5a77-a74d-51cf53d78ea5")
+		(uuid "9194c8ee-e8ff-52d1-82ec-73c8450d9426")
 	)
 	(wire
 		(pts
@@ -14527,7 +15957,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "7ddb895d-436c-507c-8430-2e40328acadb")
+		(uuid "adb58223-1d91-5422-8fc1-b2a014e59080")
 	)
 	(symbol
 		(lib_id "tube_power_amp_revb:GND")
@@ -14537,8 +15967,8 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "59dfcb54-6a2f-5311-9b18-9c87323c3483")
-		(property "Reference" "#PWR449"
+		(uuid "2b1a853c-7ece-550c-830b-7b0821932b51")
+		(property "Reference" "#PWR453"
 			(at 518.16 279.4 0)
 			(effects
 				(font
@@ -14583,12 +16013,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "542775f0-c310-51c1-bd31-e95aec5c7554")
+			(uuid "0c391ecf-19d2-5165-af49-16c4057b0a5c")
 		)
 		(instances
 			(project "tube_power_amp_revb"
 				(path "/451c49f3-c14c-5f4e-b828-2be954cd9e52/6096403a-7634-5ffe-bd5b-e0ad7a51a3db"
-					(reference "#PWR449")
+					(reference "#PWR453")
 					(unit 1)
 				)
 			)
@@ -14603,7 +16033,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "bdcd3bf6-e6ce-5115-ba55-86228ceeb41e")
+		(uuid "3a3279be-347b-51bd-9555-75006e1bd030")
 	)
 	(sheet_instances
 		(path "/"
