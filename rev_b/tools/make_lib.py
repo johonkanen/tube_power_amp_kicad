@@ -23,7 +23,7 @@ WANT = [
     ("Isolator", "PC817"), ("Interface_Expansion", "MCP23S17x-x-SS"),
     ("Connector_Generic", "Conn_02x07_Odd_Even"), ("Connector_Generic", "Conn_02x05_Odd_Even"),
     ("Connector_Generic", "Conn_01x01"), ("Connector_Generic", "Conn_01x02"), ("Connector_Generic", "Conn_01x03"),
-    ("Connector_Generic", "Conn_01x05"),
+    ("Connector_Generic", "Conn_01x05"), ("Connector_Generic", "Conn_02x03_Top_Bottom"), ("Device", "D_TVS"),
     ("power", "GND"), ("power", "GNDD"), ("power", "+5V"), ("power", "+15V"), ("power", "-15V"), ("power", "PWR_FLAG"),
 ]
 _cache = {}

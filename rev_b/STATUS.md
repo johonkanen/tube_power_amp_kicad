@@ -1,5 +1,82 @@
 # Power amp rev B: status
 
+## Third pass (2026-11-23)
+
+The user's decisions of 2026-11-23 (coordinator's list, through V1-V5, V15, 16) drawn. ERC 0 errors /
+1 warning (the same intended ADS7828 REF one); **328 parts**, 98 BOM lines.
+
+### What changed
+
+| # | Decision | Drawn | Check |
+|---|---|---|---|
+| 1 | Grid leak 91k, coupling cap 220 nF film ≥ 630 V, all four types (V1, V2) | R101/105/109/113 91k axial 0207 (350 V); C103-C106 220n / 630 V MKP on a 22.5 mm MKS4 footprint | Grid circuit 91k + 5.6k + 1k = **98 kΩ**. **6550 deviation:** 98 kΩ against its 50 kΩ fixed-bias rating (Tung-Sol), accepted by the user; covered by the cold-default bias, the per-tube firmware current loop and the 220 mA hardware over-current trip. Within rating for 6L6GC and KT88 (100 kΩ) and EL34 (500 kΩ). Stated on sheet 01 and in the README |
+| 2 | Open-load protection fitted (V3) | Per plate **D101 / D104 RGP02-20E** (Vishay, 2 kV, 0.5 A, 300 ns, DO-41) from GND to the plate; per primary half **D102+D103 / D105+D106: 2x P6KE350CA** in series (Littelfuse, bidirectional, VBR 332 / 350 / 368 V at 1 mA, VC 482 V at 1.24 A, 600 W, 5 W steady state, DO-15) from the plate to OT_CT (= V_ANODE). The optional UF4007 clamps are gone | One 2 kV part instead of 2x UF4007: no static sharing to manage (2x 1 kV in series at 1.1-1.25 kV would need sharing resistors of about 1 MΩ each, 0.6 kV rated, permanently loading the plate). The TVS string needs no sharing resistors (a resistor would be a DC path plate to centre tap); a leakage imbalance only puts one TVS into its knee at µA, the string stays off. Re-run of the study's clamp check with these parts (`sim/pi_nfb/run_clamp_check.py`, copy; results `sim/pi_nfb/results/clamp_check.md`): string 664 / 700 / 736 V (VBR min / nom / max), 184 Ω dynamic, 15 pF; 220n / 91k, Rf 100k, V_ANODE 400 V, 18 V at the PI input |
+| 3 | W24 = Molex Mini-Fit Jr (V5) | J105 2x3, **Molex 39-28-1063 class** (5566-06A vertical; order code to confirm), receptacle 39-01-2060; circuits 1-5 = GND, DRV_A, GND, DRV_B, GND; circuit 6 N/C; footprint Connector_Molex:Molex_Mini-Fit_Jr_5566-06A_2x03_P4.20mm_Vertical | 600 V AC/DC. Pad layout: row 1 = 1 2 3, row 2 = 4 5 6 (5.5 mm). DRV_A (2) has GND at 1, 3 and 5; DRV_B (4) has GND at 1 and 5; the two drive lines are diagonal (6.9 mm), antiphase on the same DC (≤ about 140 V between them). No reason to change the assignment |
+| 4 | V_ANODE 0.6 A continuous; HV trips at 2.0 A (decision 15) | Layout rule: V_ANODE / OT_CT / OT_A / OT_B copper and the 4.8 mm tabs for **2.0 A** continuous (about 3 mm in 2 oz external at a 20 K rise) | `sim/power_stage/run_anode_current.py` (results/anode_current.md), below |
+| 5 | +15 V present 13.0 / 13.25 V; pump 56k + 1k; DAC 0x48 / ADC 0x4B; X9 wording | As drawn in the second pass | — |
+| 6 | Rear edge and the HV arm | Layout notes (README) | — |
+
+### Clamp check with the chosen parts
+
+| Case (all four types, 100 Hz and 1 kHz) | Plate to ground | Plate to centre tap (across the string) | Clamp |
+|---|---|---|---|
+| Loaded (speaker model or 8 Ω), full overdrive | 0.71-1.03 kV | **≤ 631 V** (EL34 1 kHz; KT88 624, 6550 616, 6L6GC 548) | off with the lowest string (664 V): 0.00 W, ≤ 0.1 mJ of knee current |
+| Speaker pulled while playing | **1.10-1.24 kV** (664-736 V strings) | 0.70-0.84 kV | ≤ **6.9 mJ** per event, then ≤ 0.46 W for both halves together (≤ 0.12 W per TVS) with no load at full drive |
+| Lowest plate | -2 V (the plate diodes conduct) | | |
+
+The "real voltage across the clamp" is plate-to-ground minus V_ANODE: the 0.87-1.09 kV plate peaks of
+the study are 0.47-0.69 kV across the string. Margin of the lowest string to the loaded peak: 33 V
+at 25 °C; the TVS breakdown falls about 0.1 %/K when cold, so at 0 °C about 16 V is left (it then
+starts to conduct a little in the EL34 1 kHz overdrive case, not a hazard: µA to mA in a 600 W part).
+If more margin is wanted: P6KE350CA + P6KE400CA (VBR min 712 V; unplug peak then up to 1.29 kV).
+
+**Creepage / clearance:** OT_A, OT_B and the TVS midpoints CL_A / CL_B reach **1.25 kV peak to GND**
+and up to 1.25 kV between OT_A and OT_B. IPC-2221B B2 (external, uncoated): 0.005 mm/V above
+500 V = **6.3 mm**. Rule for the layout: ≥ 6.3 mm creepage and clearance from those nets to anything
+else (and between them), slots where it can't be met; the RGP02-20E on a 12.7 mm pitch (body 5.2 mm),
+the TVS on 12.7 mm (each sees ≤ 0.42 kV); the 4.8 mm OT tabs with fully insulated receptacles. The
+OT primary's own insulation at 1.25 kV is a question for Hammond (output_stage_stability.md).
+
+### V_ANODE current (stage.py with the decided parts, V_ANODE 400 V, idle 70 % of Pa max, 8 Ω, stiff 5 Ω supply)
+
+| Set | Drive | V_ANODE average | V_ANODE peak | V_SCREEN average | One plate peak |
+|---|---|---|---|---|---|
+| 4x KT88 | sine, 160 V into the PI clip | **0.59-0.60 A** | 0.62-0.76 A | 0.13 A | 0.39 A |
+| 4x KT88 | square (PI fully clipped) | **0.64-0.66 A** | 0.65-0.79 A | 0.18 A | 0.40 A |
+| 4x EL34 | sine | 0.53-0.54 A | 0.56-0.69 A | 0.12 A | 0.35 A |
+| 4x EL34 | square | 0.61-0.62 A | 0.62-0.71 A | 0.15 A | 0.36 A |
+| 4x 6550 | sine / square | 0.50-0.51 / 0.55-0.57 A | 0.52-0.65 A | 0.14-0.18 A | 0.33 A |
+| 4x 6L6GC | sine / square | 0.48 / 0.55-0.56 A | 0.50-0.59 A | 0.03-0.04 A | 0.30 A |
+
+(Ranges: 1 kHz to 100 Hz; the 100 Hz peaks are higher. The output in these runs is 110-200 W, deep overdrive with a stiff supply: the worst case, not a rated power.)
+
+**0.6 A continuous holds for sine overdrive with every type; a square-wave overdrive (the PI fully
+clipped, a fuzz into the loop) takes KT88 to 0.64-0.66 A and EL34 to 0.61-0.62 A**, and the KT88 model
+reads about 12 % low on plate current at full signal (sim/models), so a real KT88 set could reach
+about 0.7 A average. That is 10-20 % over 0.6 A only in a sustained square-wave case; the real
+supply's sag lowers it. Proposal: state V_ANODE as 0.6 A continuous with 0.7 A for minutes (thermal
+check on the HV supplies), peaks 0.8 A; the 2.0 A trip doesn't come near. **New: V_SCREEN averages
+0.12-0.18 A at full overdrive** (EL34, KT88, 6550), above the 100 mA average in interfaces.md 3.2
+(the 0.25 A peak holds); the screen resistors then dissipate about 2-2.5 W each (5 W parts: OK).
+
+### Interface check (changes since the second pass)
+
+Row 12 (W24 header) **OK** now (Mini-Fit Jr, 600 V). Row 14 (grid circuit) **OK** (decided; 6550
+deviation recorded). Rows 25, 27 (X9 wording) **OK** (accepted). Row 37 (V_ANODE) **OK** with the
+note above. New row 43: V_SCREEN average at overdrive, **question** (0.18 A against 100 mA). New row
+44: open-load protection fitted, **OK** (creepage rule above). New row 45: the OT primary's insulation
+at 1.25 kV peak to ground with the clamps, **question** (Hammond). Row 38 (rear edge): **OK** as a
+layout constraint (README). **45 rows: 40 OK, 0 problems, 5 questions (3, 8, 41, 43, 45).**
+
+### Proposals / new items
+
+- V_SCREEN: 3.2 says 100 mA average; full overdrive gives 0.12-0.18 A (HV supplies, interfaces.md 3.1 / 3.2).
+- V_ANODE: 0.6 A continuous, about 0.7 A average for minutes in square-wave overdrive with KT88 (HV supplies thermal check).
+- Hammond: primary insulation for 1.25 kV peak to ground with the clamps.
+- W24: no change to the assignment proposed.
+
+---
+
 ## Second pass (2026-11-23)
 
 Against interfaces.md **IF-1.2** (IF-2 on W17, which this board doesn't use), the bias decisions of

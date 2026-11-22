@@ -1,4 +1,4 @@
-# Power amp rev B: schematic (second pass)
+# Power amp rev B: schematic (third pass)
 
 The next power amp board (4 octal output tubes, per-tube cold-by-default bias, cathode-current
 measurement, over-current trip, hardware HV inhibit), drawn from the project's own documents and
@@ -12,6 +12,34 @@ SAFE-1..SAFE-6, PS-2. Rev A (the 2010 `OUTPUT` board) at the repo root is frozen
 Scope of this pass (2026-11-21): initial schematic, interface viability check, what has been
 missed. **No layout, no footprints yet.** The check results, missed items, missing simulations and
 missing requirements are in [STATUS.md](STATUS.md).
+
+## Third pass (2026-11-23)
+
+Decisions of 2026-11-23 drawn; details and checks in [STATUS.md](STATUS.md) "Third pass".
+- **Grid leak 91k, coupling cap 220 nF / 630 V film, all four types.** Grid circuit 98 kΩ.
+  **6550 deviation:** 98 kΩ is about twice the 6550's 50 kΩ fixed-bias rating (Tung-Sol); accepted by
+  the user, covered by the cold-default bias, the per-tube firmware current loop and the 220 mA
+  hardware over-current trip. (The "Grid circuit resistance" table below still applies; the options
+  discussed there are closed.)
+- **Open-load protection fitted:** RGP02-20E (2 kV) from GND to each plate; 2x P6KE350CA from each
+  plate to the centre tap. Off with a load (≤ 631 V across a ≥ 664 V string), plates held at
+  1.10-1.24 kV when the speaker is pulled, ≤ 6.9 mJ per event.
+- **W24 = Molex Mini-Fit Jr 2x3** (39-28-1063 class), circuits 1-5 as before, 6 N/C.
+- **V_ANODE:** 0.48-0.60 A average at sine overdrive, up to 0.66 A at square-wave overdrive (KT88);
+  copper and tabs sized for the 2.0 A trip.
+
+### Layout notes (added in the third pass)
+
+- **1.25 kV nets** (OT_A, OT_B, CL_A, CL_B): ≥ 6.3 mm creepage and clearance to everything else and to
+  each other (IPC-2221B B2, 0.005 mm/V); slots where needed; clamps near J104.
+- **V_ANODE / OT copper:** sized for 2.0 A continuous.
+- **Rear edge, x 280-322:** the rear I/O main board stands 7 mm behind this outline there (its SMD
+  parts and solder joints face this board). Nothing of this board may overhang its outline there:
+  no part body, tab or receptacle past the rear edge in that span.
+- **Right end:** the HV supplies board's new arm is at x 525-560, y 127-200, 5.9 mm from this board's
+  right end (x 519): no overhang at the right end either; the tabs facing it (V_ANODE, V_SCREEN,
+  -80 V, heaters, OT) need their insulated receptacles and lead bend within the 5.9 mm gap, or enter
+  from below.
 
 ## Second pass (2026-11-23)
 

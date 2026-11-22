@@ -159,13 +159,14 @@ TUBES = ((1, "V1", "DRV_A", "OT_A"), (2, "V2", "DRV_A", "OT_A"), (3, "V3", "DRV_
 
 # ------------------------------------------------------------------ sheet 01
 def sheet01(d):
-    d.text("01 Output stage: 4 octal sockets (solder side, as built; standard octal numbering), per-tube coupling "
-           "cap and grid leak to its own bias (BIASn, sheet 03) - values OPEN -, 5.6k grid stopper, 1k 5 W flameproof screen "
+    d.text("01 Output stage: 4 octal sockets (solder side, as built; standard octal numbering), per-tube 220n coupling "
+           "cap and 91k grid leak to its own bias (BIASn, sheet 03), 5.6k grid stopper, 1k 5 W flameproof screen "
            "resistor from V_SCREEN, 1 ohm cathode shunt with a power diode and a Kelvin tap (KELVn) to the sense amp (sheet 04).",
            0, -1.4, 2)
-    d.text("Coupling cap / grid leak OPEN (interfaces.md 10, 14; review U7): 47n / 100k drawn; 47n / 220k (sim/pi_nfb) or "
-           "100n / 220k (PI + FX). Footprints take either: 15 mm film box (630 V), axial 0207 (350 V). The datasheet "
-           "limit for fixed bias (README 'Grid circuit resistance') is lower than 220k for 6L6GC and 6550.", 6, 9.3, 1.6)
+    d.text("Coupling cap 220 nF / 630 V film and grid leak 91k for all four types (decided 2026-11-23, V1 / V2): grid "
+           "circuit 91k + 5.6k + 1k = 98 kOhm. 6550 DEVIATION: twice its 50 kOhm fixed-bias rating (Tung-Sol), accepted; "
+           "covered by the cold-default bias, the firmware current loop and the hardware over-current trip. "
+           "Within rating for 6L6GC / KT88 (100k) and EL34 (500k).", 6, 9.3, 1.6)
     d.text("Ground: GND = AGND, the local star at the GND_PWR tab (J101 pin 2). The cathode shunts, the drive grounds "
            "(W24, solid at this end), the HV decoupling and the bias circuit return here. Heaters float: no heater "
            "reference on this board (interfaces.md 5). OT secondary COM is not connected here.", 0, -0.9, 1.6)
@@ -174,24 +175,28 @@ def sheet01(d):
     d.part("Conn_01x01", "J102", 0, 2.6, {1: "V_SCREEN"}, value="W05-b V_SCREEN (4.8 mm tab)")
     d.part("Conn_01x02", "J103", 0, 4, {1: "HTR1", 2: "HTR2"}, value="W06-b HEATER (6.3 mm tabs)")
     d.part("Conn_01x03", "J104", 0, 5.6, {1: "OT_A", 2: "OT_B", 3: "V_ANODE"}, value="W11-a OT_A / OT_B / OT_CT (4.8 mm tabs)")
-    d.part("Conn_01x05", "J105", 0, 7.6, {1: "GND", 2: "DRV_A", 3: "GND", 4: "DRV_B", 5: "GND"},
-           value="W24-b DRIVE (Lock-3.96; 280-390 V DC on pins 2 / 4)")
+    d.part("Conn_02x03_Top_Bottom", "J105", 0, 7.6, {1: "GND", 2: "DRV_A", 3: "GND", 4: "DRV_B", 5: "GND", 6: "NC"},
+           value="W24-b DRIVE (Mini-Fit Jr 2x3, 600 V; 280-390 V DC on pins 2 / 4)")
     for i, n in enumerate(("V_ANODE", "V_SCREEN", "HTR1", "HTR2", "GND")):
         d.flag(n, 2, 1 + i * 0.7)
     C(d, "C101", 3, 1, "V_ANODE", "GND", "100n/630V")
     C(d, "C102", 3.8, 1, "V_SCREEN", "GND", "100n/630V")
     d.text("C101 / C102: local HF decoupling at the tabs (proposal; check with the HV supplies' output loop)", 2.6, 2.3)
-    # flyback clamps (SAFE-5 option)
+    # open-load protection (decided 2026-11-23, V3): fitted
     for k, (side, ot) in enumerate((("A", "OT_A"), ("B", "OT_B"))):
-        d.part("D", f"D1{k}1", 3 + k * 1.6, 4, {1: f"FB_{side}", 2: "GND"}, value="UF4007 (option, SAFE-5)", rot=90)
-        d.part("D", f"D1{k}2", 3 + k * 1.6, 5.2, {1: ot, 2: f"FB_{side}"}, value="UF4007 (option, SAFE-5)", rot=90)
-    d.text("Anode flyback clamps (2x UF4007 per side, GND to OT_x): fit if SAFE-5 asks for open-load protection", 2.6, 6.4)
+        d.part("D", f"D1{k}1", 3 + k * 1.6, 4, {1: ot, 2: "GND"}, value="RGP02-20E (2 kV, plate diode)", rot=90)
+        d.part("D_TVS", f"D1{k}2", 3 + k * 1.6, 5.2, {1: ot, 2: f"CL_{side}"}, value="P6KE350CA (TVS, bidirectional)", rot=90)
+        d.part("D_TVS", f"D1{k}3", 3 + k * 1.6, 6.4, {1: f"CL_{side}", 2: "V_ANODE"}, value="P6KE350CA (TVS, bidirectional)", rot=90)
+    d.text("Open-load protection, FITTED (docs/output_stage_stability.md): one 2 kV diode from GND to each plate (no "
+           "series string, so no sharing resistors); 2x P6KE350CA in series from each plate to the centre tap "
+           "(V_ANODE): 664-736 V string, off with a load at full overdrive, plates held at about 1.1-1.2 kV when the "
+           "speaker is pulled. OT_A / OT_B / CL_x reach 1.25 kV to GND: >= 6.3 mm creepage and clearance (slots).", 2.6, 7.4)
     # tubes
     for n, v, drv, ot in TUBES:
         c0 = 6 + (n - 1) * 5
         d.text(f"{v}: {'side A' if ot == 'OT_A' else 'side B'}", c0, 0.4)
-        C(d, f"C1{n}0", c0, 1, drv, f"GRID{n}", "47n/630V MKP (OPEN: 47n-100n)", rot=90)
-        R(d, f"R1{n}0", c0 + 1, 2, f"GRID{n}", f"BIAS{n}", "100k (OPEN: 100k-220k)", rot=0)
+        C(d, f"C1{n}0", c0, 1, drv, f"GRID{n}", "220n/630V MKP", rot=90)
+        R(d, f"R1{n}0", c0 + 1, 2, f"GRID{n}", f"BIAS{n}", "91k", rot=0)
         R(d, f"R1{n}1", c0 + 2, 1, f"GRID{n}", f"G1_{n}", "5.6k", rot=90)
         R(d, f"R1{n}2", c0 + 2, 3, "V_SCREEN", f"G2_{n}", "1k 5W flameproof", rot=90)
         d.part("EL34", v, c0 + 3, 2, {1: f"K{n}", 3: ot, 4: f"G2_{n}", 5: f"G1_{n}", 8: f"K{n}"},
@@ -565,8 +570,8 @@ CONN = {"J101": (LOC + "BladeTab_x2_P5.00mm_Drill1.4mm_PLACEHOLDER", "4.8 mm PCB
         "J102": (LOC + "BladeTab_x1_P5.00mm_Drill1.4mm_PLACEHOLDER", "4.8 mm PCB blade tab", "PLACEHOLDER footprint"),
         "J103": (LOC + "BladeTab_x2_P5.00mm_Drill1.4mm_PLACEHOLDER", "6.3 mm PCB blade tabs", "PLACEHOLDER footprint; 6.4 A"),
         "J104": (LOC + "BladeTab_x3_P5.00mm_Drill1.4mm_PLACEHOLDER", "4.8 mm PCB blade tabs", "PLACEHOLDER footprint; anode nets"),
-        "J105": ("Connector_Molex:Molex_KK-396_A-41791-0005_1x05_P3.96mm_Vertical", "TE MTA-156 1x5 (600 V AC) - KK-396 is 250 V",
-                 "PLACEHOLDER: KK-396 pattern; header family must be rated >= 450 V DC (open)"),
+        "J105": ("Connector_Molex:Molex_Mini-Fit_Jr_5566-06A_2x03_P4.20mm_Vertical", "Molex 39-28-1063 class (Mini-Fit Jr 5566-06A; order code to confirm)",
+                 "600 V AC/DC; housing 39-01-2060, terminals 39-00-0039; circuit 6 N/C"),
         "J201": (LOC + "BladeTab_x2_P5.00mm_Drill1.4mm_PLACEHOLDER", "4.8 mm PCB blade tabs", "PLACEHOLDER footprint"),
         "J503": ("Connector_Molex:Molex_KK-254_AE-6410-02A_1x02_P2.54mm_Vertical", "22-27-2021 (Molex KK-254)", "")}
 
@@ -587,7 +592,7 @@ def footprint_for(ref, sym, v):
             return "Resistor_SMD:R_2512_6332Metric", "1R 1 W 1 % 50 ppm/K metal strip (2512)", ""
         if ref[2:3] == "1" and ref[1] == "1" and len(ref) == 4 and ref[3] in "01" and ref[2] in "1234":
             pass
-        if v.startswith(("100k (OPEN", "5.6k")):
+        if v in ("91k", "5.6k"):
             return AX0207, "metal film 0.6 W 350 V", "grid circuit"
         if "0.1%" in v:
             return R1206, f"{v.split()[0]} 0.1 % 25 ppm/K thin film 1206", ""
@@ -596,7 +601,8 @@ def footprint_for(ref, sym, v):
         return R0805, f"{v.split()[0]} 1 % 0805", ""
     if sym in ("C", "C_Polarized"):
         if "630V" in v and "MKP" in v:
-            return "Capacitor_THT:C_Rect_L18.0mm_W7.0mm_P15.00mm_FKS3_FKP3", "MKP 630 V, 15 mm pitch (47n or 100n)", "value OPEN"
+            return ("Capacitor_THT:C_Rect_L26.5mm_W10.5mm_P22.50mm_MKS4", "220n 630 V MKP, P 22.5 mm (WIMA MKP4 / Kemet R76 class)",
+                    "")
         if "630V" in v:
             return "Capacitor_SMD:C_1812_4532Metric", "100n 630 V X7R 1812", ""
         if "100u/100V" in v:
@@ -612,8 +618,10 @@ def footprint_for(ref, sym, v):
         if v.startswith(("220n", "330n")):
             return "Capacitor_SMD:C_0805_2012Metric", f"{v} 50 V X7R 0805 (C0G 1206 preferred)", ""
         return "Capacitor_SMD:C_0805_2012Metric", f"{v} 50 V X7R 0805", ""
-    if sym in ("D", "D_Schottky", "D_Zener"):
+    if sym in ("D", "D_Schottky", "D_Zener", "D_TVS"):
         table = {"UF4007": ("Diode_THT:D_DO-41_SOD81_P10.16mm_Horizontal", "UF4007"),
+                 "RGP02-20E": ("Diode_THT:D_DO-41_SOD81_P12.70mm_Horizontal", "RGP02-20E-E3/54 (Vishay, 2 kV, 0.5 A, 300 ns)"),
+                 "P6KE350CA": ("Diode_THT:D_DO-15_P12.70mm_Horizontal", "P6KE350CA (Littelfuse; VBR 332-368 V, VC 482 V at 1.24 A)"),
                  "S3M": ("Diode_SMD:D_SMC", "S3M-E3/57T (Vishay)"), "S1G": ("Diode_SMD:D_SMA", "S1G (1N4004 class)"),
                  "1N4148W": ("Diode_SMD:D_SOD-123", "1N4148W-7-F (Diodes Inc)"), "BAS416": ("Diode_SMD:D_SOD-323", "BAS416,115 (Nexperia)"),
                  "BZT52H": ("Diode_SMD:D_SOD-123F", "BZT52H-B36,115 (Nexperia)"), "BAT54": ("Diode_SMD:D_SOD-323", "BAT54J (Nexperia)"),

@@ -2,10 +2,10 @@
 refdes,footprint,value
 C101,Capacitor_SMD:C_1812_4532Metric,100n/630V
 C102,Capacitor_SMD:C_1812_4532Metric,100n/630V
-C103,Capacitor_THT:C_Rect_L18.0mm_W7.0mm_P15.00mm_FKS3_FKP3,47n/630V MKP (OPEN: 47n-100n)
-C104,Capacitor_THT:C_Rect_L18.0mm_W7.0mm_P15.00mm_FKS3_FKP3,47n/630V MKP (OPEN: 47n-100n)
-C105,Capacitor_THT:C_Rect_L18.0mm_W7.0mm_P15.00mm_FKS3_FKP3,47n/630V MKP (OPEN: 47n-100n)
-C106,Capacitor_THT:C_Rect_L18.0mm_W7.0mm_P15.00mm_FKS3_FKP3,47n/630V MKP (OPEN: 47n-100n)
+C103,Capacitor_THT:C_Rect_L26.5mm_W10.5mm_P22.50mm_MKS4,220n/630V MKP
+C104,Capacitor_THT:C_Rect_L26.5mm_W10.5mm_P22.50mm_MKS4,220n/630V MKP
+C105,Capacitor_THT:C_Rect_L26.5mm_W10.5mm_P22.50mm_MKS4,220n/630V MKP
+C106,Capacitor_THT:C_Rect_L26.5mm_W10.5mm_P22.50mm_MKS4,220n/630V MKP
 C201,Capacitor_THT:CP_Radial_D10.0mm_P5.00mm,100u/100V 105C
 C202,Capacitor_SMD:C_1210_3225Metric,10u/100V X7S 1210
 C203,Capacitor_SMD:C_1210_3225Metric,10u/100V X7S 1210
@@ -77,14 +77,16 @@ C508,Capacitor_SMD:C_0805_2012Metric,15n
 C509,Capacitor_SMD:C_0805_2012Metric,100n
 C510,Capacitor_SMD:C_0805_2012Metric,100n
 C511,Capacitor_SMD:C_0805_2012Metric,100n
-D101,Diode_THT:D_DO-41_SOD81_P10.16mm_Horizontal,"UF4007 (option, SAFE-5)"
-D102,Diode_THT:D_DO-41_SOD81_P10.16mm_Horizontal,"UF4007 (option, SAFE-5)"
-D103,Diode_THT:D_DO-41_SOD81_P10.16mm_Horizontal,"UF4007 (option, SAFE-5)"
-D104,Diode_THT:D_DO-41_SOD81_P10.16mm_Horizontal,"UF4007 (option, SAFE-5)"
-D105,Diode_SMD:D_SMC,S3M (3 A)
-D106,Diode_SMD:D_SMC,S3M (3 A)
+D101,Diode_THT:D_DO-41_SOD81_P12.70mm_Horizontal,"RGP02-20E (2 kV, plate diode)"
+D102,Diode_THT:D_DO-15_P12.70mm_Horizontal,"P6KE350CA (TVS, bidirectional)"
+D103,Diode_THT:D_DO-15_P12.70mm_Horizontal,"P6KE350CA (TVS, bidirectional)"
+D104,Diode_THT:D_DO-41_SOD81_P12.70mm_Horizontal,"RGP02-20E (2 kV, plate diode)"
+D105,Diode_THT:D_DO-15_P12.70mm_Horizontal,"P6KE350CA (TVS, bidirectional)"
+D106,Diode_THT:D_DO-15_P12.70mm_Horizontal,"P6KE350CA (TVS, bidirectional)"
 D107,Diode_SMD:D_SMC,S3M (3 A)
 D108,Diode_SMD:D_SMC,S3M (3 A)
+D109,Diode_SMD:D_SMC,S3M (3 A)
+D110,Diode_SMD:D_SMC,S3M (3 A)
 D201,Diode_SMD:D_SMA,S1G (reverse clamp)
 D202,Diode_SMD:D_SOD-123F,BZT52H-B36 (2 %)
 D203,Diode_SMD:D_SOD-123F,BZT52H-B36 (2 %)
@@ -109,7 +111,7 @@ J101,tube_power_amp_revb:BladeTab_x2_P5.00mm_Drill1.4mm_PLACEHOLDER,W04-b V_ANOD
 J102,tube_power_amp_revb:BladeTab_x1_P5.00mm_Drill1.4mm_PLACEHOLDER,W05-b V_SCREEN (4.8 mm tab)
 J103,tube_power_amp_revb:BladeTab_x2_P5.00mm_Drill1.4mm_PLACEHOLDER,W06-b HEATER (6.3 mm tabs)
 J104,tube_power_amp_revb:BladeTab_x3_P5.00mm_Drill1.4mm_PLACEHOLDER,W11-a OT_A / OT_B / OT_CT (4.8 mm tabs)
-J105,Connector_Molex:Molex_KK-396_A-41791-0005_1x05_P3.96mm_Vertical,W24-b DRIVE (Lock-3.96; 280-390 V DC on pins 2 / 4)
+J105,Connector_Molex:Molex_Mini-Fit_Jr_5566-06A_2x03_P4.20mm_Vertical,"W24-b DRIVE (Mini-Fit Jr 2x3, 600 V; 280-390 V DC on pins 2 / 4)"
 J201,tube_power_amp_revb:BladeTab_x2_P5.00mm_Drill1.4mm_PLACEHOLDER,W09-b -80V / BIAS_RTN (4.8 mm tabs)
 J501,Connector_IDC:IDC-Header_2x07_P2.54mm_Vertical,W14-b CONTROL (template 2x7)
 J502,Connector_IDC:IDC-Header_2x05_P2.54mm_Vertical,W15-b BIAS (2x5)
@@ -149,19 +151,19 @@ Q325,Package_TO_SOT_SMD:SOT-23,MMBTA42
 Q501,Package_TO_SOT_SMD:SOT-23,MMBT3904
 Q502,Package_TO_SOT_SMD:SOT-23,MMBT3906
 Q503,Package_TO_SOT_SMD:SOT-23,MMBT3904
-R101,Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal,100k (OPEN: 100k-220k)
+R101,Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal,91k
 R102,Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal,5.6k
 R103,tube_power_amp_revb:R_Axial_Power_L25.0mm_W6.4mm_P30.00mm,1k 5W flameproof
 R104,Resistor_SMD:R_2512_6332Metric,1R 1W
-R105,Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal,100k (OPEN: 100k-220k)
+R105,Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal,91k
 R106,Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal,5.6k
 R107,tube_power_amp_revb:R_Axial_Power_L25.0mm_W6.4mm_P30.00mm,1k 5W flameproof
 R108,Resistor_SMD:R_2512_6332Metric,1R 1W
-R109,Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal,100k (OPEN: 100k-220k)
+R109,Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal,91k
 R110,Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal,5.6k
 R111,tube_power_amp_revb:R_Axial_Power_L25.0mm_W6.4mm_P30.00mm,1k 5W flameproof
 R112,Resistor_SMD:R_2512_6332Metric,1R 1W
-R113,Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal,100k (OPEN: 100k-220k)
+R113,Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal,91k
 R114,Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal,5.6k
 R115,tube_power_amp_revb:R_Axial_Power_L25.0mm_W6.4mm_P30.00mm,1k 5W flameproof
 R116,Resistor_SMD:R_2512_6332Metric,1R 1W
