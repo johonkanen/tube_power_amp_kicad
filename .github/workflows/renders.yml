@@ -1,0 +1,134 @@
+# Board renders: 2D layer plots and 3D views of every board listed in BOARDS,
+# published to the orphan branch `renders` (force-pushed, never to main) and
+# as a workflow artifact.
+#
+# To reuse in another board repo: copy this file and edit BOARDS below
+# (space-separated paths of .kicad_pcb files, relative to the repo root).
+name: renders
+
+env:
+  BOARDS: "rev_b/kicad/tube_power_amp_revb.kicad_pcb"
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "**.kicad_pcb"
+      - ".github/workflows/renders.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: renders
+  cancel-in-progress: true
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    container:
+      # Official KiCad image; the -full variant carries the 3D model library.
+      image: kicad/kicad:10.0.7-full
+      options: --user root
+    steps:
+      - name: Install git, an SVG rasterizer and ImageMagick
+        run: |
+          apt-get update -qq
+          DEBIAN_FRONTEND=noninteractive apt-get install -y -qq --no-install-recommends git librsvg2-bin imagemagick ca-certificates >/dev/null
+
+      - uses: actions/checkout@v5
+
+      - name: Render boards
+        shell: bash
+        run: |
+          set -uo pipefail
+          export HOME=/root
+          kicad-cli version
+          OUT="$PWD/_renders"
+          rm -rf "$OUT"; mkdir -p "$OUT"
+          BG='#001023'
+          fail=0
+
+          IM=$(command -v magick || command -v convert)
+          svg2png() {  # svg2png <svg> <png>: board-area SVG -> 2400 px wide PNG with a margin
+            rsvg-convert -w 2304 --keep-aspect-ratio -b "$BG" -o "$2" "$1" \
+              && "$IM" "$2" -bordercolor "$BG" -border 48 "$2" && rm -f "$1"
+          }
+          plot() {     # plot <board> <png> <layers> [--mirror]
+            local svg="${2%.png}.svg"
+            kicad-cli pcb export svg "$1" -o "$svg" -l "$3" --mode-single \
+              --page-size-mode 2 --exclude-drawing-sheet --drill-shape-opt 2 ${4:-} \
+              >/dev/null || { echo "::error::svg export failed: $2"; fail=1; return; }
+            svg2png "$svg" "$2" || { echo "::error::rasterize failed: $2"; fail=1; }
+          }
+          render3d() { # render3d <board> <png> <args...>
+            local b="$1" png="$2"; shift 2
+            # Render at 2x on a transparent background, trim to the board, add a margin on
+            # the common background colour and downscale (anti-aliasing) to 1600 px wide.
+            # Footprints without a 3D model are simply drawn without one.
+            kicad-cli pcb render "$b" -o "$png.raw.png" --width 3200 --height 2000 \
+              --background transparent --quality basic "$@" 2>&1 | grep -vE '^Rendering' || true
+            [ -s "$png.raw.png" ] || { echo "::error::3D render failed: $png"; fail=1; return; }
+            "$IM" "$png.raw.png" -trim +repage -bordercolor none -border 80 \
+              -background "$BG" -flatten -resize 1600x "$png" \
+              || { echo "::error::3D post-processing failed: $png"; fail=1; }
+            rm -f "$png.raw.png"
+          }
+
+          for board in $BOARDS; do
+            [ -f "$board" ] || { echo "::error::board not found: $board"; fail=1; continue; }
+            name=$(basename "$board" .kicad_pcb)
+            d="$OUT/$name"; mkdir -p "$d"
+            echo "::group::$board"
+            inner=$(grep -oE '\([0-9]+ "In[0-9]+\.Cu"' "$board" | grep -oE 'In[0-9]+' | sort -t n -k2 -n -u)
+            plot "$board" "$d/F_Cu.png" "F.Cu,Edge.Cuts"
+            for l in $inner; do plot "$board" "$d/${l}_Cu.png" "$l.Cu,Edge.Cuts"; done
+            plot "$board" "$d/B_Cu.png" "B.Cu,Edge.Cuts" --mirror
+            plot "$board" "$d/assembly_top.png"    "F.Cu,F.Silkscreen,Edge.Cuts"
+            plot "$board" "$d/assembly_bottom.png" "B.Cu,B.Silkscreen,Edge.Cuts" --mirror
+            render3d "$board" "$d/3d_top.png"    --side top
+            render3d "$board" "$d/3d_bottom.png" --side bottom
+            render3d "$board" "$d/3d_iso.png"    --side top --rotate '-45,0,45' --perspective --zoom 0.9
+            echo "::endgroup::"
+          done
+
+          {
+            echo "# Board renders"
+            echo
+            echo "Rendered by CI from \`${GITHUB_REPOSITORY}\` commit [\`${GITHUB_SHA::10}\`](https://github.com/${GITHUB_REPOSITORY}/commit/${GITHUB_SHA}) on $(date -u '+%Y-%m-%d %H:%M UTC') with $(kicad-cli version)."
+            echo "This branch is force-pushed on every render; do not commit to it."
+            for board in $BOARDS; do
+              name=$(basename "$board" .kicad_pcb)
+              [ -d "$OUT/$name" ] || continue
+              echo; echo "## $name (\`$board\`)"; echo
+              for f in assembly_top assembly_bottom 3d_top 3d_bottom 3d_iso; do
+                [ -f "$OUT/$name/$f.png" ] && echo "![$f]($name/$f.png)"
+              done
+              echo; echo "Copper layers:"
+              for f in "$OUT/$name"/*_Cu.png; do echo "- [$(basename "$f" .png)]($name/$(basename "$f"))"; done
+            done
+          } > "$OUT/README.md"
+          ls -lR "$OUT"
+          exit $fail
+
+      - uses: actions/upload-artifact@v6
+        if: always()
+        with:
+          name: renders
+          path: _renders
+          if-no-files-found: warn
+
+      - name: Publish to the renders branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config --global --add safe.directory "$PWD"
+          cd _renders
+          git init -q -b renders
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -q -m "Renders of ${GITHUB_SHA}"
+          git push -f "https://x-access-token:${{ github.token }}@github.com/${GITHUB_REPOSITORY}.git" HEAD:renders
