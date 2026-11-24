@@ -43,7 +43,7 @@ jobs:
       - name: Render boards
         shell: bash
         run: |
-          set -uo pipefail
+          set +e -uo pipefail   # collect every failure, report at the end
           export HOME=/root
           kicad-cli version
           OUT="$PWD/_renders"
@@ -82,7 +82,7 @@ jobs:
             name=$(basename "$board" .kicad_pcb)
             d="$OUT/$name"; mkdir -p "$d"
             echo "::group::$board"
-            inner=$(grep -oE '\([0-9]+ "In[0-9]+\.Cu"' "$board" | grep -oE 'In[0-9]+' | sort -t n -k2 -n -u)
+            inner=$(grep -oE '\([0-9]+ "In[0-9]+\.Cu"' "$board" | grep -oE 'In[0-9]+' | sort -t n -k2 -n -u || true)
             plot "$board" "$d/F_Cu.png" "F.Cu,Edge.Cuts"
             for l in $inner; do plot "$board" "$d/${l}_Cu.png" "$l.Cu,Edge.Cuts"; done
             plot "$board" "$d/B_Cu.png" "B.Cu,Edge.Cuts" --mirror
