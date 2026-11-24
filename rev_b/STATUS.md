@@ -1,5 +1,133 @@
 # Power amp rev B: status
 
+## Layout sketch: interfaces (2026-11-24)
+
+The step before the layout, at the coordinator's request: **only the interfaces to the other boards**, so they
+can be agreed before any detailed placement or routing. Drawing (script-generated, chassis frame, plan from
+above): [docs/layout_sketch.png](docs/layout_sketch.png), east end zoomed:
+[docs/layout_sketch_east.png](docs/layout_sketch_east.png). Positions live in one file,
+`tools/layout_frame.py` (the layout will read them from there); `python3 rev_b/tools/layout_sketch.py` redraws.
+
+### Frame and fixed features
+
+- **Chassis frame** (D748 top plate, mm, y from the front panel's inner face). The board keeps rev A's outline,
+  **x 280.33-519.09, y 127.05-187.38** (238.76 x 60.33 mm), 15 mm below the plate, **components down**
+  (KiCad F faces down), the four octal sockets on the B side (toward the plate) at rev A's centres
+  **(296.55 / 362.59 / 428.63 / 494.67, 172.13)** on the 30 mm plate holes. Rev A to chassis:
+  X = 414.95 - x, Y = 152.45 - y (mechanical/README.md). Planned KiCad frame for rev B: x_k = 620 - X,
+  y_k = 250 - Y (= rev A + (205.05, 97.55)); the KiCad F view is the plan mirrored left-right.
+- **Socket pins:** the sockets sit 15.3 mm from the **rear** edge and 45 mm from the front edge. (The second
+  and third passes wrote "sockets in the front strip" and "reference strip on the rear edge": in the chassis
+  frame it is the other way round, so the cool strip is the **front** edge. On the rear edge no point is
+  even 37 mm from a socket centre.) Rev B turns each socket 45 deg from rev A so that **pin 3 (plate) faces
+  the front**: 4 G2 front-east, 5 G1 east, 6 rear-east, 7 heater rear, 8 cathode rear-west, 1 cathode west,
+  2 heater front-west. The plate hole is round, so the rotation is free; pads and drills stay rev A's
+  (1.6 mm drill / 3.81 mm pad, checked against the rev A board: identical; the 5 W resistor 1.2 / 2.4 mm also).
+- **Side A = V1, V2 (west), side B = V3, V4 (east)**: DRV_A is short from J105, OT_A and OT_B split at J104
+  without crossing.
+- **Mounting holes**, board holes 3.2 mm **unplated**, 4 mm copper keep-out: H3 (514.95, 131.45) and H4
+  (284.95, 131.45) as rev A, on D748 holes. Rev A's H1 / H2 (514.95 / 284.95, 182.45) have **no plate hole**.
+  Rear support: see open choice C3.
+- **Old bias pot / test point holes** (D748, y 198.1, 5-6 mm, x 279-510): **10.7 mm behind the board's rear
+  edge, off the board**. Rev B sets the bias from the DAC and reads the cathode currents with the ADC, so
+  it has no pots and no test point jacks (the schematic has none): the holes stay unused (plug them).
+- **Output transformer bolts** (1650TA pattern) at (331.4, 128.1) and (415.5, 128.1) are 1 mm inside this
+  board's front edge: their screw tips stop at least 10 mm below the plate (5 mm above the board's B side);
+  no HV copper on B within 6.3 mm of either axis.
+- The seven unused 3.5 mm plate holes at r 20 mm round the sockets (old chassis-socket flange screws) lie
+  over the board's rear band; nothing passes through them unless C3 uses two of them.
+
+### Connectors and tabs that leave the board
+
+All on the F side (facing down, away from the plate); mates plug in from below. "Pin 1" = chassis
+coordinates of pad 1. Receptacle envelopes: 4.8 mm tab 8.0 x 6.5 mm, 6.3 mm tab 9.5 x 7.5 mm (fully
+insulated on every HV rail). Tab footprint (interfaces.md 4.1, DEFINED): 2 legs on 5.00 mm, 1.4 mm drill.
+
+| Ref | Cable | Mating end | Part / footprint | Pin 1 (chassis) | Long axis, rows, key | Cable leaves | Path, length, gauge |
+|---|---|---|---|---|---|---|---|
+| J105 | W24-b drive | PI + FX J201 | Molex Mini-Fit Jr 5566-06A 2x3 vertical (39-28-1063 class), 600 V; body 14.8 x 12.0 mm at x 283.3-298.1, y 138.3-150.3 | **(286.50, 141.00)** | rows along +x: pins 1 / 2 / 3 at x 286.50 / 290.70 / 294.90, y 141.00; pins 4 / 5 / 6 at y 146.50 (4 under 1). Latch on the 4-6 (rear) side by KiCad's outline: confirm with the Molex drawing | down, then west | discrete two twisted pairs (DRV_A + GND, DRV_B + GND) in a 39-01-2060 housing, wire ≥ 600 V insulation (silicone / PTFE), AWG 20-22; 0.10-0.15 m depending on the PI + FX header; this header is the reference for W24 |
+| J501 | W14-b template ribbon | control board J4 | 2x7 shrouded IDC, 2.54 mm; body x 469.7-496.1, y 128.1-139.0 | **(490.50, 132.80)** (needs J4 at (490.50, 115.73), choice C1) | long axis along x, pin 14 at (475.26, 135.34); odd row at the front (y 132.80), even row y 135.34; key as J4 (a pure translation of J4 in y) | flat ribbon toward the front | straight 1:1, **0 folds**, conductor 1 on pin 1 at both ends; pin rows 17.07 mm apart, cable 25-30 mm between socket centres (a small down-loop); lies about 18 mm below both boards across the 5 mm gap |
+| J502 | W15-b bias ribbon | control board J5 | 2x5 shrouded IDC; body x 496.7-518.1, y 135.5-146.4 | **(512.50, 140.20)** (needs J5 at (512.50, 115.73), C1) | long axis along x, pin 10 at (502.34, 142.74); odd row front (y 140.20); key as J5 (translation) | flat ribbon toward the front | straight 1:1, **0 folds**, conductor 1 on pin 1 both ends; 24.5 mm between pin rows, cable 30-35 mm. One row behind J501 so it clears H3; its ribbon passes beside J501's socket (x 501-514), not under it, and below H3's screw head |
+| J503 | W16-a HV_PERMIT | HV supplies J501 (562, 48) | Molex KK-254 1x2 vertical (22-27-2021); body x 489.2-495.3, y 143.1-149.9 | **(491.00, 146.50)** | pins along +x (pin 2 at 493.54); friction lock toward the rear | down, then east | twisted pair AWG 24-26 through the HV arm's ribbon corridor (y 127-147), then south along the control board's east edge (x ~556) to J501: about 0.20 m. Wired pin to pin, orientation only sets the lead dress |
+| J101 | W04-b | HV supplies J201 (x 527-537, y 166-190) | 2x 4.8 mm PCB tab, blade plane along y | tab 1 **V_ANODE (514.50, 161.00)**, tab 2 **GND_PWR (514.50, 170.50)** | legs at y ± 2.5; receptacle envelopes x 511.3-517.8 (inside the outline, 1.3 mm from the east edge) | down | jumpers 1.0 mm² (AWG 18) silicone ≥ 600 V, V_ANODE and GND_PWR twisted, about 0.10 m, a U under both boards into the arm's receptacles from below; tabs and leads sized for the 3.0 A trip (0.6-0.7 A continuous). GND_PWR is this board's star |
+| J102 | W05-b | HV supplies J202 (527-537, 150-160) | 1x 4.8 mm tab, blade along y | **V_SCREEN (514.50, 151.50)** | as J101 | down | 1.0 mm² silicone ≥ 600 V, about 0.10 m, run with the W04 pair |
+| J103 | W06-b heaters | tube PSU HT_6V3 / HT_GND | 2x 6.3 mm tab, blade along x | **HTR1 (390.00, 181.00)**, **HTR2 (401.50, 181.00)** | envelopes y 177.3-184.8, x 385.3-406.3 (rear gap between V2 and V3) | down | twisted pair ≥ 1.5 mm², 6.0-6.4 A, about 0.4-0.5 m from the PSU's cable hole (route C5). Entry in the middle: 3.2 A each way on the board (stacked HTR1 on F / HTR2 on B along the rear edge, pins 7 at the rear) |
+| J104 | W11-a | output transformer primary P1 / P2 / CT (its own leads) | 3x 4.8 mm tab, blade along x; pad 1 OT_A, pad 3 OT_CT in the middle, pad 2 OT_B | **OT_A (393.00, 134.00)**, **OT_CT (405.00, 134.00)**, **OT_B (417.00, 134.00)** | 12 mm pitch: 9.4 mm between pads (≥ 6.3 mm), envelopes y 130.8-137.3 | down | the OT's leads drop through the 15 mm lead hole (415.5, 90.1) (assumed the primary's, C4) and run about 40 mm back to the board's front edge: about 80 mm from the hole; fully insulated receptacles. Clamps (RGP02-20E, 2x P6KE350CA per side) beside J104 |
+| J201 | W09-b | tube PSU -80V OUT / SEC GND | 2x 4.8 mm tab, blade along x | **-80V (475.00, 147.00)**, **BIAS_RTN (484.50, 147.00)** | envelopes y 143.8-150.3 | down | twisted pair 0.5 mm², ≥ 600 V insulation (it travels in the HV harness), about 0.4 m, route with the heater lead (C5) |
+
+No low-voltage supply tabs: +15 / +5 / -15 V come on W14 pins 1 / 3 / 5 (interfaces.md 6.1).
+
+### Block zones (drawing)
+
+Tube circuits V1-V4 in the rear band (y 157-187) with the gaps; heater entry J103 and screen-resistor
+overflow in the V2-V3 gap; **1.25 kV corridor** y 149.5-157 from x 290 to 505 (OT_A west, OT_B east, on
+B, plate pins at the front) plus the **J104 cluster** x 383-427, y 127-150, 6.3 mm keep-outs drawn;
+V_ANODE (440 V) on F over the OT_B corridor from J101 to J104-3; drive entry, side-A coupling caps and the
+bias channels (300 V parts ≥ 25 mm from a socket: the whole front band y ≤ 147 qualifies) at x 300-382;
+the **≥ 40 mm strip** = the front band clipped by 40 mm circles round the socket centres; the digital
+island (DGND) x 469-519, y 127-147 with J501, J502, J503, J201; the star at J101-2.
+
+**Finding for the layout (not an interface):** the ≥ 40 mm area is small. Front band (y ≤ 145): 2275 mm²
+over the whole board, but most of it is a 5 mm strip along the front edge; between V3 and V4 (x 430-470,
+next to the ribbons) only 463 mm². At ≥ 35 mm: 610 mm² there, at ≥ 30 mm 697 mm². The reference, the
+dividers, the zener string (2x 1 cm² copper), DAC, ADC, two OPA4197 and two LM2901B need about
+900-1000 mm². Proposal for the layout pass (user): 40 mm for the 85 °C parts (LM4040-10, ADS7828), the
+reference, zener string and 0.1 % dividers; ≥ 30 mm for the 125 °C op amps and comparators.
+
+### Keep-outs
+
+| Against | Mine for them | Theirs for me |
+|---|---|---|
+| Rear I/O (x 276-322, its SMD end y 195.7, 8.3 mm gap) and W19 | Nothing past the rear edge y 187.38 **over the whole length** (W19 runs from the HV arm west behind this board to x 264); tabs and receptacles inboard | none needed beyond that |
+| HV arm (x 525, 5.9 mm from the east end x 519.09) | No overhang at the east end: J101 / J102 envelopes end at x 517.8; the three jumpers cross the gap **below** the boards (y 150-185, 17-45 mm below the plate) | W19 must not cross the gap at y 145-175 at the boards' level (use the corridor and pass below 50 mm there, or behind the arm) |
+| Ribbon corridor y 127-147 under the arm | W16 uses it; W14 / W15 do not (straight to J4 / J5) | stays free of bottom-side parts (as the HV supplies drew it) |
+| Control board (front edge y 122, 5 mm gap over x 426-519) | No overhang at the front edge; W14 / W15 cross the gap at x 469-514 | J4 / J5 moved by -8.90 mm (C1); nothing tall under the two ribbons at y 116-127 |
+| PI + FX (x ≤ 278.7, 1.6 mm gap over y 127-176) | No overhang at the west edge; J105 body from x 283.3 | its W24 header toward this board (C2) |
+| OT primary leads (x 393-417, y 90-134 in front of the board) | — | **W13 (control board J3 → PI + FX, PVC ribbon about 300 V) must not touch the OT primary leads (1.25 kV peak in an open-load event)**: cross at right angles, ≥ 10 mm apart, or sleeve (cable rule for the coordinator) |
+| Plate (15 mm above) | B side: socket bodies and solder joints only; HV copper ≥ 6.3 mm from the OT bolt axes | OT bolts ≤ 10 mm below the plate |
+
+### What the mating boards need to do
+
+- **Control board (J4 / J5):** move **J4 and J5 by -8.90 mm in x** (J4 pin 1 → (490.50, 115.73), J5 pin 1 →
+  (512.50, 115.73)), same rotation, odd rows at the front as now. Reason: J5 as placed spans x 505.6-527.0,
+  past this board's east edge (519.09) and into H3 (514.95, 131.45); no straight W15 exists. Their J15 debug
+  header (x 468.73) then sits on J4's body (x 469.7) and needs to move a few mm; J9 (x 444-466) stays clear.
+- **PI + FX (J201, W24-a):** a Mini-Fit Jr 2x3 on its downward face at its east end, within x 255-278,
+  y 130-160 (so W24 stays ≤ about 0.15 m); orientation free (discrete wires), pin 1 marked; same circuit
+  assignment (1 GND, 2 DRV_A, 3 GND, 4 DRV_B, 5 GND, 6 N/C).
+- **HV supplies:** tell which of J201's two tabs is V_ANODE (assumed the south one, y ~172) so the jumpers
+  don't cross; keep J201 / J202 where they are.
+- **Tube PSU harness:** heater pair and -80 V pair from its cable hole to J103 (x 390-402, y 181) and J201
+  (x 475-485, y 147), C5.
+
+### Open choices (two reasonable options each; preference first)
+
+- **C1 W15 / W14:** (a, preferred) control board moves J4 and J5 by -8.90 mm, both ribbons flat, 0 folds;
+  (b) control board unchanged: J501 stays straight at pin 1 (499.40, 132.80), J502 turns 90 deg (long
+  axis along y at x 511.3-513.8, pin 1 at the south end, odd row on the west side) behind H3, and W15 takes
+  **one 45 deg fold** under it (conductor 1 still on pin 1); costs the east tab strip about 9 mm
+  (V_SCREEN / V_ANODE / GND_PWR move north) and the rear standoff H1 moves to (475.9, 165.3). A paper
+  ribbon check is needed for (b).
+- **C2 W24 header row direction:** (a, preferred) rows along x as above, pins 1 / 4 at the west end
+  (nearest the PI + FX; DRV_B leaves east along the 4-5-6 row past GND 5); (b) rows along y (long axis
+  front-rear) if the PI + FX header ends up behind y 150. Electrically the same.
+- **C3 rear support:** (a, preferred) H1 / H2 on two of the old socket flange holes already in the plate,
+  **(513.5, 179.0)** and **(315.4, 178.9)** (3.5 mm, unused; no new chassis work), optionally a third at
+  (447.4, 179.0); rev A's H1 / H2 dropped. (b) keep rev A's H1 / H2 (514.95 / 284.95, 182.45) and drill two
+  new plate holes. Rev A was held only at the front edge (2 of 4 holes on the chassis), 45 mm from the
+  sockets: a rear standoff takes the tube insertion force.
+- **C4 OT lead hole:** the primary is assumed to come down the east hole (415.5, 90.1); if it is the west
+  hole (331.4, 90.1), J104 stays where it is and the leads run about 85 mm along the front (user: which
+  hole carries the primary?).
+- **C5 heater and -80 V lead route** from the tube PSU's cable hole (658.5, 154.6): (a, preferred) along the
+  chassis floor under the HV supplies and this board (below 50 mm depth), rising into J103 / J201 from
+  below; (b) along the rear panel behind the HV arm's rear strip and this board (it then shares the
+  y 187-210 strip with W19).
+- **C6 test points:** (a, preferred) none (currents over the ADC / Ethernet), plate holes plugged;
+  (b) four cathode-current test pads on the board, reachable from below (no plate jacks).
+
+---
+
 ## Third pass (2026-11-23)
 
 The user's decisions of 2026-11-23 (coordinator's list, through V1-V5, V15, 16) drawn. ERC 0 errors /
