@@ -90,7 +90,7 @@ jobs:
             plot "$board" "$d/assembly_bottom.png" "B.Cu,B.Silkscreen,Edge.Cuts" --mirror
             render3d "$board" "$d/3d_top.png"    --side top
             render3d "$board" "$d/3d_bottom.png" --side bottom
-            render3d "$board" "$d/3d_iso.png"    --side top --rotate '-45,0,45' --perspective --zoom 0.9
+            render3d "$board" "$d/3d_iso.png"    --side top --rotate '-45,0,45' --perspective --zoom 0.7
             echo "::endgroup::"
           done
 
