@@ -1236,10 +1236,7 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "tube_power_amp_revb:Q_PMOS"
-			(pin_numbers
-				(hide yes)
-			)
+		(symbol "tube_power_amp_revb:Q_PMOS_GDS"
 			(pin_names
 				(offset 0)
 				(hide yes)
@@ -1250,7 +1247,7 @@
 			(in_pos_files yes)
 			(duplicate_pin_numbers_are_jumpers no)
 			(property "Reference" "Q"
-				(at 5.08 1.27 0)
+				(at 5.08 1.905 0)
 				(show_name no)
 				(do_not_autoplace no)
 				(effects
@@ -1260,8 +1257,8 @@
 					(justify left)
 				)
 			)
-			(property "Value" "Q_PMOS"
-				(at 5.08 -1.27 0)
+			(property "Value" "Q_PMOS_GDS"
+				(at 5.08 0 0)
 				(show_name no)
 				(do_not_autoplace no)
 				(effects
@@ -1293,7 +1290,7 @@
 					)
 				)
 			)
-			(property "Description" "P-MOSFET transistor"
+			(property "Description" "P-MOSFET transistor, gate/drain/source"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -1304,7 +1301,7 @@
 					)
 				)
 			)
-			(property "ki_keywords" "PMOS P-MOS"
+			(property "ki_keywords" "transistor PMOS P-MOS P-MOSFET"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -1315,7 +1312,7 @@
 					)
 				)
 			)
-			(symbol "Q_PMOS_0_1"
+			(symbol "Q_PMOS_GDS_0_1"
 				(polyline
 					(pts
 						(xy 0.254 1.905) (xy 0.254 -1.905)
@@ -1482,25 +1479,7 @@
 					)
 				)
 			)
-			(symbol "Q_PMOS_1_1"
-				(pin passive line
-					(at 2.54 5.08 270)
-					(length 2.54)
-					(name "D"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "D"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
+			(symbol "Q_PMOS_GDS_1_1"
 				(pin input line
 					(at -5.08 0 0)
 					(length 2.54)
@@ -1511,7 +1490,25 @@
 							)
 						)
 					)
-					(number "G"
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 2.54 5.08 270)
+					(length 2.54)
+					(name "D"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -1529,7 +1526,7 @@
 							)
 						)
 					)
-					(number "S"
+					(number "3"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -3009,7 +3006,7 @@
 				)
 			)
 		)
-		(property "Footprint" "tube_power_amp_revb:BladeTab_x2_P5.00mm_Drill1.4mm_PLACEHOLDER"
+		(property "Footprint" "tube_power_amp_revb:BladeTab_4.8mm_x2_P9.50mm"
 			(at 30.48 53.34 0)
 			(effects
 				(font
@@ -4059,7 +4056,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 193.04 55.118 0)
 			(effects
 				(font
@@ -4584,7 +4581,7 @@
 		(uuid "72e48c57-3f93-567a-b16e-1a32925df7b8")
 	)
 	(symbol
-		(lib_id "tube_power_amp_revb:Q_PMOS")
+		(lib_id "tube_power_amp_revb:Q_PMOS_GDS")
 		(at 254 53.34 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -4593,7 +4590,7 @@
 		(dnp no)
 		(uuid "2f156fdd-8b11-54d8-b58f-8ed51797e1c5")
 		(property "Reference" "Q201"
-			(at 259.08 52.07 0)
+			(at 259.08 51.435 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4602,7 +4599,7 @@
 			)
 		)
 		(property "Value" "BSP92P (250 V)"
-			(at 259.08 54.61 0)
+			(at 259.08 53.34 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4628,7 +4625,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "P-MOSFET transistor"
+		(property "Description" "P-MOSFET transistor, gate/drain/source"
 			(at 254 53.34 0)
 			(effects
 				(font
@@ -4637,14 +4634,14 @@
 				(hide yes)
 			)
 		)
-		(pin "D"
-			(uuid "47f57c65-5359-55fc-aa64-30782d5eb51e")
+		(pin "1"
+			(uuid "a4c23b40-f063-5dfd-84fb-f409f6274b13")
 		)
-		(pin "G"
-			(uuid "735df71d-1aeb-5a5a-a528-d680ca72c709")
+		(pin "2"
+			(uuid "66dc9793-7466-5fca-8f0f-a1449f472527")
 		)
-		(pin "S"
-			(uuid "3884fa69-e0fc-5281-ba0f-721b2224c78c")
+		(pin "3"
+			(uuid "ddaa9746-a52c-51a0-a278-623424d83945")
 		)
 		(instances
 			(project "tube_power_amp_revb"
@@ -4728,7 +4725,7 @@
 		(uuid "b80c585e-289a-5cb9-9a2d-71abbff392cf")
 	)
 	(symbol
-		(lib_id "tube_power_amp_revb:Q_PMOS")
+		(lib_id "tube_power_amp_revb:Q_PMOS_GDS")
 		(at 254 88.9 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -4737,7 +4734,7 @@
 		(dnp no)
 		(uuid "852c2193-be8f-56c2-b809-d9ea00373a6a")
 		(property "Reference" "Q202"
-			(at 259.08 87.63 0)
+			(at 259.08 86.995 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4746,7 +4743,7 @@
 			)
 		)
 		(property "Value" "BSP92P (250 V)"
-			(at 259.08 90.17 0)
+			(at 259.08 88.9 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4772,7 +4769,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "P-MOSFET transistor"
+		(property "Description" "P-MOSFET transistor, gate/drain/source"
 			(at 254 88.9 0)
 			(effects
 				(font
@@ -4781,14 +4778,14 @@
 				(hide yes)
 			)
 		)
-		(pin "D"
-			(uuid "ed9d77bc-f87a-56e0-b4aa-53dff2443c35")
+		(pin "1"
+			(uuid "a3757f5b-e0a0-52af-98ff-519f3b62cf40")
 		)
-		(pin "G"
-			(uuid "b8e297b4-9631-5219-99a0-11cd7515544a")
+		(pin "2"
+			(uuid "a02b8832-d845-5c19-a85b-308b2f58010f")
 		)
-		(pin "S"
-			(uuid "43e9e38a-8809-54d2-94a9-bc6db73b906a")
+		(pin "3"
+			(uuid "6b03b1f0-1100-5dd4-ba7e-06bc03aae1ab")
 		)
 		(instances
 			(project "tube_power_amp_revb"
@@ -4896,7 +4893,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 284.48 55.118 0)
 			(effects
 				(font
@@ -5015,7 +5012,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 284.48 90.678 0)
 			(effects
 				(font
@@ -5134,7 +5131,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 314.96 55.118 0)
 			(effects
 				(font
@@ -5265,7 +5262,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 314.96 90.678 0)
 			(effects
 				(font
@@ -5979,7 +5976,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 72.0852 163.83 0)
 			(effects
 				(font
@@ -6434,7 +6431,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 112.7252 173.99 0)
 			(effects
 				(font
@@ -7059,7 +7056,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 173.6852 181.61 0)
 			(effects
 				(font
@@ -7515,7 +7512,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 282.702 142.24 0)
 			(effects
 				(font
@@ -8152,7 +8149,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 173.6852 261.62 0)
 			(effects
 				(font
@@ -8608,7 +8605,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 282.702 222.25 0)
 			(effects
 				(font
@@ -8900,7 +8897,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 335.28 144.018 0)
 			(effects
 				(font
@@ -9062,7 +9059,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 335.28 179.578 0)
 			(effects
 				(font
@@ -9224,7 +9221,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 356.5652 181.61 0)
 			(effects
 				(font
@@ -9386,7 +9383,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 333.502 204.47 0)
 			(effects
 				(font
@@ -9744,7 +9741,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 424.942 151.13 0)
 			(effects
 				(font
@@ -10036,7 +10033,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 325.12 268.478 0)
 			(effects
 				(font
@@ -10354,7 +10351,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 424.942 240.03 0)
 			(effects
 				(font
@@ -10516,7 +10513,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 447.04 268.478 0)
 			(effects
 				(font
@@ -10678,7 +10675,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 467.36 250.698 0)
 			(effects
 				(font
@@ -11014,7 +11011,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 498.8052 163.83 0)
 			(effects
 				(font
@@ -11242,7 +11239,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 375.92 55.118 0)
 			(effects
 				(font
@@ -11416,7 +11413,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 392.43 55.118 0)
 			(effects
 				(font
@@ -11535,7 +11532,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 412.75 52.3748 0)
 			(effects
 				(font
@@ -11830,7 +11827,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 448.0052 92.71 0)
 			(effects
 				(font
@@ -11992,7 +11989,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 461.772 88.9 0)
 			(effects
 				(font
@@ -12355,7 +12352,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 504.19 55.118 0)
 			(effects
 				(font

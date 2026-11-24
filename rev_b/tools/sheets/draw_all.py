@@ -70,7 +70,7 @@ class Drawer:
             return ref
         if sym in MULTI and ref in self.refmap:
             return self.refmap[ref]
-        pre = ref[0]
+        pre = "TP" if ref.startswith("TP") else ref[0]
         self.count[pre] = self.count.get(pre, 0) + 1
         new = f"{pre}{self.sheet_no * 100 + self.count[pre]}"
         self.refmap[ref] = new
@@ -143,11 +143,12 @@ def CP(d, ref, c, r, plus, minus, v, rot=0):
 
 
 def NPN(d, ref, c, r, b, cc, e, v):
-    return d.part("Q_NPN", ref, c, r, {"B": b, "C": cc, "E": e}, value=v)
+    # SOT-23 BJT symbols with numbered pins (1 B, 2 E, 3 C), so the footprint's pads match (layout)
+    return d.part(v, ref, c, r, {1: b, 2: e, 3: cc}, value=v)
 
 
 def PNP(d, ref, c, r, b, cc, e, v):
-    return d.part("Q_PNP", ref, c, r, {"B": b, "C": cc, "E": e}, value=v)
+    return d.part(v, ref, c, r, {1: b, 2: e, 3: cc}, value=v)
 
 
 def NMOS(d, ref, c, r, gate, drain, src="GND"):
@@ -205,6 +206,9 @@ def sheet01(d):
         R(d, f"R1{n}3", c0 + 1, 4.5, f"K{n}", "GND", "1R 1W", rot=0)
         d.part("D", f"D1{n}3", c0 + 1, 5.5, {1: "GND", 2: f"K{n}"}, value="S3M (3 A)", rot=0)
         d.part("NetTie_2", f"NT1{n}", c0 + 1, 7, {1: "GND", 2: f"KELV{n}"}, value="Kelvin at shunt pad")
+        # cathode test pads (layout 2026-11-24, user C6): the shunt voltage, 1 mV = 1 mA, probed from below
+        d.part("TestPoint", f"TP1{n}0", c0 + 2.6, 4.5, {1: f"K{n}"}, value=f"K{n} (1 mV/mA)")
+        d.part("TestPoint", f"TP1{n}1", c0 + 2.6, 7.0, {1: f"KELV{n}"}, value=f"K{n} GND")
     d.text("Pin 1 (g3 on EL34, NC on 6L6GC / KT88 / 6550) tied to pin 8 as built (PA-3). Pin 6 left free (internal "
            "on some types). UL taps of the 1650TA unused (VOX-10 / D7 reserved, not on this board).", 6, 8.2)
     d.text("Kelvin: each NetTie sits on its shunt's GND pad; KELVn runs as its own trace to the sense amp's reference "
@@ -233,8 +237,8 @@ def sheet02(d):
     C(d, "C211", 9.8, 3, "ZF", "GND", "10u/100V X7S 1210")
     d.text("C202 / C211 ceramic, not electrolytic: the leakage of an electrolytic here (up to 3 uA) would shift VNC 0.3 V "
            "through the 100k", 8, 5.9)
-    d.part("Q_PMOS", "Q201", 11, 1, {"G": "ZF", "D": "M80", "S": "VS1"}, value="BSP92P (250 V)")
-    d.part("Q_PMOS", "Q202", 11, 3, {"G": "ZF", "D": "M80", "S": "VS2"}, value="BSP92P (250 V)")
+    d.part("Q_PMOS_GDS", "Q201", 11, 1, {1: "ZF", 2: "M80", 3: "VS1"}, value="BSP92P (250 V)")
+    d.part("Q_PMOS_GDS", "Q202", 11, 3, {1: "ZF", 2: "M80", 3: "VS2"}, value="BSP92P (250 V)")
     R(d, "R204", 12.5, 1, "VS1", "VNC", "10R", rot=90)
     R(d, "R205", 12.5, 3, "VS2", "VNC", "10R", rot=90)
     R(d, "R206", 14, 1, "VNC", "M80", "100k", rot=90)
@@ -540,51 +544,62 @@ def sheet05(d):
 
 # ------------------------------------------------------------------ footprints and BOM
 LOC = "tube_power_amp_revb:"
-R0805, R1206 = "Resistor_SMD:R_0805_2012Metric", "Resistor_SMD:R_1206_3216Metric"
+R0805, R1206 = "Resistor_SMD:R_0603_1608Metric", "Resistor_SMD:R_1206_3216Metric"   # R0805 = the default chip size (0603 since the layout)
 AX0207 = "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal"
 SOT23 = "Package_TO_SOT_SMD:SOT-23"
 SYMFP = {   # symbol -> (footprint, candidate part, note)
     "EL34": (LOC + "Valve_Octal_Belton_PCD17.20mm", "Belton octal PCB socket (as rev A)", "solder side, as built"),
     "2N7002": (SOT23, "2N7002,215 (Nexperia)", ""),
     "BAT54S": (SOT23, "BAT54S,215 (Nexperia)", ""),
-    "Q_PMOS": ("Package_TO_SOT_SMD:SOT-223-3_TabPin2", "BSP92P H6327 (Infineon)", "250 V"),
+    "Q_PMOS_GDS": ("Package_TO_SOT_SMD:SOT-223-3_TabPin2", "BSP92P H6327 (Infineon)", "250 V"),
     "NetTie_2": ("NetTie:NetTie-2_SMD_Pad0.5mm", "", "Kelvin tap at the shunt pad"),
+    "TestPoint": ("TestPoint:TestPoint_Pad_D2.0mm", "", "cathode test pad, probed from below"),
     "DAC7578xPW": ("Package_SO:TSSOP-16_4.4x5mm_P0.65mm", "DAC7578SPW (TI)", "power-on reset to zero: confirm in the datasheet"),
     "ADR4525": ("Package_SO:SOIC-8_3.9x4.9mm_P1.27mm", "ADR4525BRZ (ADI)", ""),
     "ADS7828": ("Package_SO:TSSOP-16_4.4x5mm_P0.65mm", "ADS7828E (TI)", "-40 to 85 C: keep it at the cool end"),
     "OPA4197xD": ("Package_SO:SOIC-14_3.9x8.7mm_P1.27mm", "OPA4197IDR (TI)", ""),
     "LM2901": ("Package_SO:SOIC-14_3.9x8.7mm_P1.27mm", "LM2901BIDR (TI, -40 to 125 C)", "orderable suffix to confirm"),
     "LM4040DBZ-10": (SOT23, "LM4040A10IDBZR (TI)", "10 V only in I grade (-40 to 85 C)"),
-    "74HC74": ("Package_SO:SOIC-14_3.9x8.7mm_P1.27mm", "74HC74D (Nexperia)", ""),
+    "74HC74": ("Package_SO:TSSOP-14_4.4x5mm_P0.65mm", "74HC74PW (Nexperia)", ""),
     "74HC4060": ("Package_SO:SOIC-16_3.9x9.9mm_P1.27mm", "74HC4060D (Nexperia)", ""),
     "74LVC1G11": ("Package_TO_SOT_SMD:SOT-363_SC-70-6", "74LVC1G11GW (Nexperia)", ""),
     "74LVC1G08": ("Package_TO_SOT_SMD:SOT-353_SC-70-5", "74LVC1G08GW (Nexperia)", ""),
     "74LVC2G17": ("Package_TO_SOT_SMD:SOT-363_SC-70-6", "74LVC2G17GW (Nexperia)", ""),
-    "PC817": ("Package_DIP:DIP-4_W7.62mm", "PC817X1NSZ1B (Sharp)", "THT for the heater-side isolation"),
+    "PC817": ("Package_DIP:SMDIP-4_W7.62mm", "PC817X1NIP1B (Sharp, SMD gull wing)", "7.62 mm row spacing keeps the heater-side isolation"),
     "MCP23S17x-x-SS": ("Package_SO:SSOP-28_5.3x10.2mm_P0.65mm", "MCP23S17-E/SS (Microchip)", ""),
     "D_Bridge_+AA-": ("Package_TO_SOT_SMD:TO-269AA", "MB1S (onsemi)", ""),
     "Conn_02x07_Odd_Even": ("Connector_IDC:IDC-Header_2x07_P2.54mm_Vertical", "61201421621 (Wurth)", "shrouded, keyed"),
     "Conn_02x05_Odd_Even": ("Connector_IDC:IDC-Header_2x05_P2.54mm_Vertical", "61201021621 (Wurth)", "shrouded, keyed"),
 }
-CONN = {"J101": (LOC + "BladeTab_x2_P5.00mm_Drill1.4mm_PLACEHOLDER", "4.8 mm PCB blade tabs", "PLACEHOLDER footprint"),
-        "J102": (LOC + "BladeTab_x1_P5.00mm_Drill1.4mm_PLACEHOLDER", "4.8 mm PCB blade tab", "PLACEHOLDER footprint"),
-        "J103": (LOC + "BladeTab_x2_P5.00mm_Drill1.4mm_PLACEHOLDER", "6.3 mm PCB blade tabs", "PLACEHOLDER footprint; 6.4 A"),
-        "J104": (LOC + "BladeTab_x3_P5.00mm_Drill1.4mm_PLACEHOLDER", "4.8 mm PCB blade tabs", "PLACEHOLDER footprint; anode nets"),
+TAB48 = "2x PCB blade tab 4.8 mm (0.187 in), 2 legs on 5.00 mm, 1.4 mm holes (interfaces.md 4.1); order code to confirm"
+CONN = {"J101": (LOC + "BladeTab_4.8mm_x2_P10.20mm_Inline", TAB48, "fully insulated receptacles; in line on 10.2 mm"),
+        "J102": (LOC + "BladeTab_4.8mm_x1", TAB48.replace("2x ", "1x "), "fully insulated receptacle"),
+        "J103": (LOC + "BladeTab_6.3mm_x2_P11.50mm", TAB48.replace("4.8 mm (0.187 in)", "6.3 mm (0.250 in)"), "6.4 A; tabs on 11.5 mm"),
+        "J104": (LOC + "BladeTab_4.8mm_x3_OT", TAB48.replace("2x ", "3x "), "OT_A / OT_CT / OT_B at 0 / 26.4 / 52.8 mm, OT_CT 6.5 mm forward"),
         "J105": ("Connector_Molex:Molex_Mini-Fit_Jr_5566-06A_2x03_P4.20mm_Vertical", "Molex 39-28-1063 class (Mini-Fit Jr 5566-06A; order code to confirm)",
                  "600 V AC/DC; housing 39-01-2060, terminals 39-00-0039; circuit 6 N/C"),
-        "J201": (LOC + "BladeTab_x2_P5.00mm_Drill1.4mm_PLACEHOLDER", "4.8 mm PCB blade tabs", "PLACEHOLDER footprint"),
+        "J201": (LOC + "BladeTab_4.8mm_x2_P9.50mm", TAB48, "fully insulated receptacles"),
         "J503": ("Connector_Molex:Molex_KK-254_AE-6410-02A_1x02_P2.54mm_Vertical", "22-27-2021 (Molex KK-254)", "")}
+
+
+REF_FP = {   # per-part footprint exceptions (layout 2026-11-24)
+    "R111": (LOC + "R_Axial_Power_L25.0mm_W9.0mm_P10.16mm_Vertical_Tight", "1k 5 W flameproof metal oxide, standing",
+             "V3's screen resistor stands on F in the V2-V3 gap (no room for a lying one)"),
+}
 
 
 def footprint_for(ref, sym, v):
     v = v or ""
+    if ref in REF_FP:
+        return REF_FP[ref]
     if sym.startswith("Conn"):
         return CONN.get(ref) or SYMFP[sym]
     if sym in SYMFP:
         return SYMFP[sym]
     if sym == "R":
-        if "5W" in v:
-            return LOC + "R_Axial_Power_L25.0mm_W6.4mm_P30.00mm", "1k 5 W flameproof metal oxide (as rev A)", ""
+        if v.startswith("1k 5W"):
+            return ("Resistor_THT:R_Axial_Power_L25.0mm_W6.4mm_P27.94mm", "1k 5 W flameproof metal oxide (25 x 6.4 mm, as rev A)",
+                    "layout 2026-11-24: mounted lying on the B (plate) side, body raised 2 mm, hand-soldered")
         if "fusible" in v:
             return ("Resistor_THT:R_Axial_DIN0309_L9.0mm_D3.2mm_P12.70mm_Horizontal", "CRF251-4 / CRF110 10R (Yageo Vitrohm)",
                     "fusible wirewound; inrush of C201 (8 A peak, 0.32 J) to confirm")
@@ -592,17 +607,22 @@ def footprint_for(ref, sym, v):
             return "Resistor_SMD:R_2512_6332Metric", "1R 1 W 1 % 50 ppm/K metal strip (2512)", ""
         if ref[2:3] == "1" and ref[1] == "1" and len(ref) == 4 and ref[3] in "01" and ref[2] in "1234":
             pass
-        if v in ("91k", "5.6k"):
-            return AX0207, "metal film 0.6 W 350 V", "grid circuit"
+        if v == "91k":
+            return ("Resistor_SMD:R_2512_6332Metric", "91k 1 % 2512 high-voltage thick film, >= 500 V working (KOA HV732H / Vishay CRHV class)",
+                    "grid leak; -240 V blocking transient across it (layout 2026-11-24: SMD on the B side)")
+        if v == "5.6k":
+            return R1206, "5.6k 1 % 1206 (200 V)", "grid stopper inside the socket's pin circle, at pin 5 (layout)"
+        if v == "330R 0.5W":
+            return R1206, "330R 1 % 1206 (about 0.05 W)", "heater sense, heater potential"
         if "0.1%" in v:
             return R1206, f"{v.split()[0]} 0.1 % 25 ppm/K thin film 1206", ""
         if v.endswith("M") or v in ("3.3k 1206", "1.3k 0.25W", "330R 0.5W", "1.0k"):
             return R1206, f"{v.split()[0]} 1 % 1206", ""
-        return R0805, f"{v.split()[0]} 1 % 0805", ""
+        return R0805, f"{v.split()[0]} 1 % 0603", ""
     if sym in ("C", "C_Polarized"):
         if "630V" in v and "MKP" in v:
-            return ("Capacitor_THT:C_Rect_L26.5mm_W10.5mm_P22.50mm_MKS4", "220n 630 V MKP, P 22.5 mm (WIMA MKP4 / Kemet R76 class)",
-                    "")
+            return ("Capacitor_THT:C_Rect_L26.5mm_W8.5mm_P22.50mm_MKS4", "220n 630 V MKP, P 22.5 mm (WIMA MKP4 26.5 x 7 / Kemet R76 class)",
+                    "body width <= 8.5 mm (layout)")
         if "630V" in v:
             return "Capacitor_SMD:C_1812_4532Metric", "100n 630 V X7R 1812", ""
         if "100u/100V" in v:
@@ -612,16 +632,16 @@ def footprint_for(ref, sym, v):
         if "X7S 1210" in v:
             return "Capacitor_SMD:C_1210_3225Metric", "GRM32EC72A106KE05 (Murata)", "about 30 % left at 72 V"
         if "/100V" in v:
-            return "Capacitor_SMD:C_1210_3225Metric", f"{v.split('/')[0]} 100 V X7R 1210", ""
+            return "Capacitor_SMD:C_0805_2012Metric", f"{v.split('/')[0]} 100 V X7R / X7S 0805 (GRM21BC72A105 class for 1 uF)", ""
         if v.startswith("10u"):
             return "Capacitor_SMD:C_1206_3216Metric", f"{v} X7R 1206", ""
         if v.startswith(("220n", "330n")):
             return "Capacitor_SMD:C_0805_2012Metric", f"{v} 50 V X7R 0805 (C0G 1206 preferred)", ""
-        return "Capacitor_SMD:C_0805_2012Metric", f"{v} 50 V X7R 0805", ""
+        return "Capacitor_SMD:C_0603_1608Metric", f"{v} 50 V X7R 0603", ""
     if sym in ("D", "D_Schottky", "D_Zener", "D_TVS"):
         table = {"UF4007": ("Diode_THT:D_DO-41_SOD81_P10.16mm_Horizontal", "UF4007"),
-                 "RGP02-20E": ("Diode_THT:D_DO-41_SOD81_P12.70mm_Horizontal", "RGP02-20E-E3/54 (Vishay, 2 kV, 0.5 A, 300 ns)"),
-                 "P6KE350CA": ("Diode_THT:D_DO-15_P12.70mm_Horizontal", "P6KE350CA (Littelfuse; VBR 332-368 V, VC 482 V at 1.24 A)"),
+                 "RGP02-20E": ("Diode_THT:D_DO-41_SOD81_P10.16mm_Horizontal", "RGP02-20E-E3/54 (Vishay, 2 kV, 0.5 A, 300 ns)"),
+                 "P6KE350CA": ("Diode_THT:D_DO-15_P10.16mm_Horizontal", "P6KE350CA (Littelfuse; VBR 332-368 V, VC 482 V at 1.24 A)"),
                  "S3M": ("Diode_SMD:D_SMC", "S3M-E3/57T (Vishay)"), "S1G": ("Diode_SMD:D_SMA", "S1G (1N4004 class)"),
                  "1N4148W": ("Diode_SMD:D_SOD-123", "1N4148W-7-F (Diodes Inc)"), "BAS416": ("Diode_SMD:D_SOD-323", "BAS416,115 (Nexperia)"),
                  "BZT52H": ("Diode_SMD:D_SOD-123F", "BZT52H-B36,115 (Nexperia)"), "BAT54": ("Diode_SMD:D_SOD-323", "BAT54J (Nexperia)"),
@@ -629,7 +649,7 @@ def footprint_for(ref, sym, v):
         for k, (fp, mpn) in table.items():
             if v.startswith(k):
                 return fp, mpn, ("1 cm2 cathode copper (150 K/W)" if k == "BZT52H" else "")
-    if sym in ("Q_NPN", "Q_PNP"):
+    if sym in ("MMBT3904", "MMBT3906", "MMBTA92", "MMBTA42"):
         return SOT23, {"MMBT3904": "MMBT3904 (Nexperia)", "MMBT3906": "MMBT3906 (Nexperia)", "MMBTA92": "MMBTA92 (300 V)",
                        "MMBTA42": "MMBTA42 (300 V)"}[v], ""
     raise KeyError(f"no footprint rule for {ref} {sym} {v}")

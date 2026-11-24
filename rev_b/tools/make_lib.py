@@ -14,7 +14,7 @@ from p2k.sexpr import Sym, find, find_all, load, save  # noqa: E402
 KICAD = os.environ.get("KICAD_SYMBOLS", "/mnt/c/Program Files/KiCad/10.0/share/kicad/symbols")
 WANT = [
     ("Device", "R"), ("Device", "C"), ("Device", "C_Polarized"), ("Device", "D"), ("Device", "D_Zener"),
-    ("Device", "D_Schottky"), ("Device", "Q_NPN"), ("Device", "Q_PNP"), ("Device", "Q_PMOS"),
+    ("Device", "D_Schottky"), ("Transistor_BJT", "MMBT3904"), ("Transistor_BJT", "MMBT3906"), ("Transistor_BJT", "MMBTA92"), ("Transistor_BJT", "MMBTA42"), ("Transistor_FET", "Q_PMOS_GDS"),
     ("Device", "NetTie_2"), ("Device", "Fuse"), ("Device", "D_Bridge_+AA-"),
     ("Valve", "EL34"), ("Transistor_FET", "2N7002"), ("Diode", "BAT54S"),
     ("Analog_DAC", "DAC7578xPW"), ("Reference_Voltage", "ADR4525"), ("Analog_ADC", "ADS7828"), ("Amplifier_Operational", "OPA4197xD"),
@@ -23,7 +23,7 @@ WANT = [
     ("Isolator", "PC817"), ("Interface_Expansion", "MCP23S17x-x-SS"),
     ("Connector_Generic", "Conn_02x07_Odd_Even"), ("Connector_Generic", "Conn_02x05_Odd_Even"),
     ("Connector_Generic", "Conn_01x01"), ("Connector_Generic", "Conn_01x02"), ("Connector_Generic", "Conn_01x03"),
-    ("Connector_Generic", "Conn_01x05"), ("Connector_Generic", "Conn_02x03_Top_Bottom"), ("Device", "D_TVS"),
+    ("Connector_Generic", "Conn_01x05"), ("Connector", "TestPoint"), ("Connector_Generic", "Conn_02x03_Top_Bottom"), ("Device", "D_TVS"),
     ("power", "GND"), ("power", "GNDD"), ("power", "+5V"), ("power", "+15V"), ("power", "-15V"), ("power", "PWR_FLAG"),
 ]
 _cache = {}

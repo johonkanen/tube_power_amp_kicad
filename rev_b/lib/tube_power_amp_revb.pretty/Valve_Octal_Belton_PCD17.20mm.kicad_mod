@@ -107,17 +107,6 @@
 		)
 		(layer "F.SilkS")
 	)
-	(fp_poly
-		(pts
-			(xy -15.1065 0.1031) (xy -7.7049 7.5585) (xy -7.5585 7.7049) (xy -0.1041 15.1055) (xy 0.1031 15.1055) (xy 7.5585 7.7049) (xy 7.7049 7.5585) (xy 15.1055 0.1031) (xy 15.1055 -0.1041) (xy 7.7049 -7.5585) (xy 7.5585 -7.7049) (xy 0.1031 -15.1065) (xy -0.1041 -15.1065) (xy -7.5585 -7.7049) (xy -7.7049 -7.5585) (xy -15.1065 -0.1041)
-		)
-		(stroke
-			(width 0.05)
-			(type solid)
-		)
-		(fill no)
-		(layer "F.CrtYd")
-	)
 	(fp_text user "${REFERENCE}"
 		(at 0 0 0)
 		(layer "F.Fab")
@@ -177,4 +166,5 @@
 		(layers "*.Cu" "*.Mask")
 	)
 	(embedded_fonts no)
+	(fp_circle (center 0 0) (end 11 0) (stroke (width 0.05) (type solid)) (fill no) (layer "F.CrtYd"))
 )

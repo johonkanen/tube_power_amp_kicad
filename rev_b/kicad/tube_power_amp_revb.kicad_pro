@@ -4,7 +4,26 @@
     "version": 3
   },
   "schematic": {},
-  "board": {},
+  "board": {
+    "design_settings": {
+      "rules": {
+        "min_clearance": 0.15,
+        "min_track_width": 0.15,
+        "min_connection": 0.15,
+        "min_via_diameter": 0.6,
+        "min_via_annular_width": 0.15,
+        "min_through_hole_diameter": 0.3,
+        "min_hole_to_hole": 0.5,
+        "min_hole_clearance": 0.25,
+        "min_copper_edge_clearance": 0.5,
+        "min_silk_clearance": 0.0,
+        "min_text_height": 0.8,
+        "min_text_thickness": 0.12,
+        "solder_mask_to_copper_clearance": 0.0
+      },
+      "drc_exclusions": []
+    }
+  },
   "sheets": [
     [
       "451c49f3-c14c-5f4e-b828-2be954cd9e52",
@@ -30,5 +49,524 @@
       "24085554-568b-5123-be58-842f743ea977",
       "05 Ribbons, DGND island, expander, warm-up timer, HV_PERMIT"
     ]
-  ]
+  ],
+  "net_settings": {
+    "classes": [
+      {
+        "name": "Default",
+        "clearance": 0.15,
+        "track_width": 0.25,
+        "via_diameter": 0.8,
+        "via_drill": 0.4,
+        "pcb_color": "rgba(0, 0, 0, 0.000)",
+        "schematic_color": "rgba(0, 0, 0, 0.000)",
+        "priority": 2147483647
+      },
+      {
+        "name": "HV1250",
+        "clearance": 6.3,
+        "track_width": 2.0,
+        "via_diameter": 0.8,
+        "via_drill": 0.4,
+        "pcb_color": "rgba(220, 0, 0, 1.000)",
+        "schematic_color": "rgba(0, 0, 0, 0.000)",
+        "priority": 0
+      },
+      {
+        "name": "HV450",
+        "clearance": 0.5,
+        "track_width": 1.0,
+        "via_diameter": 0.8,
+        "via_drill": 0.4,
+        "pcb_color": "rgba(230, 120, 0, 1.000)",
+        "schematic_color": "rgba(0, 0, 0, 0.000)",
+        "priority": 1
+      },
+      {
+        "name": "BIAS80",
+        "clearance": 0.2,
+        "track_width": 0.3,
+        "via_diameter": 0.8,
+        "via_drill": 0.4,
+        "pcb_color": "rgba(0, 120, 200, 1.000)",
+        "schematic_color": "rgba(0, 0, 0, 0.000)",
+        "priority": 3
+      },
+      {
+        "name": "HTR",
+        "clearance": 0.2,
+        "track_width": 2.0,
+        "via_diameter": 0.8,
+        "via_drill": 0.4,
+        "pcb_color": "rgba(140, 40, 180, 1.000)",
+        "schematic_color": "rgba(0, 0, 0, 0.000)",
+        "priority": 4
+      },
+      {
+        "name": "PWR",
+        "clearance": 0.15,
+        "track_width": 0.5,
+        "via_diameter": 0.8,
+        "via_drill": 0.4,
+        "pcb_color": "rgba(0, 150, 0, 1.000)",
+        "schematic_color": "rgba(0, 0, 0, 0.000)",
+        "priority": 5
+      }
+    ],
+    "meta": {
+      "version": 4
+    },
+    "net_colors": null,
+    "netclass_assignments": null,
+    "netclass_patterns": [
+      {
+        "netclass": "HV1250",
+        "pattern": "OT_A"
+      },
+      {
+        "netclass": "HV1250",
+        "pattern": "*/OT_A"
+      },
+      {
+        "netclass": "HV1250",
+        "pattern": "OT_B"
+      },
+      {
+        "netclass": "HV1250",
+        "pattern": "*/OT_B"
+      },
+      {
+        "netclass": "HV1250",
+        "pattern": "CL_A"
+      },
+      {
+        "netclass": "HV1250",
+        "pattern": "*/CL_A"
+      },
+      {
+        "netclass": "HV1250",
+        "pattern": "CL_B"
+      },
+      {
+        "netclass": "HV1250",
+        "pattern": "*/CL_B"
+      },
+      {
+        "netclass": "HV450",
+        "pattern": "V_ANODE"
+      },
+      {
+        "netclass": "HV450",
+        "pattern": "*/V_ANODE"
+      },
+      {
+        "netclass": "HV450",
+        "pattern": "V_SCREEN"
+      },
+      {
+        "netclass": "HV450",
+        "pattern": "*/V_SCREEN"
+      },
+      {
+        "netclass": "HV450",
+        "pattern": "DRV_A"
+      },
+      {
+        "netclass": "HV450",
+        "pattern": "*/DRV_A"
+      },
+      {
+        "netclass": "HV450",
+        "pattern": "DRV_B"
+      },
+      {
+        "netclass": "HV450",
+        "pattern": "*/DRV_B"
+      },
+      {
+        "netclass": "HV450",
+        "pattern": "G2_1"
+      },
+      {
+        "netclass": "HV450",
+        "pattern": "*/G2_1"
+      },
+      {
+        "netclass": "HV450",
+        "pattern": "G2_2"
+      },
+      {
+        "netclass": "HV450",
+        "pattern": "*/G2_2"
+      },
+      {
+        "netclass": "HV450",
+        "pattern": "G2_3"
+      },
+      {
+        "netclass": "HV450",
+        "pattern": "*/G2_3"
+      },
+      {
+        "netclass": "HV450",
+        "pattern": "G2_4"
+      },
+      {
+        "netclass": "HV450",
+        "pattern": "*/G2_4"
+      },
+      {
+        "netclass": "BIAS80",
+        "pattern": "M80"
+      },
+      {
+        "netclass": "BIAS80",
+        "pattern": "*/M80"
+      },
+      {
+        "netclass": "BIAS80",
+        "pattern": "M80_IN"
+      },
+      {
+        "netclass": "BIAS80",
+        "pattern": "*/M80_IN"
+      },
+      {
+        "netclass": "BIAS80",
+        "pattern": "ZR"
+      },
+      {
+        "netclass": "BIAS80",
+        "pattern": "*/ZR"
+      },
+      {
+        "netclass": "BIAS80",
+        "pattern": "ZF"
+      },
+      {
+        "netclass": "BIAS80",
+        "pattern": "*/ZF"
+      },
+      {
+        "netclass": "BIAS80",
+        "pattern": "Z1"
+      },
+      {
+        "netclass": "BIAS80",
+        "pattern": "*/Z1"
+      },
+      {
+        "netclass": "BIAS80",
+        "pattern": "VS1"
+      },
+      {
+        "netclass": "BIAS80",
+        "pattern": "*/VS1"
+      },
+      {
+        "netclass": "BIAS80",
+        "pattern": "VS2"
+      },
+      {
+        "netclass": "BIAS80",
+        "pattern": "*/VS2"
+      },
+      {
+        "netclass": "BIAS80",
+        "pattern": "VNC"
+      },
+      {
+        "netclass": "BIAS80",
+        "pattern": "*/VNC"
+      },
+      {
+        "netclass": "BIAS80",
+        "pattern": "MVA"
+      },
+      {
+        "netclass": "BIAS80",
+        "pattern": "*/MVA"
+      },
+      {
+        "netclass": "BIAS80",
+        "pattern": "OUT1"
+      },
+      {
+        "netclass": "BIAS80",
+        "pattern": "*/OUT1"
+      },
+      {
+        "netclass": "BIAS80",
+        "pattern": "OUT2"
+      },
+      {
+        "netclass": "BIAS80",
+        "pattern": "*/OUT2"
+      },
+      {
+        "netclass": "BIAS80",
+        "pattern": "OUT3"
+      },
+      {
+        "netclass": "BIAS80",
+        "pattern": "*/OUT3"
+      },
+      {
+        "netclass": "BIAS80",
+        "pattern": "OUT4"
+      },
+      {
+        "netclass": "BIAS80",
+        "pattern": "*/OUT4"
+      },
+      {
+        "netclass": "BIAS80",
+        "pattern": "FE1"
+      },
+      {
+        "netclass": "BIAS80",
+        "pattern": "*/FE1"
+      },
+      {
+        "netclass": "BIAS80",
+        "pattern": "FE2"
+      },
+      {
+        "netclass": "BIAS80",
+        "pattern": "*/FE2"
+      },
+      {
+        "netclass": "BIAS80",
+        "pattern": "FE3"
+      },
+      {
+        "netclass": "BIAS80",
+        "pattern": "*/FE3"
+      },
+      {
+        "netclass": "BIAS80",
+        "pattern": "FE4"
+      },
+      {
+        "netclass": "BIAS80",
+        "pattern": "*/FE4"
+      },
+      {
+        "netclass": "BIAS80",
+        "pattern": "PM1"
+      },
+      {
+        "netclass": "BIAS80",
+        "pattern": "*/PM1"
+      },
+      {
+        "netclass": "BIAS80",
+        "pattern": "PM2"
+      },
+      {
+        "netclass": "BIAS80",
+        "pattern": "*/PM2"
+      },
+      {
+        "netclass": "BIAS80",
+        "pattern": "PM3"
+      },
+      {
+        "netclass": "BIAS80",
+        "pattern": "*/PM3"
+      },
+      {
+        "netclass": "BIAS80",
+        "pattern": "PM4"
+      },
+      {
+        "netclass": "BIAS80",
+        "pattern": "*/PM4"
+      },
+      {
+        "netclass": "BIAS80",
+        "pattern": "BIAS1"
+      },
+      {
+        "netclass": "BIAS80",
+        "pattern": "*/BIAS1"
+      },
+      {
+        "netclass": "BIAS80",
+        "pattern": "BIAS2"
+      },
+      {
+        "netclass": "BIAS80",
+        "pattern": "*/BIAS2"
+      },
+      {
+        "netclass": "BIAS80",
+        "pattern": "BIAS3"
+      },
+      {
+        "netclass": "BIAS80",
+        "pattern": "*/BIAS3"
+      },
+      {
+        "netclass": "BIAS80",
+        "pattern": "BIAS4"
+      },
+      {
+        "netclass": "BIAS80",
+        "pattern": "*/BIAS4"
+      },
+      {
+        "netclass": "BIAS80",
+        "pattern": "GRID1"
+      },
+      {
+        "netclass": "BIAS80",
+        "pattern": "*/GRID1"
+      },
+      {
+        "netclass": "BIAS80",
+        "pattern": "GRID2"
+      },
+      {
+        "netclass": "BIAS80",
+        "pattern": "*/GRID2"
+      },
+      {
+        "netclass": "BIAS80",
+        "pattern": "GRID3"
+      },
+      {
+        "netclass": "BIAS80",
+        "pattern": "*/GRID3"
+      },
+      {
+        "netclass": "BIAS80",
+        "pattern": "GRID4"
+      },
+      {
+        "netclass": "BIAS80",
+        "pattern": "*/GRID4"
+      },
+      {
+        "netclass": "BIAS80",
+        "pattern": "G1_1"
+      },
+      {
+        "netclass": "BIAS80",
+        "pattern": "*/G1_1"
+      },
+      {
+        "netclass": "BIAS80",
+        "pattern": "G1_2"
+      },
+      {
+        "netclass": "BIAS80",
+        "pattern": "*/G1_2"
+      },
+      {
+        "netclass": "BIAS80",
+        "pattern": "G1_3"
+      },
+      {
+        "netclass": "BIAS80",
+        "pattern": "*/G1_3"
+      },
+      {
+        "netclass": "BIAS80",
+        "pattern": "G1_4"
+      },
+      {
+        "netclass": "BIAS80",
+        "pattern": "*/G1_4"
+      },
+      {
+        "netclass": "HTR",
+        "pattern": "HTR1"
+      },
+      {
+        "netclass": "HTR",
+        "pattern": "*/HTR1"
+      },
+      {
+        "netclass": "HTR",
+        "pattern": "HTR2"
+      },
+      {
+        "netclass": "HTR",
+        "pattern": "*/HTR2"
+      },
+      {
+        "netclass": "HTR",
+        "pattern": "HS_AC1"
+      },
+      {
+        "netclass": "HTR",
+        "pattern": "*/HS_AC1"
+      },
+      {
+        "netclass": "HTR",
+        "pattern": "HS_P"
+      },
+      {
+        "netclass": "HTR",
+        "pattern": "*/HS_P"
+      },
+      {
+        "netclass": "HTR",
+        "pattern": "HS_N"
+      },
+      {
+        "netclass": "HTR",
+        "pattern": "*/HS_N"
+      },
+      {
+        "netclass": "HTR",
+        "pattern": "HS_Z"
+      },
+      {
+        "netclass": "HTR",
+        "pattern": "*/HS_Z"
+      },
+      {
+        "netclass": "PWR",
+        "pattern": "GND"
+      },
+      {
+        "netclass": "PWR",
+        "pattern": "*/GND"
+      },
+      {
+        "netclass": "PWR",
+        "pattern": "GNDD"
+      },
+      {
+        "netclass": "PWR",
+        "pattern": "*/GNDD"
+      },
+      {
+        "netclass": "PWR",
+        "pattern": "+15V"
+      },
+      {
+        "netclass": "PWR",
+        "pattern": "*/+15V"
+      },
+      {
+        "netclass": "PWR",
+        "pattern": "-15V"
+      },
+      {
+        "netclass": "PWR",
+        "pattern": "*/-15V"
+      },
+      {
+        "netclass": "PWR",
+        "pattern": "+5V"
+      },
+      {
+        "netclass": "PWR",
+        "pattern": "*/+5V"
+      }
+    ]
+  }
 }

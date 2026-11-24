@@ -4696,9 +4696,17 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "tube_power_amp_revb:Q_NPN"
-			(pin_numbers
+		(symbol "tube_power_amp_revb:MMBT3904"
+			(property "ki_fp_filters" "SOT?23*"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
 				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
 			)
 			(pin_names
 				(offset 0)
@@ -4710,7 +4718,7 @@
 			(in_pos_files yes)
 			(duplicate_pin_numbers_are_jumpers no)
 			(property "Reference" "Q"
-				(at 5.08 1.27 0)
+				(at 5.08 1.905 0)
 				(show_name no)
 				(do_not_autoplace no)
 				(effects
@@ -4720,8 +4728,8 @@
 					(justify left)
 				)
 			)
-			(property "Value" "Q_NPN"
-				(at 5.08 -1.27 0)
+			(property "Value" "MMBT3904"
+				(at 5.08 0 0)
 				(show_name no)
 				(do_not_autoplace no)
 				(effects
@@ -4731,8 +4739,21 @@
 					(justify left)
 				)
 			)
-			(property "Footprint" ""
-				(at 5.08 2.54 0)
+			(property "Footprint" "Package_TO_SOT_SMD:SOT-23"
+				(at 5.08 -1.905 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+						(italic yes)
+					)
+					(justify left)
+				)
+			)
+			(property "Datasheet" "https://www.onsemi.com/pdf/datasheet/pzt3904-d.pdf"
+				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
 				(hide yes)
@@ -4740,9 +4761,10 @@
 					(font
 						(size 1.27 1.27)
 					)
+					(justify left)
 				)
 			)
-			(property "Datasheet" ""
+			(property "Description" "0.2A Ic, 40V Vce, Small Signal NPN Transistor, SOT-23"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -4753,7 +4775,7 @@
 					)
 				)
 			)
-			(property "Description" "NPN bipolar junction transistor"
+			(property "Sim.Device" "NPN"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -4764,7 +4786,7 @@
 					)
 				)
 			)
-			(property "ki_keywords" "BJT"
+			(property "Sim.Pins" "1=B 2=E 3=C"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -4775,7 +4797,18 @@
 					)
 				)
 			)
-			(symbol "Q_NPN_0_1"
+			(property "ki_keywords" "NPN Transistor"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "MMBT3904_0_1"
 				(polyline
 					(pts
 						(xy -2.54 0) (xy 0.635 0)
@@ -4800,6 +4833,19 @@
 						(type none)
 					)
 				)
+				(circle
+					(center 1.27 0)
+					(radius 2.8194)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "MMBT3904_1_1"
 				(polyline
 					(pts
 						(xy 0.635 0.635) (xy 2.54 2.54)
@@ -4824,17 +4870,6 @@
 						(type none)
 					)
 				)
-				(circle
-					(center 1.27 0)
-					(radius 2.8194)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
 				(polyline
 					(pts
 						(xy 1.27 -1.778) (xy 1.778 -1.27) (xy 2.286 -2.286) (xy 1.27 -1.778)
@@ -4847,8 +4882,6 @@
 						(type outline)
 					)
 				)
-			)
-			(symbol "Q_NPN_1_1"
 				(pin input line
 					(at -5.08 0 0)
 					(length 2.54)
@@ -4859,25 +4892,7 @@
 							)
 						)
 					)
-					(number "B"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 2.54 5.08 270)
-					(length 2.54)
-					(name "C"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "C"
+					(number "1"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -4895,7 +4910,25 @@
 							)
 						)
 					)
-					(number "E"
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 2.54 5.08 270)
+					(length 2.54)
+					(name "C"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -4906,9 +4939,17 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "tube_power_amp_revb:Q_PNP"
-			(pin_numbers
+		(symbol "tube_power_amp_revb:MMBT3906"
+			(property "ki_fp_filters" "SOT?23*"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
 				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
 			)
 			(pin_names
 				(offset 0)
@@ -4920,7 +4961,7 @@
 			(in_pos_files yes)
 			(duplicate_pin_numbers_are_jumpers no)
 			(property "Reference" "Q"
-				(at 5.08 1.27 0)
+				(at 5.08 1.905 0)
 				(show_name no)
 				(do_not_autoplace no)
 				(effects
@@ -4930,8 +4971,8 @@
 					(justify left)
 				)
 			)
-			(property "Value" "Q_PNP"
-				(at 5.08 -1.27 0)
+			(property "Value" "MMBT3906"
+				(at 5.08 0 0)
 				(show_name no)
 				(do_not_autoplace no)
 				(effects
@@ -4941,8 +4982,21 @@
 					(justify left)
 				)
 			)
-			(property "Footprint" ""
-				(at 5.08 2.54 0)
+			(property "Footprint" "Package_TO_SOT_SMD:SOT-23"
+				(at 5.08 -1.905 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+						(italic yes)
+					)
+					(justify left)
+				)
+			)
+			(property "Datasheet" "https://www.onsemi.com/pdf/datasheet/pzt3906-d.pdf"
+				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
 				(hide yes)
@@ -4950,9 +5004,10 @@
 					(font
 						(size 1.27 1.27)
 					)
+					(justify left)
 				)
 			)
-			(property "Datasheet" ""
+			(property "Description" "-0.2A Ic, -40V Vce, Small Signal PNP Transistor, SOT-23"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -4963,7 +5018,7 @@
 					)
 				)
 			)
-			(property "Description" "PNP bipolar junction transistor"
+			(property "Sim.Device" "PNP"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -4974,7 +5029,7 @@
 					)
 				)
 			)
-			(property "ki_keywords" "BJT"
+			(property "Sim.Pins" "1=B 2=E 3=C"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -4985,7 +5040,18 @@
 					)
 				)
 			)
-			(symbol "Q_PNP_0_1"
+			(property "ki_keywords" "PNP Transistor"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "MMBT3906_0_1"
 				(polyline
 					(pts
 						(xy -2.54 0) (xy 0.635 0)
@@ -5058,7 +5124,7 @@
 					)
 				)
 			)
-			(symbol "Q_PNP_1_1"
+			(symbol "MMBT3906_1_1"
 				(pin input line
 					(at -5.08 0 0)
 					(length 2.54)
@@ -5069,25 +5135,7 @@
 							)
 						)
 					)
-					(number "B"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 2.54 5.08 270)
-					(length 2.54)
-					(name "C"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "C"
+					(number "1"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -5105,7 +5153,25 @@
 							)
 						)
 					)
-					(number "E"
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 2.54 5.08 270)
+					(length 2.54)
+					(name "C"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -6694,7 +6760,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 91.44 55.118 0)
 			(effects
 				(font
@@ -6856,7 +6922,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 91.44 90.678 0)
 			(effects
 				(font
@@ -7029,7 +7095,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 30.48 161.798 0)
 			(effects
 				(font
@@ -7246,7 +7312,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 54.61 159.0548 0)
 			(effects
 				(font
@@ -8862,7 +8928,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 173.6852 39.37 0)
 			(effects
 				(font
@@ -9079,7 +9145,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 231.902 71.12 0)
 			(effects
 				(font
@@ -9241,7 +9307,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 231.902 88.9 0)
 			(effects
 				(font
@@ -9403,7 +9469,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 264.16 72.898 0)
 			(effects
 				(font
@@ -9522,7 +9588,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 264.16 90.678 0)
 			(effects
 				(font
@@ -9629,7 +9695,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 282.702 106.68 0)
 			(effects
 				(font
@@ -10313,7 +10379,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 91.44 197.358 0)
 			(effects
 				(font
@@ -10475,7 +10541,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 111.76 197.358 0)
 			(effects
 				(font
@@ -10637,7 +10703,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 132.08 215.138 0)
 			(effects
 				(font
@@ -10756,7 +10822,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 132.08 232.918 0)
 			(effects
 				(font
@@ -10875,7 +10941,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 132.08 250.698 0)
 			(effects
 				(font
@@ -10994,7 +11060,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 132.08 268.478 0)
 			(effects
 				(font
@@ -11113,7 +11179,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 132.08 286.258 0)
 			(effects
 				(font
@@ -11232,7 +11298,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 132.08 304.038 0)
 			(effects
 				(font
@@ -11361,7 +11427,7 @@
 				)
 			)
 		)
-		(property "Footprint" "tube_power_amp_revb:R_Axial_Power_L25.0mm_W6.4mm_P30.00mm"
+		(property "Footprint" "Resistor_SMD:R_1206_3216Metric"
 			(at 314.96 55.118 0)
 			(effects
 				(font
@@ -11756,7 +11822,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Package_DIP:DIP-4_W7.62mm"
+		(property "Footprint" "Package_DIP:SMDIP-4_W7.62mm"
 			(at 401.32 76.2 0)
 			(effects
 				(font
@@ -11966,7 +12032,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 436.88 55.118 0)
 			(effects
 				(font
@@ -12128,7 +12194,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 454.3552 74.93 0)
 			(effects
 				(font
@@ -12290,7 +12356,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 315.9252 110.49 0)
 			(effects
 				(font
@@ -12452,7 +12518,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 333.502 115.57 0)
 			(effects
 				(font
@@ -12828,7 +12894,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 406.4 126.238 0)
 			(effects
 				(font
@@ -13385,7 +13451,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 518.16 108.458 0)
 			(effects
 				(font
@@ -13492,7 +13558,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 518.16 126.238 0)
 			(effects
 				(font
@@ -13599,7 +13665,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 521.97 141.2748 0)
 			(effects
 				(font
@@ -13813,7 +13879,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 488.6452 92.71 0)
 			(effects
 				(font
@@ -14660,7 +14726,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 194.0052 252.73 0)
 			(effects
 				(font
@@ -14877,7 +14943,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 214.3252 252.73 0)
 			(effects
 				(font
@@ -15094,7 +15160,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 274.32 215.138 0)
 			(effects
 				(font
@@ -15201,7 +15267,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 285.242 234.95 0)
 			(effects
 				(font
@@ -15339,7 +15405,7 @@
 		)
 	)
 	(symbol
-		(lib_id "tube_power_amp_revb:Q_NPN")
+		(lib_id "tube_power_amp_revb:MMBT3904")
 		(at 314.96 222.25 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -15348,7 +15414,7 @@
 		(dnp no)
 		(uuid "25e9d2b5-89e1-569d-b434-79cbd5874ea9")
 		(property "Reference" "Q501"
-			(at 320.04 220.98 0)
+			(at 320.04 220.345 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15357,7 +15423,7 @@
 			)
 		)
 		(property "Value" "MMBT3904"
-			(at 320.04 223.52 0)
+			(at 320.04 222.25 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15366,15 +15432,26 @@
 			)
 		)
 		(property "Footprint" "Package_TO_SOT_SMD:SOT-23"
-			(at 320.04 219.71 0)
+			(at 320.04 224.155 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify left)
 				(hide yes)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://www.onsemi.com/pdf/datasheet/pzt3904-d.pdf"
+			(at 314.96 222.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Description" "0.2A Ic, 40V Vce, Small Signal NPN Transistor, SOT-23"
 			(at 314.96 222.25 0)
 			(effects
 				(font
@@ -15383,23 +15460,14 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "NPN bipolar junction transistor"
-			(at 314.96 222.25 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
+		(pin "1"
+			(uuid "0bdac310-9518-5d9d-bc77-93a0153c6f9d")
 		)
-		(pin "B"
-			(uuid "71ec52ac-7183-5105-a721-0ab250aae5b8")
+		(pin "2"
+			(uuid "611cdcd1-4d0b-54f3-a997-ac4032dae834")
 		)
-		(pin "C"
-			(uuid "e5f4c4a5-d442-5075-b5c9-49652741008e")
-		)
-		(pin "E"
-			(uuid "ed225223-80db-583a-b37c-cae20fd14c40")
+		(pin "3"
+			(uuid "99eaec81-1cf1-5524-9bf1-ac45625523c1")
 		)
 		(instances
 			(project "tube_power_amp_revb"
@@ -15432,33 +15500,13 @@
 	)
 	(wire
 		(pts
-			(xy 317.5 217.17) (xy 317.5 214.63)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "9533b78e-8d97-58f9-8806-37ac4fe0b0eb")
-	)
-	(label "HS_NC"
-		(at 317.5 214.63 90)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "3a98a950-8256-5ac4-a167-fc83134351c1")
-	)
-	(wire
-		(pts
 			(xy 317.5 227.33) (xy 317.5 229.87)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "8a6e2125-4610-548b-ba03-470de293ae28")
+		(uuid "9533b78e-8d97-58f9-8806-37ac4fe0b0eb")
 	)
 	(symbol
 		(lib_id "tube_power_amp_revb:GND")
@@ -15525,6 +15573,26 @@
 			)
 		)
 	)
+	(wire
+		(pts
+			(xy 317.5 217.17) (xy 317.5 214.63)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3a98a950-8256-5ac4-a167-fc83134351c1")
+	)
+	(label "HS_NC"
+		(at 317.5 214.63 90)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "8a6e2125-4610-548b-ba03-470de293ae28")
+	)
 	(symbol
 		(lib_id "tube_power_amp_revb:R")
 		(at 335.28 204.47 0)
@@ -15550,7 +15618,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 333.502 204.47 0)
 			(effects
 				(font
@@ -15657,7 +15725,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 351.79 193.548 0)
 			(effects
 				(font
@@ -15795,7 +15863,7 @@
 		(uuid "bccf9b09-6695-51dd-bb5b-c5589b93849b")
 	)
 	(symbol
-		(lib_id "tube_power_amp_revb:Q_PNP")
+		(lib_id "tube_power_amp_revb:MMBT3906")
 		(at 375.92 209.55 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -15804,7 +15872,7 @@
 		(dnp no)
 		(uuid "93ceaa00-63f0-5b76-a853-a149ed77f1af")
 		(property "Reference" "Q502"
-			(at 381 208.28 0)
+			(at 381 207.645 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15813,7 +15881,7 @@
 			)
 		)
 		(property "Value" "MMBT3906"
-			(at 381 210.82 0)
+			(at 381 209.55 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15822,15 +15890,26 @@
 			)
 		)
 		(property "Footprint" "Package_TO_SOT_SMD:SOT-23"
-			(at 381 207.01 0)
+			(at 381 211.455 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify left)
 				(hide yes)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://www.onsemi.com/pdf/datasheet/pzt3906-d.pdf"
+			(at 375.92 209.55 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Description" "-0.2A Ic, -40V Vce, Small Signal PNP Transistor, SOT-23"
 			(at 375.92 209.55 0)
 			(effects
 				(font
@@ -15839,23 +15918,14 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "PNP bipolar junction transistor"
-			(at 375.92 209.55 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
+		(pin "1"
+			(uuid "51ee4913-f43d-520d-b764-7eab6a0459c0")
 		)
-		(pin "B"
-			(uuid "ce866ab1-de37-5dc8-a990-1f45c27cae36")
+		(pin "2"
+			(uuid "f362ac68-eeb1-5882-a3e6-092824dd9599")
 		)
-		(pin "C"
-			(uuid "0c0c0c8e-0604-5c12-b1db-19221398f30c")
-		)
-		(pin "E"
-			(uuid "6985b866-964f-5528-987f-11f80862c64a")
+		(pin "3"
+			(uuid "c3231c5e-17f1-5b6c-a200-5519543e69d7")
 		)
 		(instances
 			(project "tube_power_amp_revb"
@@ -15888,33 +15958,13 @@
 	)
 	(wire
 		(pts
-			(xy 378.46 204.47) (xy 378.46 201.93)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "477d7fbf-3fab-5e0b-ab48-5f4ca26bcdb5")
-	)
-	(label "LOOP_HI"
-		(at 378.46 201.93 90)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "9b1adde5-8d81-5839-b9e2-3b6680fd4136")
-	)
-	(wire
-		(pts
 			(xy 378.46 214.63) (xy 378.46 217.17)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "9381ad65-f14b-50da-ae98-1d684388428a")
+		(uuid "477d7fbf-3fab-5e0b-ab48-5f4ca26bcdb5")
 	)
 	(symbol
 		(lib_id "tube_power_amp_revb:+15V")
@@ -15981,6 +16031,26 @@
 			)
 		)
 	)
+	(wire
+		(pts
+			(xy 378.46 204.47) (xy 378.46 201.93)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "9b1adde5-8d81-5839-b9e2-3b6680fd4136")
+	)
+	(label "LOOP_HI"
+		(at 378.46 201.93 90)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "9381ad65-f14b-50da-ae98-1d684388428a")
+	)
 	(symbol
 		(lib_id "tube_power_amp_revb:R")
 		(at 406.4 213.36 90)
@@ -16006,7 +16076,7 @@
 				)
 			)
 		)
-		(property "Footprint" "tube_power_amp_revb:R_Axial_Power_L25.0mm_W6.4mm_P30.00mm"
+		(property "Footprint" "Resistor_SMD:R_1206_3216Metric"
 			(at 406.4 215.138 0)
 			(effects
 				(font
@@ -16115,7 +16185,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Package_DIP:DIP-4_W7.62mm"
+		(property "Footprint" "Package_DIP:SMDIP-4_W7.62mm"
 			(at 431.8 236.22 0)
 			(effects
 				(font
@@ -16325,7 +16395,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 465.582 248.92 0)
 			(effects
 				(font
@@ -16677,7 +16747,7 @@
 		(uuid "5d65e4b7-7ad6-5296-860f-a5816fc65ee9")
 	)
 	(symbol
-		(lib_id "tube_power_amp_revb:Q_NPN")
+		(lib_id "tube_power_amp_revb:MMBT3904")
 		(at 396.24 280.67 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -16686,7 +16756,7 @@
 		(dnp no)
 		(uuid "29f31e1e-8500-56b6-aa24-3d735baaf095")
 		(property "Reference" "Q503"
-			(at 401.32 279.4 0)
+			(at 401.32 278.765 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16695,7 +16765,7 @@
 			)
 		)
 		(property "Value" "MMBT3904"
-			(at 401.32 281.94 0)
+			(at 401.32 280.67 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16704,15 +16774,26 @@
 			)
 		)
 		(property "Footprint" "Package_TO_SOT_SMD:SOT-23"
-			(at 401.32 278.13 0)
+			(at 401.32 282.575 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify left)
 				(hide yes)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://www.onsemi.com/pdf/datasheet/pzt3904-d.pdf"
+			(at 396.24 280.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Description" "0.2A Ic, 40V Vce, Small Signal NPN Transistor, SOT-23"
 			(at 396.24 280.67 0)
 			(effects
 				(font
@@ -16721,23 +16802,14 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "NPN bipolar junction transistor"
-			(at 396.24 280.67 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
+		(pin "1"
+			(uuid "ba5f1077-7f6b-57b6-ae87-0a35ed3dab3d")
 		)
-		(pin "B"
-			(uuid "cd563bd8-6766-5590-9916-dd70e8459654")
+		(pin "2"
+			(uuid "d4425b5f-94a7-51d9-a7cd-e5cee5fdec46")
 		)
-		(pin "C"
-			(uuid "0a5ac7d5-a288-52c3-8b25-f471546e3b1d")
-		)
-		(pin "E"
-			(uuid "4fedb7c3-b82c-54ad-a943-8cf428eae7bf")
+		(pin "3"
+			(uuid "f44c4e6a-4a12-5c37-a3e4-11575a550429")
 		)
 		(instances
 			(project "tube_power_amp_revb"
@@ -16770,33 +16842,13 @@
 	)
 	(wire
 		(pts
-			(xy 398.78 275.59) (xy 398.78 273.05)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "042ae47f-4d2d-546a-b05d-1e44014315fb")
-	)
-	(label "HVP_N"
-		(at 398.78 273.05 90)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "32bbc495-8bc7-5919-a70d-1fe82a04255b")
-	)
-	(wire
-		(pts
 			(xy 398.78 285.75) (xy 398.78 288.29)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "00dca302-b4fd-531d-a8a3-0a94fa59c247")
+		(uuid "042ae47f-4d2d-546a-b05d-1e44014315fb")
 	)
 	(symbol
 		(lib_id "tube_power_amp_revb:GND")
@@ -16863,6 +16915,26 @@
 			)
 		)
 	)
+	(wire
+		(pts
+			(xy 398.78 275.59) (xy 398.78 273.05)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "32bbc495-8bc7-5919-a70d-1fe82a04255b")
+	)
+	(label "HVP_N"
+		(at 398.78 273.05 90)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "00dca302-b4fd-531d-a8a3-0a94fa59c247")
+	)
 	(symbol
 		(lib_id "tube_power_amp_revb:R")
 		(at 365.76 280.67 90)
@@ -16888,7 +16960,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 365.76 282.448 0)
 			(effects
 				(font
@@ -17007,7 +17079,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 374.142 302.26 0)
 			(effects
 				(font
