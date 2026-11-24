@@ -103,7 +103,7 @@ def load_fp(lib_id):
 
 def place(f, X, Y, rot, side):
     f.SetPosition(pcbnew.VECTOR2I(0, 0))
-    if side == "B" and not f.IsFlipped():
+    if (side == "B") != f.IsFlipped():
         f.Flip(f.GetPosition(), pcbnew.FLIP_DIRECTION_LEFT_RIGHT)
     f.SetOrientationDegrees(rot)
     f.SetPosition(kpt(X, Y))

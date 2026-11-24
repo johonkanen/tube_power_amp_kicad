@@ -13,6 +13,14 @@ Scope of this pass (2026-11-21): initial schematic, interface viability check, w
 missed. **No layout, no footprints yet.** The check results, missed items, missing simulations and
 missing requirements are in [STATUS.md](STATUS.md).
 
+## Layout, first pass (2026-11-24)
+
+Placed and HV-routed, low-voltage routing open (238 unconnected): see [STATUS.md](STATUS.md) "Layout, first
+pass". Build: `rev_b/tools/layout/route_chain.sh` (placement `make_pcb.py` from `placement.py`, scripted HV
+copper `hv_copper.py`, KiCadRoutingTools steps per `rev_b/routing.json`, pours `pours.py`); checks
+`rev_b/tools/layout/check.sh`; renders `rev_b/tools/layout/render.sh`. Interface sketch:
+`python3 rev_b/tools/layout_sketch.py`.
+
 ## Third pass (2026-11-23)
 
 Decisions of 2026-11-23 drawn; details and checks in [STATUS.md](STATUS.md) "Third pass".

@@ -1,5 +1,194 @@
 # Power amp rev B: status
 
+## Layout, first pass (2026-11-24)
+
+**State: placed, the HV / power copper drawn and clean, the low-voltage routing NOT closed.** This first
+pass is a reviewable layout, but it is not DRC-clean yet. The board is `kicad/tube_power_amp_revb.kicad_pcb`,
+4 layers, 238.76 x 60.33 mm (rev A outline). It is built entirely by scripts (`tools/layout/route_chain.sh`).
+Nothing is ordered.
+
+| Check (KiCad 10.0.7, `--severity-all --schematic-parity`, `docs/drc_layout.rpt`) | Result |
+|---|---|
+| Schematic parity | **0** |
+| Unconnected items | **238**: 71 GND pads the pours and the ground step did not reach, the rest about 100 low-voltage nets (bias, reference, monitors, logic, sense) the router left open |
+| Clearance errors | **8**: router tracks (HS_AC1, POR_W, FLT1, KELV1) 5.0-6.0 mm from clamp / J104 pads, where 6.3 mm is required |
+| Short | **1**: a ground-stub via on the drawn GRID4 track (B) |
+| Starved thermals | 40 (ground pads with fewer than 2 spokes) |
+| Warnings | silkscreen only, plus 1 dangling stub |
+| HV / heater / grid copper drawn by `hv_copper.py` (before the router) | **0 violations** on its own (DRC of `build/layout/01_hv.kicad_pcb`) |
+| ERC | 0 errors, 1 warning (the ADS7828 REF one, unchanged) |
+
+Renders: [placement](docs/layout_placement.png), [F](docs/layout_top.png), [B](docs/layout_bottom.png),
+[In1](docs/layout_in1.png), [In2](docs/layout_in2.png), 3D [bottom (component side)](docs/layout_3d_bottom.png),
+[perspective](docs/layout_3d_iso.png). These are KiCad F views, which show the chassis plan mirrored: the east
+end (HV supplies) is on the left. The interface sketch is `docs/layout_sketch*.png`.
+
+### A. Frame, mechanics, socket arrangement
+
+- **Coordinates.** Every position is written in chassis coordinates (D748, mm, y measured from the front
+  panel) in `tools/layout_frame.py` and `tools/layout/placement.py`. They map to KiCad as
+  x_k = 620 - X, y_k = 250 - Y, which is rev A's frame shifted by (205.05, 97.55). The board hangs 15 mm
+  below the plate with KiCad F facing down (components down); the socket footprints sit on B.
+- **Socket mechanics, kept from rev A.** The sockets are screwed to the plate through the 3.5 mm flange
+  holes at r 20 mm (D748). Their 20 mm legs reach down to the board, which is why the board can sit 15 mm
+  below the plate (2 mm plate + 15 mm gap + 1.6 mm board; about 1.4 mm of leg passes through to the
+  solder side).
+  - The board courtyard of each socket is therefore only the pin circle (r 11 mm). Parts on B within
+    r 15 mm of a socket centre must stay below the socket body under the plate (13 mm; the B-side screen
+    resistors are 8.4 mm).
+  - The flange holes also fix the socket rotation. Rev B keeps rev A's orientation (pin 3, the plate, at
+    the front-east). The sketch's 45-degree turn is withdrawn: it would need new flange holes.
+- **Mounting holes.** All four are 3.2 mm unplated, with a copper keep-out of r 3.5 mm on F / B and
+  r 2.2 mm inside.
+  - H3 (514.95, 131.45) and H4 (284.95, 131.45): as rev A.
+  - H2 (315.4, 178.9): flange hole, per C3.
+  - **H1 (475.9, 165.3)**: this is V4's other flange hole, as fallback C1b stated, **not (513.5, 179.0)**.
+    With J502 turned 90 degrees, the east strip holds J502 plus three tabs and has no room left for a
+    standoff at (513.5, 179.0).
+- **Stack-up.** JLC04161H-7628, 1.6 mm, 4 layers, 2 oz outer, 1 oz inner (JLCPCB capabilities page read
+  2026-11-24: 4-layer up to 663 x 593 mm; 2 oz multilayer 0.15 / 0.15 mm; PTH ring 0.254 mm at 2 oz;
+  non-plated slot 1.0 mm; copper to edge 0.2 mm). Used here: 0.25 / 0.2 mm, vias 0.6 / 0.3 mm, 0.5 mm to
+  the edge (2.0 mm for HV).
+- **Why 4 layers, not 2.** The HV clearances leave no room on 2 layers:
+  - The plate lanes (OT_A / OT_B) with their 6.3 mm moats take a 14.6 mm band right across the board in
+    front of the sockets.
+  - Every crossing of that band has to be on F. Under the lanes the inner copper is cut back 3.2 mm, and
+    on B nothing comes within 6.3 mm.
+  - The drive lines, V_SCREEN, V_ANODE and the long G2 / GRID4 leads therefore run on the inner layers
+    (internal spacing B1: 0.25 mm at 301-500 V), some of them through the sockets' pin circles.
+
+### B. Design rules (in the board: net classes and `kicad/tube_power_amp_revb.kicad_dru`)
+
+- **Standards.** IPC-2221B table 6-1: B2 (external, uncoated) on F / B for the HV classes, B1 inside. This
+  was cross-checked against IEC 60664-1 functional insulation, pollution degree 2, material group IIIb.
+- **HV1250** (OT_A, OT_B, CL_A, CL_B): 6.3 mm outer, 3.2 mm inner.
+- **HV450** (V_ANODE, V_SCREEN, DRV_A / DRV_B, G2_n): 2.5 mm outer, 0.5 mm inner, 1.25 mm between two HV450
+  nets.
+- **Chassis standoffs**: hole clearance 8.0 / 4.2 mm outer (the 6.4 mm standoff), 3.2 / 0.5 mm inner.
+- **HV to the board edge**: 2.0 mm.
+- **BIAS80 / HTR** (up to 100 V): 0.2 / 0.25 mm under solder mask (IPC B4, coated: 0.13 mm). **This
+  changes the STATUS assumption** (B2 0.6 mm) for these low-voltage nets only; their pads are exposed only
+  at the parts' own pitch.
+- **Exceptions:**
+  - between the octal socket's own pins: 2.0 mm (2.77 mm between pads; the tube base sets it);
+  - HV copper that reaches into a socket area (SKT1-4, r 13.5 mm) keeps 2.0 mm from what lies wholly
+    inside that area;
+  - J105's own pads: 1.4 mm (Mini-Fit Jr is rated 600 V).
+- **Keep-outs drawn with the OT copper**: In1 / In2 have no copper within 4.2 mm of it; no vias within
+  7.7 mm on any layer.
+
+### C. Placement (`tools/layout/placement.py`: one table plus HV-aware packed groups)
+
+- **Rear band, the gaps between the sockets.**
+  - F: the coupling caps (220n / 630 V, 26.5 x 8.5 mm). V1 / V2 / V3 have theirs in the rear row of
+    their east gap; V4's (C106) is in the front row of the V3-V4 gap.
+  - B: the screen resistors, lying (5 W, P27.94), with V4's in the V3-V4 gap. V3's (R111) stands on F in
+    the V2-V3 gap (`..._Vertical_Tight` footprint).
+  - B: the 91k grid leaks (2512 HV).
+  - The cathode sets (1R 2512 shunt, S3M, Kelvin net tie, test pads TP101-TP108 on F, probed from below).
+  - The heater tabs J103, at (383.0 / 394.5, 166.5) in the front row of the V2-V3 gap.
+- **Grid stoppers.** The 5.6k stoppers are 1206 parts inside each pin circle, at pin 5.
+- **Front band, x 296-380: the HV cluster.**
+  - J104: OT_A (311.7, 139.0), OT_CT (338.1, 132.5), OT_B (364.5, 139.0).
+  - Clamp row at y 145.5: RGP02 + 2x P6KE350CA per side on 10.16 mm.
+  - RGP02 D104 at (370.5, 137.5).
+  - C101 at the centre tap.
+  - The output transformer primary comes down the west lead hole (331.4, 90.1), 25-50 mm from the tabs.
+    The OT bolt at (331.4, 128.1) is cleared: CT legs 4.2 mm horizontally, 6.5 mm in 3D.
+- **Front band, x 384-470: low-voltage analog.**
+  - -80 V input (R201, C201).
+  - The four bias channels in 8.2 mm columns, with U303 in the middle.
+  - Precision strip (U405, U301, U302, U201, the zener string; the dividers under them on B), measured
+    from the nearest socket centre:
+
+| Parts | Requirement | Measured |
+|---|---|---|
+| U405 at (452.9, 131.0) | ≥ 40 mm | 47.8 mm |
+| U301 at (460.9, 131.0) | ≥ 40 mm | 52.3 mm |
+| U201 | ≥ 40 mm | 49.7 mm |
+| D202 | ≥ 40 mm | 41.0 mm |
+| **U302 (ADR4525)** | ≥ 40 mm | **39.4 mm: short** |
+| **D203** | ≥ 40 mm | **37.2 mm: short** |
+| U401 / U402 (op amps / comparators) | ≥ 30 mm | 42.9 / 34.6 mm |
+| U303 | ≥ 30 mm | 36.4 mm |
+| U202 (on B under C201) | ≥ 30 mm | 48.0 mm |
+| 300 V transistors (bias columns) | ≥ 25 mm | ≥ 32 mm |
+
+U302 and D203 must move about 3 mm toward the front edge in the second pass.
+
+- **Digital island, x 469-519.** J501 / J502 / J201 / J503, with U501 in the corridor over OT_B.
+- **Corridor, y 147-162, over the OT lanes.** Non-sensitive SMD only: logic, watchdog, followers,
+  heater sense.
+
+### D. How it is routed (`tools/layout/route_chain.sh`, about 90 minutes)
+
+1. `make_pcb.py` places the board.
+2. `hv_copper.py` draws the HV copper and locks it:
+   - OT lanes (B, 2.0 mm, y 154.3);
+   - V_ANODE (F at the CT, then In2 along y 130.3 and up the east strip);
+   - V_SCREEN as an In2 "chord" at y 175.2 through all four pin circles (between pins 4/5 and 7/8),
+     with spurs;
+   - DRV_A / DRV_B on In2 from J105 through V1's pin circle, DRV_A on through V2's, DRV_B along the rear
+     edge;
+   - G2 leads and grid leads;
+   - the heater pair: HTR1 F over HTR2 B, 2.4 mm, at y 185, with pin-7 stubs and HTR1 to pin 2 inside each
+     circle.
+3. KiCadRoutingTools in locked group steps: supply, kelvin, sense, bias, ref, digital, rest.
+4. Pours (`pours.py`: GND on 4 layers, GNDD island) and a ground step.
+5. Fab fixes (the chain stopped after the ground step; refill, unlock and fab fixes were run by hand from
+   the same scripts).
+
+### E. Mechanical checks against the neighbours
+
+| Neighbour | Check | Number |
+|---|---|---|
+| Rear I/O (8.3 mm) and W19 | nothing past the rear edge | ✓ (outline unchanged, receptacles inboard) |
+| HV arm (5.9 mm) | east tab envelopes end at x 517.75; jumpers cross below the boards | ✓ |
+| Control board | headers W14 / W15 at the front edge (J4 / J5 unchanged) | ✓ |
+| Control board, W14 | J501 pin 1 (499.40, 132.80), a translation | flat, 0 folds |
+| Control board, W15 | J502 pin 1 (511.30, 141.10), long axis +y, odd row at x 511.30 | one 45° fold under J502 |
+| PI + FX | J105 pin 1 (286.50, 141.00), pins 1 / 4 west, as agreed (12.5) | ✓ |
+
+### F. Interface positions that differ from interfaces.md 12.5 (for the coordinator)
+
+- **Tabs.** J101: V_ANODE (514.50, 171.50) and GND_PWR (514.50, 181.70). J102: V_SCREEN (514.50, 161.30).
+  Blades along y, legs at ±2.5 mm in y. The tabs moved about 10 mm north because J502 now takes the strip
+  in front of them (the C1b cost).
+- **J201** (-80 V / BIAS_RTN) at (482.5 / 492.0, 143.2), blades along y.
+- **J503** pin 1 at (499.00, 145.50), pin 2 at (501.54, 145.50).
+- **J103** (heaters) at (383.0 / 394.5, 166.5), moved from (390 / 401.5, 181); the harness runs along the
+  floor.
+- **J104** OT tabs as in C. above.
+- **H1** at (475.9, 165.3), as in A. above.
+
+### G. Not closed: what the second pass has to do
+
+1. **The corridor is the blocker.** No via may sit within 6.3 mm of the B-side OT copper, so the parts
+   placed over the lanes (about 70: logic, watchdog, heater sense, followers) can only route on F. The
+   digital step left 33 of 41 nets open.
+   - (a) Move them out of the corridor. That needs room the front band does not have; the front band
+     would have to drop parts.
+   - (b) **User decision:** treat solder-masked traces and tented vias as coated (IPC B4: 1.25 kV ->
+     3.8 mm). The via-free band would shrink to ±5.2 mm round the lanes.
+   - (c) Put the OT lanes inside (In2) with voids above and below.
+2. Use In1 as a routing layer as well, and move V_ANODE to In1 (prepared, not run).
+3. The 8 router clearance errors near the clamp pads: add keep-out areas round the HV1250 pads (KRT applies
+   the net-class clearance, not the pad's).
+4. Ground: fix the 71 open GND pads with stitching vias placed before the router; fix the starved thermals.
+
+### H. Part checks before ordering
+
+- The 4.8 / 6.3 mm PCB tab order codes (2 legs on 5.00 mm).
+- Mini-Fit Jr 5566-06A order code.
+- 220n / 630 V box width ≤ 8.5 mm.
+- 91k 2512 at ≥ 500 V working.
+- 5.6k 1206 at the grid pin.
+- SMD PC817 (SMDIP-4).
+- The 5 W screen resistor's real body: 25 x 6.4 mm at P27.94 on B, raised 2 mm.
+- Socket leg length with the 15 mm standoffs (20 mm legs: about 1.4 mm through the board).
+
+---
+
 ## Layout sketch: interfaces (2026-11-24)
 
 The step before the layout, at the coordinator's request: **only the interfaces to the other boards**, so they

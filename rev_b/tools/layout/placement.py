@@ -22,9 +22,9 @@ CU_IN = (pcbnew.In1_Cu, pcbnew.In2_Cu)
 NETCLASSES = [
     ("Default", 0.15, 0.25, "rgba(0, 0, 0, 0.000)", 2147483647),
     ("HV1250", 6.3, 2.0, "rgba(220, 0, 0, 1.000)", 0),
-    ("HV450", 0.5, 1.0, "rgba(230, 120, 0, 1.000)", 1),
-    ("BIAS80", 0.2, 0.3, "rgba(0, 120, 200, 1.000)", 3),
-    ("HTR", 0.2, 2.0, "rgba(140, 40, 180, 1.000)", 4),
+    ("HV450", 2.5, 0.6, "rgba(230, 120, 0, 1.000)", 1),
+    ("BIAS80", 0.2, 0.25, "rgba(0, 120, 200, 1.000)", 3),
+    ("HTR", 0.25, 1.0, "rgba(140, 40, 180, 1.000)", 4),
     ("PWR", 0.15, 0.5, "rgba(0, 150, 0, 1.000)", 5),
 ]
 CLASS_NETS = {
@@ -49,7 +49,7 @@ DRU = """(version 1)
 #   HV450   V_ANODE, V_SCREEN, DRV_A / DRV_B (280-390 V), G2_1..4: up to 480 V transient
 #   BIAS80  the -80 V reference, followers, bias nodes, grids: up to about 100 V
 #   HTR     the floating heater and its sense: 0 V or +90 V (elevated option)
-# B2: >500 V 0.005 mm/V (1.25 kV: 6.3 mm), 301-500 V 2.5 mm, 31-100 V 0.6 mm.
+# B2: >500 V 0.005 mm/V (1.25 kV: 6.3 mm), 301-500 V 2.5 mm (HV classes, exposed pads and tracks alike).
 # B1: >500 V 0.0025 mm/V (1.25 kV: 3.1 mm -> 3.2), 301-500 V 0.25 mm (-> 0.5 mm used).
 # Later rules win over earlier ones (KiCad order); the exceptions come last.
 
@@ -73,34 +73,44 @@ DRU = """(version 1)
   (layer inner)
   (condition "A.NetClass == 'HV450' && B.NetClass != 'HV1250' && A.Net != B.Net")
   (constraint clearance (min 0.5mm)))
-(rule "BIAS80 and heater outer"
-  (layer outer)
-  (condition "(A.NetClass == 'BIAS80' || A.NetClass == 'HTR') && A.Net != B.Net && B.NetClass != 'HV450' && B.NetClass != 'HV1250'")
-  (constraint clearance (min 0.6mm)))
-(rule "BIAS80 pad to pad (parts' own pitch)"
-  (layer outer)
-  (condition "A.NetClass == 'BIAS80' && A.Type == 'Pad' && B.Type == 'Pad' && A.Net != B.Net && B.NetClass != 'HV450' && B.NetClass != 'HV1250'")
-  (constraint clearance (min 0.2mm)))
+# BIAS80 / HTR (<= 100 V) under solder mask: IPC-2221B B4 (external, permanent polymer coating) 0.13 mm
+# -> 0.2 mm (BIAS80) / 0.25 mm (heater); their pads are exposed only at the parts' own pitch.
 # Chassis standoffs (unplated holes; the standoff and screw head are chassis): HV keeps its class
 # distance from the 6.4 mm standoff, i.e. hole clearance = spacing + 3.2 - 1.6.
 (rule "HV1250 to standoff holes"
+  (layer outer)
   (condition "A.NetClass == 'HV1250' && B.Pad_Type == 'NPTH, mechanical'")
   (constraint hole_clearance (min 8.0mm)))
 (rule "HV450 to standoff holes"
+  (layer outer)
   (condition "A.NetClass == 'HV450' && B.Pad_Type == 'NPTH, mechanical'")
   (constraint hole_clearance (min 4.2mm)))
+# inside the board only the screw in the hole is chassis: B1 spacing from the hole wall
+(rule "HV1250 to standoff holes, inner"
+  (layer inner)
+  (condition "A.NetClass == 'HV1250' && B.Pad_Type == 'NPTH, mechanical'")
+  (constraint hole_clearance (min 3.2mm)))
+(rule "HV450 to standoff holes, inner"
+  (layer inner)
+  (condition "A.NetClass == 'HV450' && B.Pad_Type == 'NPTH, mechanical'")
+  (constraint hole_clearance (min 0.5mm)))
 (rule "HV to board edge"
   (condition "A.NetClass == 'HV1250' || A.NetClass == 'HV450'")
   (constraint edge_clearance (min 2.0mm)))
 
 # Exceptions: the octal socket's own pins (2.77 mm between pads, the tube base sets it) and the
-# copper inside the socket's pin circle area (rule areas SKT1..4, r 12.5 mm): 2.5 mm.
+# copper round them: an HV item that reaches into a socket's area (rule areas SKT1..4, r 13.5 mm) keeps 2.0 mm
+# from what lies wholly inside that area (the pins and the copper in the pin circle); everywhere else its class.
 (rule "socket pins"
   (condition "(%s) && (%s)")
   (constraint clearance (min 2.0mm)))
-(rule "HV inside the socket areas"
+(rule "HV round the socket pins"
   (layer outer)
-  (condition "(A.NetClass == 'HV1250' || A.NetClass == 'HV450') && A.Net != B.Net && (A.enclosedByArea('SKT1') || A.enclosedByArea('SKT2') || A.enclosedByArea('SKT3') || A.enclosedByArea('SKT4')) && (B.enclosedByArea('SKT1') || B.enclosedByArea('SKT2') || B.enclosedByArea('SKT3') || B.enclosedByArea('SKT4'))")
+  (condition "(A.NetClass == 'HV1250' || A.NetClass == 'HV450') && A.Net != B.Net && ((A.intersectsArea('SKT1') && B.enclosedByArea('SKT1')) || (A.intersectsArea('SKT2') && B.enclosedByArea('SKT2')) || (A.intersectsArea('SKT3') && B.enclosedByArea('SKT3')) || (A.intersectsArea('SKT4') && B.enclosedByArea('SKT4')))")
+  (constraint clearance (min 2.0mm)))
+(rule "HV round the socket pins (reverse)"
+  (layer outer)
+  (condition "(B.NetClass == 'HV1250' || B.NetClass == 'HV450') && A.Net != B.Net && ((B.intersectsArea('SKT1') && A.enclosedByArea('SKT1')) || (B.intersectsArea('SKT2') && A.enclosedByArea('SKT2')) || (B.intersectsArea('SKT3') && A.enclosedByArea('SKT3')) || (B.intersectsArea('SKT4') && A.enclosedByArea('SKT4')))")
   (constraint clearance (min 2.0mm)))
 # J105 (Mini-Fit Jr, 600 V rated part): 1.5 mm between its own pads (4.2 mm pitch).
 (rule "J105 own pads"
@@ -124,7 +134,7 @@ for n, v in enumerate(S, 1):
     P[f"R1{(n - 1) * 4 + 2:02d}"] = (sx + 2.95, sy + 2.95, 135, "F")
 
 # connectors (interfaces: STATUS "Layout sketch" / interfaces.md 12.5)
-P["J105"] = (294.90, 146.50, 0, "F")        # W24, pin 1 at the east end (the sketch's 180 deg turn)
+P["J105"] = (286.50, 141.00, 180, "F")        # W24, pin 1 at (286.50, 141.00), pins 1 / 4 at the west end (C2)
 P["J104"] = (311.70, 139.00, 180, "F")      # OT_A 311.7 / OT_CT 338.1 / OT_B 364.5, y 134
 P["J103"] = (383.00, 166.50, 180, "F")      # heaters, 6.3 mm tabs on 11.5 mm (gap V2-V3)
 P["J101"] = (514.50, 171.50, 90, "F")      # V_ANODE / GND_PWR (star)
@@ -147,17 +157,17 @@ P["C101"] = (345.00, 135.50, 90, "F")      # V_ANODE HF decoupling at the centre
 P["C103"] = (344.00, 178.50, 0, "F")        # V1 DRV_A (335.0) / GRID1 (312.5)
 P["C104"] = (399.00, 178.50, 0, "F")        # V2 (GRID2 378.5)
 P["C105"] = (467.10, 178.50, 0, "F")        # V3 DRV_B (GRID3 444.6)
-P["C106"] = (467.10, 166.50, 0, "F")        # V4 (GRID4 444.6, on In2 to V4)
+P["C106"] = (444.60, 166.50, 180, "F")        # V4 (GRID4 444.6, on In2 to V4)
 P["R103"] = (340.74, 172.20, 0, "B")      # V1 screen: V_SCREEN 340.5 / G2_1 310.5
 P["R107"] = (404.00, 172.20, 0, "B")      # V2 screen
 P["R111"] = (406.70, 178.50, 270, "F")      # V3 screen
-P["R115"] = (442.30, 172.20, 180, "B")      # V4 screen (G2_4 on In2), rear row
+P["R115"] = (442.50, 172.20, 180, "B")      # V4 screen (G2_4 on In2), rear row
 P["C102"] = (507.60, 180.00, 90, "F")        # V_SCREEN HF decoupling
 # grid leaks 91k 2512 on B next to the coupling cap's grid pad
 P["R101"] = (329.50, 178.50, 0, "B")
 P["R105"] = (382.50, 181.20, 0, "B")
 P["R109"] = (452.50, 178.50, 0, "B")
-P["R113"] = (452.50, 166.50, 0, "B")
+P["R113"] = (460.50, 166.50, 0, "B")
 
 # cathode sets: 1 ohm shunt, S3M, Kelvin net tie, test pads (K and its ground) on F
 P["R104"] = (292.00, 156.00, 90, "F"); P["D107"] = (285.50, 156.00, 90, "F"); P["N101"] = (294.80, 160.00, 90, "F")
@@ -217,13 +227,18 @@ BIAS_B = []
 for n, u0 in BIAS_X.items():
     r = 302 + 11 * (n - 1)
     BIAS_B.append((f"bias B{n}", [f"R{i}" for i in range(r, r + 11)], (u0 + 0.2, 128.0, u0 + 8.0, 146.8)))
-BIAS_U303B = ["C304", "C305", "R301", "D401", "D402", "D403", "D404"]
+BIAS_U303B = ["C304", "C305"]
 PREC_F = []
-PREC_B = (["R208", "R209", "R210", "R211", "R212", "R213", "R216", "R217", "R425", "R426", "C205", "C206", "C301", "C302",
-           "C303"] + R(422, 427, "C") + R(429, 434) + ["R404", "R405", "R406", "R410", "R411", "R412", "R416", "R417", "R418",
-                                                       "R422", "R423", "R424", "C406", "C410", "C414", "C418", "C401", "C402",
-                                                       "C419", "C420", "C421", "R427", "R428"])
-MON_B = ["R214", "R215", "R218", "R219", "R220", "R221", "R222", "R223", "D205", "D207", "C207", "C208"]
+# precision strip, B side: each IC's parts directly under / beside it (short vias, short high-Z nodes)
+U401_B = (["C401", "C402"] + ["R404", "R405", "R406", "C406", "D401", "R410", "R411", "R412", "C410", "D402",
+                              "R416", "R417", "R418", "C414", "D403", "R422", "R423", "R424", "C418", "D404"])
+U402_B = ["R425", "R426", "C419", "C420", "C421", "R427", "R428"]
+U405_B = ["C422", "C423", "C424", "R429", "R430", "R431", "R432", "R433", "R434", "C425", "C426", "C427"]
+U301_B = ["C301", "C302", "R301", "C303"]
+U201_B = ["R208", "R209", "R210", "C205", "C206"]
+DIV_B = ["R211", "R212", "R213", "R216", "R217"]
+PREC_B = U401_B + U402_B + U405_B + U301_B + U201_B
+MON_B = DIV_B + ["R214", "R215", "R218", "R219", "R220", "R221", "R222", "R223", "D205", "D207", "C207", "C208"]
 MON_F = ["R224", "R225", "R226", "R227", "R228", "D206", "D208", "D209", "C209", "C210"]
 M80 = ["R204", "R205", "R206", "R207"]
 WD = R(229, 232) + ["C211", "C212", "D210", "Q203"]
@@ -238,8 +253,14 @@ SENSE_RC = {1: R(401, 403) + R(403, 405, "C"), 2: R(407, 409) + R(407, 409, "C")
 GROUPS = [
     ("m80", M80, (384.0, 147.6, 400.0, 157.6), "F", 0, 0.4),
     ("mon B", MON_B, (384.0, 128.0, 398.0, 146.8), "B", 0, 0.25),
+    ("mon F", MON_B, (384.0, 127.6, 398.0, 133.4), "F", 0, 0.25),
     ("u303 B", BIAS_U303B, (415.0, 128.0, 423.2, 146.8), "B", 0, 0.25),
-    ("prec B", PREC_B, (439.5, 128.0, 469.0, 146.8), "B", 0, 0.25),
+    ("u401 B", U401_B, (436.5, 127.6, 452.0, 138.4), "B", 0, 0.2),
+    ("u402 B", U402_B, (436.5, 138.4, 452.0, 146.8), "B", 0, 0.2),
+    ("u405 B", U405_B, (449.0, 127.6, 457.5, 140.0), "B", 0, 0.2),
+    ("u301 B", U301_B, (456.5, 127.6, 465.0, 140.0), "B", 0, 0.2),
+    ("u201 B", U201_B, (463.0, 127.6, 469.2, 140.0), "B", 0, 0.2),
+    ("prec B rest", PREC_B, (436.5, 127.6, 469.2, 146.8), "B", 0, 0.2),
     ("dig B", DIG, (469.2, 128.0, 510.5, 139.2), "B", 0, 0.25),
     ("dig F", DIG, (469.0, 128.0, 478.4, 146.8), "F", 0, 0.3),
     ("wd", WD, (400.0, 147.6, 420.0, 157.6), "F", 0, 0.4),
@@ -249,7 +270,7 @@ GROUPS = [
     ("sense1", SENSE_RC[1], (281.0, 150.6, 296.0, 162.0), "B", 0, 0.25),
     ("sense2", SENSE_RC[2], (318.0, 161.8, 340.0, 169.3), "B", 0, 0.25),
     ("sense3", SENSE_RC[3], (389.5, 161.8, 403.0, 169.3), "B", 0, 0.25),
-    ("sense4", SENSE_RC[4], (476.3, 168.5, 484.2, 182.4), "B", 0, 0.25),
+    ("sense4", SENSE_RC[4], (476.3, 171.2, 484.2, 182.4), "B", 0, 0.25),
 ] + [(nm, refs, zone, "B", 0, 0.2) for nm, refs, zone in BIAS_B]
 
 
@@ -261,7 +282,7 @@ def keepouts():
     out = []
     for i, (v, (sx, sy)) in enumerate(S.items(), 1):
         # named areas for the DRC exceptions round the socket pins (no restriction of their own)
-        out.append((f"SKT{i}", [(sx + 12.5 * math.cos(2 * math.pi * k / 32), sy + 12.5 * math.sin(2 * math.pi * k / 32))
+        out.append((f"SKT{i}", [(sx + 13.5 * math.cos(2 * math.pi * k / 32), sy + 13.5 * math.sin(2 * math.pi * k / 32))
                                 for k in range(32)], CU_ALL,
                     dict(tracks=False, vias=False, fill=False, pads=False, fps=False)))
     return out
