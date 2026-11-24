@@ -145,7 +145,7 @@ def draw(c):
     sx1, sx2, sx3, sx4 = (SOCK[v][0] for v in ("V1", "V2", "V3", "V4"))
     ot_segs = []
 
-    def ot(net, pts, layer=B, w=2.0):
+    def ot(net, pts, layer=I2, w=2.0):
         c.track(net, layer, w, pts)
         ot_segs.extend(zip(pts, pts[1:]))
 
@@ -172,8 +172,8 @@ def draw(c):
         p3 = pin(3, sx)
         ot("OT_B", [(p3[0], LANE_Y), p3])
     # ---- CL_A / CL_B between the TVS pairs
-    c.track("CL_A", B, 1.5, [c.pad("D102", 2), c.pad("D103", 1)])
-    c.track("CL_B", B, 1.5, [c.pad("D105", 2), c.pad("D106", 1)])
+    c.track("CL_A", I2, 1.5, [c.pad("D102", 2), c.pad("D103", 1)])
+    c.track("CL_B", I2, 1.5, [c.pad("D105", 2), c.pad("D106", 1)])
 
     # ---- V_ANODE: centre tap, clamps, C101 on F; In2 lane to J101
     ct0, ct1 = c.pad("J104", 3, near=(330, 132.5)), c.pad("J104", 3, near=(345, 132.5))
@@ -185,7 +185,7 @@ def draw(c):
     c.track("V_ANODE", F, 1.5, [ct1, c.pad("C101", 1)])
     ja1 = c.pad("J101", 1, near=(514.5, 169.0))
     lane = [ct1, (ct1[0] + 2.2, 130.3), (507.5, 130.3), (507.5, 166.0), (ja1[0] - 2.5, ja1[1]), ja1]
-    c.track("V_ANODE", I2, 2.0, lane)
+    c.track("V_ANODE", I1, 2.0, lane)        # In1, the plane layer: In2 carries the plate lanes
 
     # ---- V_SCREEN: J102 -> F -> via -> In2 chord y 175.2 through the pin circles, spurs
     jv = c.pad("J102", 1, near=(514.5, 163.8))
@@ -270,19 +270,57 @@ def draw(c):
     return ot_segs
 
 
-def keepouts(board, ot_segs):
+def crescent(p3, sock, r_keep, r_area, n=48):
+    """Circle round pad p3 (radius r_keep) minus the socket area circle (r_area): polygon."""
+    (px, py), (sx, sy) = p3, sock
+    pts = []
+    for k in range(n):
+        a = 2 * math.pi * k / n
+        q = (px + r_keep * math.cos(a), py + r_keep * math.sin(a))
+        pts.append((q, math.hypot(q[0] - sx, q[1] - sy) >= r_area))
+    # rotate so the list starts with an outside point after an inside one
+    while not (pts[0][1] and not pts[-1][1]):
+        pts = pts[1:] + pts[:1]
+    out = [q for q, ok in pts if ok]
+    a0 = math.atan2(out[-1][1] - sy, out[-1][0] - sx)
+    a1 = math.atan2(out[0][1] - sy, out[0][0] - sx)
+    while a1 < a0:
+        a1 += 2 * math.pi
+    if a1 - a0 > math.pi:
+        a1 -= 2 * math.pi
+    arc = [(sx + r_area * math.cos(a0 + (a1 - a0) * k / 12), sy + r_area * math.sin(a0 + (a1 - a0) * k / 12))
+           for k in range(1, 12)]
+    return out + arc
+
+
+def keepouts(board, ot_segs, c):
+    """The plate lanes run on In2 (B1, 3.2 mm). B lies 0.21 mm (7628 prepreg) below In2: no copper on B
+    within 4.2 mm of the lane copper. In1 is 1.065 mm (core) above: it keeps its plane. Vias stay 3.2 mm
+    (plus the via) from the lanes. Round every exposed 1.25 kV pad, F / B tracks and vias of other nets keep
+    6.3 mm (router aid; the DRC rules check it), except inside a socket's pin area (its own exception)."""
     for i, (a, c_) in enumerate(ot_segs):
-        # inside a socket's area (r 13.5 mm) the pins themselves set the spacing (DRC exception): the
-        # keep-outs stop where a plate rise enters the area
-        for s, (sx, sy) in SOCK.items():
-            for p, q in ((a, c_), (c_, a)):
-                if math.hypot(q[0] - sx, q[1] - sy) < 9.0 and abs(q[0] - p[0]) < 0.01:
-                    q2 = (q[0], sy - math.sqrt(13.5 ** 2 - (q[0] - sx) ** 2) - 0.5)
-                    a, c_ = (p, q2) if (p, q) == (a, c_) else (q2, p)
-        keepout(board, band(a, c_, 1.0 + 3.2), (I1, I2), f"OT inner {i}")
-        # no vias anywhere in the outer 6.3 mm keep-out; B tracks of other nets are kept out by the
-        # net-class clearance (6.3 mm) in the router and the DRC rules
-        keepout(board, band(a, c_, 1.0 + 6.3 + 0.4), (F, B), f"OT vias {i}", tracks=False, vias=True, fill=False)
+        keepout(board, band(a, c_, 1.0 + 3.2), (B,), f"OT B void {i}", tracks=True, vias=True, fill=True)
+        keepout(board, band(a, c_, 1.0 + 3.2 + 0.4), (F, I1, B), f"OT vias {i}", tracks=False, vias=True, fill=False)
+    hv_pads = []
+    for f in board.GetFootprints():
+        for p in f.Pads():
+            if p.GetNetname().rsplit("/", 1)[-1] in ("OT_A", "OT_B", "CL_A", "CL_B") \
+                    and p.GetAttribute() == pcbnew.PAD_ATTRIB_PTH:
+                hv_pads.append((f.GetReference(), (620.0 - T(p.GetPosition().x), 250.0 - T(p.GetPosition().y)),
+                                T(p.GetSize().x) / 2))
+    for k, (ref, (x, y), r) in enumerate(hv_pads):
+        # circumscribed 32-gon, r + 6.3 mm + margin; these router fences are removed again by pours.py
+        # (the DRC rules check the real distances; the fences would also cover the drawn in-ring copper)
+        rk = (r + 6.3 + 0.3) / math.cos(math.pi / 32)
+        poly = [(x + rk * math.cos(2 * math.pi * j / 32), y + rk * math.sin(2 * math.pi * j / 32)) for j in range(32)]
+        keepout(board, poly, (F, B), f"HV pad fence {k}", tracks=True, vias=True, fill=False)
+        s = pcbnew.PCB_SHAPE(board)               # the same fence for the router (--keepout, User.2)
+        s.SetShape(pcbnew.SHAPE_T_POLY)
+        s.SetPolyPoints([kpt(*q) for q in poly])
+        s.SetLayer(pcbnew.User_2)
+        s.SetWidth(mm(0.05))
+        s.SetFilled(False)
+        board.Add(s)
 
 
 def main():
@@ -290,7 +328,7 @@ def main():
     b = pcbnew.LoadBoard(src)
     c = Copper(b)
     segs = draw(c)
-    keepouts(b, segs)
+    keepouts(b, segs, c)
     pcbnew.SaveBoard(dst, b)
     print(f"{dst}: {c.n_tracks} scripted tracks, {c.n_vias} vias, {len(segs)} OT segments kept out")
 

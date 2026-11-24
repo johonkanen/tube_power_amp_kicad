@@ -22,13 +22,17 @@ proj() { for x in kicad_pro kicad_dru; do cp "$R/rev_b/kicad/tube_power_amp_revb
 "$KIPY" "$L/make_pcb.py" "$W/00_placed.kicad_pcb" 2>&1 | grep -v "memory leak" | tail -1
 "$KIPY" "$L/hv_copper.py" "$W/00_placed.kicad_pcb" "$W/01_hv.kicad_pcb" 2>&1 | grep -v "memory leak" | tail -1
 proj "$W/01_hv.kicad_pcb"
-kpy "$SK/lock_tracks.py" "$W/01_hv.kicad_pcb" lock-all | tail -1
+"$KIPY" "$L/ground_vias.py" "$W/01_hv.kicad_pcb" "$W/02_gvias.kicad_pcb" 2>&1 | grep -v "memory leak" | tail -1
+proj "$W/02_gvias.kicad_pcb"
+"$KIPY" "$L/net_clearances.py" "$W/02_gvias.kicad_pcb" "$W/net_clearances.json"
+kpy "$SK/lock_tracks.py" "$W/02_gvias.kicad_pcb" lock-all | tail -1
 [ "$LAST" = "hv" ] && exit 0
-N=1; CUR="$W/01_hv.kicad_pcb"
+N=2; CUR="$W/02_gvias.kicad_pcb"
 step() {    # step NAME GROUPS [route.py options]
     N=$((N + 1)); local out="$W/$(printf %02d "$N")_$1.kicad_pcb"
     echo "== $1"
-    python3 -I "$SK/route_step.py" "$CUR" "$out" "${@:2}" 2>&1 | cut -c1-600
+    python3 -I "$SK/route_step.py" "$CUR" "$out" "${@:2}" 2>&1 | cut -c1-600 || true
+    [ -f "$out" ] || cp "$CUR" "$out"
     CUR="$out"
     kpy "$SK/lock_tracks.py" "$CUR" lock-all | tail -1
     if [ "$LAST" = "$1" ]; then echo "stopped after $1: $CUR"; exit 0; fi
@@ -40,7 +44,7 @@ step bias bias
 step ref ref
 step digital digital
 python3 "$L/rest_group.py" "$CUR" "$ROUTING_CONFIG"
-step rest rest --layers F.Cu In2.Cu B.Cu In1.Cu --layer-costs 1 1 2 6
+step rest rest --layer-costs 1 2 1 1
 # pours (GND / GNDD on all layers, the DGND island), fill, then ground stubs for the pads the pours missed
 N=$((N + 1)); P="$W/$(printf %02d "$N")_pour.kicad_pcb"
 "$KIPY" "$L/pours.py" "$CUR" "$P" 2>&1 | grep -v "memory leak" | tail -1; CUR="$P"; proj "$CUR"

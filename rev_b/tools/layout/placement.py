@@ -23,7 +23,7 @@ NETCLASSES = [
     ("Default", 0.15, 0.25, "rgba(0, 0, 0, 0.000)", 2147483647),
     ("HV1250", 6.3, 2.0, "rgba(220, 0, 0, 1.000)", 0),
     ("HV450", 2.5, 0.6, "rgba(230, 120, 0, 1.000)", 1),
-    ("BIAS80", 0.2, 0.25, "rgba(0, 120, 200, 1.000)", 3),
+    ("BIAS80", 0.6, 0.25, "rgba(0, 120, 200, 1.000)", 3),
     ("HTR", 0.25, 1.0, "rgba(140, 40, 180, 1.000)", 4),
     ("PWR", 0.15, 0.5, "rgba(0, 150, 0, 1.000)", 5),
 ]
@@ -73,8 +73,17 @@ DRU = """(version 1)
   (layer inner)
   (condition "A.NetClass == 'HV450' && B.NetClass != 'HV1250' && A.Net != B.Net")
   (constraint clearance (min 0.5mm)))
-# BIAS80 / HTR (<= 100 V) under solder mask: IPC-2221B B4 (external, permanent polymer coating) 0.13 mm
-# -> 0.2 mm (BIAS80) / 0.25 mm (heater); their pads are exposed only at the parts' own pitch.
+# BIAS80 (the -80 V rail, the 72 V reference, the bias and grid nets: up to 100 V): B2 0.6 mm outer (net
+# class), 0.2 mm inside, 0.2 mm between pads of different parts only where the parts' pitch sets it.
+# HTR and everything at <= 30 V: 0.2-0.25 mm.
+(rule "BIAS80 inner"
+  (layer inner)
+  (condition "A.NetClass == 'BIAS80' && A.Net != B.Net")
+  (constraint clearance (min 0.2mm)))
+(rule "BIAS80 pad to pad (parts' own pitch)"
+  (layer outer)
+  (condition "A.NetClass == 'BIAS80' && A.Type == 'Pad' && B.Type == 'Pad' && A.Net != B.Net && B.NetClass != 'HV450' && B.NetClass != 'HV1250'")
+  (constraint clearance (min 0.2mm)))
 # Chassis standoffs (unplated holes; the standoff and screw head are chassis): HV keeps its class
 # distance from the 6.4 mm standoff, i.e. hole clearance = spacing + 3.2 - 1.6.
 (rule "HV1250 to standoff holes"
@@ -111,6 +120,10 @@ DRU = """(version 1)
 (rule "HV round the socket pins (reverse)"
   (layer outer)
   (condition "(B.NetClass == 'HV1250' || B.NetClass == 'HV450') && A.Net != B.Net && ((B.intersectsArea('SKT1') && A.enclosedByArea('SKT1')) || (B.intersectsArea('SKT2') && A.enclosedByArea('SKT2')) || (B.intersectsArea('SKT3') && A.enclosedByArea('SKT3')) || (B.intersectsArea('SKT4') && A.enclosedByArea('SKT4')))")
+  (constraint clearance (min 2.0mm)))
+(rule "plate lane round the socket pins, inner"
+  (layer inner)
+  (condition "A.NetClass == 'HV1250' && A.Net != B.Net && ((A.intersectsArea('SKT1') && B.enclosedByArea('SKT1')) || (A.intersectsArea('SKT2') && B.enclosedByArea('SKT2')) || (A.intersectsArea('SKT3') && B.enclosedByArea('SKT3')) || (A.intersectsArea('SKT4') && B.enclosedByArea('SKT4')))")
   (constraint clearance (min 2.0mm)))
 # J105 (Mini-Fit Jr, 600 V rated part): 1.5 mm between its own pads (4.2 mm pitch).
 (rule "J105 own pads"
@@ -204,14 +217,14 @@ P["U402"] = (444.45, 141.40, 90, "F")        # over-current comparators
 P["U405"] = (452.90, 131.00, 0, "F")         # ADC
 P["U301"] = (460.90, 131.00, 0, "F")         # DAC
 P["U201"] = (467.40, 130.60, 0, "F")         # LM4040-10
-P["D202"] = (452.20, 138.60, 0, "F")         # 36 V zeners (1 cm2 copper each, poured later)
-P["D203"] = (452.20, 143.40, 0, "F")
-P["D204"] = (455.80, 141.00, 90, "F")
-P["R203"] = (459.60, 138.40, 0, "F")
-P["R202"] = (459.60, 141.40, 0, "F")
-P["C202"] = (463.60, 138.20, 90, "F")
-P["C203"] = (466.90, 138.20, 90, "F")
-P["U302"] = (465.70, 145.40, 0, "F")         # ADR4525
+P["D202"] = (452.20, 138.40, 0, "F")         # 36 V zeners (1 cm2 copper each, poured later)
+P["D203"] = (456.80, 138.40, 0, "F")
+P["D204"] = (457.20, 142.60, 90, "F")
+P["R203"] = (452.60, 141.70, 0, "F")
+P["R202"] = (452.60, 144.80, 0, "F")
+P["C202"] = (460.60, 138.00, 90, "F")
+P["C203"] = (463.80, 138.00, 90, "F")
+P["U302"] = (464.00, 143.60, 0, "F")         # ADR4525
 # -80 V input and followers
 P["R201"] = (384.70, 145.80, 180, "F")       # 10R fusible, pads (384.7, 397.4) at y 145.8
 P["C201"] = (386.80, 138.60, 180, "F")         # 100 uF / 100 V radial D10

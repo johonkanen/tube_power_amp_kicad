@@ -39,8 +39,8 @@ def zone(board, net, layer, poly, prio):
     z.SetMinThickness(mm(0.25))
     z.SetLocalClearance(mm(0.3))
     z.SetThermalReliefGap(mm(0.35))
-    z.SetThermalReliefSpokeWidth(mm(0.4))
-    z.SetPadConnection(pcbnew.ZONE_CONNECTION_THERMAL)
+    z.SetThermalReliefSpokeWidth(mm(0.5))
+    z.SetPadConnection(pcbnew.ZONE_CONNECTION_THT_THERMAL)   # SMD pads solid, through-hole pads with reliefs
     z.SetIslandRemovalMode(pcbnew.ISLAND_REMOVAL_MODE_ALWAYS)
     o = z.Outline()
     o.NewOutline()
@@ -53,6 +53,9 @@ def zone(board, net, layer, poly, prio):
 def main():
     src, dst = sys.argv[1], sys.argv[2]
     b = pcbnew.LoadBoard(src)
+    for z in list(b.Zones()):                    # the router-only fences round the 1.25 kV pads
+        if z.GetIsRuleArea() and z.GetZoneName().startswith("HV pad fence"):
+            b.Delete(z)
     nets = {}
     for name, ni in b.GetNetsByName().items():
         nets.setdefault(str(name).rsplit("/", 1)[-1], ni)

@@ -1,5 +1,55 @@
 # Power amp rev B: status
 
+## Where we left off (2026-11-24)
+
+Second layout pass is in progress. The committed board is the last complete chain run.
+
+**What changed in the second pass**
+- **Plate lanes.** OT_A / OT_B and CL_A / CL_B now run on **In2** at the B1 inner spacing of 3.2 mm. They surface only at the socket plate pins, the J104 tabs and the clamp pads, which keep 6.3 mm.
+  - B is voided within 4.2 mm of the lane copper. Vias stay 4.6 mm from it.
+  - Dielectric relied on: In2 to In1 is the 1.065 mm core. In2 to B is only the 0.21 mm 7628 prepreg, which is why B is voided rather than relied on.
+  - **Stack-up to order.** A 4-layer build with **at least 0.4 mm prepreg between In2 and B** (or the lanes moved to In1 with at least 0.4 mm on both sides). Until then the B void stays.
+- **V_ANODE** lane moved to In1.
+- **Router fences round the 1.25 kV pads.** 6.3 mm + 0.3 mm 32-gon rule areas plus a User.2 copy for KRT `--keepout`. `pours.py` removes them before the fill.
+- **Clearances.** BIAS80 (−80 V rail, 72 V reference, bias nets) is 0.6 mm outer and 0.2 mm inner/pad-to-pad at the parts' own pitch. Nets at 30 V or less use 0.2 mm.
+- **Stitching vias before routing.** `ground_vias.py` places one stitching via (with stub) per SMD GND / GNDD pad: 37 of 141 placed.
+- **Thermals.** Zones use THT-only thermals with 0.5 mm spokes, and SMD pads connect solid. Starved thermals went from 41 to 5.
+- **Thermal distances.** U302 is now 41.9 mm from the nearest socket centre and D203 43.9 mm (the D202 / D203 / R20x / C20x / U302 cluster moved).
+- **H1** stays at (475.9, 165.3).
+- **Connectors.** No connector positions changed.
+
+**DRC on the committed file** (`kicad-cli pcb drc --severity-all --schematic-parity`, no refill)
+
+| Check | Result |
+|---|---|
+| Unconnected | 228 (eab84c8: 239) |
+| Clearance errors | 62 (eab84c8: 8) |
+| Shorts | 0 (eab84c8: 1) |
+| Starved thermals | 5 (eab84c8: 41) |
+| Parity | 0 |
+| Warnings | 41 (silk) and 1 dangling track |
+
+- **Clearance errors.** 60 are near misses at 6.21–6.29 mm against the 6.3 mm rule round the D103 / D104 / D105 / D106 clamp pads. Two are real: M80_IN at 5.44 mm from V3 pin 3, and WARM_OK at 5.59 mm from V1 pin 3.
+  - The User.2 `--keepout` fences, added after this run, are meant to fix these. That chain run was stopped at wrap-up before it finished.
+- **Caveat.** The committed run used the old 3-layer route args (F/In2/B, no `--net-clearances`) because `routing.json` was reset during the run. `routing.json` now carries the 4-layer args, `net_clearances.json` and the keepout.
+
+**Still open and why**
+- **228 unconnected:** 34 of them are GND / GNDD, the rest are spread over about 100 nets, mostly in the dense front band (precision / bias / logic cluster) and the corridor.
+  - The router has not yet had In1 as a signal layer, or the inner 3.2 mm value for the plate nets.
+- **5 starved thermals** on J105 pin 3 and on J201 / J501 GNDD pins. These need solid connections on those tab/header pins.
+
+**Resume** (from `~/dev/tube_power_amp_kicad`; runs about 1.5 h, kill only its own PID):
+
+    rev_b/tools/layout/route_chain.sh > build/layout/chain.out 2>&1
+    rev_b/tools/layout/check.sh rev_b/kicad/tube_power_amp_revb.kicad_pcb build/check_final
+
+Do not `git checkout rev_b/routing.json` afterwards: the chain adds a "rest" group, so drop just that key.
+
+**Next three steps**
+1. Run the chain with the 4-layer args and fences. Then check that the 6.3 mm near misses and the two real errors are gone.
+2. Raise the stitching-via hit rate (104 SMD ground pads have no via yet). Make the 5 starved tab pins solid.
+3. If the front band still leaves nets open, decide on the board-level change: spread the precision / bias cluster west into the space the B-side lanes freed, or extend the outline at the front where the chassis allows. Then do renders, the docs/drc_layout.rpt refresh and the second-pass STATUS write-up.
+
 ## Layout, first pass (2026-11-24)
 
 **State: placed, the HV / power copper drawn and clean, the low-voltage routing NOT closed.** This first
