@@ -1,0 +1,85 @@
+(version 1)
+# Power amp rev C design rules (rev_c/tools/layout/placement.py), as rev B (rev_b/STATUS.md "Layout, first pass" B).
+# Spacing: IPC-2221B table 6-1, B2 (external conductors, uncoated, sea level to 3050 m) on F / B, and
+# B1 (internal conductors) on In1 / In2; cross-checked against IEC 60664-1 functional insulation,
+# pollution degree 2, material group IIIb (FR-4, CTI 175): 6.3 mm creepage covers 630 V rms working.
+# Classes (net classes in the project):
+#   HV1250  OT_A, OT_B, CL_A, CL_B: 1.25 kV peak with the open-load clamps. Rev C: F only, inner layers voided
+#           under them and no vias near them (drawn with the copper); the inner rule stays as a backstop.
+#   HV450   V_ANODE, V_SCREEN, DRV_A / DRV_B (280-390 V), G2_1..4: up to 480 V transient
+#   BIAS80  -80 V rail, op amp outputs / feedback, bias and grid nets: up to about 100 V
+#   HTR     the floating heater: 0 V or +90 V (elevated option)
+# B2: >500 V 0.005 mm/V (1.25 kV: 6.3 mm), 301-500 V 2.5 mm (HV classes, exposed pads and tracks alike).
+# B1: >500 V 0.0025 mm/V (1.25 kV: 3.1 mm -> 3.2), 301-500 V 0.25 mm (-> 0.5 mm used).
+# Later rules win over earlier ones (KiCad order); the exceptions come last.
+
+(rule "HV1250 outer"
+  (layer outer)
+  (condition "A.NetClass == 'HV1250' && A.Net != B.Net")
+  (constraint clearance (min 6.3mm)))
+(rule "HV1250 inner"
+  (layer inner)
+  (condition "A.NetClass == 'HV1250' && A.Net != B.Net")
+  (constraint clearance (min 3.2mm)))
+(rule "HV450 outer"
+  (layer outer)
+  (condition "A.NetClass == 'HV450' && B.NetClass != 'HV450' && B.NetClass != 'HV1250' && A.Net != B.Net")
+  (constraint clearance (min 2.5mm)))
+(rule "HV450 to HV450 outer"
+  (layer outer)
+  (condition "A.NetClass == 'HV450' && B.NetClass == 'HV450' && A.Net != B.Net")
+  (constraint clearance (min 1.25mm)))
+(rule "HV450 inner"
+  (layer inner)
+  (condition "A.NetClass == 'HV450' && B.NetClass != 'HV1250' && A.Net != B.Net")
+  (constraint clearance (min 0.5mm)))
+# BIAS80: B2 0.6 mm outer (net class), 0.2 mm inside, 0.2 mm between pads of different nets only at the
+# parts' own pitch (the OPA462's 1.27 mm pins carry -80 V next to the inputs).
+(rule "BIAS80 inner"
+  (layer inner)
+  (condition "A.NetClass == 'BIAS80' && A.Net != B.Net")
+  (constraint clearance (min 0.2mm)))
+(rule "BIAS80 pad to pad (parts' own pitch)"
+  (layer outer)
+  (condition "A.NetClass == 'BIAS80' && A.Type == 'Pad' && B.Type == 'Pad' && A.Net != B.Net && B.NetClass != 'HV450' && B.NetClass != 'HV1250'")
+  (constraint clearance (min 0.2mm)))
+# Chassis standoffs (unplated holes; the standoff and screw head are chassis): HV keeps its class
+# distance from the 6.4 mm standoff, i.e. hole clearance = spacing + 3.2 - 1.6.
+(rule "HV1250 to standoff holes"
+  (layer outer)
+  (condition "A.NetClass == 'HV1250' && B.Pad_Type == 'NPTH, mechanical'")
+  (constraint hole_clearance (min 8.0mm)))
+(rule "HV450 to standoff holes"
+  (layer outer)
+  (condition "A.NetClass == 'HV450' && B.Pad_Type == 'NPTH, mechanical'")
+  (constraint hole_clearance (min 4.2mm)))
+(rule "HV1250 to standoff holes, inner"
+  (layer inner)
+  (condition "A.NetClass == 'HV1250' && B.Pad_Type == 'NPTH, mechanical'")
+  (constraint hole_clearance (min 3.2mm)))
+(rule "HV450 to standoff holes, inner"
+  (layer inner)
+  (condition "A.NetClass == 'HV450' && B.Pad_Type == 'NPTH, mechanical'")
+  (constraint hole_clearance (min 0.5mm)))
+(rule "HV to board edge"
+  (condition "A.NetClass == 'HV1250' || A.NetClass == 'HV450'")
+  (constraint edge_clearance (min 2.0mm)))
+
+# Exceptions: the octal socket's own pins (2.77 mm between pads, the tube base sets it) and the copper round
+# them: an HV item that reaches into a socket's area (rule areas SKT1..4, r 13.5 mm) keeps 2.0 mm from what
+# lies wholly inside that area; everywhere else its class.
+(rule "socket pins"
+  (condition "(A.memberOfFootprint('V1') || A.memberOfFootprint('V2') || A.memberOfFootprint('V3') || A.memberOfFootprint('V4')) && (B.memberOfFootprint('V1') || B.memberOfFootprint('V2') || B.memberOfFootprint('V3') || B.memberOfFootprint('V4'))")
+  (constraint clearance (min 2.0mm)))
+(rule "HV round the socket pins"
+  (layer outer)
+  (condition "(A.NetClass == 'HV1250' || A.NetClass == 'HV450') && A.Net != B.Net && ((A.intersectsArea('SKT1') && B.enclosedByArea('SKT1')) || (A.intersectsArea('SKT2') && B.enclosedByArea('SKT2')) || (A.intersectsArea('SKT3') && B.enclosedByArea('SKT3')) || (A.intersectsArea('SKT4') && B.enclosedByArea('SKT4')))")
+  (constraint clearance (min 2.0mm)))
+(rule "HV round the socket pins (reverse)"
+  (layer outer)
+  (condition "(B.NetClass == 'HV1250' || B.NetClass == 'HV450') && A.Net != B.Net && ((B.intersectsArea('SKT1') && A.enclosedByArea('SKT1')) || (B.intersectsArea('SKT2') && A.enclosedByArea('SKT2')) || (B.intersectsArea('SKT3') && A.enclosedByArea('SKT3')) || (B.intersectsArea('SKT4') && A.enclosedByArea('SKT4')))")
+  (constraint clearance (min 2.0mm)))
+# J105 (Mini-Fit Jr, 600 V rated part): 1.4 mm between its own pads (4.2 mm pitch).
+(rule "J105 own pads"
+  (condition "A.memberOfFootprint('J105') && B.memberOfFootprint('J105')")
+  (constraint clearance (min 1.4mm)))
