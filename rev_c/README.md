@@ -45,7 +45,7 @@ The datasheet PDFs were read for this pass:
 
 - **OPA462 details still to read:** its output swing (the datasheet's electrical table), and the DDA0008J exposed pad compared with KiCad's `TI_SO-PowerPAD-8`.
 - **Stability:** OPA462 driving 1k / 1 µF with Rf ‖ 1n. The stage's noise gain is 29, against a 6.5 MHz gain-bandwidth. A quick SPICE run is still to do.
-- **Inrush:** the 100 µF charging through the 10R fusible resistor at plug-in (open since rev B).
+- ~~**Inrush** of the 100 µF through the 10R fusible resistor at plug-in~~: closed 2026-11-25. The board is never hot-plugged (user), so the 100 µF charges as the PSU's -80 V ramps up.
 - **Interface changes:** the list in PLAN.md goes to the coordinating session (tube_amplifier_kicad interfaces.md).
 
 ## Build
