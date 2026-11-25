@@ -68,7 +68,7 @@ As rev B sheet 01: tubes, grid parts, shunts, clamps, tabs, J105.
 - **Cathode currents:**
   - Three ADS1115 (16-bit, PGA, I2C). ADDR = GND **0x48**, VDD **0x49**, SCL **0x4B** (datasheet Table 7-2). SDA (0x4A) is not used, so there is no clash with the DAC.
   - ADC1 measures V1 and V2, ADC2 measures V3 and V4, each **differential across the shunt** (K-n to KELV-n). Range ±0.256 V gives 0-256 mA, about 7.8 µA per count.
-  - Per channel: 10k in each leg and 100 nF across the pair, for fault current limiting and anti-aliasing.
+  - Per channel: 1k in each leg and 1 µF across the pair (80 Hz), for fault current limiting and anti-aliasing. Not 10k: the ADS1115 differential input impedance at ±0.256 V is 710 kΩ, and 2x 10k would read 2.8 % low.
 - **ADC3, rail and self-check channels:**
 
   | Input | Measures | How |
@@ -113,7 +113,7 @@ These used to be hardware on rev B:
 
 ## Steps
 
-1. **Schematic** (`rev_c/tools/sheets/draw_all.py`, generated like rev B): three sheets, ERC clean, footprints, BOM.
+1. **Schematic** (`rev_c/tools/sheets/draw_all.py`, generated like rev B): three sheets, ERC clean, footprints, BOM. **Done 2026-11-25** (README.md): 128 parts. The shunt inputs are 1k + 1k with 1 µF, not 10k with 100 nF (the ADS1115 differential input impedance is 710 kΩ).
 2. **Review against interfaces.md** and send the change list above to the coordinating session.
 3. **Layout:** reuse rev B's frame and connector positions (`rev_b/tools/layout_frame.py`). Try 2 layers first. Put the op amps 30 mm or more from the socket centres, and the DAC / ADC / reference near the ribbons.
 4. **DRC, renders, STATUS.**

@@ -1,0 +1,4 @@
+(fp_lib_table
+	(version 7)
+	(lib (name "tube_power_amp_revc")(type "KiCad")(uri "${KIPRJMOD}/../lib/tube_power_amp_revc.pretty")(options "")(descr "rev C board-local footprints, copied from rev B (tools/make_footprints.py)"))
+)

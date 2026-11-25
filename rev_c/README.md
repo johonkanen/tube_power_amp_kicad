@@ -1,0 +1,62 @@
+# Power amp rev C: schematic (first pass, 2026-11-25)
+
+The minimal redesign of the power amp board after rev B grew too complicated. The plan, the user
+decisions and the interface changes are in [PLAN.md](PLAN.md). Rev A (repo root) and rev B
+(`rev_b/`) are frozen.
+
+## State
+
+**Schematic drawn and checked; no layout yet.**
+
+- **ERC (KiCad 10.0.7): 0 errors, 0 warnings.**
+- **140 symbols on 3 sheets, 128 real parts.** The other 12 are 4 net ties and 8 test pads. For comparison, rev B had 336 and rev A 72.
+- Every symbol has a footprint (`lib/footprint_map.csv`), and the BOM is in `bom/tube_power_amp_revc_bom.csv`.
+
+| Sheet | Contents |
+|---|---|
+| 01 Output stage | As rev B, except the 100n / 630 V HF caps are dropped. 4 octal sockets V1-V4; per tube 220n / 630 V MKP coupling cap, 91k grid leak to BIASn, 5.6k stopper, 1k 5 W flameproof screen resistor, 1 Ω shunt with an S3M across it, Kelvin net tie, 2 test pads. Open-load clamps: RGP02-20E from GND to each plate, 2x P6KE350CA from each plate to the centre tap. Tabs J101-J104, drive header J105 (Mini-Fit Jr 2x3) |
+| 02 Bias | J201 (-80 V, BIAS_RTN on GNDD), 10R fusible resistor, S1G reverse clamp, 100 µF + 100 nF. ADR4525 2.5 V reference. DAC7578 (TSSOP: resets to zero; ADDR0 = VDD → **0x4A**). Per tube one **OPA462** (180 V, SO-8 PowerPAD, +15 V / -80 V): 10k / 115k + 330n input, Rf / Rg = 280k / 10k 0.1 % to VREF2V5, Rf ‖ 1n, 1k / 1 µF to BIASn. **Vout = 26.7 · Vdac − 70.0 V**: power-on (DAC 0) = −70 V cold, full scale −3.3 V |
+| 03 Sense, ribbons | ADS1115 ×3. **0x48**: V1 and V2; **0x49**: V3 and V4, both differential across the shunt with 1k + 1k and 1 µF. **0x4B**: -80 V (536k / 10k offset divider to VREF2V5), +15 V / 6, VREF2V5 direct, +5 V / 2. J501 (W14-b): +5 V, +15 V, GNDD only. J502 (W15-b): I2C, pins 6-9 not connected. 100 Ω I2C crossings, 4.7k pull-ups, soft tie 10 Ω ‖ 100 nF, bulk caps |
+
+## Checked against the datasheets
+
+The datasheet PDFs were read for this pass:
+
+**OPA462 (SBOS803A)**
+- Pins: 1 E/D Com, 2 −IN, 3 +IN, 4 V−, 5 flag, 6 OUT, 7 V+, 8 E/D. The PowerPAD is on V−.
+- Supply ±6 V to ±90 V.
+- Iq 3.2 mA typical, 3.7 mA max.
+- Input common mode (V−)+1 to (V+)−3 V.
+- E/D at least 0.65 V above E/D Com means enabled, with E/D at most 7 V above E/D Com. E/D Com must sit between V− and (V+)−6 V while the supply is below 106 V.
+
+**OPA454 (SBOS391B).** It allows 100 V recommended and 120 V absolute between its rails, too close to the 95-97 V here. That is why the OPA462 was chosen.
+
+**DAC7578.**
+- TSSOP-16 addresses: ADDR0 = GND 0x48, VDD 0x4A, float 0x4C.
+- The TSSOP versions reset to zero scale at power-on.
+- Pinout as in KiCad's symbol.
+
+**ADS1115 (SBAS444E)**
+- Addresses: GND 0x48, VDD 0x49, SDA 0x4A, SCL 0x4B.
+- Analog inputs GND−0.3 to VDD+0.3 V, ±10 mA. Digital inputs up to 5.5 V.
+- Differential input impedance 710 kΩ at ±0.256 V. That is why the input resistors are 1k, not 10k.
+
+## Open checks before the layout
+
+- **OPA462 details still to read:** its output swing (the datasheet's electrical table), and the DDA0008J exposed pad compared with KiCad's `TI_SO-PowerPAD-8`.
+- **Stability:** OPA462 driving 1k / 1 µF with Rf ‖ 1n. The stage's noise gain is 29, against a 6.5 MHz gain-bandwidth. A quick SPICE run is still to do.
+- **Inrush:** the 100 µF charging through the 10R fusible resistor at plug-in (open since rev B).
+- **Interface changes:** the list in PLAN.md goes to the coordinating session (tube_amplifier_kicad interfaces.md).
+
+## Build
+
+```
+python3 rev_c/tools/make_lib.py          # lib/tube_power_amp_revc.kicad_sym: stock symbols (flattened) + OPA462
+python3 rev_c/tools/make_project.py      # project, root sheet, empty sub-sheets
+python3 rev_c/tools/make_footprints.py   # board-local footprints copied from rev B, fp-lib-table
+python3 rev_c/tools/sheets/draw_all.py   # draws the 3 sheets, writes lib/footprint_map.csv and bom/*.csv
+cd rev_c/kicad && ../../tools/p2k/bin/kicad-cli sch erc --severity-all tube_power_amp_revc.kicad_sch
+```
+
+The sheets are generated: edit `tools/sheets/draw_all.py`, not the `.kicad_sch` files, until the
+draft is frozen. The drawing style is netlist-first, as in rev B.

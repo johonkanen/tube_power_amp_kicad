@@ -1,0 +1,143 @@
+(kicad_sch
+	(version 20260101)
+	(generator "eeschema")
+	(generator_version "10.0")
+	(uuid "7505fd7d-f79a-5832-8433-1c45300a6ffe")
+	(paper "A3")
+	(title_block
+		(title "Tube power amp rev C")
+		(company "Tube amplifier")
+		(rev "rev C - initial schematic")
+		(comment 1 "rev_c/PLAN.md (user decisions 2026-11-25); interfaces.md 12.6 positions; grounding.md")
+	)
+	(lib_symbols)
+	(sheet
+		(at 25.4 38.1)
+		(size 101.6 20.32)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "f9d4ed68-dbaf-5afa-8837-8d5999b96a38")
+		(property "Sheetname" "01 Output stage, power tabs, grid drive, open-load clamps"
+			(at 25.4 37.4 0)
+			(effects
+				(font
+					(size 1.524 1.524)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "01_output_stage.kicad_sch"
+			(at 25.4 59.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "tube_power_amp_revc"
+				(path "/7505fd7d-f79a-5832-8433-1c45300a6ffe"
+					(page "2")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 152.4 38.1)
+		(size 101.6 20.32)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "92cd3739-1a57-5e2d-9716-77ea48591ffd")
+		(property "Sheetname" "02 -80 V input, 2.5 V reference, bias DAC, four HV op amp bias channels"
+			(at 152.4 37.4 0)
+			(effects
+				(font
+					(size 1.524 1.524)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "02_bias.kicad_sch"
+			(at 152.4 59.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "tube_power_amp_revc"
+				(path "/7505fd7d-f79a-5832-8433-1c45300a6ffe"
+					(page "3")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 279.4 38.1)
+		(size 101.6 20.32)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "6f11b67b-2d6c-53af-abff-1f3c2709f326")
+		(property "Sheetname" "03 Cathode-current ADCs, rail readback, ribbons, DGND island"
+			(at 279.4 37.4 0)
+			(effects
+				(font
+					(size 1.524 1.524)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "03_sense_ribbons.kicad_sch"
+			(at 279.4 59.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "tube_power_amp_revc"
+				(path "/7505fd7d-f79a-5832-8433-1c45300a6ffe"
+					(page "4")
+				)
+			)
+		)
+	)
+	(sheet_instances
+		(path "/"
+			(page "1")
+		)
+	)
+	(embedded_fonts no)
+)

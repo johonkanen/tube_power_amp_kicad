@@ -1,0 +1,56 @@
+refs,qty,value,footprint,candidate part,note
+C101 C102 C103 C104,4,220n/630V MKP,Capacitor_THT:C_Rect_L26.5mm_W8.5mm_P22.50mm_MKS4,"220n 630 V MKP, P 22.5 mm (WIMA MKP4 26.5 x 7 / Kemet R76 class)",body width <= 8.5 mm (layout)
+C201,1,100u/100V 105C,Capacitor_THT:CP_Radial_D10.0mm_P5.00mm,"UPW2A101MPD (Nichicon, 105 C)",
+C202 C210 C215 C220 C225,5,100n/100V,Capacitor_SMD:C_0805_2012Metric,100n 100 V X7R / X7S 0805 (GRM21BC72A105 class for 1 uF),
+C203 C204 C305 C306 C308 C309,6,1u,Capacitor_SMD:C_0603_1608Metric,1u 50 V X7R 0603,
+C205 C209 C214 C219 C224 C301 C304 C307 C310 C311,10,100n,Capacitor_SMD:C_0603_1608Metric,100n 50 V X7R 0603,
+C206 C211 C216 C221,4,330n,Capacitor_SMD:C_0805_2012Metric,330n 50 V X7R 0805 (C0G 1206 preferred),
+C207 C212 C217 C222,4,1n/100V,Capacitor_SMD:C_0805_2012Metric,1n 100 V X7R / X7S 0805 (GRM21BC72A105 class for 1 uF),
+C208 C213 C218 C223,4,1u/100V,Capacitor_SMD:C_0805_2012Metric,1u 100 V X7R / X7S 0805 (GRM21BC72A105 class for 1 uF),
+C302,1,10u/25V,Capacitor_SMD:C_1206_3216Metric,10u/25V X7R 1206,
+C303,1,10u/10V,Capacitor_SMD:C_1206_3216Metric,10u/10V X7R 1206,
+D101 D104,2,"RGP02-20E (2 kV, plate diode)",Diode_THT:D_DO-41_SOD81_P10.16mm_Horizontal,"RGP02-20E-E3/54 (Vishay, 2 kV, 0.5 A, 300 ns)",
+D102 D103 D105 D106,4,"P6KE350CA (TVS, bidirectional)",Diode_THT:D_DO-15_P10.16mm_Horizontal,"P6KE350CA (Littelfuse; VBR 332-368 V, VC 482 V at 1.24 A)",
+D107 D108 D109 D110,4,S3M (3 A),Diode_SMD:D_SMC,S3M-E3/57T (Vishay),
+D201,1,S1G (reverse clamp),Diode_SMD:D_SMA,S1G (1N4004 class),
+J101,1,W04-b V_ANODE / GND_PWR (4.8 mm tabs),tube_power_amp_revc:BladeTab_4.8mm_x2_P10.20mm_Inline,"2x PCB blade tab 4.8 mm (0.187 in), 2 legs on 5.00 mm, 1.4 mm holes (interfaces.md 4.1); order code to confirm",fully insulated receptacles; in line on 10.2 mm
+J102,1,W05-b V_SCREEN (4.8 mm tab),tube_power_amp_revc:BladeTab_4.8mm_x1,"1x PCB blade tab 4.8 mm (0.187 in), 2 legs on 5.00 mm, 1.4 mm holes (interfaces.md 4.1); order code to confirm",fully insulated receptacle
+J103,1,W06-b HEATER (6.3 mm tabs),tube_power_amp_revc:BladeTab_6.3mm_x2_P11.50mm,"2x PCB blade tab 6.3 mm (0.250 in), 2 legs on 5.00 mm, 1.4 mm holes (interfaces.md 4.1); order code to confirm",6.4 A; tabs on 11.5 mm
+J104,1,W11-a OT_A / OT_B / OT_CT (4.8 mm tabs),tube_power_amp_revc:BladeTab_4.8mm_x3_OT,"3x PCB blade tab 4.8 mm (0.187 in), 2 legs on 5.00 mm, 1.4 mm holes (interfaces.md 4.1); order code to confirm","OT_A / OT_CT / OT_B at 0 / 26.4 / 52.8 mm, OT_CT 6.5 mm forward"
+J105,1,"W24-b DRIVE (Mini-Fit Jr 2x3, 600 V; 280-390 V DC on pins 2 / 4)",Connector_Molex:Molex_Mini-Fit_Jr_5566-06A_2x03_P4.20mm_Vertical,Molex 39-28-1063 class (Mini-Fit Jr 5566-06A; order code to confirm),"600 V AC/DC; housing 39-01-2060, terminals 39-00-0039; circuit 6 N/C"
+J201,1,W09-b -80V / BIAS_RTN (4.8 mm tabs),tube_power_amp_revc:BladeTab_4.8mm_x2_P9.50mm,"2x PCB blade tab 4.8 mm (0.187 in), 2 legs on 5.00 mm, 1.4 mm holes (interfaces.md 4.1); order code to confirm",fully insulated receptacles
+J501,1,W14-b CONTROL (template 2x7),Connector_IDC:IDC-Header_2x07_P2.54mm_Vertical,61201421621 (Wurth),"shrouded, keyed"
+J502,1,W15-b BIAS (2x5),Connector_IDC:IDC-Header_2x05_P2.54mm_Vertical,61201021621 (Wurth),"shrouded, keyed"
+N101 N102 N103 N104,4,Kelvin at shunt pad,NetTie:NetTie-2_SMD_Pad0.5mm,,Kelvin tap at the shunt pad
+R101 R105 R109 R113,4,91k,Resistor_SMD:R_2512_6332Metric,"91k 1 % 2512 high-voltage thick film, >= 500 V working (KOA HV732H / Vishay CRHV class)",grid leak; -240 V blocking transient across it (layout 2026-11-24: SMD on the B side)
+R102 R106 R110 R114,4,5.6k,Resistor_SMD:R_1206_3216Metric,5.6k 1 % 1206 (200 V),"grid stopper inside the socket's pin circle, at pin 5 (layout)"
+R103 R107 R115,3,1k 5W flameproof,Resistor_THT:R_Axial_Power_L25.0mm_W6.4mm_P27.94mm,"1k 5 W flameproof metal oxide (25 x 6.4 mm, as rev A)","layout 2026-11-24: mounted lying on the B (plate) side, body raised 2 mm, hand-soldered"
+R104 R108 R112 R116,4,1R 1W,Resistor_SMD:R_2512_6332Metric,1R 1 W 1 % 50 ppm/K metal strip (2512),
+R111,1,1k 5W flameproof,tube_power_amp_revc:R_Axial_Power_L25.0mm_W9.0mm_P10.16mm_Vertical_Tight,"1k 5 W flameproof metal oxide, standing",V3's screen resistor stands on F in the V2-V3 gap (no room for a lying one)
+R201,1,10R 1W fusible wirewound,Resistor_THT:R_Axial_DIN0309_L9.0mm_D3.2mm_P12.70mm_Horizontal,CRF251-4 / CRF110 10R (Yageo Vitrohm),"fusible wirewound; inrush of C201 (8 A peak, 0.32 J) to confirm"
+R202 R207 R212 R217 R315 R318 R319,7,10k,Resistor_SMD:R_0603_1608Metric,10k 1 % 0603,
+R203 R208 R213 R218,4,115k,Resistor_SMD:R_0603_1608Metric,115k 1 % 0603,
+R204 R209 R214 R219,4,10k 0.1%,Resistor_SMD:R_1206_3216Metric,10k 0.1 % 25 ppm/K thin film 1206,
+R205 R210 R215 R220,4,280k 0.1%,Resistor_SMD:R_1206_3216Metric,280k 0.1 % 25 ppm/K thin film 1206,
+R206 R211 R216 R221 R306 R307 R308 R309 R310 R311 R312 R313,12,1k,Resistor_SMD:R_0603_1608Metric,1k 1 % 0603,
+R301 R302,2,100R,Resistor_SMD:R_0603_1608Metric,100R 1 % 0603,
+R303 R304,2,4.7k,Resistor_SMD:R_0603_1608Metric,4.7k 1 % 0603,
+R305,1,10R,Resistor_SMD:R_0603_1608Metric,10R 1 % 0603,
+R314,1,536k 1206,Resistor_SMD:R_1206_3216Metric,536k 1206 (200 V),up to 80 V across it
+R316,1,100k,Resistor_SMD:R_0603_1608Metric,100k 1 % 0603,
+R317,1,20k,Resistor_SMD:R_0603_1608Metric,20k 1 % 0603,
+TP101,1,K1 (1 mV/mA),TestPoint:TestPoint_Pad_D2.0mm,,"cathode test pad, probed from below"
+TP102,1,K1 GND,TestPoint:TestPoint_Pad_D2.0mm,,"cathode test pad, probed from below"
+TP103,1,K2 (1 mV/mA),TestPoint:TestPoint_Pad_D2.0mm,,"cathode test pad, probed from below"
+TP104,1,K2 GND,TestPoint:TestPoint_Pad_D2.0mm,,"cathode test pad, probed from below"
+TP105,1,K3 (1 mV/mA),TestPoint:TestPoint_Pad_D2.0mm,,"cathode test pad, probed from below"
+TP106,1,K3 GND,TestPoint:TestPoint_Pad_D2.0mm,,"cathode test pad, probed from below"
+TP107,1,K4 (1 mV/mA),TestPoint:TestPoint_Pad_D2.0mm,,"cathode test pad, probed from below"
+TP108,1,K4 GND,TestPoint:TestPoint_Pad_D2.0mm,,"cathode test pad, probed from below"
+U201,1,"ADR4525 (2.5 V, 0.02 %, 2 ppm/K)",Package_SO:SOIC-8_3.9x4.9mm_P1.27mm,ADR4525BRZ (ADI),
+U202,1,"DAC7578SPW (12-bit x8, I2C 0x4A)",Package_SO:TSSOP-16_4.4x5mm_P0.65mm,DAC7578SPW (TI),TSSOP: power-on reset to zero scale (TI)
+U203 U204 U205 U206,4,OPA462DDA (180 V),Package_SO:TI_SO-PowerPAD-8_ThermalVias,"OPA462DDAR (TI, 180 V)",PowerPAD = V- (-80 V): copper area for 0.35 W; confirm the pad against DDA0008J
+U301,1,ADS1115IDGS (I2C 0x48),Package_SO:MSOP-10_3x3mm_P0.5mm,ADS1115IDGSR (TI),VSSOP-10 (DGS)
+U302,1,ADS1115IDGS (I2C 0x49),Package_SO:MSOP-10_3x3mm_P0.5mm,ADS1115IDGSR (TI),VSSOP-10 (DGS)
+U303,1,ADS1115IDGS (I2C 0x4B),Package_SO:MSOP-10_3x3mm_P0.5mm,ADS1115IDGSR (TI),VSSOP-10 (DGS)
+V1 V2 V3 V4,4,EL34 / 6L6GC / KT88 / 6550 (octal),tube_power_amp_revc:Valve_Octal_Belton_PCD17.20mm,Belton octal PCB socket (as rev A),"solder side, as built"

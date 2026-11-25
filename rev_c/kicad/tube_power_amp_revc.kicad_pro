@@ -1,0 +1,26 @@
+{
+  "meta": {
+    "filename": "tube_power_amp_revc.kicad_pro",
+    "version": 3
+  },
+  "schematic": {},
+  "board": {},
+  "sheets": [
+    [
+      "7505fd7d-f79a-5832-8433-1c45300a6ffe",
+      "Root"
+    ],
+    [
+      "f9d4ed68-dbaf-5afa-8837-8d5999b96a38",
+      "01 Output stage, power tabs, grid drive, open-load clamps"
+    ],
+    [
+      "92cd3739-1a57-5e2d-9716-77ea48591ffd",
+      "02 -80 V input, 2.5 V reference, bias DAC, four HV op amp bias channels"
+    ],
+    [
+      "6f11b67b-2d6c-53af-abff-1f3c2709f326",
+      "03 Cathode-current ADCs, rail readback, ribbons, DGND island"
+    ]
+  ]
+}
