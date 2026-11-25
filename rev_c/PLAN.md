@@ -134,5 +134,13 @@ These used to be hardware on rev B:
      - the precision / ADC / ribbon cluster beside J501;
      - the fusible R201 next to J201.
    - DRC: 0 clearance, 0 parity, silk only; 290 unconnected.
-   - The packer places by size, not by net. The order inside each channel and in the precision cluster gets tidied with the routing.
+   - The packer places by size, not by net.
+
+   **Heater copper done 2026-11-25** (`heater_copper.py`, run by `rev_c/tools/layout/build.sh`; pictures `rev_c/docs/heater_B.png`, `heater_In1.png`):
+   - Current: up to 1.6 A per tube. J103 sits between V2 and V3, so each side carries 3.2 A as far as its first socket.
+   - **HTR2:** a pour on B along the rear band behind the sockets (pins 7), with a finger to both legs of J103's HTR2 tab.
+   - **HTR1:** the same pour on In1 and In2 in parallel, stacked under HTR2, with a finger to J103's HTR1 tab. Each pin 2 (front) has a 1.8 mm spur on both inner layers, through the middle of its pin circle and out between pins 5 and 6.
+   - Narrowest section: about 4 mm behind pin 6. On B that is 1 oz outer, and 3.2 A needs about 1.5 mm for 10 K. On In1 + In2 it is 2 x 0.5 oz, about 10 K at 3.2 A. **Order 1 oz inner copper** for margin.
+   - Pads connect solid; the heater pours have priority 10, above the GND pours.
+   - DRC: 0 clearance, 0 parity; all heater items connected. The order inside each channel and in the precision cluster gets tidied with the routing.
 4. **DRC, renders, STATUS.**
