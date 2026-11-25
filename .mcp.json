@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "kicad": {
+      "command": "/home/jari/dev/tube_power_amp_kicad/tools/kicad_mcp.sh",
+      "args": [],
+      "env": {}
+    }
+  }
+}
