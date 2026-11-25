@@ -251,14 +251,13 @@ def sheet02(d):
                value="OPA462DDA (180 V)")
         R(d, f"R2{n}2", c0 + 1.6, r0 + 3.4, f"FB{n}", "VREF2V5", "10k 0.1%", rot=0)
         R(d, f"R2{n}3", c0 + 3.0, r0 + 3.4, f"OA{n}", f"FB{n}", "280k 0.1%", rot=0)
-        C(d, f"C2{n}1", c0 + 3.0, r0 + 4.4, f"OA{n}", f"FB{n}", "1n/100V", rot=90)
         R(d, f"R2{n}4", c0 + 4.0, r0 + 0.4, f"OA{n}", f"BIAS{n}", "1k", rot=90)
         C(d, f"C2{n}2", c0 + 4.4, r0 + 1.6, f"BIAS{n}", "GND", "1u/100V")
         C(d, f"C2{n}3", c0 + 1.2, r0 + 5.6, "+15V", "GND", "100n")
         C(d, f"C2{n}4", c0 + 2.2, r0 + 5.6, "GND", "M80", "100n/100V")
     d.text("Per channel: DAC -> 10k / 115k (k = 0.920; the 115k holds the input at 0 V = cold if the DAC output is "
            "high-Z) with 330n (50 Hz); OPA462 non-inverting, Rf / Rg = 280k / 10k to VREF2V5 (0.1 %: sets the cold "
-           "point -70.0 V); Rf || 1n; 1k / 1u to BIASn (the tube's 91k grid leak, sheet 01). E/D Com = GND, E/D = +5 V "
+           "point -70.0 V); no cap across Rf (sim P1: phase margin 81 deg without it, 48 deg with 1n); 1k / 1u to BIASn (the tube's 91k grid leak, sheet 01). E/D Com = GND, E/D = +5 V "
            "(enabled; E/D low would leave the output high-Z). Status flag unused. PowerPAD (pin 9) = V- = -80 V copper. "
            "Input CM 0-2.3 V within (V-)+1 .. (V+)-3; supply 95-97 V of 12-180 V; Iq 3.2 / 3.7 mA; about 0.35 W each.",
            5, 11.2)

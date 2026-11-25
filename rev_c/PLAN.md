@@ -94,7 +94,7 @@ These used to be hardware on rev B:
 | F1 | **Over-current** per tube from ADC1 / ADC2. At 860 SPS the four channels are read at least every 10 ms. Trip by having the PSU cut the main voltage |
 | F2 | **Rail monitoring** from ADC3: -80 V (D6), +15 V, +5 V, and VREF2V5 against the ADC's internal reference |
 | F3 | **Stale-data rule:** an I2C error, an ADC that doesn't respond, or a reading that doesn't update counts as a fault |
-| F4 | **Bias sequence:** DAC at zero (cold) until -80 V and +15 V are good. HV only after warm-up. The firmware clamps the DAC codes for each tube type |
+| F4 | **Bias sequence:** DAC at zero (cold) until -80 V and +15 V are good. HV only after warm-up. The firmware clamps the DAC codes for each tube type. **Preferred, not required:** -80 V up no later than +15 V. Otherwise BIASn goes up to +14 V for a few ms at power-up (rev_c/sim/opamp/results.md item 4). That is harmless with no HV, and the board has no parts for it (sim P2 not fitted) |
 | F5 | **Readback:** a DAC write must show up in the cathode current within the expected time once the HV is on. If it doesn't, that's a fault |
 
 ## Interface changes (for the coordinating session, tube_amplifier_kicad docs/interfaces.md)
@@ -113,7 +113,7 @@ These used to be hardware on rev B:
 
 ## Steps
 
-1. **Schematic** (`rev_c/tools/sheets/draw_all.py`, generated like rev B): three sheets, ERC clean, footprints, BOM. **Done 2026-11-25** (README.md): 128 parts. The shunt inputs are 1k + 1k with 1 µF, not 10k with 100 nF (the ADS1115 differential input impedance is 710 kΩ).
+1. **Schematic** (`rev_c/tools/sheets/draw_all.py`, generated like rev B): three sheets, ERC clean, footprints, BOM. **Done 2026-11-25** (README.md): 128 parts, 124 after sim P1 (the 1 nF caps across Rf removed). Op amp simulation: rev_c/sim/opamp/results.md (TI's OPA462 model, all items pass). The shunt inputs are 1k + 1k with 1 µF, not 10k with 100 nF (the ADS1115 differential input impedance is 710 kΩ).
 2. **Review against interfaces.md** and send the change list above to the coordinating session.
 3. **Layout:** reuse rev B's frame and connector positions. Put the op amps 30 mm or more from the socket centres, and the DAC / ADC / reference near the ribbons. **Layout decisions (user, 2026-11-25):**
    - **4 layers,** standard 1.6 mm build. OT_A / OT_B / CL_x on F only, short. In1 and In2 voided under them, no vias near them. In1 is the GND plane. In2 has a -80 V area under the op amps (their PowerPADs are on V-) and GND elsewhere. Rev B's design rules otherwise.

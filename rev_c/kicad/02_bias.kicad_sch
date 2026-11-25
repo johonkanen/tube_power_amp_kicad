@@ -5955,113 +5955,6 @@
 		(uuid "f2891cf4-6cdb-5c25-b11a-aaac551024b7")
 	)
 	(symbol
-		(lib_id "tube_power_amp_revc:C")
-		(at 193.04 195.58 90)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "ddf61414-52c5-559d-bf11-b5059d6f217d")
-		(property "Reference" "C207"
-			(at 193.04 193.04 270)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "1n/100V"
-			(at 193.04 198.12 270)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
-			(at 196.85 194.6148 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 193.04 195.58 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Unpolarized capacitor"
-			(at 193.04 195.58 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "12840a4d-11ca-5923-8e4a-fb18cc90469b")
-		)
-		(pin "2"
-			(uuid "f4cd1c23-af01-551e-8d08-d5a9da420c28")
-		)
-		(instances
-			(project "tube_power_amp_revc"
-				(path "/7505fd7d-f79a-5832-8433-1c45300a6ffe/92cd3739-1a57-5e2d-9716-77ea48591ffd"
-					(reference "C207")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(wire
-		(pts
-			(xy 189.23 195.58) (xy 186.69 195.58)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "c830b17f-5561-50f0-a7d9-58ac8efb0e80")
-	)
-	(label "OA1"
-		(at 186.69 195.58 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "89f0c088-b3f0-5b5f-84a8-10a809d32042")
-	)
-	(wire
-		(pts
-			(xy 196.85 195.58) (xy 199.39 195.58)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "b3ca7e83-5025-523e-baa6-1258234a335d")
-	)
-	(label "FB1"
-		(at 199.39 195.58 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "a742130f-f397-59c7-9b0a-00287906824a")
-	)
-	(symbol
 		(lib_id "tube_power_amp_revc:R")
 		(at 213.36 124.46 90)
 		(unit 1)
@@ -6136,7 +6029,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "130ffff1-fe07-5659-a795-0c99e45b7671")
+		(uuid "c830b17f-5561-50f0-a7d9-58ac8efb0e80")
 	)
 	(label "OA1"
 		(at 207.01 124.46 180)
@@ -6146,7 +6039,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "b190d804-311e-5013-9b7a-ab5c30887da5")
+		(uuid "89f0c088-b3f0-5b5f-84a8-10a809d32042")
 	)
 	(wire
 		(pts
@@ -6156,7 +6049,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "423f2d3b-4cb9-54ef-8513-ef666f6de62d")
+		(uuid "b3ca7e83-5025-523e-baa6-1258234a335d")
 	)
 	(global_label "BIAS1"
 		(shape passive)
@@ -6168,7 +6061,7 @@
 			)
 			(justify left)
 		)
-		(uuid "1e19a75f-bcdf-5307-a930-534e8d815ac1")
+		(uuid "a742130f-f397-59c7-9b0a-00287906824a")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 219.71 124.46 0)
 			(effects
@@ -6188,8 +6081,8 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "1f8efff3-ef8f-554d-93ef-d6ab2aa34240")
-		(property "Reference" "C208"
+		(uuid "ddf61414-52c5-559d-bf11-b5059d6f217d")
+		(property "Reference" "C207"
 			(at 225.72 144.78 0)
 			(effects
 				(font
@@ -6233,15 +6126,15 @@
 			)
 		)
 		(pin "1"
-			(uuid "924960d9-8ff1-5357-99b2-a15a461ff0a7")
+			(uuid "12840a4d-11ca-5923-8e4a-fb18cc90469b")
 		)
 		(pin "2"
-			(uuid "3110cf94-bf72-5543-8f4d-c751a6af78cc")
+			(uuid "f4cd1c23-af01-551e-8d08-d5a9da420c28")
 		)
 		(instances
 			(project "tube_power_amp_revc"
 				(path "/7505fd7d-f79a-5832-8433-1c45300a6ffe/92cd3739-1a57-5e2d-9716-77ea48591ffd"
-					(reference "C208")
+					(reference "C207")
 					(unit 1)
 				)
 			)
@@ -6255,7 +6148,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "b9d729b9-0bb4-5061-a9ef-7a105fe1453b")
+		(uuid "130ffff1-fe07-5659-a795-0c99e45b7671")
 	)
 	(global_label "BIAS1"
 		(shape passive)
@@ -6267,7 +6160,7 @@
 			)
 			(justify left)
 		)
-		(uuid "e0a1dca5-70c0-5a77-9705-7a73b19b5fb0")
+		(uuid "b190d804-311e-5013-9b7a-ab5c30887da5")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 220.98 139.7 0)
 			(effects
@@ -6287,7 +6180,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "a119842a-c733-56bf-bab3-cf243cdf6073")
+		(uuid "423f2d3b-4cb9-54ef-8513-ef666f6de62d")
 	)
 	(symbol
 		(lib_id "tube_power_amp_revc:GND")
@@ -6362,8 +6255,8 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "78ee7728-fd98-5596-a654-faa9d454179b")
-		(property "Reference" "C209"
+		(uuid "1f8efff3-ef8f-554d-93ef-d6ab2aa34240")
+		(property "Reference" "C208"
 			(at 160.95 215.9 0)
 			(effects
 				(font
@@ -6407,15 +6300,15 @@
 			)
 		)
 		(pin "1"
-			(uuid "af745267-a72e-5267-8334-1bc0a742e915")
+			(uuid "924960d9-8ff1-5357-99b2-a15a461ff0a7")
 		)
 		(pin "2"
-			(uuid "d0d19bfc-6b45-5ae8-99e3-2a01e25fb07b")
+			(uuid "3110cf94-bf72-5543-8f4d-c751a6af78cc")
 		)
 		(instances
 			(project "tube_power_amp_revc"
 				(path "/7505fd7d-f79a-5832-8433-1c45300a6ffe/92cd3739-1a57-5e2d-9716-77ea48591ffd"
-					(reference "C209")
+					(reference "C208")
 					(unit 1)
 				)
 			)
@@ -6429,7 +6322,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "6096bd64-7266-5028-bdff-607ceb879f35")
+		(uuid "1e19a75f-bcdf-5307-a930-534e8d815ac1")
 	)
 	(symbol
 		(lib_id "tube_power_amp_revc:+15V")
@@ -6504,7 +6397,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "d449727b-711d-57b7-b7a9-c13383bc069c")
+		(uuid "b9d729b9-0bb4-5061-a9ef-7a105fe1453b")
 	)
 	(symbol
 		(lib_id "tube_power_amp_revc:GND")
@@ -6579,8 +6472,8 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "21417eec-230a-5242-9448-02a80df69609")
-		(property "Reference" "C210"
+		(uuid "78ee7728-fd98-5596-a654-faa9d454179b")
+		(property "Reference" "C209"
 			(at 181.27 215.9 0)
 			(effects
 				(font
@@ -6624,15 +6517,15 @@
 			)
 		)
 		(pin "1"
-			(uuid "7226486d-8ff5-5ea5-bc59-2cbf1077436f")
+			(uuid "af745267-a72e-5267-8334-1bc0a742e915")
 		)
 		(pin "2"
-			(uuid "689a08d7-b484-5470-b22b-640d3a20d823")
+			(uuid "d0d19bfc-6b45-5ae8-99e3-2a01e25fb07b")
 		)
 		(instances
 			(project "tube_power_amp_revc"
 				(path "/7505fd7d-f79a-5832-8433-1c45300a6ffe/92cd3739-1a57-5e2d-9716-77ea48591ffd"
-					(reference "C210")
+					(reference "C209")
 					(unit 1)
 				)
 			)
@@ -6646,7 +6539,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "26082cac-cd60-5600-9b31-d770b4e5210b")
+		(uuid "e0a1dca5-70c0-5a77-9705-7a73b19b5fb0")
 	)
 	(symbol
 		(lib_id "tube_power_amp_revc:GND")
@@ -6721,7 +6614,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "507161fe-3e98-5f37-9000-262040467bc4")
+		(uuid "a119842a-c733-56bf-bab3-cf243cdf6073")
 	)
 	(global_label "M80"
 		(shape passive)
@@ -6733,7 +6626,7 @@
 			)
 			(justify right)
 		)
-		(uuid "0dac5c5c-2ff2-5bec-8b70-0c762c4451ae")
+		(uuid "6096bd64-7266-5028-bdff-607ceb879f35")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 176.53 223.52 0)
 			(effects
@@ -6754,7 +6647,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "9bc13fc2-fff5-5b70-8046-f8a93ddad57d")
+		(uuid "d449727b-711d-57b7-b7a9-c13383bc069c")
 	)
 	(symbol
 		(lib_id "tube_power_amp_revc:R")
@@ -6831,7 +6724,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "8b8936d8-b10a-5d8e-a550-a22f653098d6")
+		(uuid "26082cac-cd60-5600-9b31-d770b4e5210b")
 	)
 	(label "DAC2"
 		(at 227.33 124.46 180)
@@ -6841,7 +6734,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "85c814f7-f9e3-5403-9789-2b586f112462")
+		(uuid "507161fe-3e98-5f37-9000-262040467bc4")
 	)
 	(wire
 		(pts
@@ -6851,7 +6744,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "37a00fce-5763-5e7a-b517-6e56eab6ef3e")
+		(uuid "0dac5c5c-2ff2-5bec-8b70-0c762c4451ae")
 	)
 	(label "IN2"
 		(at 240.03 124.46 0)
@@ -6861,7 +6754,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "429e2a1d-438f-55a3-a322-212df2d5e376")
+		(uuid "9bc13fc2-fff5-5b70-8046-f8a93ddad57d")
 	)
 	(symbol
 		(lib_id "tube_power_amp_revc:R")
@@ -6938,7 +6831,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "40b57ce6-3b4d-5a68-a1d0-a807d89cccb0")
+		(uuid "8b8936d8-b10a-5d8e-a550-a22f653098d6")
 	)
 	(label "IN2"
 		(at 250.19 139.7 90)
@@ -6948,7 +6841,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "8dcd5a98-07a7-5b83-bce2-77a24a2b36a7")
+		(uuid "85c814f7-f9e3-5403-9789-2b586f112462")
 	)
 	(wire
 		(pts
@@ -6958,7 +6851,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "01aa73dd-ef80-59f8-972d-3e478748e27e")
+		(uuid "37a00fce-5763-5e7a-b517-6e56eab6ef3e")
 	)
 	(symbol
 		(lib_id "tube_power_amp_revc:GND")
@@ -7033,8 +6926,8 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "1fc868bd-0818-5bda-929e-acc6e5683c6d")
-		(property "Reference" "C211"
+		(uuid "21417eec-230a-5242-9448-02a80df69609")
+		(property "Reference" "C210"
 			(at 238.42 144.78 0)
 			(effects
 				(font
@@ -7078,15 +6971,15 @@
 			)
 		)
 		(pin "1"
-			(uuid "af50509e-7c4b-54b1-9714-f12e0de095a7")
+			(uuid "7226486d-8ff5-5ea5-bc59-2cbf1077436f")
 		)
 		(pin "2"
-			(uuid "dd184f46-8f7a-58b8-ac48-09c142aa784a")
+			(uuid "689a08d7-b484-5470-b22b-640d3a20d823")
 		)
 		(instances
 			(project "tube_power_amp_revc"
 				(path "/7505fd7d-f79a-5832-8433-1c45300a6ffe/92cd3739-1a57-5e2d-9716-77ea48591ffd"
-					(reference "C211")
+					(reference "C210")
 					(unit 1)
 				)
 			)
@@ -7100,7 +6993,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "0809388c-8ac5-54b3-a4df-730339e3c25f")
+		(uuid "429e2a1d-438f-55a3-a322-212df2d5e376")
 	)
 	(label "IN2"
 		(at 233.68 139.7 90)
@@ -7110,7 +7003,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "56b4e1f8-4b98-543b-aa63-6211405d248d")
+		(uuid "40b57ce6-3b4d-5a68-a1d0-a807d89cccb0")
 	)
 	(wire
 		(pts
@@ -7120,7 +7013,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "763ff996-7107-55ef-8af2-ddec31300e32")
+		(uuid "8dcd5a98-07a7-5b83-bce2-77a24a2b36a7")
 	)
 	(symbol
 		(lib_id "tube_power_amp_revc:GND")
@@ -7283,7 +7176,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "4d1fb2c3-23ac-5a7b-a315-82715b237caf")
+		(uuid "01aa73dd-ef80-59f8-972d-3e478748e27e")
 	)
 	(label "IN2"
 		(at 271.78 139.7 180)
@@ -7293,7 +7186,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "fb66b41c-8bf2-5152-ad43-c530e7a50b05")
+		(uuid "0809388c-8ac5-54b3-a4df-730339e3c25f")
 	)
 	(wire
 		(pts
@@ -7303,7 +7196,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "c870c460-d001-5cee-ad6c-396153e56503")
+		(uuid "56b4e1f8-4b98-543b-aa63-6211405d248d")
 	)
 	(label "FB2"
 		(at 271.78 144.78 180)
@@ -7313,7 +7206,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "c328a09a-3843-50f1-a978-e54533d8af49")
+		(uuid "763ff996-7107-55ef-8af2-ddec31300e32")
 	)
 	(wire
 		(pts
@@ -7323,7 +7216,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "f182256b-bc12-5e3d-a8c2-9a0e52d83b42")
+		(uuid "4d1fb2c3-23ac-5a7b-a315-82715b237caf")
 	)
 	(label "OA2"
 		(at 294.64 142.24 0)
@@ -7333,7 +7226,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "753fa764-74bf-5dbd-b4cf-0c94a2bb30ea")
+		(uuid "fb66b41c-8bf2-5152-ad43-c530e7a50b05")
 	)
 	(wire
 		(pts
@@ -7343,7 +7236,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "68707802-fe81-5753-aca3-4ba549309fd3")
+		(uuid "c870c460-d001-5cee-ad6c-396153e56503")
 	)
 	(symbol
 		(lib_id "tube_power_amp_revc:+15V")
@@ -7418,7 +7311,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "c865e755-f97e-5f99-b1e4-b4bc752cb5ca")
+		(uuid "c328a09a-3843-50f1-a978-e54533d8af49")
 	)
 	(global_label "M80"
 		(shape passive)
@@ -7430,7 +7323,7 @@
 			)
 			(justify right)
 		)
-		(uuid "741ad662-e083-5b71-98fc-32d60f6b88d2")
+		(uuid "f182256b-bc12-5e3d-a8c2-9a0e52d83b42")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 279.4 154.94 0)
 			(effects
@@ -7450,7 +7343,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "c1fb1d22-fcb6-5568-8fad-02c5ed1248a3")
+		(uuid "753fa764-74bf-5dbd-b4cf-0c94a2bb30ea")
 	)
 	(global_label "M80"
 		(shape passive)
@@ -7462,7 +7355,7 @@
 			)
 			(justify right)
 		)
-		(uuid "4aad45f9-9e88-51cf-a9bb-50c3faf5a7d0")
+		(uuid "68707802-fe81-5753-aca3-4ba549309fd3")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 281.94 154.94 0)
 			(effects
@@ -7482,7 +7375,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "c8999b1b-7b39-50e2-bab6-645abbc5fb17")
+		(uuid "c865e755-f97e-5f99-b1e4-b4bc752cb5ca")
 	)
 	(symbol
 		(lib_id "tube_power_amp_revc:+5V")
@@ -7557,7 +7450,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "982c6425-6378-5b9c-81f3-72dc7f75091a")
+		(uuid "741ad662-e083-5b71-98fc-32d60f6b88d2")
 	)
 	(symbol
 		(lib_id "tube_power_amp_revc:GND")
@@ -7626,7 +7519,7 @@
 	)
 	(no_connect
 		(at 287.02 134.62)
-		(uuid "dff5128c-8a05-56d2-9ced-f1bfbd0be854")
+		(uuid "c1fb1d22-fcb6-5568-8fad-02c5ed1248a3")
 	)
 	(symbol
 		(lib_id "tube_power_amp_revc:R")
@@ -7703,7 +7596,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "149a1500-78ce-5265-b613-d96ad57d9e80")
+		(uuid "4aad45f9-9e88-51cf-a9bb-50c3faf5a7d0")
 	)
 	(label "FB2"
 		(at 266.7 171.45 90)
@@ -7713,7 +7606,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "2bc6fe6c-2dc6-5fb8-bc80-9658e21f24e0")
+		(uuid "c8999b1b-7b39-50e2-bab6-645abbc5fb17")
 	)
 	(wire
 		(pts
@@ -7723,7 +7616,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "0c206b64-150a-5091-9255-d31dcf464ad0")
+		(uuid "982c6425-6378-5b9c-81f3-72dc7f75091a")
 	)
 	(global_label "VREF2V5"
 		(shape passive)
@@ -7735,7 +7628,7 @@
 			)
 			(justify right)
 		)
-		(uuid "f1c27ffb-8e1e-514a-b23f-cb5133c13d44")
+		(uuid "dff5128c-8a05-56d2-9ced-f1bfbd0be854")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 266.7 184.15 0)
 			(effects
@@ -7822,7 +7715,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "3ef37eb7-e03d-5b6f-a6fb-89261f63e5a1")
+		(uuid "149a1500-78ce-5265-b613-d96ad57d9e80")
 	)
 	(label "OA2"
 		(at 294.64 171.45 90)
@@ -7832,7 +7725,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "fec26700-71c0-5099-a46f-6cf7c97ef3a1")
+		(uuid "2bc6fe6c-2dc6-5fb8-bc80-9658e21f24e0")
 	)
 	(wire
 		(pts
@@ -7842,7 +7735,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "fe8dc65f-e231-5c62-b8f9-e6be1999e91f")
+		(uuid "0c206b64-150a-5091-9255-d31dcf464ad0")
 	)
 	(label "FB2"
 		(at 294.64 184.15 270)
@@ -7852,114 +7745,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "b9b83bb9-c0e2-5704-938e-93fc6d7e925d")
-	)
-	(symbol
-		(lib_id "tube_power_amp_revc:C")
-		(at 294.64 195.58 90)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "72d961d7-e28c-5c9f-8b07-b0ff0b9d9be6")
-		(property "Reference" "C212"
-			(at 294.64 193.04 270)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "1n/100V"
-			(at 294.64 198.12 270)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
-			(at 298.45 194.6148 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 294.64 195.58 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Unpolarized capacitor"
-			(at 294.64 195.58 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "2c60d3ec-4174-560e-b5a5-d4e83a681d84")
-		)
-		(pin "2"
-			(uuid "40f1525c-7869-5262-810e-057786eaa558")
-		)
-		(instances
-			(project "tube_power_amp_revc"
-				(path "/7505fd7d-f79a-5832-8433-1c45300a6ffe/92cd3739-1a57-5e2d-9716-77ea48591ffd"
-					(reference "C212")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(wire
-		(pts
-			(xy 290.83 195.58) (xy 288.29 195.58)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "4ad7e290-db76-55c5-a212-21b2afea4207")
-	)
-	(label "OA2"
-		(at 288.29 195.58 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "3d8e068f-6677-52fd-aecc-a2e8d38d0244")
-	)
-	(wire
-		(pts
-			(xy 298.45 195.58) (xy 300.99 195.58)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "00d07d9e-2ae8-53be-b0b7-0dc420a2e454")
-	)
-	(label "FB2"
-		(at 300.99 195.58 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "251c41f4-67d4-5930-93ce-34c4e7de3bd3")
+		(uuid "f1c27ffb-8e1e-514a-b23f-cb5133c13d44")
 	)
 	(symbol
 		(lib_id "tube_power_amp_revc:R")
@@ -8036,7 +7822,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "eb743faf-e5b8-5f6b-9ebf-dd68c62c24d5")
+		(uuid "3ef37eb7-e03d-5b6f-a6fb-89261f63e5a1")
 	)
 	(label "OA2"
 		(at 308.61 124.46 180)
@@ -8046,7 +7832,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "fe8ae1d9-eb02-5f67-8361-4bf6534662b7")
+		(uuid "fec26700-71c0-5099-a46f-6cf7c97ef3a1")
 	)
 	(wire
 		(pts
@@ -8056,7 +7842,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "2caa1df5-2c7b-5134-a466-b0b99aedcc40")
+		(uuid "fe8dc65f-e231-5c62-b8f9-e6be1999e91f")
 	)
 	(global_label "BIAS2"
 		(shape passive)
@@ -8068,7 +7854,7 @@
 			)
 			(justify left)
 		)
-		(uuid "2ac29896-dc2c-5f9b-8cbb-141d15fc9ac2")
+		(uuid "b9b83bb9-c0e2-5704-938e-93fc6d7e925d")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 321.31 124.46 0)
 			(effects
@@ -8088,8 +7874,8 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "e45fc085-1d1a-5e52-b610-b50b025ca4cc")
-		(property "Reference" "C213"
+		(uuid "1fc868bd-0818-5bda-929e-acc6e5683c6d")
+		(property "Reference" "C211"
 			(at 327.32 144.78 0)
 			(effects
 				(font
@@ -8133,15 +7919,15 @@
 			)
 		)
 		(pin "1"
-			(uuid "2c1fb212-88e5-58c5-8ed6-a9e03f2f170c")
+			(uuid "af50509e-7c4b-54b1-9714-f12e0de095a7")
 		)
 		(pin "2"
-			(uuid "215eae79-e477-5717-8d48-f3937d1417ed")
+			(uuid "dd184f46-8f7a-58b8-ac48-09c142aa784a")
 		)
 		(instances
 			(project "tube_power_amp_revc"
 				(path "/7505fd7d-f79a-5832-8433-1c45300a6ffe/92cd3739-1a57-5e2d-9716-77ea48591ffd"
-					(reference "C213")
+					(reference "C211")
 					(unit 1)
 				)
 			)
@@ -8155,7 +7941,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "8da908c1-0a39-5cec-a187-4cadcc346530")
+		(uuid "4ad7e290-db76-55c5-a212-21b2afea4207")
 	)
 	(global_label "BIAS2"
 		(shape passive)
@@ -8167,7 +7953,7 @@
 			)
 			(justify left)
 		)
-		(uuid "527715c5-a0c5-5f31-8043-ddcd120ef0d4")
+		(uuid "3d8e068f-6677-52fd-aecc-a2e8d38d0244")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 322.58 139.7 0)
 			(effects
@@ -8187,7 +7973,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "affb8955-5eb4-5ec2-904f-953c17130de9")
+		(uuid "00d07d9e-2ae8-53be-b0b7-0dc420a2e454")
 	)
 	(symbol
 		(lib_id "tube_power_amp_revc:GND")
@@ -8262,8 +8048,8 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "b5c92754-2e36-56b8-932a-d3e1e344f17f")
-		(property "Reference" "C214"
+		(uuid "72d961d7-e28c-5c9f-8b07-b0ff0b9d9be6")
+		(property "Reference" "C212"
 			(at 262.55 215.9 0)
 			(effects
 				(font
@@ -8307,15 +8093,15 @@
 			)
 		)
 		(pin "1"
-			(uuid "c8ceab23-0639-593f-91be-a02aa531340b")
+			(uuid "2c60d3ec-4174-560e-b5a5-d4e83a681d84")
 		)
 		(pin "2"
-			(uuid "a6da5c29-f8d6-5260-96d9-c7cef3763d58")
+			(uuid "40f1525c-7869-5262-810e-057786eaa558")
 		)
 		(instances
 			(project "tube_power_amp_revc"
 				(path "/7505fd7d-f79a-5832-8433-1c45300a6ffe/92cd3739-1a57-5e2d-9716-77ea48591ffd"
-					(reference "C214")
+					(reference "C212")
 					(unit 1)
 				)
 			)
@@ -8329,7 +8115,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "1970d5af-416b-5bee-8888-73234c2ba59d")
+		(uuid "251c41f4-67d4-5930-93ce-34c4e7de3bd3")
 	)
 	(symbol
 		(lib_id "tube_power_amp_revc:+15V")
@@ -8404,7 +8190,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "327729f2-ff3f-5303-a6e1-f8d4855fbfca")
+		(uuid "eb743faf-e5b8-5f6b-9ebf-dd68c62c24d5")
 	)
 	(symbol
 		(lib_id "tube_power_amp_revc:GND")
@@ -8479,8 +8265,8 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "d9342eab-746f-5d2c-b60c-296bce206550")
-		(property "Reference" "C215"
+		(uuid "e45fc085-1d1a-5e52-b610-b50b025ca4cc")
+		(property "Reference" "C213"
 			(at 282.87 215.9 0)
 			(effects
 				(font
@@ -8524,15 +8310,15 @@
 			)
 		)
 		(pin "1"
-			(uuid "1ef49f8c-7e21-529f-adbc-b3fd7641faba")
+			(uuid "2c1fb212-88e5-58c5-8ed6-a9e03f2f170c")
 		)
 		(pin "2"
-			(uuid "0c9b6f1a-e9c7-5359-a9ae-6133d3a533e1")
+			(uuid "215eae79-e477-5717-8d48-f3937d1417ed")
 		)
 		(instances
 			(project "tube_power_amp_revc"
 				(path "/7505fd7d-f79a-5832-8433-1c45300a6ffe/92cd3739-1a57-5e2d-9716-77ea48591ffd"
-					(reference "C215")
+					(reference "C213")
 					(unit 1)
 				)
 			)
@@ -8546,7 +8332,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "ea89a627-812b-5954-80d6-34017aabddfc")
+		(uuid "fe8ae1d9-eb02-5f67-8361-4bf6534662b7")
 	)
 	(symbol
 		(lib_id "tube_power_amp_revc:GND")
@@ -8621,7 +8407,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "e968fe3a-7749-5804-a639-4f7001c48eaa")
+		(uuid "2caa1df5-2c7b-5134-a466-b0b99aedcc40")
 	)
 	(global_label "M80"
 		(shape passive)
@@ -8633,7 +8419,7 @@
 			)
 			(justify right)
 		)
-		(uuid "025a07ca-29ed-5ca7-b26b-827411de763b")
+		(uuid "2ac29896-dc2c-5f9b-8cbb-141d15fc9ac2")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 278.13 223.52 0)
 			(effects
@@ -8654,7 +8440,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "c3e8b07e-c3a7-5243-a048-3d08089e71a6")
+		(uuid "8da908c1-0a39-5cec-a187-4cadcc346530")
 	)
 	(symbol
 		(lib_id "tube_power_amp_revc:R")
@@ -8731,7 +8517,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "fa798d89-1ec1-5d1a-bdd9-3a87f2532e95")
+		(uuid "527715c5-a0c5-5f31-8043-ddcd120ef0d4")
 	)
 	(label "DAC3"
 		(at 328.93 124.46 180)
@@ -8741,7 +8527,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "84938fbd-397f-5f10-ac3a-979bede5ffa0")
+		(uuid "affb8955-5eb4-5ec2-904f-953c17130de9")
 	)
 	(wire
 		(pts
@@ -8751,7 +8537,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "0923005a-5352-58aa-a29e-62fdf17946d7")
+		(uuid "1970d5af-416b-5bee-8888-73234c2ba59d")
 	)
 	(label "IN3"
 		(at 341.63 124.46 0)
@@ -8761,7 +8547,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "addc755b-a418-5ea1-a2d3-fb1fd89a1fa9")
+		(uuid "327729f2-ff3f-5303-a6e1-f8d4855fbfca")
 	)
 	(symbol
 		(lib_id "tube_power_amp_revc:R")
@@ -8838,7 +8624,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "2e5fcc9f-3eaf-5064-a84a-8765a2767ba7")
+		(uuid "ea89a627-812b-5954-80d6-34017aabddfc")
 	)
 	(label "IN3"
 		(at 351.79 139.7 90)
@@ -8848,7 +8634,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "ab71407b-87f3-5bfe-84bf-50f2587a506b")
+		(uuid "e968fe3a-7749-5804-a639-4f7001c48eaa")
 	)
 	(wire
 		(pts
@@ -8858,7 +8644,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "3b2ac875-dea4-5fe5-ac37-46e933a9c4ac")
+		(uuid "025a07ca-29ed-5ca7-b26b-827411de763b")
 	)
 	(symbol
 		(lib_id "tube_power_amp_revc:GND")
@@ -8933,8 +8719,8 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "52fa7b41-bee6-560f-aee6-3f683e6de814")
-		(property "Reference" "C216"
+		(uuid "b5c92754-2e36-56b8-932a-d3e1e344f17f")
+		(property "Reference" "C214"
 			(at 340.02 144.78 0)
 			(effects
 				(font
@@ -8978,15 +8764,15 @@
 			)
 		)
 		(pin "1"
-			(uuid "1120e2df-9456-529d-b3ad-6fde18c303a4")
+			(uuid "c8ceab23-0639-593f-91be-a02aa531340b")
 		)
 		(pin "2"
-			(uuid "f1dedfbb-55a0-57db-93a4-1eb754cf5752")
+			(uuid "a6da5c29-f8d6-5260-96d9-c7cef3763d58")
 		)
 		(instances
 			(project "tube_power_amp_revc"
 				(path "/7505fd7d-f79a-5832-8433-1c45300a6ffe/92cd3739-1a57-5e2d-9716-77ea48591ffd"
-					(reference "C216")
+					(reference "C214")
 					(unit 1)
 				)
 			)
@@ -9000,7 +8786,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "bd698041-209e-5c56-8bab-e89c03fb7f59")
+		(uuid "c3e8b07e-c3a7-5243-a048-3d08089e71a6")
 	)
 	(label "IN3"
 		(at 335.28 139.7 90)
@@ -9010,7 +8796,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "c9aa215e-150d-54c5-9825-a1ebf4935787")
+		(uuid "fa798d89-1ec1-5d1a-bdd9-3a87f2532e95")
 	)
 	(wire
 		(pts
@@ -9020,7 +8806,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "61247ee1-f88a-597f-b200-423dbdab8668")
+		(uuid "84938fbd-397f-5f10-ac3a-979bede5ffa0")
 	)
 	(symbol
 		(lib_id "tube_power_amp_revc:GND")
@@ -9183,7 +8969,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "880bf6d9-472c-55bc-a654-b16bf8f513a8")
+		(uuid "0923005a-5352-58aa-a29e-62fdf17946d7")
 	)
 	(label "IN3"
 		(at 373.38 139.7 180)
@@ -9193,7 +8979,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "c0e7ba56-1657-5bbc-bba1-732020ca53fb")
+		(uuid "addc755b-a418-5ea1-a2d3-fb1fd89a1fa9")
 	)
 	(wire
 		(pts
@@ -9203,7 +8989,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "fbdc9a88-3fd8-5b9b-9fbd-d44d40a4cde9")
+		(uuid "2e5fcc9f-3eaf-5064-a84a-8765a2767ba7")
 	)
 	(label "FB3"
 		(at 373.38 144.78 180)
@@ -9213,7 +8999,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "95fa8c1d-f45f-5e1c-ab0e-33fdb726360d")
+		(uuid "ab71407b-87f3-5bfe-84bf-50f2587a506b")
 	)
 	(wire
 		(pts
@@ -9223,7 +9009,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "d0ede255-acd9-522a-acdf-027a5c229313")
+		(uuid "3b2ac875-dea4-5fe5-ac37-46e933a9c4ac")
 	)
 	(label "OA3"
 		(at 396.24 142.24 0)
@@ -9233,7 +9019,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "181583cf-3c53-5a10-86cc-45dc5a846d9b")
+		(uuid "bd698041-209e-5c56-8bab-e89c03fb7f59")
 	)
 	(wire
 		(pts
@@ -9243,7 +9029,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "a68a37b5-5d81-5ec6-9bf8-6a4fffabdd3f")
+		(uuid "c9aa215e-150d-54c5-9825-a1ebf4935787")
 	)
 	(symbol
 		(lib_id "tube_power_amp_revc:+15V")
@@ -9318,7 +9104,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "5cd630e5-ec9c-5bda-b400-1f961812da29")
+		(uuid "61247ee1-f88a-597f-b200-423dbdab8668")
 	)
 	(global_label "M80"
 		(shape passive)
@@ -9330,7 +9116,7 @@
 			)
 			(justify right)
 		)
-		(uuid "b9e8b831-2537-50e8-9684-7db77dfbe6b4")
+		(uuid "880bf6d9-472c-55bc-a654-b16bf8f513a8")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 381 154.94 0)
 			(effects
@@ -9350,7 +9136,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "2fd8453a-d7d6-5146-b9e9-d1d44f2e3084")
+		(uuid "c0e7ba56-1657-5bbc-bba1-732020ca53fb")
 	)
 	(global_label "M80"
 		(shape passive)
@@ -9362,7 +9148,7 @@
 			)
 			(justify right)
 		)
-		(uuid "dcb5377a-453c-56f4-9fc4-e1373fb7b457")
+		(uuid "fbdc9a88-3fd8-5b9b-9fbd-d44d40a4cde9")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 383.54 154.94 0)
 			(effects
@@ -9382,7 +9168,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "8c86c4b0-b4bd-5e41-8ab8-92922568d0ee")
+		(uuid "95fa8c1d-f45f-5e1c-ab0e-33fdb726360d")
 	)
 	(symbol
 		(lib_id "tube_power_amp_revc:+5V")
@@ -9457,7 +9243,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "61bc1684-97a7-523c-9650-53d7be2297bd")
+		(uuid "d0ede255-acd9-522a-acdf-027a5c229313")
 	)
 	(symbol
 		(lib_id "tube_power_amp_revc:GND")
@@ -9526,7 +9312,7 @@
 	)
 	(no_connect
 		(at 388.62 134.62)
-		(uuid "fabdf96a-ca28-5611-9af9-5ed2a2dc04d9")
+		(uuid "181583cf-3c53-5a10-86cc-45dc5a846d9b")
 	)
 	(symbol
 		(lib_id "tube_power_amp_revc:R")
@@ -9603,7 +9389,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "4d76de91-5a05-521f-8b17-29d14986a35a")
+		(uuid "a68a37b5-5d81-5ec6-9bf8-6a4fffabdd3f")
 	)
 	(label "FB3"
 		(at 368.3 171.45 90)
@@ -9613,7 +9399,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "bdbf3c59-fd40-58c4-a2f4-ef8b35e37013")
+		(uuid "5cd630e5-ec9c-5bda-b400-1f961812da29")
 	)
 	(wire
 		(pts
@@ -9623,7 +9409,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "5e9af685-4be8-5eca-8728-7ffc640583cb")
+		(uuid "b9e8b831-2537-50e8-9684-7db77dfbe6b4")
 	)
 	(global_label "VREF2V5"
 		(shape passive)
@@ -9635,7 +9421,7 @@
 			)
 			(justify right)
 		)
-		(uuid "94616bad-298b-5de9-bc4e-e6a1194106f9")
+		(uuid "2fd8453a-d7d6-5146-b9e9-d1d44f2e3084")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 368.3 184.15 0)
 			(effects
@@ -9722,7 +9508,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "503b330d-31e5-5b12-9697-78d0c116b862")
+		(uuid "dcb5377a-453c-56f4-9fc4-e1373fb7b457")
 	)
 	(label "OA3"
 		(at 396.24 171.45 90)
@@ -9732,7 +9518,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "4fb3a28e-58f9-59e1-a714-cf3dac615190")
+		(uuid "8c86c4b0-b4bd-5e41-8ab8-92922568d0ee")
 	)
 	(wire
 		(pts
@@ -9742,7 +9528,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "1cab3f6e-addd-5f8b-ae29-8d617e6303ee")
+		(uuid "61bc1684-97a7-523c-9650-53d7be2297bd")
 	)
 	(label "FB3"
 		(at 396.24 184.15 270)
@@ -9752,114 +9538,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "e9ebe45c-f36d-5a19-8cb2-9818d7407780")
-	)
-	(symbol
-		(lib_id "tube_power_amp_revc:C")
-		(at 396.24 195.58 90)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "4c1d2575-e33c-502e-a932-d51d509c76b6")
-		(property "Reference" "C217"
-			(at 396.24 193.04 270)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "1n/100V"
-			(at 396.24 198.12 270)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
-			(at 400.05 194.6148 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 396.24 195.58 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Unpolarized capacitor"
-			(at 396.24 195.58 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "00e4f1ca-c7e5-5297-8ae7-387a2ff3f51e")
-		)
-		(pin "2"
-			(uuid "c12c6963-adcd-56cc-b968-bfa1f674ab04")
-		)
-		(instances
-			(project "tube_power_amp_revc"
-				(path "/7505fd7d-f79a-5832-8433-1c45300a6ffe/92cd3739-1a57-5e2d-9716-77ea48591ffd"
-					(reference "C217")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(wire
-		(pts
-			(xy 392.43 195.58) (xy 389.89 195.58)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "0273c07f-427b-52f2-8a55-82b145c23f5e")
-	)
-	(label "OA3"
-		(at 389.89 195.58 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "57583262-0470-5394-b170-551e90af00c6")
-	)
-	(wire
-		(pts
-			(xy 400.05 195.58) (xy 402.59 195.58)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "2a61c7e3-9d5e-5aa3-87c1-09305bdeec8a")
-	)
-	(label "FB3"
-		(at 402.59 195.58 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "8af86658-5e45-51f8-b7c3-9a7ad92a5355")
+		(uuid "fabdf96a-ca28-5611-9af9-5ed2a2dc04d9")
 	)
 	(symbol
 		(lib_id "tube_power_amp_revc:R")
@@ -9936,7 +9615,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "41421b9d-7cc9-5ce6-bed0-36957d2dad26")
+		(uuid "4d76de91-5a05-521f-8b17-29d14986a35a")
 	)
 	(label "OA3"
 		(at 410.21 124.46 180)
@@ -9946,7 +9625,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "d1b82eba-c971-5d87-a521-5f6b0c67951d")
+		(uuid "bdbf3c59-fd40-58c4-a2f4-ef8b35e37013")
 	)
 	(wire
 		(pts
@@ -9956,7 +9635,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "2ca3eb65-e61d-56c0-8cb6-b36635196296")
+		(uuid "5e9af685-4be8-5eca-8728-7ffc640583cb")
 	)
 	(global_label "BIAS3"
 		(shape passive)
@@ -9968,7 +9647,7 @@
 			)
 			(justify left)
 		)
-		(uuid "fb2fe83c-1b5d-5e95-993b-0033585a2434")
+		(uuid "94616bad-298b-5de9-bc4e-e6a1194106f9")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 422.91 124.46 0)
 			(effects
@@ -9988,8 +9667,8 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "10519d77-501d-5696-8583-49fdee57e3f7")
-		(property "Reference" "C218"
+		(uuid "d9342eab-746f-5d2c-b60c-296bce206550")
+		(property "Reference" "C215"
 			(at 428.92 144.78 0)
 			(effects
 				(font
@@ -10033,15 +9712,15 @@
 			)
 		)
 		(pin "1"
-			(uuid "4ed6a194-a16f-51ec-9972-5f94abe579f3")
+			(uuid "1ef49f8c-7e21-529f-adbc-b3fd7641faba")
 		)
 		(pin "2"
-			(uuid "2580cc7e-17a0-5a4d-a29e-edf1647daf62")
+			(uuid "0c9b6f1a-e9c7-5359-a9ae-6133d3a533e1")
 		)
 		(instances
 			(project "tube_power_amp_revc"
 				(path "/7505fd7d-f79a-5832-8433-1c45300a6ffe/92cd3739-1a57-5e2d-9716-77ea48591ffd"
-					(reference "C218")
+					(reference "C215")
 					(unit 1)
 				)
 			)
@@ -10055,7 +9734,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "697915f0-0739-5275-b5dd-42189764d24a")
+		(uuid "503b330d-31e5-5b12-9697-78d0c116b862")
 	)
 	(global_label "BIAS3"
 		(shape passive)
@@ -10067,7 +9746,7 @@
 			)
 			(justify left)
 		)
-		(uuid "7a551d8a-15da-5c73-a306-348860f438e3")
+		(uuid "4fb3a28e-58f9-59e1-a714-cf3dac615190")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 424.18 139.7 0)
 			(effects
@@ -10087,7 +9766,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "1eef05ba-7cc9-58d5-bf45-ff35565b475b")
+		(uuid "1cab3f6e-addd-5f8b-ae29-8d617e6303ee")
 	)
 	(symbol
 		(lib_id "tube_power_amp_revc:GND")
@@ -10162,8 +9841,8 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "1ca6c615-7f40-567d-9ada-90835bff0a24")
-		(property "Reference" "C219"
+		(uuid "52fa7b41-bee6-560f-aee6-3f683e6de814")
+		(property "Reference" "C216"
 			(at 364.15 215.9 0)
 			(effects
 				(font
@@ -10207,15 +9886,15 @@
 			)
 		)
 		(pin "1"
-			(uuid "104d281e-a70e-5b04-a888-6ae75712c328")
+			(uuid "1120e2df-9456-529d-b3ad-6fde18c303a4")
 		)
 		(pin "2"
-			(uuid "1f7d3285-2654-5a7d-ad53-6d230909cbc9")
+			(uuid "f1dedfbb-55a0-57db-93a4-1eb754cf5752")
 		)
 		(instances
 			(project "tube_power_amp_revc"
 				(path "/7505fd7d-f79a-5832-8433-1c45300a6ffe/92cd3739-1a57-5e2d-9716-77ea48591ffd"
-					(reference "C219")
+					(reference "C216")
 					(unit 1)
 				)
 			)
@@ -10229,7 +9908,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "71858e10-4e3a-52e7-8841-a6851f3d67e9")
+		(uuid "e9ebe45c-f36d-5a19-8cb2-9818d7407780")
 	)
 	(symbol
 		(lib_id "tube_power_amp_revc:+15V")
@@ -10304,7 +9983,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "5f3b10d6-2e41-5736-9063-0e0187bb0da6")
+		(uuid "0273c07f-427b-52f2-8a55-82b145c23f5e")
 	)
 	(symbol
 		(lib_id "tube_power_amp_revc:GND")
@@ -10379,8 +10058,8 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "81b11b47-028d-562e-9756-29b489dfb53a")
-		(property "Reference" "C220"
+		(uuid "4c1d2575-e33c-502e-a932-d51d509c76b6")
+		(property "Reference" "C217"
 			(at 384.47 215.9 0)
 			(effects
 				(font
@@ -10424,15 +10103,15 @@
 			)
 		)
 		(pin "1"
-			(uuid "74c6d285-81b8-5711-b86c-be4db77fbd54")
+			(uuid "00e4f1ca-c7e5-5297-8ae7-387a2ff3f51e")
 		)
 		(pin "2"
-			(uuid "122f2d0d-5531-5af7-857b-5e0e30f03fc1")
+			(uuid "c12c6963-adcd-56cc-b968-bfa1f674ab04")
 		)
 		(instances
 			(project "tube_power_amp_revc"
 				(path "/7505fd7d-f79a-5832-8433-1c45300a6ffe/92cd3739-1a57-5e2d-9716-77ea48591ffd"
-					(reference "C220")
+					(reference "C217")
 					(unit 1)
 				)
 			)
@@ -10446,7 +10125,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "7117f530-c6c2-5f76-92be-cd301ed46361")
+		(uuid "57583262-0470-5394-b170-551e90af00c6")
 	)
 	(symbol
 		(lib_id "tube_power_amp_revc:GND")
@@ -10521,7 +10200,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "fac3843d-3c4b-5223-b374-cd5a18ef88b5")
+		(uuid "2a61c7e3-9d5e-5aa3-87c1-09305bdeec8a")
 	)
 	(global_label "M80"
 		(shape passive)
@@ -10533,7 +10212,7 @@
 			)
 			(justify right)
 		)
-		(uuid "de7e11b7-e9dd-5c9d-ac8d-c0720a563890")
+		(uuid "8af86658-5e45-51f8-b7c3-9a7ad92a5355")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 379.73 223.52 0)
 			(effects
@@ -10554,7 +10233,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "7522b559-c826-5452-8053-526dd247b970")
+		(uuid "41421b9d-7cc9-5ce6-bed0-36957d2dad26")
 	)
 	(symbol
 		(lib_id "tube_power_amp_revc:R")
@@ -10631,7 +10310,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "18429a0a-1c84-5858-ba92-b104fd6a4265")
+		(uuid "d1b82eba-c971-5d87-a521-5f6b0c67951d")
 	)
 	(label "DAC4"
 		(at 430.53 124.46 180)
@@ -10641,7 +10320,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "a1495e08-3ec0-5935-ac75-890b7120081f")
+		(uuid "2ca3eb65-e61d-56c0-8cb6-b36635196296")
 	)
 	(wire
 		(pts
@@ -10651,7 +10330,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "d7f3e60a-a44b-5726-b33a-b98320aa70c3")
+		(uuid "fb2fe83c-1b5d-5e95-993b-0033585a2434")
 	)
 	(label "IN4"
 		(at 443.23 124.46 0)
@@ -10661,7 +10340,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "c56d65c1-1191-578a-a72d-161de6557881")
+		(uuid "697915f0-0739-5275-b5dd-42189764d24a")
 	)
 	(symbol
 		(lib_id "tube_power_amp_revc:R")
@@ -10738,7 +10417,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "c0c0cc71-67c8-5184-95e0-7754f408cc43")
+		(uuid "7a551d8a-15da-5c73-a306-348860f438e3")
 	)
 	(label "IN4"
 		(at 453.39 139.7 90)
@@ -10748,7 +10427,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "9f508b26-f6aa-523c-8a05-8093d60e9616")
+		(uuid "1eef05ba-7cc9-58d5-bf45-ff35565b475b")
 	)
 	(wire
 		(pts
@@ -10758,7 +10437,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "e0ec8402-e002-5744-916c-c86706c1d35c")
+		(uuid "71858e10-4e3a-52e7-8841-a6851f3d67e9")
 	)
 	(symbol
 		(lib_id "tube_power_amp_revc:GND")
@@ -10833,8 +10512,8 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "a11c82ed-e846-5dcc-a88a-8f08661083f9")
-		(property "Reference" "C221"
+		(uuid "10519d77-501d-5696-8583-49fdee57e3f7")
+		(property "Reference" "C218"
 			(at 441.62 144.78 0)
 			(effects
 				(font
@@ -10878,15 +10557,15 @@
 			)
 		)
 		(pin "1"
-			(uuid "09880414-44d1-57e8-9fe9-6a0879f7175f")
+			(uuid "4ed6a194-a16f-51ec-9972-5f94abe579f3")
 		)
 		(pin "2"
-			(uuid "7415b17b-680d-5caa-989f-fc27085c4736")
+			(uuid "2580cc7e-17a0-5a4d-a29e-edf1647daf62")
 		)
 		(instances
 			(project "tube_power_amp_revc"
 				(path "/7505fd7d-f79a-5832-8433-1c45300a6ffe/92cd3739-1a57-5e2d-9716-77ea48591ffd"
-					(reference "C221")
+					(reference "C218")
 					(unit 1)
 				)
 			)
@@ -10900,7 +10579,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "c499848b-8e11-5a29-b8ed-732e421addcb")
+		(uuid "5f3b10d6-2e41-5736-9063-0e0187bb0da6")
 	)
 	(label "IN4"
 		(at 436.88 139.7 90)
@@ -10910,7 +10589,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "4dd7141f-b824-5d91-bede-a6599d868ebb")
+		(uuid "7117f530-c6c2-5f76-92be-cd301ed46361")
 	)
 	(wire
 		(pts
@@ -10920,7 +10599,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "f029c6ac-3004-541a-958a-431f9dc2f186")
+		(uuid "fac3843d-3c4b-5223-b374-cd5a18ef88b5")
 	)
 	(symbol
 		(lib_id "tube_power_amp_revc:GND")
@@ -11083,7 +10762,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "b1251c0c-352b-5895-8971-2d9a8f5511a7")
+		(uuid "de7e11b7-e9dd-5c9d-ac8d-c0720a563890")
 	)
 	(label "IN4"
 		(at 474.98 139.7 180)
@@ -11093,7 +10772,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "11d1efd2-65d4-5402-9e24-033f23ce8463")
+		(uuid "7522b559-c826-5452-8053-526dd247b970")
 	)
 	(wire
 		(pts
@@ -11103,7 +10782,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "4266ee43-5710-553e-abfe-029f5a28f971")
+		(uuid "18429a0a-1c84-5858-ba92-b104fd6a4265")
 	)
 	(label "FB4"
 		(at 474.98 144.78 180)
@@ -11113,7 +10792,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "7f701117-bc97-56af-ab93-c81adb5220fb")
+		(uuid "a1495e08-3ec0-5935-ac75-890b7120081f")
 	)
 	(wire
 		(pts
@@ -11123,7 +10802,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "ea2a23d7-42aa-5cce-a941-0ee95a15f05b")
+		(uuid "d7f3e60a-a44b-5726-b33a-b98320aa70c3")
 	)
 	(label "OA4"
 		(at 497.84 142.24 0)
@@ -11133,7 +10812,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "e13daf13-0f7a-56e7-a135-8279522e8f91")
+		(uuid "c56d65c1-1191-578a-a72d-161de6557881")
 	)
 	(wire
 		(pts
@@ -11143,7 +10822,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "cd05830a-afb2-51a3-8918-d900b96b8881")
+		(uuid "c0c0cc71-67c8-5184-95e0-7754f408cc43")
 	)
 	(symbol
 		(lib_id "tube_power_amp_revc:+15V")
@@ -11218,7 +10897,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "212aeba4-3c2b-528e-8754-bb9afd55a183")
+		(uuid "9f508b26-f6aa-523c-8a05-8093d60e9616")
 	)
 	(global_label "M80"
 		(shape passive)
@@ -11230,7 +10909,7 @@
 			)
 			(justify right)
 		)
-		(uuid "2873b07a-36b9-53f0-829d-e9b99e490868")
+		(uuid "e0ec8402-e002-5744-916c-c86706c1d35c")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 482.6 154.94 0)
 			(effects
@@ -11250,7 +10929,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "ec9eea4e-f7a3-5a69-8c82-502f12b74fc5")
+		(uuid "c499848b-8e11-5a29-b8ed-732e421addcb")
 	)
 	(global_label "M80"
 		(shape passive)
@@ -11262,7 +10941,7 @@
 			)
 			(justify right)
 		)
-		(uuid "0cb38e17-e5f1-591f-9dfe-75e9df3b763b")
+		(uuid "4dd7141f-b824-5d91-bede-a6599d868ebb")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 485.14 154.94 0)
 			(effects
@@ -11282,7 +10961,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "7a0a2cab-07fc-579f-918e-3e5d238b146f")
+		(uuid "f029c6ac-3004-541a-958a-431f9dc2f186")
 	)
 	(symbol
 		(lib_id "tube_power_amp_revc:+5V")
@@ -11357,7 +11036,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "83ff34be-766f-5fd7-be53-8642428fcffc")
+		(uuid "b1251c0c-352b-5895-8971-2d9a8f5511a7")
 	)
 	(symbol
 		(lib_id "tube_power_amp_revc:GND")
@@ -11426,7 +11105,7 @@
 	)
 	(no_connect
 		(at 490.22 134.62)
-		(uuid "5a3ddc44-0bdb-56fe-9092-24b8cac6f881")
+		(uuid "11d1efd2-65d4-5402-9e24-033f23ce8463")
 	)
 	(symbol
 		(lib_id "tube_power_amp_revc:R")
@@ -11503,7 +11182,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "5e9f1e28-8313-5a39-b960-0822e6647072")
+		(uuid "4266ee43-5710-553e-abfe-029f5a28f971")
 	)
 	(label "FB4"
 		(at 469.9 171.45 90)
@@ -11513,7 +11192,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "e7b17b9c-9a60-52f0-b732-fddb10c2c56b")
+		(uuid "7f701117-bc97-56af-ab93-c81adb5220fb")
 	)
 	(wire
 		(pts
@@ -11523,7 +11202,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "58fe22f5-a4ca-5581-b5fe-ad7d5f853239")
+		(uuid "ea2a23d7-42aa-5cce-a941-0ee95a15f05b")
 	)
 	(global_label "VREF2V5"
 		(shape passive)
@@ -11535,7 +11214,7 @@
 			)
 			(justify right)
 		)
-		(uuid "c22810c5-8726-5685-b967-77f585264c4a")
+		(uuid "e13daf13-0f7a-56e7-a135-8279522e8f91")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 469.9 184.15 0)
 			(effects
@@ -11622,7 +11301,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "4b886c22-3857-5054-92b9-e3ca83585d1a")
+		(uuid "cd05830a-afb2-51a3-8918-d900b96b8881")
 	)
 	(label "OA4"
 		(at 497.84 171.45 90)
@@ -11632,7 +11311,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "bd8201a2-17f3-51ab-a6a6-dbcca3e82b52")
+		(uuid "212aeba4-3c2b-528e-8754-bb9afd55a183")
 	)
 	(wire
 		(pts
@@ -11642,7 +11321,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "7ab1d889-5240-563a-9e1a-6185419cc1e1")
+		(uuid "2873b07a-36b9-53f0-829d-e9b99e490868")
 	)
 	(label "FB4"
 		(at 497.84 184.15 270)
@@ -11652,114 +11331,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "63ace11c-24f9-5851-bcac-9d98fd805249")
-	)
-	(symbol
-		(lib_id "tube_power_amp_revc:C")
-		(at 497.84 195.58 90)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "3c01ba4c-58c5-5581-9d40-f159818fc7d8")
-		(property "Reference" "C222"
-			(at 497.84 193.04 270)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "1n/100V"
-			(at 497.84 198.12 270)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
-			(at 501.65 194.6148 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 497.84 195.58 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Unpolarized capacitor"
-			(at 497.84 195.58 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "6a75b5b8-5a2b-566f-a6fe-77eceb0a90af")
-		)
-		(pin "2"
-			(uuid "8d7b1ef7-e051-5331-943f-6881af581ecf")
-		)
-		(instances
-			(project "tube_power_amp_revc"
-				(path "/7505fd7d-f79a-5832-8433-1c45300a6ffe/92cd3739-1a57-5e2d-9716-77ea48591ffd"
-					(reference "C222")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(wire
-		(pts
-			(xy 494.03 195.58) (xy 491.49 195.58)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "753e8c45-4c53-5e0f-96ba-bf2bc4f0256f")
-	)
-	(label "OA4"
-		(at 491.49 195.58 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "b0b9382e-f342-5ff8-bfa9-9c49ad26d32f")
-	)
-	(wire
-		(pts
-			(xy 501.65 195.58) (xy 504.19 195.58)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "602f84de-6ef2-56c5-9232-665d123d0f29")
-	)
-	(label "FB4"
-		(at 504.19 195.58 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "7db503c6-caeb-5bd3-8329-dc10a478f0bb")
+		(uuid "ec9eea4e-f7a3-5a69-8c82-502f12b74fc5")
 	)
 	(symbol
 		(lib_id "tube_power_amp_revc:R")
@@ -11836,7 +11408,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "83076d44-7f74-54ec-a43d-178bc4b99372")
+		(uuid "0cb38e17-e5f1-591f-9dfe-75e9df3b763b")
 	)
 	(label "OA4"
 		(at 511.81 124.46 180)
@@ -11846,7 +11418,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "c07a42a3-f475-5f56-bf12-14c62b8f923d")
+		(uuid "7a0a2cab-07fc-579f-918e-3e5d238b146f")
 	)
 	(wire
 		(pts
@@ -11856,7 +11428,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "93c2d804-6610-51ce-b78e-3f3f0767db92")
+		(uuid "83ff34be-766f-5fd7-be53-8642428fcffc")
 	)
 	(global_label "BIAS4"
 		(shape passive)
@@ -11868,7 +11440,7 @@
 			)
 			(justify left)
 		)
-		(uuid "4bd642b5-0b90-517d-b845-d6ecb7bbb5e0")
+		(uuid "5a3ddc44-0bdb-56fe-9092-24b8cac6f881")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 524.51 124.46 0)
 			(effects
@@ -11888,8 +11460,8 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "39932047-101f-53b9-a8dc-471872d8d106")
-		(property "Reference" "C223"
+		(uuid "1ca6c615-7f40-567d-9ada-90835bff0a24")
+		(property "Reference" "C219"
 			(at 530.52 144.78 0)
 			(effects
 				(font
@@ -11933,15 +11505,15 @@
 			)
 		)
 		(pin "1"
-			(uuid "33b1af54-5bf2-5d13-99a7-ae05d1e8b146")
+			(uuid "104d281e-a70e-5b04-a888-6ae75712c328")
 		)
 		(pin "2"
-			(uuid "e4153a59-84ae-51ec-8825-c4e999449630")
+			(uuid "1f7d3285-2654-5a7d-ad53-6d230909cbc9")
 		)
 		(instances
 			(project "tube_power_amp_revc"
 				(path "/7505fd7d-f79a-5832-8433-1c45300a6ffe/92cd3739-1a57-5e2d-9716-77ea48591ffd"
-					(reference "C223")
+					(reference "C219")
 					(unit 1)
 				)
 			)
@@ -11955,7 +11527,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "d2bc545e-4a61-556a-b809-c16b178d3b66")
+		(uuid "5e9f1e28-8313-5a39-b960-0822e6647072")
 	)
 	(global_label "BIAS4"
 		(shape passive)
@@ -11967,7 +11539,7 @@
 			)
 			(justify left)
 		)
-		(uuid "45730018-bde7-5796-a6a3-64c7261ba44c")
+		(uuid "e7b17b9c-9a60-52f0-b732-fddb10c2c56b")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 525.78 139.7 0)
 			(effects
@@ -11987,7 +11559,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "efee971b-6e6c-5155-b428-59e73f4187dd")
+		(uuid "58fe22f5-a4ca-5581-b5fe-ad7d5f853239")
 	)
 	(symbol
 		(lib_id "tube_power_amp_revc:GND")
@@ -12062,8 +11634,8 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "3bbbab2f-e4aa-5945-8981-c88fa4046225")
-		(property "Reference" "C224"
+		(uuid "81b11b47-028d-562e-9756-29b489dfb53a")
+		(property "Reference" "C220"
 			(at 465.75 215.9 0)
 			(effects
 				(font
@@ -12107,15 +11679,15 @@
 			)
 		)
 		(pin "1"
-			(uuid "5a3a3e4b-1247-5833-8c3c-59b890b36fc4")
+			(uuid "74c6d285-81b8-5711-b86c-be4db77fbd54")
 		)
 		(pin "2"
-			(uuid "46a99862-604f-56ce-8bbe-e721edfac414")
+			(uuid "122f2d0d-5531-5af7-857b-5e0e30f03fc1")
 		)
 		(instances
 			(project "tube_power_amp_revc"
 				(path "/7505fd7d-f79a-5832-8433-1c45300a6ffe/92cd3739-1a57-5e2d-9716-77ea48591ffd"
-					(reference "C224")
+					(reference "C220")
 					(unit 1)
 				)
 			)
@@ -12129,7 +11701,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "f581f2fa-c9f6-5ba8-95dc-4a59be3b717f")
+		(uuid "c22810c5-8726-5685-b967-77f585264c4a")
 	)
 	(symbol
 		(lib_id "tube_power_amp_revc:+15V")
@@ -12204,7 +11776,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "ac3b2edd-d2e7-5ca2-8197-f291848ebc74")
+		(uuid "4b886c22-3857-5054-92b9-e3ca83585d1a")
 	)
 	(symbol
 		(lib_id "tube_power_amp_revc:GND")
@@ -12279,8 +11851,8 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "8301ba9d-bcf2-544e-bcad-5833f2075fed")
-		(property "Reference" "C225"
+		(uuid "a11c82ed-e846-5dcc-a88a-8f08661083f9")
+		(property "Reference" "C221"
 			(at 486.07 215.9 0)
 			(effects
 				(font
@@ -12324,15 +11896,15 @@
 			)
 		)
 		(pin "1"
-			(uuid "eaa36d53-8d72-58e0-9c07-f47717859246")
+			(uuid "09880414-44d1-57e8-9fe9-6a0879f7175f")
 		)
 		(pin "2"
-			(uuid "dda180a4-e43a-5886-9d51-0bcfdc10a2dc")
+			(uuid "7415b17b-680d-5caa-989f-fc27085c4736")
 		)
 		(instances
 			(project "tube_power_amp_revc"
 				(path "/7505fd7d-f79a-5832-8433-1c45300a6ffe/92cd3739-1a57-5e2d-9716-77ea48591ffd"
-					(reference "C225")
+					(reference "C221")
 					(unit 1)
 				)
 			)
@@ -12346,7 +11918,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "f45a4aa4-049b-5124-8d7f-f2979983f76a")
+		(uuid "bd8201a2-17f3-51ab-a6a6-dbcca3e82b52")
 	)
 	(symbol
 		(lib_id "tube_power_amp_revc:GND")
@@ -12421,7 +11993,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "b1456936-9eed-5b11-ae7e-be7cf2ffe57c")
+		(uuid "7ab1d889-5240-563a-9e1a-6185419cc1e1")
 	)
 	(global_label "M80"
 		(shape passive)
@@ -12433,7 +12005,7 @@
 			)
 			(justify right)
 		)
-		(uuid "25b79a81-c338-5846-9272-fa0b506ffe58")
+		(uuid "63ace11c-24f9-5851-bcac-9d98fd805249")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 481.33 223.52 0)
 			(effects
@@ -12445,7 +12017,7 @@
 			)
 		)
 	)
-	(text "Per channel: DAC -> 10k / 115k (k = 0.920; the 115k holds the input at 0 V = cold if the DAC output is high-Z) with 330n (50 Hz); OPA462 non-inverting, Rf / Rg = 280k / 10k to VREF2V5 (0.1 %: sets the cold point -70.0 V); Rf || 1n; 1k / 1u to BIASn (the tube's 91k grid leak, sheet 01). E/D Com = GND, E/D = +5 V (enabled; E/D low would leave the output high-Z). Status flag unused. PowerPAD (pin 9) = V- = -80 V copper. Input CM 0-2.3 V within (V-)+1 .. (V+)-3; supply 95-97 V of 12-180 V; Iq 3.2 / 3.7 mA; about 0.35 W each."
+	(text "Per channel: DAC -> 10k / 115k (k = 0.920; the 115k holds the input at 0 V = cold if the DAC output is high-Z) with 330n (50 Hz); OPA462 non-inverting, Rf / Rg = 280k / 10k to VREF2V5 (0.1 %: sets the cold point -70.0 V); no cap across Rf (sim P1: phase margin 81 deg without it, 48 deg with 1n); 1k / 1u to BIASn (the tube's 91k grid leak, sheet 01). E/D Com = GND, E/D = +5 V (enabled; E/D low would leave the output high-Z). Status flag unused. PowerPAD (pin 9) = V- = -80 V copper. Input CM 0-2.3 V within (V-)+1 .. (V+)-3; supply 95-97 V of 12-180 V; Iq 3.2 / 3.7 mA; about 0.35 W each."
 		(exclude_from_sim no)
 		(at 132.08 234.95 0)
 		(effects
@@ -12454,7 +12026,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "31e7050c-417b-5146-8920-7eb0295fdd2b")
+		(uuid "753e8c45-4c53-5e0f-96ba-bf2bc4f0256f")
 	)
 	(text "Placement: op amps >= 30 mm from a socket centre, DAC / reference / 0.1 % resistors >= 40 mm (interfaces.md 12.5)."
 		(exclude_from_sim no)
@@ -12465,7 +12037,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "6bacd965-c8b6-5012-a371-ff3860b86c51")
+		(uuid "b0b9382e-f342-5ff8-bfa9-9c49ad26d32f")
 	)
 	(sheet_instances
 		(path "/"

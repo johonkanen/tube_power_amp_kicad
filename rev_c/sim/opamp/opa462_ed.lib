@@ -1,0 +1,24 @@
+* OPA462 wrapper for the rev C bias simulations.
+* Adds to TI's OPA462 macro-model (rev_c/sim/models/opa462_ti/OPA462.LIB, Final 1.3, which has only
+* IN+ IN- VCC VEE OUT) the two things it does not model and that the power-up cases need:
+*
+* 1. E/D (enable / disable), datasheet SBOS803A 6.5 and 7.3.4: output disabled for
+*    V(E/D) - V(E/D Com) below 0.35 V, enabled above 0.8 V (pin-open default is enabled; with E/D tied to +5 V
+*    and +5 V absent the rail's loads hold E/D at 0 V, so the part is disabled). Disabled output impedance
+*    160 kOhm, 36 pF. Modelled as a conductance between the macro-model output and the pin: 1 S enabled,
+*    6.25 uS (160 kOhm) disabled, interpolated smoothly (log scale, tanh step centred on 0.575 V, about
+*    0.35 V to 0.8 V wide) so the solver can follow the transition. The macro-model behind it keeps running, as the datasheet says the
+*    inputs stay active and a signal reaches the output through the 160 kOhm.
+*
+* 2. Quiescent current at very low total supply: TI's model has a constant 3.2 mA source from VCC to VEE,
+*    even at 0 V or reversed supply. A real part draws (much) less below its 12 V minimum supply. Here the
+*    constant source is cancelled smoothly below 5 V total (Iq_eff = 3.2 mA x V(vcc,vee)/5 for 0..5 V,
+*    0 for reversed supply). This matters only when a rail is off and high impedance; it is an assumption,
+*    the datasheet says nothing below +-6 V.
+*
+.subckt OPA462ED inp inn vcc vee out ed edcom
+XU inp inn vcc vee oi OPA462
+Ben oi out I = { V(oi,out) * exp(-11.98 * (1 - 0.5 * (1 + tanh((V(ed,edcom) - 0.575) / 0.08)))) }
+Cdis out vee 36p
+Biq vee vcc I = { 3.2m * (1 - limit(V(vcc,vee) / 5, 0, 1)) }
+.ends OPA462ED
