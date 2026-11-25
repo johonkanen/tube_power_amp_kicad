@@ -1,8 +1,12 @@
 """Power amp rev C layout: fixed positions, net classes and design rules (the one place they live).
 
 Rev C keeps rev B's mechanics (rev_c/PLAN.md "Kept from rev B"; layout decisions of 2026-11-25):
-- 4 layers, standard 1.6 mm build. The 1.25 kV plate nets (OT_A, OT_B, CL_A, CL_B) run on F only,
-  short, with In1 / In2 voided under them and no vias near them. In1 = GND plane; In2 = -80 V area
+- 4 layers, standard 1.6 mm build. The 1.25 kV plate lanes (OT_A, OT_B) run on B, with In1 / In2 voided
+  under them and no vias near them. The decision of 2026-11-25 said "F only, short", but OT_B has to run about
+  135 mm from J104 to V3 and V4. B carries no SMD parts in rev C, so a lane there blocks no part, and F tracks
+  cross over it (1.6 mm of FR-4). The clamps and tabs are THT and reach the lanes through their own pads.
+  Lanes (for placement: no THT pads and no vias within 6.3 mm + 1 mm of them): OT_A from J104 / D101-D102
+  along y about 158 to V1 / V2 pin 3; OT_B from J104 / D105 north to y about 150, east to V3 / V4 pin 3. In1 = GND plane; In2 = -80 V area
   under the op amps (their PowerPADs are on V-) plus GND elsewhere.
 - Single-sided SMD assembly: every SMD part on F (the side facing down, away from the plate). Only the
   octal sockets and the lying 5 W screen resistors are on B (the plate side), as rev B. The 91k grid
@@ -186,19 +190,46 @@ P["R103"] = (340.74, 172.20, 0, "B")        # V1 screen
 P["R107"] = (404.00, 172.20, 0, "B")        # V2 screen
 P["R111"] = (406.70, 178.50, 270, "F")      # V3 screen, standing
 P["R115"] = (442.50, 172.20, 180, "B")      # V4 screen
-# grid leaks R101 / R105 / R109 / R113 (91k 2512): rev B had them on B; rev C moves them to F -> placement step
+# grid leaks 91k 2512, on F (rev B: on B), close to their coupling cap's grid pad
+P["R101"] = (327.00, 171.50, 0, "F")        # GRID1 = C101 pad 2 (321.5, 178.5); under C101, clear of R103's pads
+P["R105"] = (371.00, 185.20, 0, "F")        # GRID2 = C102 pad 2 (376.5, 178.5); rear edge strip (0.58 mm pad to edge)
+P["R109"] = (448.00, 185.20, 0, "F")        # GRID3 = C103 pad 2 (444.6, 178.5); rear edge strip
+P["R113"] = (460.00, 185.20, 0, "F")        # GRID4 = C104 pad 2 (467.1, 166.5); rear edge strip
 
 # cathode sets: 1 ohm shunt, S3M, Kelvin net tie, test pads (K and its ground) on F
 P["R104"] = (292.00, 156.00, 90, "F"); P["D107"] = (285.50, 156.00, 90, "F"); P["N101"] = (294.80, 160.00, 90, "F")
 P["TP101"] = (296.80, 152.40, 0, "F"); P["TP102"] = (296.80, 155.90, 0, "F")
-P["R108"] = (349.50, 165.50, 90, "F"); P["N102"] = (349.50, 170.40, 90, "F")   # D108 was on B in rev B -> placement
+P["R108"] = (349.50, 165.50, 90, "F"); P["N102"] = (349.50, 170.40, 90, "F")
+P["D108"] = (344.00, 163.00, 270, "F")      # rev B had it on B; F: K2 at the front (next to R108's K2 pad), GND rear
 P["TP103"] = (350.50, 174.00, 0, "F"); P["TP104"] = (350.50, 177.50, 0, "F")
 P["R112"] = (415.50, 167.00, 90, "F"); P["D109"] = (414.80, 176.60, 90, "F"); P["N103"] = (412.80, 170.10, 0, "F")
 P["TP105"] = (418.60, 160.80, 0, "F"); P["TP106"] = (418.60, 157.30, 0, "F")
 P["R116"] = (480.00, 173.10, 90, "F"); P["D110"] = (482.80, 164.00, 90, "F"); P["N104"] = (477.60, 170.00, 90, "F")
 P["TP107"] = (483.50, 178.50, 0, "F"); P["TP108"] = (483.50, 181.80, 0, "F")
 
-GROUPS = []          # no automatic packing in rev C: the placement step places the rest
+# ---------------------------------------------------------------------------------- packed groups
+# (name, refs, zone (x0, y0, x1, y1) chassis, side, rotation, gap). make_pcb.py packs each group bottom-left
+# (front first, then west to east) into its zone, around everything already placed.
+# Front band: y 127.6 to 142.3 (the OT_B lane's via-free band starts there), x 377.8 (OT_B pads at J104 /
+# D104 + 6.3 mm) to 478.4 (J501). All of it is >= 30 mm from every socket centre (dy >= 30 mm); every IC on
+# rev C is rated to 125 C.
+def ch(n):
+    r, c = 202 + 5 * (n - 1), 206 + 4 * (n - 1)
+    return [f"U{202 + n}"] + [f"R{r + k}" for k in (3, 2, 1, 0, 4)] + [f"C{c + k}" for k in range(4)]
+
+
+OPAMP_X0, OPAMP_W = 395.5, 12.4
+GROUPS = [
+    ("m80 fuse", ["R201"], (463.0, 127.6, 478.4, 131.6), "F", 0, 0.3),       # near J201 (482.5, 140.7)
+    ("m80 bulk", ["C201", "D201", "C202"], (377.8, 127.6, OPAMP_X0, 142.3), "F", 0, 0.3),
+] + [(f"bias ch{n}", ch(n), (OPAMP_X0 + (n - 1) * OPAMP_W, 127.6, OPAMP_X0 + n * OPAMP_W, 142.3), "F", 0, 0.25)
+     for n in range(1, 5)] + [
+    ("precision, ADCs, ribbon parts",
+     ["U202", "U201", "U301", "U302", "U303", "C302", "C303", "R314"]
+     + ["C203", "C204", "C205", "C304", "C307", "C310", "C311", "C305", "C306", "C308", "C309", "C301"]
+     + [f"R{i}" for i in range(301, 320) if i != 314],
+     (OPAMP_X0 + 4 * OPAMP_W, 127.6, 478.4, 142.3), "F", 0, 0.25),
+]
 
 
 def positions():

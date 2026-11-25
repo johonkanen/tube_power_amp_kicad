@@ -116,7 +116,7 @@ These used to be hardware on rev B:
 1. **Schematic** (`rev_c/tools/sheets/draw_all.py`, generated like rev B): three sheets, ERC clean, footprints, BOM. **Done 2026-11-25** (README.md): 128 parts, 124 after sim P1 (the 1 nF caps across Rf removed). Op amp simulation: rev_c/sim/opamp/results.md (TI's OPA462 model, all items pass). The shunt inputs are 1k + 1k with 1 µF, not 10k with 100 nF (the ADS1115 differential input impedance is 710 kΩ).
 2. **Review against interfaces.md** and send the change list above to the coordinating session.
 3. **Layout:** reuse rev B's frame and connector positions. Put the op amps 30 mm or more from the socket centres, and the DAC / ADC / reference near the ribbons. **Layout decisions (user, 2026-11-25):**
-   - **4 layers,** standard 1.6 mm build. OT_A / OT_B / CL_x on F only, short. In1 and In2 voided under them, no vias near them. In1 is the GND plane. In2 has a -80 V area under the op amps (their PowerPADs are on V-) and GND elsewhere. Rev B's design rules otherwise.
+   - **4 layers,** standard 1.6 mm build. **Plate lanes OT_A / OT_B on B** (changed at placement, 2026-11-25: the decision said "F only, short", but OT_B has to run about 135 mm from J104 to V3 / V4). B carries no SMD parts in rev C, so a lane there blocks no part, and F tracks cross over it. In1 and In2 are voided under the lanes, with no vias near them. The clamps and tabs stay on F (THT). In1 is the GND plane. In2 has a -80 V area under the op amps (their PowerPADs are on V-) and GND elsewhere. Rev B's design rules otherwise.
    - **Single-sided SMD assembly:** every SMD part on F (facing down). Only the sockets and the lying 5 W screen resistors are on B. The 91k grid leaks move to F.
    - **East rear standoff:** interfaces.md 12.5's (513.5, 179.0) was tried and lands 1.0 mm from a leg of J101's GND_PWR tab. So H1 stays at rev B's (475.9, 165.3), also an existing plate hole.
    - **Connectors** at rev B's laid-out positions (interfaces.md 12.6). J503 removed.
@@ -125,4 +125,14 @@ These used to be hardware on rev B:
    - 49 parts at rev B's positions: sockets, grid stoppers, tabs and headers, clamps, coupling caps, screen resistors, cathode sets.
    - The other 91 parts (bias, DAC, ADCs, grid leaks, D108) are parked below the board for placement.
    - DRC: 0 clearance, 0 parity, silk warnings only; 298 unconnected (not routed).
+
+   **Placement, first pass, done 2026-11-25** (`placement.py`, picture `rev_c/docs/placement.png`):
+   - Grid leaks on F next to their coupling caps (R101 under C101; R105 / R109 / R113 on the rear edge strip). D108 on F next to R108.
+   - Everything else is packed into the **front band** (y 127.6-142.3, in front of the OT_B lane's via-free band, at least 30 mm from every socket centre), west to east:
+     - -80 V bulk (C201, D201, C202);
+     - four op amp channels, 12.4 mm each;
+     - the precision / ADC / ribbon cluster beside J501;
+     - the fusible R201 next to J201.
+   - DRC: 0 clearance, 0 parity, silk only; 290 unconnected.
+   - The packer places by size, not by net. The order inside each channel and in the precision cluster gets tidied with the routing.
 4. **DRC, renders, STATUS.**
